@@ -5,9 +5,9 @@ library;
 // They are resized and moved to fastlane by external scripts.
 
 import 'package:alchemist/alchemist.dart';
-import 'package:bible_feed/manager/catchup_setting_manager.dart';
 import 'package:bible_feed/manager/feeds_manager.dart';
 import 'package:bible_feed/manager/midnight_manager.dart';
+import 'package:bible_feed/model/catchup_setting.dart';
 import 'package:bible_feed/service/date_time_service.dart';
 import 'package:bible_feed/service/platform_service.dart';
 import 'package:bible_feed/view/app_base.dart';
@@ -104,7 +104,7 @@ Future main() async {
           sl.unregister<PlatformService>();
           sl.registerSingleton(PlatformService(currentPlatform: targetPlatform));
           t.platformDispatcher.platformBrightnessTestValue = scenario.brightness;
-          sl<CatchupSettingManager>().isEnabled = true;
+          sl<CatchupSetting>().value = true;
           if (scenario.setup != null) scenario.setup!();
           await t.pumpAndSettle();
         },

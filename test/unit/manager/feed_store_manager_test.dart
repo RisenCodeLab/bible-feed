@@ -33,11 +33,11 @@ void main() async {
 
 
     test('should load from store if store is populated', () async {
-      when(mockStoreService.getString('rl1.book')).thenReturn('b1');
-      when(mockStoreService.getInt('rl1.chapter')).thenReturn(2);
-      when(mockStoreService.getDateTime('rl1.dateModified')).thenReturn(yesterday);
-      when(mockStoreService.getBool('rl1.isRead')).thenReturn(true);
-      when(mockStoreService.getInt('rl1.verse')).thenReturn(3);
+      when(mockStoreService.get('rl1.book')).thenReturn('b1');
+      when(mockStoreService.get('rl1.chapter')).thenReturn(2);
+      when(mockStoreService.get('rl1.dateModified')).thenReturn(yesterday);
+      when(mockStoreService.get('rl1.isRead')).thenReturn(true);
+      when(mockStoreService.get('rl1.verse')).thenReturn(3);
       final state = testee.loadState(rl1);
       expect(state.bookKey, b1.key);
       expect(state.chapter, 2);
@@ -50,11 +50,11 @@ void main() async {
   group('saveState', () {
     test('should save to store', () async {
       await testee.saveState(rl1, FeedState(bookKey: b1.key, chapter: 2, dateModified: yesterday, isRead: true, verse: 3));
-      verify(mockStoreService.setString('rl1.book', 'b1')).called(1);
-      verify(mockStoreService.setInt('rl1.chapter', 2)).called(1);
-      verify(mockStoreService.setDateTime('rl1.dateModified', yesterday)).called(1);
-      verify(mockStoreService.setBool('rl1.isRead', true)).called(1);
-      verify(mockStoreService.setInt('rl1.verse', 3)).called(1);
+      verify(mockStoreService.set('rl1.book', 'b1')).called(1);
+      verify(mockStoreService.set('rl1.chapter', 2)).called(1);
+      verify(mockStoreService.set('rl1.dateModified', yesterday)).called(1);
+      verify(mockStoreService.set('rl1.isRead', true)).called(1);
+      verify(mockStoreService.set('rl1.verse', 3)).called(1);
     });
   });
 }

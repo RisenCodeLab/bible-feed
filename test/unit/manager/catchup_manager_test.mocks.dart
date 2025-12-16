@@ -7,10 +7,10 @@ import 'dart:async' as _i14;
 import 'dart:ui' as _i3;
 
 import 'package:bible_feed/manager/app_lifecycle_manager.dart' as _i2;
-import 'package:bible_feed/manager/catchup_setting_manager.dart' as _i5;
 import 'package:bible_feed/manager/feeds_advance_manager.dart' as _i10;
 import 'package:bible_feed/manager/feeds_manager.dart' as _i8;
 import 'package:bible_feed/manager/midnight_manager.dart' as _i12;
+import 'package:bible_feed/model/catchup_setting.dart' as _i5;
 import 'package:bible_feed/model/feed.dart' as _i9;
 import 'package:bible_feed/model/feeds_advance_state.dart' as _i11;
 import 'package:bible_feed/model/priority.dart' as _i4;
@@ -59,24 +59,14 @@ class MockAppLifecycleManager extends _i1.Mock
   );
 }
 
-/// A class which mocks [CatchupSettingManager].
+/// A class which mocks [CatchupSetting].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCatchupSettingManager extends _i1.Mock
-    implements _i5.CatchupSettingManager {
+class MockCatchupSetting extends _i1.Mock implements _i5.CatchupSetting {
   @override
-  bool get canEnable =>
+  bool get defaultValue =>
       (super.noSuchMethod(
-            Invocation.getter(#canEnable),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
-
-  @override
-  bool get isEnabledByDefault =>
-      (super.noSuchMethod(
-            Invocation.getter(#isEnabledByDefault),
+            Invocation.getter(#defaultValue),
             returnValue: false,
             returnValueForMissingStub: false,
           )
@@ -128,17 +118,41 @@ class MockCatchupSettingManager extends _i1.Mock
           as String);
 
   @override
-  bool get isEnabled =>
+  bool get isAvailable =>
       (super.noSuchMethod(
-            Invocation.getter(#isEnabled),
+            Invocation.getter(#isAvailable),
             returnValue: false,
             returnValueForMissingStub: false,
           )
           as bool);
 
   @override
-  set isEnabled(bool? value) => super.noSuchMethod(
-    Invocation.setter(#isEnabled, value),
+  String get storeKey =>
+      (super.noSuchMethod(
+            Invocation.getter(#storeKey),
+            returnValue: _i6.dummyValue<String>(
+              this,
+              Invocation.getter(#storeKey),
+            ),
+            returnValueForMissingStub: _i6.dummyValue<String>(
+              this,
+              Invocation.getter(#storeKey),
+            ),
+          )
+          as String);
+
+  @override
+  bool get value =>
+      (super.noSuchMethod(
+            Invocation.getter(#value),
+            returnValue: false,
+            returnValueForMissingStub: false,
+          )
+          as bool);
+
+  @override
+  set value(bool? value) => super.noSuchMethod(
+    Invocation.setter(#value, value),
     returnValueForMissingStub: null,
   );
 
@@ -361,87 +375,19 @@ class MockMidnightManager extends _i1.Mock implements _i12.MidnightManager {
 /// See the documentation for Mockito's code generation for more information.
 class MockStoreService extends _i1.Mock implements _i13.StoreService {
   @override
-  bool? getBool(String? key) =>
+  T? get<T>(String? key) =>
       (super.noSuchMethod(
-            Invocation.method(#getBool, [key]),
+            Invocation.method(#get, [key]),
             returnValueForMissingStub: null,
           )
-          as bool?);
+          as T?);
 
   @override
-  DateTime? getDateTime(String? key) =>
+  _i14.Future<void> set<T>(String? key, T? value) =>
       (super.noSuchMethod(
-            Invocation.method(#getDateTime, [key]),
-            returnValueForMissingStub: null,
+            Invocation.method(#set, [key, value]),
+            returnValue: _i14.Future<void>.value(),
+            returnValueForMissingStub: _i14.Future<void>.value(),
           )
-          as DateTime?);
-
-  @override
-  double? getDouble(String? key) =>
-      (super.noSuchMethod(
-            Invocation.method(#getDouble, [key]),
-            returnValueForMissingStub: null,
-          )
-          as double?);
-
-  @override
-  int? getInt(String? key) =>
-      (super.noSuchMethod(
-            Invocation.method(#getInt, [key]),
-            returnValueForMissingStub: null,
-          )
-          as int?);
-
-  @override
-  String? getString(String? key) =>
-      (super.noSuchMethod(
-            Invocation.method(#getString, [key]),
-            returnValueForMissingStub: null,
-          )
-          as String?);
-
-  @override
-  _i14.Future<bool> setBool(String? key, bool? value) =>
-      (super.noSuchMethod(
-            Invocation.method(#setBool, [key, value]),
-            returnValue: _i14.Future<bool>.value(false),
-            returnValueForMissingStub: _i14.Future<bool>.value(false),
-          )
-          as _i14.Future<bool>);
-
-  @override
-  _i14.Future<bool> setDateTime(String? key, DateTime? value) =>
-      (super.noSuchMethod(
-            Invocation.method(#setDateTime, [key, value]),
-            returnValue: _i14.Future<bool>.value(false),
-            returnValueForMissingStub: _i14.Future<bool>.value(false),
-          )
-          as _i14.Future<bool>);
-
-  @override
-  _i14.Future<bool> setDouble(String? key, double? value) =>
-      (super.noSuchMethod(
-            Invocation.method(#setDouble, [key, value]),
-            returnValue: _i14.Future<bool>.value(false),
-            returnValueForMissingStub: _i14.Future<bool>.value(false),
-          )
-          as _i14.Future<bool>);
-
-  @override
-  _i14.Future<bool> setInt(String? key, int? value) =>
-      (super.noSuchMethod(
-            Invocation.method(#setInt, [key, value]),
-            returnValue: _i14.Future<bool>.value(false),
-            returnValueForMissingStub: _i14.Future<bool>.value(false),
-          )
-          as _i14.Future<bool>);
-
-  @override
-  _i14.Future<bool> setString(String? key, String? value) =>
-      (super.noSuchMethod(
-            Invocation.method(#setString, [key, value]),
-            returnValue: _i14.Future<bool>.value(false),
-            returnValueForMissingStub: _i14.Future<bool>.value(false),
-          )
-          as _i14.Future<bool>);
+          as _i14.Future<void>);
 }

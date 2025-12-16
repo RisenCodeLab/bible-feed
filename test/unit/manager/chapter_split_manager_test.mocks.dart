@@ -5,7 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:ui' as _i7;
 
-import 'package:bible_feed/manager/chapter_split_setting_manager.dart' as _i6;
+import 'package:bible_feed/model/chapter_split_setting.dart' as _i6;
 import 'package:bible_feed/model/chapter_splitter.dart' as _i2;
 import 'package:bible_feed/model/chapter_splitters.dart' as _i5;
 import 'package:bible_feed/model/feed.dart' as _i4;
@@ -500,24 +500,15 @@ class MockChapterSplitters extends _i1.Mock implements _i5.ChapterSplitters {
           as _i2.ChapterSplitter);
 }
 
-/// A class which mocks [ChapterSplitSettingManager].
+/// A class which mocks [ChapterSplitSetting].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockChapterSplitSettingManager extends _i1.Mock
-    implements _i6.ChapterSplitSettingManager {
+class MockChapterSplitSetting extends _i1.Mock
+    implements _i6.ChapterSplitSetting {
   @override
-  bool get canEnable =>
+  bool get defaultValue =>
       (super.noSuchMethod(
-            Invocation.getter(#canEnable),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
-
-  @override
-  bool get isEnabledByDefault =>
-      (super.noSuchMethod(
-            Invocation.getter(#isEnabledByDefault),
+            Invocation.getter(#defaultValue),
             returnValue: false,
             returnValueForMissingStub: false,
           )
@@ -569,17 +560,41 @@ class MockChapterSplitSettingManager extends _i1.Mock
           as String);
 
   @override
-  bool get isEnabled =>
+  bool get isAvailable =>
       (super.noSuchMethod(
-            Invocation.getter(#isEnabled),
+            Invocation.getter(#isAvailable),
             returnValue: false,
             returnValueForMissingStub: false,
           )
           as bool);
 
   @override
-  set isEnabled(bool? value) => super.noSuchMethod(
-    Invocation.setter(#isEnabled, value),
+  String get storeKey =>
+      (super.noSuchMethod(
+            Invocation.getter(#storeKey),
+            returnValue: _i3.dummyValue<String>(
+              this,
+              Invocation.getter(#storeKey),
+            ),
+            returnValueForMissingStub: _i3.dummyValue<String>(
+              this,
+              Invocation.getter(#storeKey),
+            ),
+          )
+          as String);
+
+  @override
+  bool get value =>
+      (super.noSuchMethod(
+            Invocation.getter(#value),
+            returnValue: false,
+            returnValueForMissingStub: false,
+          )
+          as bool);
+
+  @override
+  set value(bool? value) => super.noSuchMethod(
+    Invocation.setter(#value, value),
     returnValueForMissingStub: null,
   );
 

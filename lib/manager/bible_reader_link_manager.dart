@@ -20,7 +20,7 @@ class BibleReaderLinkManager with ChangeNotifier {
   late BibleReaderKey _linkedBibleReaderKey; // ignore: avoid-late-keyword, guaranteed to be set in ctor -> _loadState
 
   void _loadState() {
-    final String? linkedReaderName = _storeService.getString(_linkedBibleReaderStoreKey);
+    final String? linkedReaderName = _storeService.get(_linkedBibleReaderStoreKey);
     try {
       _linkedBibleReaderKey = BibleReaderKey.values.byName(linkedReaderName ?? BibleReaderKey.none.name);
       linkedBibleReader; // throws an exception if linkedBibleReader is invalid or uncertified
@@ -32,7 +32,7 @@ class BibleReaderLinkManager with ChangeNotifier {
   void _saveState(BibleReaderKey value) {
     if (value == _linkedBibleReaderKey) return;
     _linkedBibleReaderKey = value;
-    _storeService.setString(_linkedBibleReaderStoreKey, value.name);
+    _storeService.set(_linkedBibleReaderStoreKey, value.name);
     notifyListeners();
   }
 

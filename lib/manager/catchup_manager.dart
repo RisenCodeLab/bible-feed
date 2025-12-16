@@ -4,10 +4,10 @@ import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
+import '../model/catchup_setting.dart';
 import '../service/date_time_service.dart';
 import '../service/store_service.dart';
 import 'app_lifecycle_manager.dart';
-import 'catchup_setting_manager.dart';
 import 'feeds_advance_manager.dart';
 import 'feeds_manager.dart';
 import 'midnight_manager.dart';
@@ -15,7 +15,7 @@ import 'midnight_manager.dart';
 @lazySingleton
 class CatchupManager with ChangeNotifier {
   final AppLifecycleManager _appLifecycleManager;
-  final CatchupSettingManager _catchupSettingManager;
+  final CatchupSetting _catchupSetting;
   final DateTimeService _dateTimeService;
   final FeedsManager _feedsManager;
   final FeedsAdvanceManager _feedsAdvanceManager;
@@ -24,7 +24,7 @@ class CatchupManager with ChangeNotifier {
 
   CatchupManager(
     this._appLifecycleManager,
-    this._catchupSettingManager,
+    this._catchupSetting,
     this._dateTimeService,
     this._feedsManager,
     this._feedsAdvanceManager,
@@ -37,7 +37,7 @@ class CatchupManager with ChangeNotifier {
       virtualAllDoneDate = isBehind ? virtualAllDoneDate + 1.days : _dateTimeService.now.date;
     });
 
-    _catchupSettingManager.addListener(reset);
+    _catchupSetting.addListener(reset);
     _midnightManager.addListener(notifyListeners);
 
     virtualAllDoneDate = virtualAllDoneDate; // ensure default is stored
@@ -52,7 +52,7 @@ class CatchupManager with ChangeNotifier {
   int get chaptersToRead => daysBehind * _feedsManager.feeds.length + _feedsManager.chaptersToRead;
 
   int get daysBehind {
-    if (!_catchupSettingManager.isEnabled) return 0;
+    if (!_catchupSetting.value) return 0;
     return max(0, _dateTimeService.now.date.difference(virtualAllDoneDate).inDays - 1);
   }
 
@@ -65,10 +65,10 @@ class CatchupManager with ChangeNotifier {
 
   bool get isVeryBehind => daysBehind > 1;
 
-  DateTime get virtualAllDoneDate => _storeService.getDateTime(_storeKey) ?? _defaultVirtualAllDoneDate;
+  DateTime get virtualAllDoneDate => _storeService.get(_storeKey) ?? _defaultVirtualAllDoneDate;
 
   set virtualAllDoneDate(DateTime value) {
-    _storeService.setDateTime(_storeKey, value);
+    _storeService.set(_storeKey, value);
     notifyListeners();
   }
 

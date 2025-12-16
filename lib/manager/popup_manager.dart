@@ -23,10 +23,10 @@ abstract class PopupManager with ChangeNotifier {
   //// concrete
 
   String get _onboardingStoreKey => 'hasCompletedOnboarding.$onboardingStoreKeyFragment';
-  bool get hasCompletedOnboarding => _storeService.getBool(_onboardingStoreKey) ?? false;
+  bool get hasCompletedOnboarding => _storeService.get(_onboardingStoreKey) ?? false;
   List<Verse>? get verses => null;
 
-  void completeOnboarding() => _storeService.setBool(_onboardingStoreKey, true);
+  void completeOnboarding() => _storeService.set(_onboardingStoreKey, true);
 
   void show() {
     completeOnboarding();

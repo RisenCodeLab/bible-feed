@@ -181,87 +181,19 @@ class MockCatchupManager extends _i1.Mock implements _i4.CatchupManager {
 /// See the documentation for Mockito's code generation for more information.
 class MockStoreService extends _i1.Mock implements _i6.StoreService {
   @override
-  bool? getBool(String? key) =>
+  T? get<T>(String? key) =>
       (super.noSuchMethod(
-            Invocation.method(#getBool, [key]),
+            Invocation.method(#get, [key]),
             returnValueForMissingStub: null,
           )
-          as bool?);
+          as T?);
 
   @override
-  DateTime? getDateTime(String? key) =>
+  _i7.Future<void> set<T>(String? key, T? value) =>
       (super.noSuchMethod(
-            Invocation.method(#getDateTime, [key]),
-            returnValueForMissingStub: null,
+            Invocation.method(#set, [key, value]),
+            returnValue: _i7.Future<void>.value(),
+            returnValueForMissingStub: _i7.Future<void>.value(),
           )
-          as DateTime?);
-
-  @override
-  double? getDouble(String? key) =>
-      (super.noSuchMethod(
-            Invocation.method(#getDouble, [key]),
-            returnValueForMissingStub: null,
-          )
-          as double?);
-
-  @override
-  int? getInt(String? key) =>
-      (super.noSuchMethod(
-            Invocation.method(#getInt, [key]),
-            returnValueForMissingStub: null,
-          )
-          as int?);
-
-  @override
-  String? getString(String? key) =>
-      (super.noSuchMethod(
-            Invocation.method(#getString, [key]),
-            returnValueForMissingStub: null,
-          )
-          as String?);
-
-  @override
-  _i7.Future<bool> setBool(String? key, bool? value) =>
-      (super.noSuchMethod(
-            Invocation.method(#setBool, [key, value]),
-            returnValue: _i7.Future<bool>.value(false),
-            returnValueForMissingStub: _i7.Future<bool>.value(false),
-          )
-          as _i7.Future<bool>);
-
-  @override
-  _i7.Future<bool> setDateTime(String? key, DateTime? value) =>
-      (super.noSuchMethod(
-            Invocation.method(#setDateTime, [key, value]),
-            returnValue: _i7.Future<bool>.value(false),
-            returnValueForMissingStub: _i7.Future<bool>.value(false),
-          )
-          as _i7.Future<bool>);
-
-  @override
-  _i7.Future<bool> setDouble(String? key, double? value) =>
-      (super.noSuchMethod(
-            Invocation.method(#setDouble, [key, value]),
-            returnValue: _i7.Future<bool>.value(false),
-            returnValueForMissingStub: _i7.Future<bool>.value(false),
-          )
-          as _i7.Future<bool>);
-
-  @override
-  _i7.Future<bool> setInt(String? key, int? value) =>
-      (super.noSuchMethod(
-            Invocation.method(#setInt, [key, value]),
-            returnValue: _i7.Future<bool>.value(false),
-            returnValueForMissingStub: _i7.Future<bool>.value(false),
-          )
-          as _i7.Future<bool>);
-
-  @override
-  _i7.Future<bool> setString(String? key, String? value) =>
-      (super.noSuchMethod(
-            Invocation.method(#setString, [key, value]),
-            returnValue: _i7.Future<bool>.value(false),
-            returnValueForMissingStub: _i7.Future<bool>.value(false),
-          )
-          as _i7.Future<bool>);
+          as _i7.Future<void>);
 }

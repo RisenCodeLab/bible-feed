@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:watch_it/watch_it.dart';
 
 import '../manager/chapter_split_manager.dart';
-import '../manager/chapter_split_setting_manager.dart';
+import '../model/chapter_split_setting.dart';
 import '../model/feed.dart';
 import '_constants.dart';
 
@@ -15,7 +15,7 @@ class FeedBookChapter extends WatchingWidget {
   build(context) {
     const maxLines = 2;
     final chapterSplitLabel = sl<ChapterSplitManager>().getLabel(feed.state);
-    watchIt<ChapterSplitSettingManager>();
+    watchIt<ChapterSplitSetting>();
 
     return Expanded(
       child: Padding(

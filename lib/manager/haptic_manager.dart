@@ -1,30 +1,30 @@
 import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';
 
+import '../model/catchup_setting.dart';
+import '../model/chapter_split_setting.dart';
+import '../model/haptic_setting.dart';
 import '../model/list_wheel_state.dart';
 import '../service/haptic_service.dart';
 import 'bible_reader_link_manager.dart';
-import 'catchup_setting_manager.dart';
-import 'chapter_split_setting_manager.dart';
 import 'debounce_manager.dart';
 import 'feed_tap_manager.dart';
-import 'haptic_setting_manager.dart';
 
 @singleton
 class HapticManager extends RouteObserver<PageRoute<dynamic>> {
   final DebounceManager _debounceManager;
   final HapticService _hapticService;
-  final HapticSettingManager _hapticSettingManager;
+  final HapticSetting _hapticSetting;
 
   HapticManager(
     this._debounceManager,
     this._hapticService,
-    this._hapticSettingManager,
+    this._hapticSetting,
     BibleReaderLinkManager bibleReaderLinkManager,
     BookListWheelState bookListWheelState,
-    CatchupSettingManager catchupSettingManager,
+    CatchupSetting catchupSetting,
     ChapterListWheelState chapterListWheelState,
-    ChapterSplitSettingManager chapterSplitSettingManager,
+    ChapterSplitSetting chapterSplitSetting,
     FeedTapManager feedTapManager,
   ) {
     final notifiers = [
@@ -33,9 +33,9 @@ class HapticManager extends RouteObserver<PageRoute<dynamic>> {
       feedTapManager,
       // settings
       bibleReaderLinkManager,
-      catchupSettingManager,
-      chapterSplitSettingManager,
-      _hapticSettingManager,
+      catchupSetting,
+      chapterSplitSetting,
+      _hapticSetting,
     ];
     for (final notifier in notifiers) {
       notifier.addListener(_maybeImpact);
@@ -44,7 +44,7 @@ class HapticManager extends RouteObserver<PageRoute<dynamic>> {
 
   void _maybeImpact() {
     _debounceManager.run(() {
-      if (_hapticSettingManager.isEnabled) _hapticService.impact();
+      if (_hapticSetting.value) _hapticService.impact();
     });
   }
 

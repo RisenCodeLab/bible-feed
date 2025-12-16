@@ -1,16 +1,11 @@
 import 'package:injectable/injectable.dart';
 
-import 'setting_manager.dart';
+import 'setting.dart';
 
 @lazySingleton
-class CatchupSettingManager extends SettingManager {
-  CatchupSettingManager(super.sharedPreferences);
-
+class CatchupSetting extends Setting<bool> {
   @override
-  bool get canEnable => true;
-
-  @override
-  bool get isEnabledByDefault => false;
+  bool get defaultValue => false;
 
   @override
   get storeKeyFragment => 'catchup';

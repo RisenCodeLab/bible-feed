@@ -1,16 +1,11 @@
 import 'package:injectable/injectable.dart';
 
-import 'setting_manager.dart';
+import 'setting.dart';
 
 @lazySingleton
-class ChapterSplitSettingManager extends SettingManager {
-  ChapterSplitSettingManager(super.sharedPreferences);
-
+class ChapterSplitSetting extends Setting<bool> {
   @override
-  bool get canEnable => true;
-
-  @override
-  bool get isEnabledByDefault => false;
+  bool get defaultValue => false;
 
   @override
   get storeKeyFragment => 'splitChapters';

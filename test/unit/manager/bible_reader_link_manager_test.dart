@@ -31,7 +31,7 @@ void main() async {
       ['blueLetterApp', true, 1, blbBibleReader],
     ],
     (String? bibleReaderKey, bool expectIsLinked, int expectIndex, BibleReader expectBibleReader) {
-      when(mockStoreService.getString('linkedBibleReader')).thenReturn(bibleReaderKey);
+      when(mockStoreService.get('linkedBibleReader')).thenReturn(bibleReaderKey);
       testee = BibleReaderLinkManager(mockStoreService, mockBibleReadersCertifiedManager);
       expect(testee.isLinked, expectIsLinked);
       expect(testee.linkedBibleReader, expectBibleReader);
@@ -41,21 +41,21 @@ void main() async {
 
   test('constructor should set linkedBibleReader to none if stored linkedBibleReader is uncertified', () {
     when(mockBibleReadersCertifiedManager.certifiedBibleReaderList).thenReturn([]);
-    when(mockStoreService.getString('linkedBibleReader')).thenReturn('blueLetterApp');
+    when(mockStoreService.get('linkedBibleReader')).thenReturn('blueLetterApp');
     testee = BibleReaderLinkManager(mockStoreService, mockBibleReadersCertifiedManager);
     expect(testee.isLinked, false);
   });
 
   test('linkedBibleReaderIndex setter should update and save to store', () {
     testee.linkedBibleReaderIndex = 1;
-    verify(mockStoreService.setString('linkedBibleReader', 'blueLetterApp')).called(1);
+    verify(mockStoreService.set('linkedBibleReader', 'blueLetterApp')).called(1);
     expect(testee.linkedBibleReaderIndex, 1);
   });
 
   test('unlinkBibleReader should set to none and save to store', () {
     testee.linkedBibleReaderIndex = 1;
     testee.unlinkBibleReader();
-    verify(mockStoreService.setString('linkedBibleReader', 'none')).called(1);
+    verify(mockStoreService.set('linkedBibleReader', 'none')).called(1);
     expect(testee.isLinked, false);
   });
 }

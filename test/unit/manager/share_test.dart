@@ -36,11 +36,11 @@ void main() {
   test('sync-out sync-in interaction: should transfer across', () {
     final buildNumber = '123';
     final virtualAllDoneDate = DateTime(2025, 12, 30);
-    when(mockOutStoreService.getDateTime('rl1.dateModified')).thenReturn(dateModified);
-    when(mockOutStoreService.getString('rl1.book')).thenReturn('b1');
-    when(mockOutStoreService.getInt('rl1.chapter')).thenReturn(3);
-    when(mockOutStoreService.getInt('rl1.verse')).thenReturn(5);
-    when(mockOutStoreService.getBool('rl1.isRead')).thenReturn(true);
+    when(mockOutStoreService.get('rl1.dateModified')).thenReturn(dateModified);
+    when(mockOutStoreService.get('rl1.book')).thenReturn('b1');
+    when(mockOutStoreService.get('rl1.chapter')).thenReturn(3);
+    when(mockOutStoreService.get('rl1.verse')).thenReturn(5);
+    when(mockOutStoreService.get('rl1.isRead')).thenReturn(true);
     when(mockAppService.buildNumber).thenReturn(buildNumber);
     when(mockCatchupManager.virtualAllDoneDate).thenReturn(virtualAllDoneDate);
     inFeedsManager = FeedsManager(FeedStoreManager(mockInStoreService), readingLists);
