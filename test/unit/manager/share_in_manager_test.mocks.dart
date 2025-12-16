@@ -158,6 +158,12 @@ class MockCatchupManager extends _i1.Mock implements _i6.CatchupManager {
           as bool);
 
   @override
+  void reset() => super.noSuchMethod(
+    Invocation.method(#reset, []),
+    returnValueForMissingStub: null,
+  );
+
+  @override
   void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(
     Invocation.method(#addListener, [listener]),
     returnValueForMissingStub: null,

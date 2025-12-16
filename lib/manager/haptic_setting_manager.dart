@@ -1,16 +1,17 @@
 import 'package:injectable/injectable.dart';
 
-import '../service/haptic_availability_service.dart';
+import '../service/haptic_service.dart';
 import 'setting_manager.dart';
 
 @lazySingleton
 class HapticSettingManager extends SettingManager {
-  HapticSettingManager(super._storeService, this._hapticAvailabilityService);
+  final HapticService _hapticService;
 
-  final HapticAvailabilityService _hapticAvailabilityService;
+  HapticSettingManager(super._storeService, this._hapticService);
+
 
   @override
-  bool get canEnable => _hapticAvailabilityService.isHapticAvailable;
+  bool get canEnable => _hapticService.isAvailable;
 
   @override
   bool get isEnabledByDefault => false;

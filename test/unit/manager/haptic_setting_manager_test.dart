@@ -1,5 +1,5 @@
 import 'package:bible_feed/manager/haptic_setting_manager.dart';
-import 'package:bible_feed/service/haptic_availability_service.dart';
+import 'package:bible_feed/service/haptic_service.dart';
 import 'package:bible_feed/service/store_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -8,8 +8,8 @@ import 'package:mockito/mockito.dart';
 
 import 'haptic_setting_manager_test.mocks.dart';
 
-class TestHapticAvailabilityService extends HapticAvailabilityService {
-  TestHapticAvailabilityService() : super(isHapticAvailable: true);
+class TestHapticService extends HapticService {
+  TestHapticService() : super(isAvailable: true);
 }
 
 @GenerateNiceMocks([MockSpec<StoreService>()])
@@ -21,7 +21,7 @@ void main() {
 
   setUp(() {
     mockStoreService = MockStoreService();
-    testee = HapticSettingManager(mockStoreService, TestHapticAvailabilityService());
+    testee = HapticSettingManager(mockStoreService, TestHapticService());
   });
 
   test('default isEnabled is false', () async {
