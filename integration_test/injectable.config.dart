@@ -61,6 +61,7 @@ import 'service/empty_store_service.dart' as _i617;
 import 'service/stub_date_time_service.dart' as _i738;
 
 const String _integration_test = 'integration_test';
+const String _golden = 'golden';
 const String _prod = 'prod';
 
 extension GetItInjectableX on _i174.GetIt {
@@ -99,10 +100,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<List<_i270.BibleReader>>(
       () => bibleReadersModule.bibleReader,
     );
-    await gh.lazySingletonAsync<_i215.StoreService>(
-      () => _i215.StoreService.create(),
-      preResolve: true,
-    );
     gh.lazySingleton<_i626.UrlLaunchService>(() => _i626.UrlLaunchService());
     gh.lazySingleton<_i942.ToastService>(() => _i942.ToastService());
     gh.lazySingleton<_i438.MidnightManager>(
@@ -116,6 +113,11 @@ extension GetItInjectableX on _i174.GetIt {
     await gh.lazySingletonAsync<_i215.StoreService>(
       () => _i617.EmptyStoreService.create(),
       registerFor: {_integration_test},
+      preResolve: true,
+    );
+    await gh.lazySingletonAsync<_i215.StoreService>(
+      () => _i215.StoreService.create(),
+      registerFor: {_golden, _prod},
       preResolve: true,
     );
     gh.lazySingleton<_i1070.BibleReaders>(

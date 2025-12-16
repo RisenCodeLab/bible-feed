@@ -64,8 +64,8 @@ import 'golden/stub/stub_platform_event_service.dart' as _i919;
 import 'golden/stub/stub_platform_service.dart' as _i250;
 
 const String _golden = 'golden';
-const String _integration_test = 'integration_test';
 const String _prod = 'prod';
+const String _integration_test = 'integration_test';
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -103,12 +103,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<List<_i270.BibleReader>>(
       () => bibleReadersModule.bibleReader,
     );
-    await gh.lazySingletonAsync<_i215.StoreService>(
-      () => _i215.StoreService.create(),
-      preResolve: true,
-    );
     gh.lazySingleton<_i626.UrlLaunchService>(() => _i626.UrlLaunchService());
     gh.lazySingleton<_i942.ToastService>(() => _i942.ToastService());
+    await gh.lazySingletonAsync<_i215.StoreService>(
+      () => _i215.StoreService.create(),
+      registerFor: {_golden, _prod},
+      preResolve: true,
+    );
     gh.lazySingleton<_i1070.BibleReaders>(
       () => _i1070.BibleReaders(gh<List<_i270.BibleReader>>()),
     );
