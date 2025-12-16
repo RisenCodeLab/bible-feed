@@ -23,7 +23,6 @@ class StoreService {
       case String _:
         final dt = DateTime.tryParse(value);
         return (dt ?? value) as T;
-      case DateTime _:
       case null:
         return null;
       default:

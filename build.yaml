@@ -32,3 +32,4 @@ targets:
           include:
             - test/unit/manager/*.dart
             - test/unit/model/*.dart
+            - test/unit/service/*.dart
