@@ -90,11 +90,15 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i1033.ChapterListWheelState>(
       () => _i1033.ChapterListWheelState(),
     );
+    gh.lazySingleton<_i451.CatchupSetting>(() => _i451.CatchupSetting());
     gh.lazySingleton<List<_i279.ReadingList>>(
       () => readingListsModule.readingLists,
     );
     gh.lazySingleton<List<_i19.ChapterSplitter>>(
       () => chapterSplittersModule.chapterSplitters,
+    );
+    gh.lazySingleton<_i252.ChapterSplitSetting>(
+      () => _i252.ChapterSplitSetting(),
     );
     gh.lazySingleton<List<_i270.BibleReader>>(
       () => bibleReadersModule.bibleReader,
@@ -105,10 +109,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i626.UrlLaunchService>(() => _i626.UrlLaunchService());
     gh.lazySingleton<_i942.ToastService>(() => _i942.ToastService());
-    gh.lazySingleton<_i451.CatchupSetting>(() => _i451.CatchupSetting());
-    gh.lazySingleton<_i252.ChapterSplitSetting>(
-      () => _i252.ChapterSplitSetting(),
-    );
     gh.lazySingleton<_i1070.BibleReaders>(
       () => _i1070.BibleReaders(gh<List<_i270.BibleReader>>()),
     );
