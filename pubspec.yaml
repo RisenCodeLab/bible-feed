@@ -39,7 +39,7 @@ dependencies:
   dartx: ^1.2.0
   df_log: ^0.3.27
   fluttertoast: ^9.0.0
-  haptic_feedback: ^0.5.1+1
+  haptic_feedback: ^0.6.4+2
   injectable: ^2.5.1 # dependency injection
   package_info_plus: ^8.3.0
   pretty_qr_code: ^3.5.0 # for share out
