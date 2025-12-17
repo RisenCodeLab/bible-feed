@@ -3,6 +3,12 @@
 All notable changes to this project are documented here.
 
 
+## [1.10.1] - 2025-12-17
+
+### Changed
+- fixed haptics on some Android devices
+
+
 ## [1.10.0] - 2025-12-08
 
 ### Added
