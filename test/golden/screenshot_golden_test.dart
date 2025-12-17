@@ -8,6 +8,7 @@ import 'package:alchemist/alchemist.dart';
 import 'package:bible_feed/manager/feeds_manager.dart';
 import 'package:bible_feed/manager/midnight_manager.dart';
 import 'package:bible_feed/model/catchup_setting.dart';
+import 'package:bible_feed/model/chapter_split_setting.dart';
 import 'package:bible_feed/service/date_time_service.dart';
 import 'package:bible_feed/service/platform_service.dart';
 import 'package:bible_feed/view/app_base.dart';
@@ -93,6 +94,7 @@ Future main() async {
       await goldenTest(
         'screenshot',
         fileName: filename,
+
         pumpBeforeTest: (t) async {
           if (device != lastDevice) {
             Log.info('initialise environment for new device $device');
@@ -104,15 +106,18 @@ Future main() async {
           sl.unregister<PlatformService>();
           sl.registerSingleton(PlatformService(currentPlatform: targetPlatform));
           t.platformDispatcher.platformBrightnessTestValue = scenario.brightness;
+          sl<ChapterSplitSetting>().value = true;
           sl<CatchupSetting>().value = true;
           if (scenario.setup != null) scenario.setup!();
           await t.pumpAndSettle();
         },
+
         whilePerforming: (t) async {
           if (scenario.tapKey != null) await t.tapByKey(scenario.tapKey!);
           await t.pumpAndSettle();
           return;
         },
+
         builder: () {
           return GoldenTestGroup(
             children: [
