@@ -44,6 +44,12 @@
     <string>wdbible</string>
     <string>youversion</string>
   </array>
+  <key>NSBonjourServices</key>
+  <array>
+    <string>_yourservice._tcp</string>
+  </array>
+  <key>NSLocalNetworkUsageDescription</key>
+  <string>This app needs access to your local network to communicate with devices.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
