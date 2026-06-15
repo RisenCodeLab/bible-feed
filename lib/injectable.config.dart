@@ -1,5 +1,5 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -67,9 +67,9 @@ extension GetItInjectableX on _i174.GetIt {
     _i526.EnvironmentFilter? environmentFilter,
   }) async {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
-    final readingListsModule = _$ReadingListsModule();
-    final chapterSplittersModule = _$ChapterSplittersModule();
     final bibleReadersModule = _$BibleReadersModule();
+    final chapterSplittersModule = _$ChapterSplittersModule();
+    final readingListsModule = _$ReadingListsModule();
     gh.lazySingleton<_i540.AppLifecycleManager>(
       () => _i540.AppLifecycleManager(),
     );
@@ -77,27 +77,27 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i508.JsonEncodingManager>(
       () => _i508.JsonEncodingManager(),
     );
+    gh.lazySingleton<List<_i270.BibleReader>>(
+      () => bibleReadersModule.bibleReader,
+    );
+    gh.lazySingleton<_i451.CatchupSetting>(() => _i451.CatchupSetting());
+    gh.lazySingleton<_i252.ChapterSplitSetting>(
+      () => _i252.ChapterSplitSetting(),
+    );
+    gh.lazySingleton<List<_i19.ChapterSplitter>>(
+      () => chapterSplittersModule.chapterSplitters,
+    );
     gh.lazySingleton<_i1033.BookListWheelState>(
       () => _i1033.BookListWheelState(),
     );
     gh.lazySingleton<_i1033.ChapterListWheelState>(
       () => _i1033.ChapterListWheelState(),
     );
-    gh.lazySingleton<_i451.CatchupSetting>(() => _i451.CatchupSetting());
     gh.lazySingleton<List<_i279.ReadingList>>(
       () => readingListsModule.readingLists,
     );
-    gh.lazySingleton<List<_i19.ChapterSplitter>>(
-      () => chapterSplittersModule.chapterSplitters,
-    );
-    gh.lazySingleton<_i252.ChapterSplitSetting>(
-      () => _i252.ChapterSplitSetting(),
-    );
-    gh.lazySingleton<List<_i270.BibleReader>>(
-      () => bibleReadersModule.bibleReader,
-    );
-    gh.lazySingleton<_i626.UrlLaunchService>(() => _i626.UrlLaunchService());
     gh.lazySingleton<_i942.ToastService>(() => _i942.ToastService());
+    gh.lazySingleton<_i626.UrlLaunchService>(() => _i626.UrlLaunchService());
     await gh.lazySingletonAsync<_i215.StoreService>(
       () => _i215.StoreService.create(),
       registerFor: {_golden, _prod},
@@ -264,15 +264,15 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i583.FeedTapManager>(),
       ),
     );
-    gh.lazySingleton<_i92.CatchupPopupManager>(
-      () => _i92.CatchupPopupManager(
+    gh.lazySingleton<_i471.AllDonePopupManager>(
+      () => _i471.AllDonePopupManager(
         gh<_i215.StoreService>(),
         gh<_i1045.CatchupManager>(),
         gh<_i127.FeedsManager>(),
       ),
     );
-    gh.lazySingleton<_i471.AllDonePopupManager>(
-      () => _i471.AllDonePopupManager(
+    gh.lazySingleton<_i92.CatchupPopupManager>(
+      () => _i92.CatchupPopupManager(
         gh<_i215.StoreService>(),
         gh<_i1045.CatchupManager>(),
         gh<_i127.FeedsManager>(),
@@ -288,8 +288,8 @@ extension GetItInjectableX on _i174.GetIt {
   }
 }
 
-class _$ReadingListsModule extends _i823.ReadingListsModule {}
+class _$BibleReadersModule extends _i1070.BibleReadersModule {}
 
 class _$ChapterSplittersModule extends _i1006.ChapterSplittersModule {}
 
-class _$BibleReadersModule extends _i1070.BibleReadersModule {}
+class _$ReadingListsModule extends _i823.ReadingListsModule {}

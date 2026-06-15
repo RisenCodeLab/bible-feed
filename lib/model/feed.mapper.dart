@@ -2,6 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 // ignore_for_file: type=lint
+// ignore_for_file: invalid_use_of_protected_member
 // ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
@@ -58,36 +59,6 @@ class FeedStateMapper extends ClassMapperBase<FeedState> {
     key: r'dateModified',
     opt: true,
   );
-  static String _$bookKey(FeedState v) => v.bookKey;
-  static const Field<FeedState, String> _f$bookKey = Field(
-    'bookKey',
-    _$bookKey,
-    mode: FieldMode.member,
-  );
-  static int _$chapter(FeedState v) => v.chapter;
-  static const Field<FeedState, int> _f$chapter = Field(
-    'chapter',
-    _$chapter,
-    mode: FieldMode.member,
-  );
-  static DateTime? _$dateModified(FeedState v) => v.dateModified;
-  static const Field<FeedState, DateTime> _f$dateModified = Field(
-    'dateModified',
-    _$dateModified,
-    mode: FieldMode.member,
-  );
-  static bool _$isRead(FeedState v) => v.isRead;
-  static const Field<FeedState, bool> _f$isRead = Field(
-    'isRead',
-    _$isRead,
-    mode: FieldMode.member,
-  );
-  static int _$verse(FeedState v) => v.verse;
-  static const Field<FeedState, int> _f$verse = Field(
-    'verse',
-    _$verse,
-    mode: FieldMode.member,
-  );
 
   @override
   final MappableFields<FeedState> fields = const {
@@ -96,11 +67,6 @@ class FeedStateMapper extends ClassMapperBase<FeedState> {
     #_verse: _f$_verse,
     #_isRead: _f$_isRead,
     #_dateModified: _f$_dateModified,
-    #bookKey: _f$bookKey,
-    #chapter: _f$chapter,
-    #dateModified: _f$dateModified,
-    #isRead: _f$isRead,
-    #verse: _f$verse,
   };
 
   static FeedState _instantiate(DecodingData data) {
