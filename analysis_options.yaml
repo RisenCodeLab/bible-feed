@@ -25,6 +25,8 @@ dart_code_linter:
     - newline-before-return: false # <20 failing
     - no-magic-number:
         allowed: [0, 0.5, 1]
+    - prefer-correct-identifier-length:
+        min-identifier-length: 2
     # flutter
     - prefer-extracting-callbacks: false
   metrics:
