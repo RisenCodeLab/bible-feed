@@ -1,17 +1,17 @@
 # global vars
 #
 require "yaml"
-ver = YAML.load_file("../pubspec.yaml")["version"]
+ver = YAML.load_file("../../pubspec.yaml")["version"]
 $vname, $vcode = ver.split('+')[0], ver.split('+')[1]
 $vcode_file = "./metadata/android/en-US/changelogs/#{$vcode}.txt"
 print "Version: #{ver}\n"
 #
 $project_name = ENV["PROJECT"].split('.')[-1]
-$apk_to_upload = "#{ENV["RELEASE_APK_PATH"]}/#{$project_name}-v#{$vname}.apk"
+$apk_to_upload = "#{ENV["FR_APK_PATH"]}/#{$project_name}-v#{$vname}.apk"
 $repo_name = "dizzib/#{$project_name.sub('_', '-')}"
 
 def rename_apk_for_upload
-  apk = ENV["RELEASE_APK"]
+  apk = ENV["FR_APK"]
   return unless File.file?(apk)
   File.rename(apk, $apk_to_upload)
   File.rename("#{apk}.sha1", "#{$apk_to_upload}.sha1")
