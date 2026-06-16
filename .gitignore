@@ -4,6 +4,7 @@ core
 *.log
 *.pyc
 *.swp
+*.sync-conflict-*
 .DS_Store
 .atom/
 .buildlog/
