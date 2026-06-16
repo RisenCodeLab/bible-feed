@@ -15,6 +15,6 @@ class DeepLinkOutManager {
     final encodedJson = _jsonEncodingManager.encode(_shareOutManager.getJson());
     // for android: scheme, host and path are defined in <intent-filter> in AndroidManifest.xml
     // for ios: scheme is defined in Info.plist
-    return 'biblefeed://me2christ.com/share?${Constants.deeplinkQueryKey}=$encodedJson';
+    return 'biblefeed://risencode.com/share?${Constants.deeplinkQueryKey}=$encodedJson';
   }
 }

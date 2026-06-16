@@ -31,7 +31,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="biblefeed" android:host="me2christ.com" android:path="/share" />
+                <data android:scheme="biblefeed" android:host="risencode.com" android:path="/share" />
             </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.

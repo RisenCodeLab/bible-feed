@@ -30,7 +30,7 @@ void main() {
 
     test('calls sync and shows success toast on valid deep link', () {
       when(mockDeepLinkService.uri).thenReturn(
-        Uri.parse('biblefeed://me2christ.com/share?${Constants.deeplinkQueryKey}=H4sIAAAAAAAAA6tWyk6tVLJSKkvMKU1VqgUAv5wYPw8AAAA='),
+        Uri.parse('biblefeed://risencode.com/share?${Constants.deeplinkQueryKey}=H4sIAAAAAAAAA6tWyk6tVLJSKkvMKU1VqgUAv5wYPw8AAAA='),
       );
       DeepLinkInManager(mockDeepLinkService, JsonEncodingManager(), mockShareInManager, mockToastService);
       verify(mockShareInManager.sync('{"key":"value"}')).called(1);
@@ -39,7 +39,7 @@ void main() {
     });
 
     test('shows error toast on invalid deep link', () {
-      when(mockDeepLinkService.uri).thenReturn(Uri.parse('biblefeed://me2christ.com/share?wrongkey=value'));
+      when(mockDeepLinkService.uri).thenReturn(Uri.parse('biblefeed://risencode.com/share?wrongkey=value'));
       DeepLinkInManager(mockDeepLinkService, JsonEncodingManager(), mockShareInManager, mockToastService);
       verify(mockToastService.showError(any)).called(1);
       verifyNever(mockToastService.showOk(any));

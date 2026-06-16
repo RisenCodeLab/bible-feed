@@ -25,7 +25,7 @@ void main() {
       final json = '{"key":"value"}';
       when(mockShareOutManager.getJson()).thenReturn(json);
       when(mockJsonEncodingManager.encode(json)).thenReturn(Uri.encodeComponent(json));
-      expect(testee.getUrl(), 'biblefeed://me2christ.com/share?json=%7B%22key%22%3A%22value%22%7D');
+      expect(testee.getUrl(), 'biblefeed://risencode.com/share?json=%7B%22key%22%3A%22value%22%7D');
     });
   });
 }
