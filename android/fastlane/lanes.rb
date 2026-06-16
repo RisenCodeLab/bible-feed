@@ -8,7 +8,7 @@ print "Version: #{ver}\n"
 #
 $project_name = ENV["PROJECT"].split('.')[-1]
 $apk_to_upload = "#{ENV["FR_APK_PATH"]}/#{$project_name}-v#{$vname}.apk"
-$repo_name = "dizzib/#{$project_name.sub('_', '-')}"
+$repo_name = "RisenCodeLab/#{$project_name.sub('_', '-')}"
 
 def rename_apk_for_upload
   apk = ENV["FR_APK"]

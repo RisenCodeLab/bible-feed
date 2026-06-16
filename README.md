@@ -1,6 +1,6 @@
 # Bible Feed
 
-[![Build Status](https://github.com/dizzib/bible-feed/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/dizzib/bible-feed/actions/workflows/ci.yml)
+[![Build Status](https://github.com/RisenCodeLab/bible-feed/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/RisenCodeLab/bible-feed/actions/workflows/ci.yml)
 
 This repository contains the open-source code for the Bible Feed app for Android and iOS.
 
@@ -11,7 +11,7 @@ To learn more about this app, [see here](https://raw.githubusercontent.com/Risen
 
 | Android | iOS |
 |:-:|:-:|
-| Get the latest APK from [GitHub Releases](https://github.com/dizzib/bible-feed/releases/latest). | [<img src="asset/appstore-badge.png" height="50">](https://apps.apple.com/gb/app/bible-feed/id6749379835)
+| Get the latest APK from [GitHub Releases](https://github.com/RisenCodeLab/bible-feed/releases/latest). | [<img src="asset/appstore-badge.png" height="50">](https://apps.apple.com/gb/app/bible-feed/id6749379835)
 
 ## Screenshots
 
