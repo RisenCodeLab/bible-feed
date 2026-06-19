@@ -45,7 +45,7 @@ dependencies:
   pretty_qr_code: ^3.5.0 # for share out
   shared_preferences: ^2.5.2
   url_launcher: ^6.3.2 # to launch bible reader deeplinks
-  watch_it: ^1.7.0 # state management and service locator
+  watch_it: ^2.4.2 # state management and service locator
 
 dev_dependencies:
   alchemist: ^0.13.0 # to generate screenshots
