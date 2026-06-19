@@ -1,5 +1,6 @@
 import 'package:bible_feed/manager/feeds_manager.dart';
 import 'package:bible_feed/model/chapter_split_setting.dart';
+import 'package:bible_feed/model/feed.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:watch_it/watch_it.dart';
 
@@ -14,6 +15,7 @@ class Helper {
   }
 
   static void initialiseFeeds() {
+    final baseDateTime = DateTime(2026, 7, 12);
     var bookState = [
       [0, 1],
       [4, 6],
@@ -38,8 +40,13 @@ class Helper {
     for (int row = 0; row < 5; row++) {
       for (int col = 0; col < 2; col++) {
         final feed = sl<FeedsManager>().feeds[row * 2 + col];
-        feed.setBookChapterVerse(bookState[row][col], chapterState[row][col]);
-        if (chapterReadState[row][col] != feed.state.isRead) feed.toggleIsRead();
+        feed.state = FeedState(
+          bookKey: feed.readingList[bookState[row][col]].key,
+          chapter: chapterState[row][col],
+          verse: 1,
+          isRead: chapterReadState[row][col],
+          dateModified: baseDateTime.add(Duration(minutes: row * 2 + col)),
+        );
       }
     }
   }

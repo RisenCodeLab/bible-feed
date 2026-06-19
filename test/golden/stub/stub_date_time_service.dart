@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 @golden
 @LazySingleton(as: DateTimeService)
 class StubDateTimeService extends DateTimeService {
-  DateTime _now = DateTime.now();
+  var _now = DateTime(2026,7,12);
 
   @override
   DateTime get now => _now;
