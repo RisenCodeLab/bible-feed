@@ -28,7 +28,7 @@ class _PopupState<T extends PopupManager> extends State<Popup<T>> {
   Future showPopup() async {
     _isPopupShowing = true;
     await showModalBottomSheet(
-      barrierColor: const Color.fromRGBO(0, 0, 0, 0.1), // dim slightly
+      barrierColor: const .fromRGBO(0, 0, 0, 0.1), // dim slightly
       context: context,
       isScrollControlled: true,
       builder: (context) {
@@ -38,7 +38,7 @@ class _PopupState<T extends PopupManager> extends State<Popup<T>> {
           child: Container(
             decoration: BoxDecoration(
               color: _popupManager.getBackgroundColor(),
-              borderRadius: const BorderRadius.vertical(top: Constants.defaultBorderRadius),
+              borderRadius: const .vertical(top: Constants.defaultBorderRadius),
             ),
             padding: Constants.defaultPadding,
             child: PopupBody<T>(),

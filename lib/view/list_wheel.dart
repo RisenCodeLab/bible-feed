@@ -50,8 +50,8 @@ class ListWheel extends StatelessWidget {
 
     return Stack(
       children: [
-        const ListWheelGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter),
-        const ListWheelGradient(begin: Alignment.bottomCenter, end: Alignment.topCenter),
+        const ListWheelGradient(begin: .topCenter, end: .bottomCenter),
+        const ListWheelGradient(begin: .bottomCenter, end: .topCenter),
         ListWheelHighlight(height: itemExtent * magnification),
         workaroundItemExtentBug(
           ListWheelScrollView.useDelegate(

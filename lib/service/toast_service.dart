@@ -11,7 +11,7 @@ class ToastService {
       msg: msg,
       textColor: Colors.white,
       timeInSecForIosWeb: toastTimeSecs,
-      toastLength: Toast.LENGTH_LONG,
+      toastLength: .LENGTH_LONG,
     );
   }
 

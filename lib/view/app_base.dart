@@ -8,9 +8,9 @@ import 'app.dart';
 class AppBase extends StatelessWidget {
   @override
   build(context) {
-    ThemeData theme(Brightness brightness) => ThemeData(
-      cardTheme: CardThemeData(surfaceTintColor: context.colorScheme.surfaceTint),
-      colorScheme: ColorScheme.fromSeed(
+    ThemeData theme(Brightness brightness) => .new(
+      cardTheme: .new(surfaceTintColor: context.colorScheme.surfaceTint),
+      colorScheme: .fromSeed(
         brightness: brightness,
         seedColor: const Color(0xffbb86fc),
         tertiary: brightness == Brightness.dark ? Colors.red : Colors.amber,
@@ -22,7 +22,7 @@ class AppBase extends StatelessWidget {
         debugShowCheckedModeBanner: true,
         navigatorObservers: [sl<HapticManager>()],
         title: 'Bible Feed',
-        themeMode: ThemeMode.system,
+        themeMode: .system,
         theme: theme(Brightness.light),
         darkTheme: theme(Brightness.dark),
         home: App(),

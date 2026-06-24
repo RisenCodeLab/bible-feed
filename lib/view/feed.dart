@@ -27,7 +27,7 @@ class Feed extends WatchingWidget {
       duration: timeToFade,
       child: Card(
         elevation: elevation,
-        clipBehavior: Clip.hardEdge,
+        clipBehavior: .hardEdge,
         child: FeedSemantics(feed: feed, child: FeedBody(feed)),
       ),
     );

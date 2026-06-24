@@ -14,16 +14,16 @@ class PopupVerses<T extends PopupManager> extends StatelessWidget {
     final verses = sl<T>().verses ?? [];
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: .center,
       children:
           verses.map((verse) {
             return Padding(
               padding: Constants.defaultPadding,
               child: RichText(
-                textAlign: TextAlign.center,
+                textAlign: .center,
                 text: TextSpan(
                   children: [
-                    TextSpan(text: verse.text, style: textStyle.copyWith(fontStyle: FontStyle.italic)),
+                    TextSpan(text: verse.text, style: textStyle.copyWith(fontStyle: .italic)),
                     TextSpan(text: ' ', style: textStyle),
                     TextSpan(
                       // ignore: avoid-non-ascii-symbols, long dash is ok

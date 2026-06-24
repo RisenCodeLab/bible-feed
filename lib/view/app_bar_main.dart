@@ -13,7 +13,7 @@ class AppBarMain extends WatchingWidget implements PreferredSizeWidget {
     return AppBar(
       leading: BibleReaderLinkIcon(),
       centerTitle: true,
-      clipBehavior: Clip.none, // do not clip fab drop shadow
+      clipBehavior: .none, // do not clip fab drop shadow
       title: Stack(children: [CatchupFab(), AllDoneFab()]),
       actions: [ShareIconButton(), SettingsIconButton()],
     );

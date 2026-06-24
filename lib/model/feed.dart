@@ -32,13 +32,13 @@ class Feed with ChangeNotifier {
     _state._chapter = chapter;
     _state._verse = verse;
     _state._isRead = false;
-    _state._dateModified = DateTime.now();
+    _state._dateModified = .now();
     notifyListeners();
   }
 
   void toggleIsRead() {
     _state._isRead = !_state._isRead;
-    _state._dateModified = DateTime.now();
+    _state._dateModified = .now();
     notifyListeners();
   }
 

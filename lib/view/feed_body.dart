@@ -34,7 +34,7 @@ class FeedBody extends StatelessWidget {
           final isVisible = c.maxHeight > 99;
 
           return Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: .min,
             children: [
               Visibility(visible: isVisible, child: FeedTitleBar(feed)),
               LinearProgressIndicator(backgroundColor: context.colorScheme.surface, value: feed.progress),

@@ -20,19 +20,19 @@ class PopupBody<T extends PopupManager> extends StatelessWidget {
     final titleFontSize = 24.0;
 
     return Column(
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: .min,
       children: [
         Padding(
           padding: Constants.defaultPadding,
           child: Text(
             popupManager.title,
-            textAlign: TextAlign.center,
+            textAlign: .center,
             style: TextStyle(color: foregroundColor, fontSize: titleFontSize),
           ),
         ),
         Padding(
           padding: Constants.defaultPadding,
-          child: Text(popupManager.getText(), textAlign: TextAlign.center, style: TextStyle(color: foregroundColor)),
+          child: Text(popupManager.getText(), textAlign: .center, style: TextStyle(color: foregroundColor)),
         ),
         PopupVerses<T>(),
         if (popupAction != null)
@@ -42,14 +42,14 @@ class PopupBody<T extends PopupManager> extends StatelessWidget {
               backgroundColor: foregroundColor,
               foregroundColor: backgroundColor,
               elevation: elevation,
-              shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Constants.defaultBorderRadius)),
+              shape: const RoundedRectangleBorder(borderRadius: .all(Constants.defaultBorderRadius)),
             ),
             onPressed: () {
               popupAction.action();
               Navigator.pop(context);
             },
             child: Row(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: .min,
               spacing: actionButtonSpacing,
               // ignore: avoid-non-null-assertion, passed hasAction guard
               children: [Text(popupAction.text), popupAction.icon],

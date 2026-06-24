@@ -13,5 +13,5 @@ abstract class DateTimeService {
 @LazySingleton(as: DateTimeService)
 class NowDateTimeService extends DateTimeService {
   @override
-  DateTime get now => DateTime.now();
+  DateTime get now => .now();
 }

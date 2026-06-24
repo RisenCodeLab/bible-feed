@@ -11,7 +11,7 @@ class BibleReaderLinkIcon extends WatchingWidget {
 
     return Tooltip(
       message: brlm.isLinked ? 'The ${brlm.linkedBibleReader.name} is enabled' : 'The bible reader is disabled',
-      triggerMode: TooltipTriggerMode.tap,
+      triggerMode: .tap,
       child: Opacity(
         opacity: 0.5,
         child: Icon(brlm.isLinked ? Icons.auto_stories : Icons.visibility_off, size: Constants.appbarIconSize),

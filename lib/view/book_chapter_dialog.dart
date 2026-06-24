@@ -21,7 +21,7 @@ class BookChapterDialog extends StatelessWidget {
   @override
   build(context) {
     withBackground(Widget child) => // fix 3.19 -> 3.22 background color regression
-        Container(alignment: Alignment.center, color: context.colorScheme.surfaceContainerHigh, child: child);
+        Container(alignment: .center, color: context.colorScheme.surfaceContainerHigh, child: child);
 
     return LayoutBuilder(
       builder: (_, constraints) {
@@ -30,7 +30,7 @@ class BookChapterDialog extends StatelessWidget {
         final isVisible = constraints.maxHeight > 280;
 
         return Dialog(
-          clipBehavior: Clip.hardEdge,
+          clipBehavior: .hardEdge,
           child: Container(
             constraints: BoxConstraints(maxHeight: maxHeight, maxWidth: maxWidth),
             child: Column(
@@ -40,7 +40,7 @@ class BookChapterDialog extends StatelessWidget {
                   child: withBackground(
                     Padding(
                       padding: Constants.defaultPadding,
-                      child: Text(feed.readingList.name, style: const TextStyle(fontWeight: FontWeight.bold)),
+                       child: Text(feed.readingList.name, style: const TextStyle(fontWeight: .bold)),
                     ),
                   ),
                 ),

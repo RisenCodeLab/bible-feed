@@ -10,12 +10,12 @@ class ListWheelHighlight extends StatelessWidget {
   @override
   build(context) {
     return Align(
-      alignment: Alignment.center,
+      alignment: .center,
       child: Container(
         height: height,
         decoration: BoxDecoration(
           color: context.colorScheme.tertiary,
-          borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+          borderRadius: const .all(.circular(8.0)),
         ),
       ),
     );

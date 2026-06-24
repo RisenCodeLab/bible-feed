@@ -20,8 +20,8 @@ class BookChapterDialogWheels extends WatchingWidget {
         return DefaultTextStyle.merge(
           style: TextStyle(
             fontSize: fontSize,
-            fontWeight: FontWeight.w600,
-            overflow: TextOverflow.ellipsis, // without this, large text wraps and disappears
+            fontWeight: .w600,
+            overflow: .ellipsis, // without this, large text wraps and disappears
           ),
           child: Row(
             children: [

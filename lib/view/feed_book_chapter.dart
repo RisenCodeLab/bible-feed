@@ -24,8 +24,8 @@ class FeedBookChapter extends WatchingWidget {
           child: AutoSizeText(
             '${feed.book.name} ${feed.state.chapter} $chapterSplitLabel'.trim(),
             maxLines: maxLines,
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.center,
+            overflow: .ellipsis,
+            textAlign: .center,
           ),
         ),
       ),

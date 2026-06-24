@@ -29,7 +29,7 @@ class BookChapterDialogFooter extends WatchingWidget {
                 child: AutoSizeText(
                   '${feed.readingList.chaptersTo(bookIndex, chapter)} of ${feed.readingList.totalChapters}',
                   maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                  overflow: .ellipsis,
                 ),
               ),
             ),

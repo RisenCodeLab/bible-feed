@@ -36,7 +36,7 @@ class App extends WatchingWidget {
               ],
             ),
           ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
+          floatingActionButtonLocation: .centerTop,
         );
       },
     );
