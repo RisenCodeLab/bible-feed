@@ -5,6 +5,9 @@ All notable changes to this project are documented here.
 
 ## [1.11.0] - 2026-06-23
 
+### Added
+- more chapter splits
+
 ### Changed
 - fix: make Android launcher icon adaptive
 
