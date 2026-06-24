@@ -6,6 +6,8 @@ import 'base_list.dart';
 import 'chapter_splitter.dart';
 import 'feed.dart';
 
+ChapterSplitter splitter(String bookKey, int chapter, List<int> verses) => ChapterSplitter(bookKey, chapter, verses);
+
 @immutable
 @lazySingleton
 class ChapterSplitters extends BaseList<ChapterSplitter> {
@@ -21,36 +23,36 @@ class ChapterSplitters extends BaseList<ChapterSplitter> {
 abstract class ChapterSplittersModule {
   @lazySingleton
   List<ChapterSplitter> get chapterSplitters => [
-    const ChapterSplitter('1cr', 6, [44]),
-    const ChapterSplitter('1ki', 8, [37]),
-    const ChapterSplitter('act', 7, [30]),
-    const ChapterSplitter('deu', 28, [36]),
-    const ChapterSplitter('eze', 16, [35]),
-    const ChapterSplitter('gen', 24, [33]),
-    const ChapterSplitter('jdg', 20, [24]),
-    const ChapterSplitter('jer', 48, [26]),
-    const ChapterSplitter('jer', 49, [20]),
-    const ChapterSplitter('jer', 50, [23]),
-    const ChapterSplitter('jer', 51, [33]),
-    const ChapterSplitter('jhn', 6, [34]),
-    const ChapterSplitter('jos', 15, [33]),
-    const ChapterSplitter('lam', 3, [33]),
-    const ChapterSplitter('lev', 13, [29]),
-    const ChapterSplitter('lev', 25, [35]),
-    const ChapterSplitter('luk', 1, [39]),
-    const ChapterSplitter('luk', 9, [28]),
-    const ChapterSplitter('luk', 12, [32]),
-    const ChapterSplitter('mat', 26, [36]),
-    const ChapterSplitter('mat', 27, [35]),
-    const ChapterSplitter('neh', 7, [37]),
-    const ChapterSplitter('num', 1, [28]),
-    const ChapterSplitter('num', 7, [48]),
-    const ChapterSplitter('num', 14, [20]),
-    const ChapterSplitter('num', 26, [35]),
-    const ChapterSplitter('num', 31, [25]),
-    const ChapterSplitter('num', 33, [38]),
-    const ChapterSplitter('psa', 18, [25]),
-    const ChapterSplitter('psa', 78, [36]),
-    const ChapterSplitter('psa', 119, ChapterSplitters.psalm119VerseList),
+    splitter('1cr', 6, [44]),
+    splitter('1ki', 8, [37]),
+    splitter('act', 7, [30]),
+    splitter('deu', 28, [36]),
+    splitter('eze', 16, [35]),
+    splitter('gen', 24, [33]),
+    splitter('jdg', 20, [24]),
+    splitter('jer', 48, [26]),
+    splitter('jer', 49, [20]),
+    splitter('jer', 50, [23]),
+    splitter('jer', 51, [33]),
+    splitter('jhn', 6, [34]),
+    splitter('jos', 15, [33]),
+    splitter('lam', 3, [33]),
+    splitter('lev', 13, [29]),
+    splitter('lev', 25, [35]),
+    splitter('luk', 1, [39]),
+    splitter('luk', 9, [28]),
+    splitter('luk', 12, [32]),
+    splitter('mat', 26, [36]),
+    splitter('mat', 27, [35]),
+    splitter('neh', 7, [37]),
+    splitter('num', 1, [28]),
+    splitter('num', 7, [48]),
+    splitter('num', 14, [20]),
+    splitter('num', 26, [35]),
+    splitter('num', 31, [25]),
+    splitter('num', 33, [38]),
+    splitter('psa', 18, [25]),
+    splitter('psa', 78, [36]),
+    splitter('psa', 119, ChapterSplitters.psalm119VerseList),
   ];
 }
