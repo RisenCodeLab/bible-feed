@@ -44,12 +44,6 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSBonjourServices</key>
-	<array>
-		<string>_yourservice._tcp</string>
-	</array>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>This app needs access to your local network to communicate with devices.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
