@@ -16,30 +16,6 @@ platform :ios do
     sh "bundle exec fastlane deliver download_metadata --force --api_key '#{$api_key.to_json}' --app_identifier #{$app_identifier}"
   end
 
-  lane :build_ipa do
-    desc "Build release ipa"
-    $profile_name = "com.risencode.bible-feed provisioning profile" # Found in Xcode > Signing & Capabilities
-
-    cocoapods(
-      clean_install: true,
-      podfile: "Podfile"
-    )
-
-    build_ios_app(
-      workspace: "Runner.xcworkspace",
-      export_method: "app-store",
-      clean: true,
-      export_options: {
-        provisioningProfiles: {
-          $app_identifier => $profile_name
-        },
-        method: "app-store-connect"
-      },
-      output_directory: "../build",
-      output_name: "bible-feed.ipa"
-    )
-  end
-
   lane :upload_meta do
     desc "Upload metadata"
 
@@ -72,7 +48,7 @@ platform :ios do
 
     upload_to_testflight(
       api_key: $api_key,
-      ipa: "../build/bible-feed.ipa",
+      ipa: "../build/ios/ipa/bible_feed.ipa",
       skip_waiting_for_build_processing: true,
       changelog: File.read(File.expand_path("../../CHANGELOG.md", File.dirname(__FILE__)))
     )
