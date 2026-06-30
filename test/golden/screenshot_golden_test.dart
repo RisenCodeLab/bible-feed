@@ -6,6 +6,7 @@ library;
 
 import 'package:alchemist/alchemist.dart';
 import 'package:bible_feed/manager/feeds_manager.dart';
+import 'package:bible_feed/manager/catchup_manager.dart';
 import 'package:bible_feed/manager/midnight_manager.dart';
 import 'package:bible_feed/model/catchup_setting.dart';
 import 'package:bible_feed/model/chapter_split_setting.dart';
@@ -100,6 +101,7 @@ Future main() async {
             Log.info('initialise environment for new device $device');
             await Helper.clearSharedPrefs();
             Helper.initialiseFeeds();
+            (sl<DateTimeService>() as StubDateTimeService).reset();
             lastDevice = device;
           }
           Log.info(filename);
@@ -108,6 +110,7 @@ Future main() async {
           t.platformDispatcher.platformBrightnessTestValue = scenario.brightness;
           sl<ChapterSplitSetting>().value = true;
           sl<CatchupSetting>().value = true;
+          sl<CatchupManager>().reset();
           if (scenario.setup != null) scenario.setup!();
           await t.pumpAndSettle();
         },
