@@ -23,14 +23,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
-### ios build_ipa
-
-```sh
-[bundle exec] fastlane ios build_ipa
-```
-
-
-
 ### ios upload_meta
 
 ```sh
