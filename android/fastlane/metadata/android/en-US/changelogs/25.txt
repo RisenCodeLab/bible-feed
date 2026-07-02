@@ -1,0 +1,5 @@
+Added
+- more chapter splits
+
+Changed
+- fix: make Android launcher icon adaptive
