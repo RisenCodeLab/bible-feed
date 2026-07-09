@@ -1,22 +1,24 @@
+import 'package:bible_feed/injectable.dart';
+import 'package:bible_feed/manager/feed_store_manager.dart';
 import 'package:bible_feed/model/book.dart';
 import 'package:bible_feed/model/feed.dart';
 import 'package:bible_feed/model/reading_lists.dart';
-import 'package:bible_feed/manager/feed_store_manager.dart';
 import 'package:bible_feed/view/book_chapter_dialog.dart';
 import 'package:bible_feed/view/feed.dart' as view;
 import 'package:bible_feed/view/feeds.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:integration_test/integration_test.dart';
 import 'package:watch_it/watch_it.dart';
 
 import '_helper.dart';
-import '../injectable.dart';
 
 extension Helper on WidgetTester {
   Future initialiseWidget(Widget widget) async => await pumpWidget(MaterialApp(home: widget));
 }
 
 Future runWidgetTests() async {
+  IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   await configureDependencies(environment: 'integration_test');
 
   final gospels = sl<ReadingLists>()[0];

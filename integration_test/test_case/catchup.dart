@@ -1,12 +1,14 @@
+import 'package:bible_feed/injectable.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:integration_test/integration_test.dart';
 
-import '../injectable.dart';
 import '_helper.dart';
 import '_helper_catchup.dart';
 
 Future runCatchupTest() async {
   // beware, splitting this test causes strange issues with initialisation!?
   testWidgets('catchup', (t) async {
+    IntegrationTestWidgetsFlutterBinding.ensureInitialized();
     await configureDependencies(environment: 'integration_test');
 
     await t.startApp();

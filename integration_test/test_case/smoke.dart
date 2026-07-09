@@ -1,10 +1,12 @@
+import 'package:bible_feed/injectable.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:integration_test/integration_test.dart';
 
 import '_helper.dart';
-import '../injectable.dart';
 
 Future runSmokeTest() async {
   testWidgets('smoke', (t) async {
+    IntegrationTestWidgetsFlutterBinding.ensureInitialized();
     await configureDependencies(environment: 'integration_test');
     await t.startApp();
     await t.tapAllLists();
