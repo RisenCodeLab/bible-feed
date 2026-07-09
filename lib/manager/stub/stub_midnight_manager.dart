@@ -1,6 +1,7 @@
-import 'package:bible_feed/injectable.env.dart';
-import 'package:bible_feed/manager/midnight_manager.dart';
 import 'package:injectable/injectable.dart';
+
+import '../../injectable.env.dart';
+import '../midnight_manager.dart';
 
 @integrationTest
 @LazySingleton(as: MidnightManager)

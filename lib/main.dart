@@ -8,7 +8,7 @@ Future<void> main() async {
   Log.start('starting app');
 
   WidgetsFlutterBinding.ensureInitialized();
-  await configureDependencies();
+  await configureDependencies(environment: 'prod');
   runApp(AppBase());
 
   final view = MediaQueryData.fromView(WidgetsBinding.instance.platformDispatcher.views.first);

@@ -5,8 +5,8 @@ import 'package:watch_it/watch_it.dart';
 
 import '_helper.dart';
 import '../injectable.dart';
-import '../manager/stub_midnight_manager.dart';
-import '../service/stub_date_time_service.dart';
+import 'package:bible_feed/manager/stub/stub_midnight_manager.dart';
+import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 
 Future runMidnightAdvanceTest() async {
   testWidgets('auto advance at midnight', (t) async {

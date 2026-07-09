@@ -56,9 +56,9 @@ import 'package:bible_feed/service/url_launch_service.dart' as _i626;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
-import 'manager/stub_midnight_manager.dart' as _i491;
-import 'service/empty_store_service.dart' as _i617;
-import 'service/stub_date_time_service.dart' as _i738;
+import 'package:bible_feed/manager/stub/stub_midnight_manager.dart' as _i491;
+import 'package:bible_feed/service/stub/empty_store_service.dart' as _i617;
+import 'package:bible_feed/service/stub/stub_date_time_service.dart' as _i738;
 
 const String _integration_test = 'integration_test';
 const String _golden = 'golden';

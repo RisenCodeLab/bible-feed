@@ -5,6 +5,7 @@ import 'injectable.config.dart'; // AUTO-GENERATED
 
 @InjectableInit(generateForDir: ['lib'])
 // ignore: prefer-static-class, allow global
-Future configureDependencies() async {
-  await di.init(environment: 'prod');
+Future configureDependencies({required String environment}) async {
+  await di.reset();
+  await di.init(environment: environment);
 }

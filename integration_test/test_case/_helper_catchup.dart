@@ -4,8 +4,8 @@ import 'package:bible_feed/service/date_time_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:watch_it/watch_it.dart';
 
-import '../manager/stub_midnight_manager.dart';
-import '../service/stub_date_time_service.dart';
+import 'package:bible_feed/manager/stub/stub_midnight_manager.dart';
+import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import '_helper.dart';
 
 final catchupFabKey = 'catchup_fab';
