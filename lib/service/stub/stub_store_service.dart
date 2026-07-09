@@ -5,17 +5,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 @integrationTest
 @LazySingleton(as: StoreService)
-class EmptyStoreService extends StoreService {
+class StubStoreService extends StoreService {
   // TODO replace with SharedPreferencesWithCache when it supports unit tests
   // https://github.com/flutter/flutter/issues/159597
 
-  EmptyStoreService(super._sharedPreferences);
+  StubStoreService(super._sharedPreferences);
 
   @factoryMethod
   @preResolve
   static Future<StoreService> create() async {
     final sp = await SharedPreferences.getInstance();
     sp.clear();
-    return EmptyStoreService(sp);
+    return StubStoreService(sp);
   }
 }

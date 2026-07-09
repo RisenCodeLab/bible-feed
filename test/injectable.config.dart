@@ -52,8 +52,8 @@ import 'package:bible_feed/service/haptic_service.dart' as _i22;
 import 'package:bible_feed/service/platform_event_service.dart' as _i516;
 import 'package:bible_feed/service/platform_service.dart' as _i578;
 import 'package:bible_feed/service/store_service.dart' as _i215;
-import 'package:bible_feed/service/stub/empty_store_service.dart' as _i536;
 import 'package:bible_feed/service/stub/stub_date_time_service.dart' as _i543;
+import 'package:bible_feed/service/stub/stub_store_service.dart' as _i94;
 import 'package:bible_feed/service/toast_service.dart' as _i942;
 import 'package:bible_feed/service/url_launch_service.dart' as _i626;
 import 'package:get_it/get_it.dart' as _i174;
@@ -116,6 +116,11 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i543.StubDateTimeService(),
       registerFor: {_integration_test},
     );
+    await gh.lazySingletonAsync<_i215.StoreService>(
+      () => _i94.StubStoreService.create(),
+      registerFor: {_integration_test},
+      preResolve: true,
+    );
     gh.lazySingleton<_i823.ReadingLists>(
       () => _i823.ReadingLists(gh<List<_i279.ReadingList>>()),
     );
@@ -130,10 +135,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i1070.BibleReaders>(
       () => _i1070.BibleReaders(gh<List<_i270.BibleReader>>()),
     );
-    await gh.lazySingletonAsync<_i215.StoreService>(
-      () => _i536.EmptyStoreService.create(),
-      registerFor: {_integration_test},
-      preResolve: true,
+    gh.lazySingleton<_i571.FeedStoreManager>(
+      () => _i571.FeedStoreManager(gh<_i215.StoreService>()),
     );
     gh.lazySingleton<_i10.ChapterSplitManager>(
       () => _i10.ChapterSplitManager(
@@ -169,6 +172,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i22.HapticService>(
       () => _i149.GoldenHapticService(),
       registerFor: {_golden},
+    );
+    gh.lazySingleton<_i127.FeedsManager>(
+      () => _i127.FeedsManager(
+        gh<_i571.FeedStoreManager>(),
+        gh<_i823.ReadingLists>(),
+      ),
     );
     gh.lazySingleton<_i99.DateTimeService>(
       () => _i99.NowDateTimeService(),
@@ -213,8 +222,12 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i626.UrlLaunchService>(),
       ),
     );
-    gh.lazySingleton<_i571.FeedStoreManager>(
-      () => _i571.FeedStoreManager(gh<_i215.StoreService>()),
+    gh.lazySingleton<_i477.FeedsAdvanceManager>(
+      () => _i477.FeedsAdvanceManager(
+        gh<_i99.DateTimeService>(),
+        gh<_i716.FeedAdvanceManager>(),
+        gh<_i127.FeedsManager>(),
+      ),
     );
     gh.singleton<_i438.MidnightManager>(
       () => _i438.ProdMidnightManager(
@@ -227,23 +240,17 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i516.ProductionPlatformEventService(gh<_i578.PlatformService>()),
       registerFor: {_integration_test, _prod},
     );
-    gh.lazySingleton<_i127.FeedsManager>(
-      () => _i127.FeedsManager(
-        gh<_i571.FeedStoreManager>(),
-        gh<_i823.ReadingLists>(),
-      ),
-    );
     gh.lazySingleton<_i567.BibleReaderLinkManager>(
       () => _i567.BibleReaderLinkManager(
         gh<_i215.StoreService>(),
         gh<_i837.BibleReadersCertifiedManager>(),
       ),
     );
-    gh.lazySingleton<_i477.FeedsAdvanceManager>(
-      () => _i477.FeedsAdvanceManager(
-        gh<_i99.DateTimeService>(),
-        gh<_i716.FeedAdvanceManager>(),
-        gh<_i127.FeedsManager>(),
+    gh.lazySingleton<_i111.AutoAdvanceManager>(
+      () => _i111.AutoAdvanceManager(
+        gh<_i540.AppLifecycleManager>(),
+        gh<_i477.FeedsAdvanceManager>(),
+        gh<_i438.MidnightManager>(),
       ),
     );
     gh.lazySingleton<_i610.AppInstallManager>(
@@ -309,13 +316,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i1033.ChapterListWheelState>(),
         gh<_i252.ChapterSplitSetting>(),
         gh<_i583.FeedTapManager>(),
-      ),
-    );
-    gh.lazySingleton<_i111.AutoAdvanceManager>(
-      () => _i111.AutoAdvanceManager(
-        gh<_i540.AppLifecycleManager>(),
-        gh<_i477.FeedsAdvanceManager>(),
-        gh<_i438.MidnightManager>(),
       ),
     );
     gh.singleton<_i468.DeepLinkInManager>(
