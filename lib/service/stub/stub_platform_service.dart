@@ -1,5 +1,5 @@
-import 'package:bible_feed/injectable.env.dart';
-import 'package:bible_feed/service/platform_service.dart';
+import '../../injectable.env.dart';
+import '../platform_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 

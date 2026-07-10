@@ -21,8 +21,8 @@ import 'package:watch_it/watch_it.dart';
 import '../../integration_test/test_case/_helper.dart';
 import '../injectable.dart';
 import 'helper.dart';
-import 'stub/stub_date_time_service.dart';
-import 'stub/stub_midnight_manager.dart';
+import 'package:bible_feed/service/stub/stub_date_time_service_golden.dart';
+import 'package:bible_feed/manager/stub/stub_midnight_manager.dart';
 
 enum Platform { android, iOS }
 
@@ -75,7 +75,7 @@ void setupAllDone() {
 }
 
 void setupCatchup() {
-  (sl<DateTimeService>() as StubDateTimeService).advance1day();
+  (sl<DateTimeService>() as StubDateTimeServiceGolden).advance1day();
   (sl<MidnightManager>() as StubMidnightManager).notify();
 }
 
@@ -101,7 +101,7 @@ Future main() async {
             Log.info('initialise environment for new device $device');
             await Helper.clearSharedPrefs();
             Helper.initialiseFeeds();
-            (sl<DateTimeService>() as StubDateTimeService).reset();
+            (sl<DateTimeService>() as StubDateTimeServiceGolden).reset();
             lastDevice = device;
           }
           Log.info(filename);

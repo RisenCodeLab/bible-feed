@@ -1,10 +1,10 @@
-import 'package:bible_feed/injectable.env.dart';
-import 'package:bible_feed/service/date_time_service.dart';
+import '../../injectable.env.dart';
+import '../date_time_service.dart';
 import 'package:injectable/injectable.dart';
 
 @golden
 @LazySingleton(as: DateTimeService)
-class StubDateTimeService extends DateTimeService {
+class StubDateTimeServiceGolden extends DateTimeService {
   static final DateTime baseNow = DateTime(2026, 7, 12);
 
   var _now = baseNow;

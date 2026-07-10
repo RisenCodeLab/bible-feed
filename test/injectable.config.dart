@@ -59,12 +59,14 @@ import 'package:bible_feed/service/url_launch_service.dart' as _i626;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
-import 'golden/stub/stub_app_service.dart' as _i252;
-import 'golden/stub/stub_date_time_service.dart' as _i319;
-import 'golden/stub/stub_haptic_service.dart' as _i149;
+import 'package:bible_feed/service/stub/stub_app_service.dart' as _i252;
+import 'package:bible_feed/service/stub/stub_date_time_service_golden.dart'
+    as _i319;
+import 'package:bible_feed/service/stub/stub_haptic_service.dart' as _i149;
 import 'golden/stub/stub_midnight_manager.dart' as _i881;
-import 'golden/stub/stub_platform_event_service.dart' as _i919;
-import 'golden/stub/stub_platform_service.dart' as _i250;
+import 'package:bible_feed/service/stub/stub_platform_event_service.dart'
+    as _i919;
+import 'package:bible_feed/service/stub/stub_platform_service.dart' as _i250;
 
 const String _integration_test = 'integration_test';
 const String _golden = 'golden';
@@ -154,7 +156,7 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i99.DateTimeService>(
-      () => _i319.StubDateTimeService(),
+      () => _i319.StubDateTimeServiceGolden(),
       registerFor: {_golden},
     );
     await gh.lazySingletonAsync<_i22.HapticService>(
