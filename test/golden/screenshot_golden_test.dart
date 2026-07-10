@@ -16,10 +16,11 @@ import 'package:bible_feed/view/app_base.dart';
 import 'package:df_log/df_log.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:watch_it/watch_it.dart';
 
 import '../../integration_test/test_case/_helper.dart';
-import '../injectable.dart';
+import 'package:bible_feed/injectable.dart';
 import 'helper.dart';
 import 'package:bible_feed/service/stub/stub_date_time_service_golden.dart';
 import 'package:bible_feed/manager/stub/stub_midnight_manager.dart';
@@ -80,7 +81,9 @@ void setupCatchup() {
 }
 
 Future main() async {
-  await configureDependencies('golden');
+  TestWidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences.setMockInitialValues({});
+  await configureDependencies(environment: 'golden');
   WidgetsApp.debugAllowBannerOverride = false; // hide the debug banner
 
   Device? lastDevice;

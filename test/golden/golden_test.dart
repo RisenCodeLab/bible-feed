@@ -7,9 +7,11 @@ import 'package:bible_feed/view/book_chapter_dialog.dart';
 import 'package:bible_feed/view/settings.dart';
 import 'package:bible_feed/view/share.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:watch_it/watch_it.dart';
 
-import '../injectable.dart';
+import 'package:bible_feed/injectable.dart';
 import 'helper.dart';
 
 class Scenario {
@@ -31,7 +33,9 @@ final scenarios = {
 };
 
 Future<void> main() async {
-  await configureDependencies('golden');
+  TestWidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences.setMockInitialValues({});
+  await configureDependencies(environment: 'golden');
   WidgetsApp.debugAllowBannerOverride = false; // hide the debug banner
 
   Helper.enableVerseScopes();

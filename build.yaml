@@ -22,8 +22,6 @@ targets:
             - lib/manager/**
             - lib/model/**
             - lib/service/**
-            - test/injectable.dart
-            - test/golden/stub/**
       mockito:mockBuilder:
         generate_for:
           include:
