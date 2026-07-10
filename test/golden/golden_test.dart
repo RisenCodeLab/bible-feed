@@ -1,7 +1,8 @@
 import 'package:alchemist/alchemist.dart';
+import 'package:bible_feed/injectable.dart';
+import 'package:bible_feed/manager/feed_store_manager.dart';
 import 'package:bible_feed/model/feed.dart';
 import 'package:bible_feed/model/reading_lists.dart';
-import 'package:bible_feed/manager/feed_store_manager.dart';
 import 'package:bible_feed/view/app.dart';
 import 'package:bible_feed/view/book_chapter_dialog.dart';
 import 'package:bible_feed/view/settings.dart';
@@ -11,7 +12,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:watch_it/watch_it.dart';
 
-import 'package:bible_feed/injectable.dart';
 import 'helper.dart';
 
 class Scenario {
