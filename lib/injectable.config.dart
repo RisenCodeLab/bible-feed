@@ -54,8 +54,6 @@ import 'package:bible_feed/service/platform_service.dart' as _i578;
 import 'package:bible_feed/service/store_service.dart' as _i215;
 import 'package:bible_feed/service/stub/stub_app_service.dart' as _i612;
 import 'package:bible_feed/service/stub/stub_date_time_service.dart' as _i543;
-import 'package:bible_feed/service/stub/stub_date_time_service_golden.dart'
-    as _i101;
 import 'package:bible_feed/service/stub/stub_haptic_service.dart' as _i602;
 import 'package:bible_feed/service/stub/stub_platform_event_service.dart'
     as _i115;
@@ -108,10 +106,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i942.ToastService>(() => _i942.ToastService());
     gh.lazySingleton<_i626.UrlLaunchService>(() => _i626.UrlLaunchService());
-    gh.lazySingleton<_i99.DateTimeService>(
-      () => _i543.StubDateTimeService(),
-      registerFor: {_integration_test},
-    );
     await gh.lazySingletonAsync<_i215.StoreService>(
       () => _i94.StubStoreService.create(),
       registerFor: {_integration_test},
@@ -149,6 +143,10 @@ extension GetItInjectableX on _i174.GetIt {
       registerFor: {_golden},
       preResolve: true,
     );
+    gh.lazySingleton<_i99.DateTimeService>(
+      () => _i543.StubDateTimeService(),
+      registerFor: {_golden, _integration_test},
+    );
     gh.lazySingleton<_i516.PlatformEventService>(
       () => _i115.ScreenshotPlatformEventService(),
       registerFor: {_golden},
@@ -182,10 +180,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i578.PlatformService>(
       () => _i792.ScreenshotPlatformService(),
-      registerFor: {_golden},
-    );
-    gh.lazySingleton<_i99.DateTimeService>(
-      () => _i101.StubDateTimeServiceGolden(),
       registerFor: {_golden},
     );
     gh.lazySingleton<_i578.PlatformService>(

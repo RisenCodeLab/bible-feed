@@ -5,13 +5,16 @@ library;
 // They are resized and moved to fastlane by external scripts.
 
 import 'package:alchemist/alchemist.dart';
-import 'package:bible_feed/manager/feeds_manager.dart';
+import 'package:bible_feed/injectable.dart';
 import 'package:bible_feed/manager/catchup_manager.dart';
+import 'package:bible_feed/manager/feeds_manager.dart';
 import 'package:bible_feed/manager/midnight_manager.dart';
+import 'package:bible_feed/manager/stub/stub_midnight_manager.dart';
 import 'package:bible_feed/model/catchup_setting.dart';
 import 'package:bible_feed/model/chapter_split_setting.dart';
 import 'package:bible_feed/service/date_time_service.dart';
 import 'package:bible_feed/service/platform_service.dart';
+import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:bible_feed/view/app_base.dart';
 import 'package:df_log/df_log.dart';
 import 'package:flutter/material.dart';
@@ -20,10 +23,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:watch_it/watch_it.dart';
 
 import '../../integration_test/test_case/_helper.dart';
-import 'package:bible_feed/injectable.dart';
 import 'helper.dart';
-import 'package:bible_feed/service/stub/stub_date_time_service_golden.dart';
-import 'package:bible_feed/manager/stub/stub_midnight_manager.dart';
 
 enum Platform { android, iOS }
 
@@ -76,7 +76,7 @@ void setupAllDone() {
 }
 
 void setupCatchup() {
-  (sl<DateTimeService>() as StubDateTimeServiceGolden).advance1day();
+  (sl<DateTimeService>() as StubDateTimeService).advance1day();
   (sl<MidnightManager>() as StubMidnightManager).notify();
 }
 
@@ -104,7 +104,7 @@ Future main() async {
             Log.info('initialise environment for new device $device');
             await Helper.clearSharedPrefs();
             Helper.initialiseFeeds();
-            (sl<DateTimeService>() as StubDateTimeServiceGolden).reset();
+            (sl<DateTimeService>() as StubDateTimeService).reset();
             lastDevice = device;
           }
           Log.info(filename);
