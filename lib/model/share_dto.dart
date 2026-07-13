@@ -11,6 +11,6 @@ class ShareDto with ShareDtoMappable {
   ShareDto({required this.buildNumber, required this.feedStateList, required this.virtualAllDoneDate});
 
   final String buildNumber;
-  final List<FeedState> feedStateList;
+  final List<Feed> feedStateList;
   final DateTime virtualAllDoneDate;
 }

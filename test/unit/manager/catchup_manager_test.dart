@@ -52,7 +52,7 @@ void main() {
     when(mockCatchupSetting.value).thenReturn(true);
     when(mockDateTimeService.now).thenReturn(DateTime.now());
     when(mockFeedsManager.chaptersToRead).thenReturn(7);
-    when(mockFeedsManager.feeds).thenReturn(List.filled(10, FeedManager(rl0, FeedState(bookKey: ''))));
+    when(mockFeedsManager.feeds).thenReturn(List.filled(10, FeedManager(rl0, Feed(bookKey: ''))));
 
     testee = CatchupManager(
       mockAppLifecycleManager,

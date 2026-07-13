@@ -22,7 +22,7 @@ void main() {
   });
 
   test('handleTap toggles read, and launches reader', () async {
-    final feed = FeedManager(rl0, FeedState(bookKey: b0.key));
+    final feed = FeedManager(rl0, Feed(bookKey: b0.key));
     when(mockLinkManager.linkedBibleReader).thenReturn(blbBibleReader);
 
     await feedTapManager.handleTap(feed);

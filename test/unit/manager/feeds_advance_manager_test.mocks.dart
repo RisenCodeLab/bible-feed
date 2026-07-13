@@ -40,7 +40,7 @@ class _FakeBook_1 extends _i1.SmartFake implements _i2.Book {
     : super(parent, parentInvocation);
 }
 
-class _FakeFeedState_2 extends _i1.SmartFake implements _i4.FeedState {
+class _FakeFeedState_2 extends _i1.SmartFake implements _i4.Feed {
   _FakeFeedState_2(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
@@ -121,16 +121,16 @@ class MockFeedManager extends _i1.Mock implements _i4.FeedManager {
           as _i5.ReadingList);
 
   @override
-  _i4.FeedState get state =>
+  _i4.Feed get state =>
       (super.noSuchMethod(
             Invocation.getter(#state),
             returnValue: _FakeFeedState_2(this, Invocation.getter(#state)),
             returnValueForMissingStub: _FakeFeedState_2(this, Invocation.getter(#state)),
           )
-          as _i4.FeedState);
+          as _i4.Feed);
 
   @override
-  set state(_i4.FeedState? value) => super.noSuchMethod(
+  set state(_i4.Feed? value) => super.noSuchMethod(
     Invocation.setter(#state, value),
     returnValueForMissingStub: null,
   );

@@ -15,7 +15,7 @@ class ShareDtoMapper extends ClassMapperBase<ShareDto> {
   static ShareDtoMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = ShareDtoMapper._());
-      FeedStateMapper.ensureInitialized();
+      FeedMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -28,8 +28,8 @@ class ShareDtoMapper extends ClassMapperBase<ShareDto> {
     'buildNumber',
     _$buildNumber,
   );
-  static List<FeedState> _$feedStateList(ShareDto v) => v.feedStateList;
-  static const Field<ShareDto, List<FeedState>> _f$feedStateList = Field(
+  static List<Feed> _$feedStateList(ShareDto v) => v.feedStateList;
+  static const Field<ShareDto, List<Feed>> _f$feedStateList = Field(
     'feedStateList',
     _$feedStateList,
   );
@@ -111,11 +111,11 @@ extension ShareDtoValueCopy<$R, $Out> on ObjectCopyWith<$R, ShareDto, $Out> {
 
 abstract class ShareDtoCopyWith<$R, $In extends ShareDto, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, FeedState, FeedStateCopyWith<$R, FeedState, FeedState>>
+  ListCopyWith<$R, Feed, FeedCopyWith<$R, Feed, Feed>>
   get feedStateList;
   $R call({
     String? buildNumber,
-    List<FeedState>? feedStateList,
+    List<Feed>? feedStateList,
     DateTime? virtualAllDoneDate,
   });
   ShareDtoCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -130,7 +130,7 @@ class _ShareDtoCopyWithImpl<$R, $Out>
   late final ClassMapperBase<ShareDto> $mapper =
       ShareDtoMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, FeedState, FeedStateCopyWith<$R, FeedState, FeedState>>
+  ListCopyWith<$R, Feed, FeedCopyWith<$R, Feed, Feed>>
   get feedStateList => ListCopyWith(
     $value.feedStateList,
     (v, t) => v.copyWith.$chain(t),
@@ -139,7 +139,7 @@ class _ShareDtoCopyWithImpl<$R, $Out>
   @override
   $R call({
     String? buildNumber,
-    List<FeedState>? feedStateList,
+    List<Feed>? feedStateList,
     DateTime? virtualAllDoneDate,
   }) => $apply(
     FieldCopyWithData({
@@ -163,4 +163,3 @@ class _ShareDtoCopyWithImpl<$R, $Out>
     Then<$Out2, $R2> t,
   ) => _ShareDtoCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
-

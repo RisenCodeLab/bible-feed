@@ -25,7 +25,7 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: subtype_of_sealed_class
 // ignore_for_file: invalid_use_of_internal_member
 
-class _FakeFeedState_0 extends _i1.SmartFake implements _i2.FeedState {
+class _FakeFeedState_0 extends _i1.SmartFake implements _i2.Feed {
   _FakeFeedState_0(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
@@ -35,7 +35,7 @@ class _FakeFeedState_0 extends _i1.SmartFake implements _i2.FeedState {
 /// See the documentation for Mockito's code generation for more information.
 class MockFeedStoreManager extends _i1.Mock implements _i3.FeedStoreManager {
   @override
-  _i2.FeedState loadState(_i4.ReadingList? readingList) =>
+  _i2.Feed loadState(_i4.ReadingList? readingList) =>
       (super.noSuchMethod(
             Invocation.method(#loadState, [readingList]),
             returnValue: _FakeFeedState_0(
@@ -47,12 +47,12 @@ class MockFeedStoreManager extends _i1.Mock implements _i3.FeedStoreManager {
               Invocation.method(#loadState, [readingList]),
             ),
           )
-          as _i2.FeedState);
+          as _i2.Feed);
 
   @override
   _i5.Future<dynamic> saveState(
     _i4.ReadingList? readingList,
-    _i2.FeedState? state,
+    _i2.Feed? state,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#saveState, [readingList, state]),

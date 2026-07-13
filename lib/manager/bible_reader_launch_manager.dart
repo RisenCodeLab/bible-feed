@@ -27,7 +27,7 @@ class BibleReaderLaunchManager {
     return _urlLaunchService.canLaunchUrl(_getDeeplinkUrl(bibleReader, externalBookKey, 1));
   }
 
-  Future<void> maybeLaunch(BibleReader bibleReader, FeedState state) async {
+  Future<void> maybeLaunch(BibleReader bibleReader, Feed state) async {
     if (bibleReader.isNone || !state.isRead) return;
     final url = _getDeeplinkUrl(bibleReader, state.bookKey, state.chapter, state.verse);
     final success = await _urlLaunchService.launchUrl(url);

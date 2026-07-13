@@ -65,7 +65,7 @@ void main() async {
         bool launchOk, [
         String? expectLaunchUrl,
       ]) async {
-        final state = FeedState(bookKey: b0.key, verse: verse, isRead: isRead);
+        final state = Feed(bookKey: b0.key, verse: verse, isRead: isRead);
         when(mockPlatformService.currentPlatform).thenReturn(currentPlatform);
         when(mockUrlLaunchService.launchUrl(any)).thenAnswer((_) async => launchOk);
 
@@ -80,13 +80,13 @@ void main() async {
     );
 
     test('should throw exception if launchUrl returns false', () async {
-      final state = FeedState(bookKey: b0.key, isRead: true);
+      final state = Feed(bookKey: b0.key, isRead: true);
       when(mockUrlLaunchService.launchUrl(any)).thenAnswer((_) async => false);
       expect(() => testee.maybeLaunch(blbBibleReader, state), throwsException);
     });
 
     test('should return LaunchFailed on PlatformException', () async {
-      var state = FeedState(bookKey: b1.key, isRead: true);
+      var state = Feed(bookKey: b1.key, isRead: true);
       when(mockUrlLaunchService.launchUrl(any)).thenThrow(PlatformException(code: 'code'));
       expect(() => testee.maybeLaunch(blbBibleReader, state), throwsException);
     });

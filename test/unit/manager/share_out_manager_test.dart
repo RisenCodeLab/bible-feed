@@ -26,8 +26,8 @@ void main() {
   });
 
   test('getJson returns correct JSON string', () {
-    final feedState1 = FeedState(bookKey: b0.key, chapter: 1);
-    final feedState2 = FeedState(bookKey: b1.key, chapter: 2);
+    final feedState1 = Feed(bookKey: b0.key, chapter: 1);
+    final feedState2 = Feed(bookKey: b1.key, chapter: 2);
     final mockFeed1 = MockFeedManager();
     final mockFeed2 = MockFeedManager();
 

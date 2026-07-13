@@ -13,11 +13,11 @@ import 'feed_advance_manager_test.mocks.dart';
 void main() async {
   final mockChapterSplitManager = MockChapterSplitManager();
   late FeedManager feed;
-  late FeedState state;
+  late Feed state;
   late FeedAdvanceManager testee;
 
   setUp(() {
-    state = FeedState(bookKey: b1.key);
+    state = Feed(bookKey: b1.key);
     feed = FeedManager(rl1, state);
     when(mockChapterSplitManager.getNextVerse(state)).thenReturn(1);
     testee = FeedAdvanceManager(mockChapterSplitManager);

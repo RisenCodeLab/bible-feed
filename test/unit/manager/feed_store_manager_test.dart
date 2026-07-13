@@ -49,7 +49,7 @@ void main() async {
 
   group('saveState', () {
     test('should save to store', () async {
-      await testee.saveState(rl1, FeedState(bookKey: b1.key, chapter: 2, dateModified: yesterday, isRead: true, verse: 3));
+      await testee.saveState(rl1, Feed(bookKey: b1.key, chapter: 2, dateModified: yesterday, isRead: true, verse: 3));
       verify(mockStoreService.set('rl1.book', 'b1')).called(1);
       verify(mockStoreService.set('rl1.chapter', 2)).called(1);
       verify(mockStoreService.set('rl1.dateModified', yesterday)).called(1);

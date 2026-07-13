@@ -89,7 +89,7 @@ void main() async {
       when(mockFeedsManager.lastModifiedFeed).thenReturn(mockFeedList[0]);
       when(
         mockFeedList[0].state,
-      ).thenReturn(FeedState(bookKey: b0.key, isRead: true, dateModified: date - sinceLastModified));
+      ).thenReturn(Feed(bookKey: b0.key, isRead: true, dateModified: date - sinceLastModified));
       expect(testee.maybeAdvance(), expectedAdvanceState);
       verify();
     },

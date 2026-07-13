@@ -8,52 +8,52 @@
 
 part of 'package:bible_feed/manager/feed_manager.dart';
 
-class FeedStateMapper extends ClassMapperBase<FeedState> {
-  FeedStateMapper._();
+class FeedMapper extends ClassMapperBase<Feed> {
+  FeedMapper._();
 
-  static FeedStateMapper? _instance;
-  static FeedStateMapper ensureInitialized() {
+  static FeedMapper? _instance;
+  static FeedMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = FeedStateMapper._());
+      MapperContainer.globals.use(_instance = FeedMapper._());
     }
     return _instance!;
   }
 
   @override
-  final String id = 'FeedState';
+  final String id = 'Feed';
 
-  static String _$_bookKey(FeedState v) => v._bookKey;
-  static const Field<FeedState, String> _f$_bookKey = Field(
+  static String _$_bookKey(Feed v) => v._bookKey;
+  static const Field<Feed, String> _f$_bookKey = Field(
     '_bookKey',
     _$_bookKey,
     key: r'bookKey',
   );
-  static int _$_chapter(FeedState v) => v._chapter;
-  static const Field<FeedState, int> _f$_chapter = Field(
+  static int _$_chapter(Feed v) => v._chapter;
+  static const Field<Feed, int> _f$_chapter = Field(
     '_chapter',
     _$_chapter,
     key: r'chapter',
     opt: true,
     def: 1,
   );
-  static int _$_verse(FeedState v) => v._verse;
-  static const Field<FeedState, int> _f$_verse = Field(
+  static int _$_verse(Feed v) => v._verse;
+  static const Field<Feed, int> _f$_verse = Field(
     '_verse',
     _$_verse,
     key: r'verse',
     opt: true,
     def: 1,
   );
-  static bool _$_isRead(FeedState v) => v._isRead;
-  static const Field<FeedState, bool> _f$_isRead = Field(
+  static bool _$_isRead(Feed v) => v._isRead;
+  static const Field<Feed, bool> _f$_isRead = Field(
     '_isRead',
     _$_isRead,
     key: r'isRead',
     opt: true,
     def: false,
   );
-  static DateTime? _$_dateModified(FeedState v) => v._dateModified;
-  static const Field<FeedState, DateTime> _f$_dateModified = Field(
+  static DateTime? _$_dateModified(Feed v) => v._dateModified;
+  static const Field<Feed, DateTime> _f$_dateModified = Field(
     '_dateModified',
     _$_dateModified,
     key: r'dateModified',
@@ -61,7 +61,7 @@ class FeedStateMapper extends ClassMapperBase<FeedState> {
   );
 
   @override
-  final MappableFields<FeedState> fields = const {
+  final MappableFields<Feed> fields = const {
     #_bookKey: _f$_bookKey,
     #_chapter: _f$_chapter,
     #_verse: _f$_verse,
@@ -69,8 +69,8 @@ class FeedStateMapper extends ClassMapperBase<FeedState> {
     #_dateModified: _f$_dateModified,
   };
 
-  static FeedState _instantiate(DecodingData data) {
-    return FeedState(
+  static Feed _instantiate(DecodingData data) {
+    return Feed(
       bookKey: data.dec(_f$_bookKey),
       chapter: data.dec(_f$_chapter),
       verse: data.dec(_f$_verse),
@@ -82,61 +82,61 @@ class FeedStateMapper extends ClassMapperBase<FeedState> {
   @override
   final Function instantiate = _instantiate;
 
-  static FeedState fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<FeedState>(map);
+  static Feed fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<Feed>(map);
   }
 
-  static FeedState fromJson(String json) {
-    return ensureInitialized().decodeJson<FeedState>(json);
+  static Feed fromJson(String json) {
+    return ensureInitialized().decodeJson<Feed>(json);
   }
 }
 
-mixin FeedStateMappable {
+mixin FeedMappable {
   String toJson() {
-    return FeedStateMapper.ensureInitialized().encodeJson<FeedState>(
-      this as FeedState,
+    return FeedMapper.ensureInitialized().encodeJson<Feed>(
+      this as Feed,
     );
   }
 
   Map<String, dynamic> toMap() {
-    return FeedStateMapper.ensureInitialized().encodeMap<FeedState>(
-      this as FeedState,
+    return FeedMapper.ensureInitialized().encodeMap<Feed>(
+      this as Feed,
     );
   }
 
-  FeedStateCopyWith<FeedState, FeedState, FeedState> get copyWith =>
-      _FeedStateCopyWithImpl<FeedState, FeedState>(
-        this as FeedState,
+  FeedCopyWith<Feed, Feed, Feed> get copyWith =>
+      _FeedCopyWithImpl<Feed, Feed>(
+        this as Feed,
         $identity,
         $identity,
       );
   @override
   String toString() {
-    return FeedStateMapper.ensureInitialized().stringifyValue(
-      this as FeedState,
+    return FeedMapper.ensureInitialized().stringifyValue(
+      this as Feed,
     );
   }
 
   @override
   bool operator ==(Object other) {
-    return FeedStateMapper.ensureInitialized().equalsValue(
-      this as FeedState,
+    return FeedMapper.ensureInitialized().equalsValue(
+      this as Feed,
       other,
     );
   }
 
   @override
   int get hashCode {
-    return FeedStateMapper.ensureInitialized().hashValue(this as FeedState);
+    return FeedMapper.ensureInitialized().hashValue(this as Feed);
   }
 }
 
-extension FeedStateValueCopy<$R, $Out> on ObjectCopyWith<$R, FeedState, $Out> {
-  FeedStateCopyWith<$R, FeedState, $Out> get $asFeedState =>
-      $base.as((v, t, t2) => _FeedStateCopyWithImpl<$R, $Out>(v, t, t2));
+extension FeedValueCopy<$R, $Out> on ObjectCopyWith<$R, Feed, $Out> {
+  FeedCopyWith<$R, Feed, $Out> get $asFeed =>
+      $base.as((v, t, t2) => _FeedCopyWithImpl<$R, $Out>(v, t, t2));
 }
 
-abstract class FeedStateCopyWith<$R, $In extends FeedState, $Out>
+abstract class FeedCopyWith<$R, $In extends Feed, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   $R call({
     String? bookKey,
@@ -145,17 +145,16 @@ abstract class FeedStateCopyWith<$R, $In extends FeedState, $Out>
     bool? isRead,
     DateTime? dateModified,
   });
-  FeedStateCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
+  FeedCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
-class _FeedStateCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, FeedState, $Out>
-    implements FeedStateCopyWith<$R, FeedState, $Out> {
-  _FeedStateCopyWithImpl(super.value, super.then, super.then2);
+class _FeedCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, Feed, $Out>
+    implements FeedCopyWith<$R, Feed, $Out> {
+  _FeedCopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final ClassMapperBase<FeedState> $mapper =
-      FeedStateMapper.ensureInitialized();
+  late final ClassMapperBase<Feed> $mapper = FeedMapper.ensureInitialized();
   @override
   $R call({
     String? bookKey,
@@ -173,7 +172,7 @@ class _FeedStateCopyWithImpl<$R, $Out>
     }),
   );
   @override
-  FeedState $make(CopyWithData data) => FeedState(
+  Feed $make(CopyWithData data) => Feed(
     bookKey: data.get(#bookKey, or: $value._bookKey),
     chapter: data.get(#chapter, or: $value._chapter),
     verse: data.get(#verse, or: $value._verse),
@@ -182,7 +181,7 @@ class _FeedStateCopyWithImpl<$R, $Out>
   );
 
   @override
-  FeedStateCopyWith<$R2, FeedState, $Out2> $chain<$R2, $Out2>(
+  FeedCopyWith<$R2, Feed, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
-  ) => _FeedStateCopyWithImpl<$R2, $Out2>($value, $cast, t);
+  ) => _FeedCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }

@@ -6,10 +6,10 @@ import '../test_data.dart';
 
 void main() async {
   late FeedManager testee;
-  late FeedState state;
+  late Feed state;
 
   setUp(() {
-    state = FeedState(bookKey: b1.key);
+    state = Feed(bookKey: b1.key);
     testee = FeedManager(rl1, state);
   });
 
@@ -47,7 +47,7 @@ void main() async {
     });
 
     test('state set', () {
-      final state0 = FeedState(bookKey: b0.key);
+      final state0 = Feed(bookKey: b0.key);
       testee.state = state0;
       expect(testee.state, state0);
     });

@@ -1,14 +1,14 @@
 part of 'package:bible_feed/manager/feed_manager.dart';
 
 @MappableClass()
-class FeedState with FeedStateMappable {
+class Feed with FeedMappable {
   String _bookKey;
   int _chapter;
   DateTime? _dateModified;
   bool _isRead;
   int _verse;
 
-  FeedState({required String bookKey, int chapter = 1, int verse = 1, bool isRead = false, DateTime? dateModified})
+  Feed({required String bookKey, int chapter = 1, int verse = 1, bool isRead = false, DateTime? dateModified})
     : _bookKey = bookKey,
       _chapter = chapter,
       _dateModified = dateModified,

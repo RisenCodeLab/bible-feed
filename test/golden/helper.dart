@@ -40,7 +40,7 @@ class Helper {
     for (int row = 0; row < 5; row++) {
       for (int col = 0; col < 2; col++) {
         final feed = sl<FeedsManager>().feeds[row * 2 + col];
-        feed.state = FeedState(
+        feed.state = Feed(
           bookKey: feed.readingList[bookState[row][col]].key,
           chapter: chapterState[row][col],
           verse: 1,

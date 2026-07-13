@@ -4,13 +4,13 @@ import 'package:flutter/foundation.dart';
 import '../model/book.dart';
 import '../model/reading_list.dart';
 
-part '../model/feed_state.dart';
+part '../model/feed.dart';
 part '../model/feed.mapper.dart';
 
 // FeedManager manages the reading state of a given list of books
 class FeedManager with ChangeNotifier {
   final ReadingList _readingList;
-  FeedState _state;
+  Feed _state;
 
   FeedManager(this._readingList, this._state);
 
@@ -19,9 +19,9 @@ class FeedManager with ChangeNotifier {
   int get chaptersRead => _state._chapter - (_state._isRead ? 0 : 1);
   double get progress => _readingList.progressTo(bookIndex, chaptersRead);
   ReadingList get readingList => _readingList;
-  FeedState get state => _state;
+  Feed get state => _state;
 
-  set state(FeedState value) {
+  set state(Feed value) {
     _state = value;
     notifyListeners();
   }

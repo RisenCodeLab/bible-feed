@@ -11,9 +11,9 @@ class ChapterSplitManager {
 
   ChapterSplitManager(this._chapterSplitters, this._chapterSplitSetting);
 
-  int getNextVerse(FeedState state) =>
+  int getNextVerse(Feed state) =>
       _chapterSplitSetting.value ? (_chapterSplitters.find(state)?.getNextVerse(state) ?? 1) : 1;
 
-  String getLabel(FeedState state) =>
+  String getLabel(Feed state) =>
       _chapterSplitSetting.value ? (_chapterSplitters.find(state)?.getLabel(state) ?? '') : '';
 }

@@ -13,13 +13,13 @@ import 'feeds_manager_test.mocks.dart';
 void main() async {
   late FeedsManager testee;
   late MockFeedStoreManager mockFeedStoreManager;
-  late FeedState state0;
-  late FeedState state1;
+  late Feed state0;
+  late Feed state1;
 
   setUp(() {
     mockFeedStoreManager = MockFeedStoreManager();
-    state0 = FeedState(bookKey: b0.key, isRead: true, dateModified: DateTime(2025, 1, 1, 1));
-    state1 = FeedState(bookKey: b1.key, dateModified: DateTime(2025, 1, 1, 2));
+    state0 = Feed(bookKey: b0.key, isRead: true, dateModified: DateTime(2025, 1, 1, 1));
+    state1 = Feed(bookKey: b1.key, dateModified: DateTime(2025, 1, 1, 2));
     when(mockFeedStoreManager.loadState(rl0)).thenReturn(state0);
     when(mockFeedStoreManager.loadState(rl1)).thenReturn(state1);
     testee = FeedsManager(mockFeedStoreManager, ReadingLists([rl0, rl1]));

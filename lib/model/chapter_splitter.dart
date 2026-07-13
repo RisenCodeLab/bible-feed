@@ -15,13 +15,13 @@ class ChapterSplitter {
     return label.replaceAll('_', String.fromCharCode(nonBreakingSpaceCharCode));
   }
 
-  int getNextVerse(FeedState state) {
+  int getNextVerse(Feed state) {
     assert(state.bookKey == bookKey);
     assert(state.chapter == chapter);
     return verses.elementAtOrNull(verses.indexOf(state.verse) + 1) ?? 1;
   }
 
-  String getLabel(FeedState state) {
+  String getLabel(Feed state) {
     assert(state.bookKey == bookKey);
     assert(state.chapter == chapter);
     final nextVerse = getNextVerse(state);

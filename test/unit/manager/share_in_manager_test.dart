@@ -38,7 +38,7 @@ void main() {
   });
 
   test('sync throws exception on mismatched build number', () {
-    final feedState = FeedState(bookKey: b0.key, chapter: 1);
+    final feedState = Feed(bookKey: b0.key, chapter: 1);
     final syncDto = ShareDto(
       buildNumber: 'wrong_build',
       feedStateList: [feedState],
@@ -50,8 +50,8 @@ void main() {
   });
 
   test('sync updates feed states and CatchupManager.virtualAllDoneDate on valid JSON with matching build number', () {
-    final feedState1 = FeedState(bookKey: b0.key, chapter: 1);
-    final feedState2 = FeedState(bookKey: b1.key, chapter: 2);
+    final feedState1 = Feed(bookKey: b0.key, chapter: 1);
+    final feedState2 = Feed(bookKey: b1.key, chapter: 2);
     final shareDto = ShareDto(
       buildNumber: buildNumber,
       feedStateList: [feedState1, feedState2],
