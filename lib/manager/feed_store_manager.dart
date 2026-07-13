@@ -10,7 +10,7 @@ class FeedStoreManager {
 
   FeedStoreManager(this._storeService);
 
-  Feed loadState(ReadingList readingList) {
+  Feed load(ReadingList readingList) {
     const defaultChapter = 1;
     const defaultVerse = 1;
 
@@ -23,7 +23,7 @@ class FeedStoreManager {
     );
   }
 
-  Future saveState(ReadingList readingList, Feed state) async {
+  Future save(ReadingList readingList, Feed state) async {
     await _storeService.set('${readingList.key}.book', state.bookKey);
     await _storeService.set('${readingList.key}.chapter', state.chapter);
     await _storeService.set('${readingList.key}.verse', state.verse);

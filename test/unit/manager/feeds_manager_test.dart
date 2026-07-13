@@ -20,8 +20,8 @@ void main() async {
     mockFeedStoreManager = MockFeedStoreManager();
     feed0 = Feed(bookKey: b0.key, isRead: true, dateModified: DateTime(2025, 1, 1, 1));
     feed1 = Feed(bookKey: b1.key, dateModified: DateTime(2025, 1, 1, 2));
-    when(mockFeedStoreManager.loadState(rl0)).thenReturn(feed0);
-    when(mockFeedStoreManager.loadState(rl1)).thenReturn(feed1);
+    when(mockFeedStoreManager.load(rl0)).thenReturn(feed0);
+    when(mockFeedStoreManager.load(rl1)).thenReturn(feed1);
     testee = FeedsManager(mockFeedStoreManager, ReadingLists([rl0, rl1]));
   });
 
@@ -73,11 +73,11 @@ void main() async {
 
     test('should store the feed', () {
       testee.feedManagers[0].toggleIsRead();
-      verify(mockFeedStoreManager.saveState(rl0, feed0)).called(1);
-      verifyNever(mockFeedStoreManager.saveState(rl1, feed1));
+      verify(mockFeedStoreManager.save(rl0, feed0)).called(1);
+      verifyNever(mockFeedStoreManager.save(rl1, feed1));
       testee.feedManagers[1].toggleIsRead();
-      verifyNever(mockFeedStoreManager.saveState(rl0, feed0));
-      verify(mockFeedStoreManager.saveState(rl1, feed1)).called(1);
+      verifyNever(mockFeedStoreManager.save(rl0, feed0));
+      verify(mockFeedStoreManager.save(rl1, feed1)).called(1);
     });
   });
 }

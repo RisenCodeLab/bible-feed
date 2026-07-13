@@ -23,7 +23,7 @@ Future runWidgetTests() async {
 
   final gospels = sl<ReadingLists>()[0];
   final matthew = gospels[0];
-  final state = sl<FeedStoreManager>().loadState(gospels);
+  final state = sl<FeedStoreManager>().load(gospels);
   final feed = FeedManager(gospels, state);
 
   testWidgets('BookChapterDialog', (t) async {

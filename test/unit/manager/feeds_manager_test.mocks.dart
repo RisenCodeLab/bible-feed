@@ -35,27 +35,24 @@ class _FakeFeed_0 extends _i1.SmartFake implements _i2.Feed {
 /// See the documentation for Mockito's code generation for more information.
 class MockFeedStoreManager extends _i1.Mock implements _i3.FeedStoreManager {
   @override
-  _i2.Feed loadState(_i4.ReadingList? readingList) =>
+  _i2.Feed load(_i4.ReadingList? readingList) =>
       (super.noSuchMethod(
-            Invocation.method(#loadState, [readingList]),
+            Invocation.method(#load, [readingList]),
             returnValue: _FakeFeed_0(
               this,
-              Invocation.method(#loadState, [readingList]),
+              Invocation.method(#load, [readingList]),
             ),
             returnValueForMissingStub: _FakeFeed_0(
               this,
-              Invocation.method(#loadState, [readingList]),
+              Invocation.method(#load, [readingList]),
             ),
           )
           as _i2.Feed);
 
   @override
-  _i5.Future<dynamic> saveState(
-    _i4.ReadingList? readingList,
-    _i2.Feed? state,
-  ) =>
+  _i5.Future<dynamic> save(_i4.ReadingList? readingList, _i2.Feed? state) =>
       (super.noSuchMethod(
-            Invocation.method(#saveState, [readingList, state]),
+            Invocation.method(#save, [readingList, state]),
             returnValue: _i5.Future<dynamic>.value(),
             returnValueForMissingStub: _i5.Future<dynamic>.value(),
           )
