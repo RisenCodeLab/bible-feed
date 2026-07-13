@@ -10,10 +10,5 @@ class Feed with FeedMappable {
   bool isRead;
   int verse;
 
-  Feed({required String bookKey, int chapter = 1, int verse = 1, bool isRead = false, DateTime? dateModified})
-    : bookKey = bookKey,
-      chapter = chapter,
-      dateModified = dateModified,
-      isRead = isRead,
-      verse = verse;
+  Feed({required this.bookKey, this.chapter = 1, this.verse = 1, this.isRead = false, this.dateModified});
 }
