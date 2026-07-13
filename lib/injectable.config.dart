@@ -138,17 +138,12 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i252.ChapterSplitSetting>(),
       ),
     );
-    await gh.lazySingletonAsync<_i977.AppService>(
-      () => _i612.ScreenshotAppService.create(),
-      registerFor: {_golden},
-      preResolve: true,
-    );
     gh.lazySingleton<_i99.DateTimeService>(
       () => _i543.StubDateTimeService(),
       registerFor: {_golden, _integration_test},
     );
-    gh.lazySingleton<_i516.PlatformEventService>(
-      () => _i115.ScreenshotPlatformEventService(),
+    gh.lazySingleton<_i578.PlatformService>(
+      () => _i792.StubPlatformService(),
       registerFor: {_golden},
     );
     await gh.lazySingletonAsync<_i22.HapticService>(
@@ -170,7 +165,11 @@ extension GetItInjectableX on _i174.GetIt {
       registerFor: {_prod},
     );
     gh.lazySingleton<_i22.HapticService>(
-      () => _i602.GoldenHapticService(),
+      () => _i602.StubHapticService(),
+      registerFor: {_golden},
+    );
+    gh.lazySingleton<_i516.PlatformEventService>(
+      () => _i115.StubPlatformEventService(),
       registerFor: {_golden},
     );
     await gh.lazySingletonAsync<_i977.AppService>(
@@ -178,9 +177,10 @@ extension GetItInjectableX on _i174.GetIt {
       registerFor: {_integration_test, _prod},
       preResolve: true,
     );
-    gh.lazySingleton<_i578.PlatformService>(
-      () => _i792.ScreenshotPlatformService(),
+    await gh.lazySingletonAsync<_i977.AppService>(
+      () => _i612.StubAppService.create(),
       registerFor: {_golden},
+      preResolve: true,
     );
     gh.lazySingleton<_i578.PlatformService>(
       () => _i578.ProductionPlatformService(),

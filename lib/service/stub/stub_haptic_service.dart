@@ -4,6 +4,6 @@ import 'package:injectable/injectable.dart';
 
 @golden
 @LazySingleton(as: HapticService)
-class GoldenHapticService extends HapticService {
-  GoldenHapticService() : super(isAvailable: true);
+class StubHapticService extends HapticService {
+  StubHapticService() : super(isAvailable: true);
 }

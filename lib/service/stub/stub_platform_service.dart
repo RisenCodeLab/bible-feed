@@ -5,6 +5,6 @@ import 'package:injectable/injectable.dart';
 
 @golden
 @LazySingleton(as: PlatformService)
-class ScreenshotPlatformService extends PlatformService {
-  ScreenshotPlatformService() : super(currentPlatform: TargetPlatform.android);
+class StubPlatformService extends PlatformService {
+  StubPlatformService() : super(currentPlatform: TargetPlatform.android);
 }
