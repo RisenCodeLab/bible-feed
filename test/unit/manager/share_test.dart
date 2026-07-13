@@ -44,8 +44,8 @@ void main() {
     when(mockOutStoreService.get('rl1.isRead')).thenReturn(true);
     when(mockAppService.buildNumber).thenReturn(buildNumber);
     when(mockCatchupManager.virtualAllDoneDate).thenReturn(virtualAllDoneDate);
-    inFeedsManager = FeedsManager(FeedStoreManager(mockInStoreService), StubDateTimeService(), readingLists);
-    outFeedsManager = FeedsManager(FeedStoreManager(mockOutStoreService), StubDateTimeService(), readingLists);
+    inFeedsManager = FeedsManager(FeedStoreManager(mockInStoreService), readingLists);
+    outFeedsManager = FeedsManager(FeedStoreManager(mockOutStoreService), readingLists);
     shareInManager = ShareInManager(mockAppService, mockCatchupManager, inFeedsManager);
     shareOutManager = ShareOutManager(mockAppService, mockCatchupManager, outFeedsManager);
 

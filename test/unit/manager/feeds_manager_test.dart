@@ -2,28 +2,37 @@ import 'package:bible_feed/model/feed.dart';
 import 'package:bible_feed/model/reading_lists.dart';
 import 'package:bible_feed/manager/feed_store_manager.dart';
 import 'package:bible_feed/manager/feeds_manager.dart';
+import 'package:bible_feed/service/date_time_service.dart';
 import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:watch_it/watch_it.dart';
 
 import '../test_data.dart';
 import 'feeds_manager_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<FeedStoreManager>()])
 void main() async {
+  late StubDateTimeService dateTimeService;
   late FeedsManager testee;
   late MockFeedStoreManager mockFeedStoreManager;
   late Feed feed0;
   late Feed feed1;
 
+  setUpAll(() {
+    dateTimeService = StubDateTimeService();
+    sl.registerSingleton<DateTimeService>(dateTimeService);
+  });
+
   setUp(() {
+    dateTimeService.reset();
     mockFeedStoreManager = MockFeedStoreManager();
     feed0 = Feed(bookKey: b0.key, isRead: true, dateModified: DateTime(2025, 1, 1, 1));
     feed1 = Feed(bookKey: b1.key, dateModified: DateTime(2025, 1, 1, 2));
     when(mockFeedStoreManager.load(rl0)).thenReturn(feed0);
     when(mockFeedStoreManager.load(rl1)).thenReturn(feed1);
-    testee = FeedsManager(mockFeedStoreManager, StubDateTimeService(), ReadingLists([rl0, rl1]));
+    testee = FeedsManager(mockFeedStoreManager, ReadingLists([rl0, rl1]));
   });
 
   group('property', () {

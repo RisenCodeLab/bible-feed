@@ -1,18 +1,27 @@
 import 'package:bible_feed/model/book.dart';
 import 'package:bible_feed/model/feed.dart';
 import 'package:bible_feed/manager/feed_manager.dart';
+import 'package:bible_feed/service/date_time_service.dart';
 import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:watch_it/watch_it.dart';
 
 import '../test_data.dart';
 
 void main() async {
+  late StubDateTimeService dateTimeService;
   late FeedManager testee;
   late Feed feed;
 
+  setUpAll(() {
+    dateTimeService = StubDateTimeService();
+    sl.registerSingleton<DateTimeService>(dateTimeService);
+  });
+
   setUp(() {
+    dateTimeService.reset();
     feed = Feed(bookKey: b1.key);
-    testee = FeedManager(rl1, feed, StubDateTimeService());
+    testee = FeedManager(rl1, feed);
   });
 
   group('property', () {

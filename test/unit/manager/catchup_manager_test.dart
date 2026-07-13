@@ -142,7 +142,7 @@ void main() {
   final today = DateTime.now().date;
   final feedManagers = List.generate(10, (index) {
     final rl = index.isEven ? rl0 : rl1;
-    return FeedManager(rl, Feed(bookKey: rl[0].key), StubDateTimeService());
+    return FeedManager(rl, Feed(bookKey: rl[0].key));
   });
 
   setUp(() {

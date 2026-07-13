@@ -1,9 +1,8 @@
 import 'package:alchemist/alchemist.dart';
 import 'package:bible_feed/injectable.dart';
-import 'package:bible_feed/manager/feed_store_manager.dart';
 import 'package:bible_feed/manager/feed_manager.dart';
+import 'package:bible_feed/manager/feed_store_manager.dart';
 import 'package:bible_feed/model/reading_lists.dart';
-import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:bible_feed/view/app.dart';
 import 'package:bible_feed/view/book_chapter_dialog.dart';
 import 'package:bible_feed/view/settings.dart';
@@ -28,7 +27,7 @@ final dialogConstraints = [const Size(300, 600), const Size(600, 300), const Siz
 
 final scenarios = {
   'home': Scenario(App(), deviceConstraints),
-  'book_chapter_dialog': Scenario(BookChapterDialog(FeedManager(epistles2, state, StubDateTimeService())), dialogConstraints),
+  'book_chapter_dialog': Scenario(BookChapterDialog(FeedManager(epistles2, state)), dialogConstraints),
   'settings': Scenario(Settings(), deviceConstraints),
   'share': Scenario(Share(), deviceConstraints),
 };

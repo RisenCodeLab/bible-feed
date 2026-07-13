@@ -25,7 +25,7 @@ Future runWidgetTests() async {
   final gospels = sl<ReadingLists>()[0];
   final matthew = gospels[0];
   final feed = sl<FeedStoreManager>().load(gospels);
-  final feedManager = FeedManager(gospels, feed, StubDateTimeService());
+  final feedManager = FeedManager(gospels, feed);
 
   testWidgets('BookChapterDialog', (t) async {
     await t.initialiseWidget(BookChapterDialog(feedManager));

@@ -159,6 +159,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i326.DeepLinkService>(
       () => _i326.DeepLinkService(gh<_i942.ToastService>()),
     );
+    gh.lazySingleton<_i127.FeedsManager>(
+      () => _i127.FeedsManager(
+        gh<_i571.FeedStoreManager>(),
+        gh<_i823.ReadingLists>(),
+      ),
+    );
     gh.lazySingleton<_i99.DateTimeService>(
       () => _i99.NowDateTimeService(),
       registerFor: {_prod},
@@ -175,13 +181,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i578.PlatformService>(
       () => _i792.ScreenshotPlatformService(),
       registerFor: {_golden},
-    );
-    gh.lazySingleton<_i127.FeedsManager>(
-      () => _i127.FeedsManager(
-        gh<_i571.FeedStoreManager>(),
-        gh<_i99.DateTimeService>(),
-        gh<_i823.ReadingLists>(),
-      ),
     );
     gh.lazySingleton<_i578.PlatformService>(
       () => _i578.ProductionPlatformService(),

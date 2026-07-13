@@ -30,8 +30,8 @@ void main() {
   test('getJson returns correct JSON string', () {
     final feedState1 = Feed(bookKey: b0.key, chapter: 1);
     final feedState2 = Feed(bookKey: b1.key, chapter: 2);
-    final feed1 = FeedManager(rl0, feedState1, StubDateTimeService());
-    final feed2 = FeedManager(rl1, feedState2, StubDateTimeService());
+    final feed1 = FeedManager(rl0, feedState1);
+    final feed2 = FeedManager(rl1, feedState2);
 
     final buildNumber = '123';
     final virtualAllDoneDate = DateTime(2025, 12, 30);
