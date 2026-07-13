@@ -1,3 +1,5 @@
+// ignore_for_file: no-magic-number
+
 import 'package:dartx/dartx.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
