@@ -6,7 +6,6 @@ import '../model/feed.dart';
 import '../model/reading_list.dart';
 import '../service/date_time_service.dart';
 
-// FeedManager manages the reading state of a given list of books
 class FeedManager with ChangeNotifier {
   final ReadingList _readingList;
   Feed _feed;
