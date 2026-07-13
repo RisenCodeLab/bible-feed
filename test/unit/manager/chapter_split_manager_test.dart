@@ -15,7 +15,7 @@ void main() {
   final mockChapterSplitter = MockChapterSplitter();
   final mockChapterSplitters = MockChapterSplitters();
   final mockChapterSplitSetting = MockChapterSplitSetting();
-  final state = Feed(bookKey: b0.key);
+  final feed = Feed(bookKey: b0.key);
   late ChapterSplitManager testee;
 
   setUp(() {
@@ -26,22 +26,22 @@ void main() {
   group('getNextVerse', () {
     test('disabled, should return 1 and empty string', () {
       when(mockChapterSplitSetting.value).thenReturn(false);
-      expect(testee.getNextVerse(state), 1);
-      expect(testee.getLabel(state), '');
+      expect(testee.getNextVerse(feed), 1);
+      expect(testee.getLabel(feed), '');
     });
 
     test('no splitter, should return 1 and empty string', () {
-      when(mockChapterSplitters.find(state)).thenReturn(null);
-      expect(testee.getNextVerse(state), 1);
-      expect(testee.getLabel(state), '');
+      when(mockChapterSplitters.find(feed)).thenReturn(null);
+      expect(testee.getNextVerse(feed), 1);
+      expect(testee.getLabel(feed), '');
     });
 
     test('enabled splitter, should return next verse and label from splitter', () {
-      when(mockChapterSplitter.getNextVerse(state)).thenReturn(2);
-      when(mockChapterSplitter.getLabel(state)).thenReturn('label');
-      when(mockChapterSplitters.find(state)).thenReturn(mockChapterSplitter);
-      expect(testee.getNextVerse(state), 2);
-      expect(testee.getLabel(state), 'label');
+      when(mockChapterSplitter.getNextVerse(feed)).thenReturn(2);
+      when(mockChapterSplitter.getLabel(feed)).thenReturn('label');
+      when(mockChapterSplitters.find(feed)).thenReturn(mockChapterSplitter);
+      expect(testee.getNextVerse(feed), 2);
+      expect(testee.getLabel(feed), 'label');
     });
   });
 }

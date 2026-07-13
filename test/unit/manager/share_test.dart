@@ -56,18 +56,18 @@ void main() {
 
     shareInManager.sync(shareOutManager.getJson());
 
-    final state0 = outFeedsManager.feeds[0].state;
-    final state1 = outFeedsManager.feeds[1].state;
-    expect(state0.bookKey, b0.key);
-    expect(state0.chapter, 1);
-    expect(state0.verse, 1);
-    expect(state0.isRead, false);
-    expect(state0.dateModified, null);
-    expect(state1.bookKey, b1.key);
-    expect(state1.chapter, 3);
-    expect(state1.verse, 5);
-    expect(state1.isRead, true);
-    expect(state1.dateModified, dateModified);
+    final feed0 = outFeedsManager.feeds[0].feed;
+    final feed1 = outFeedsManager.feeds[1].feed;
+    expect(feed0.bookKey, b0.key);
+    expect(feed0.chapter, 1);
+    expect(feed0.verse, 1);
+    expect(feed0.isRead, false);
+    expect(feed0.dateModified, null);
+    expect(feed1.bookKey, b1.key);
+    expect(feed1.chapter, 3);
+    expect(feed1.verse, 5);
+    expect(feed1.isRead, true);
+    expect(feed1.dateModified, dateModified);
     expect(capturedDate?.millisecondsSinceEpoch, virtualAllDoneDate.millisecondsSinceEpoch);
   });
 }

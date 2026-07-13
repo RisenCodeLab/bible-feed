@@ -75,8 +75,8 @@ void main() {
 
     testee.sync(json);
 
-    verify(mockFeed1.state = feedState1).called(1);
-    verify(mockFeed2.state = feedState2).called(1);
+    verify(mockFeed1.feed = feedState1).called(1);
+    verify(mockFeed2.feed = feedState2).called(1);
     expect(capturedDate?.millisecondsSinceEpoch, virtualAllDoneDate.millisecondsSinceEpoch);
   });
 }

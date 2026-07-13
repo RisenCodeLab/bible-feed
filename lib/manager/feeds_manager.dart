@@ -14,14 +14,14 @@ class FeedsManager with ChangeNotifier {
   FeedsManager(this._feedStoreManager, ReadingLists readingLists)
     : _feeds = readingLists.map((rl) => FeedManager(rl, _feedStoreManager.loadState(rl))).toList() {
     for (FeedManager fm in _feeds) {
-      if (fm.state.dateModified?.isAfter(_lastModifiedFeed?.state.dateModified ?? DateTime(0)) ?? false) {
+      if (fm.feed.dateModified?.isAfter(_lastModifiedFeed?.feed.dateModified ?? DateTime(0)) ?? false) {
         _lastModifiedFeed = fm;
       }
 
       fm.addListener(() {
         notifyListeners();
         _lastModifiedFeed = fm;
-        _feedStoreManager.saveState(fm.readingList, fm.state);
+        _feedStoreManager.saveState(fm.readingList, fm.feed);
       });
     }
   }
@@ -30,7 +30,7 @@ class FeedsManager with ChangeNotifier {
   FeedManager? _lastModifiedFeed;
 
   bool get areChaptersRead => chaptersToRead == 0;
-  int get chaptersToRead => _feeds.where((feed) => !feed.state.isRead).length;
+  int get chaptersToRead => _feeds.where((feed) => !feed.feed.isRead).length;
   List<FeedManager> get feeds => _feeds;
   FeedManager? get lastModifiedFeed => _lastModifiedFeed;
 }

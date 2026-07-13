@@ -16,7 +16,7 @@ class Feed extends WatchingWidget {
   build(context) {
     watch(feedManager);
     final isLinked = watchIt<BibleReaderLinkManager>().isLinked;
-    final isRead = feedManager.state.isRead;
+    final isRead = feedManager.feed.isRead;
     final isLastReadAndLinked = isRead && isLinked && identical(feedManager, sl<FeedsManager>().lastModifiedFeed);
     final timeToFade = (isLastReadAndLinked ? 30 : 0).seconds;
     final opacity = isRead ? 0.25 : 1.0;

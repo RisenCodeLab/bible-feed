@@ -26,7 +26,7 @@ class FeedsAdvanceManager with ChangeNotifier {
 
   FeedsAdvanceState maybeAdvance() {
     if (!_feedsManager.areChaptersRead) return FeedsAdvanceState.notAllRead;
-    final lastDateModified = _feedsManager.lastModifiedFeed?.state.dateModified;
+    final lastDateModified = _feedsManager.lastModifiedFeed?.feed.dateModified;
     if (lastDateModified == null) return FeedsAdvanceState.notAllRead;
     if (_dateTimeService.now.date.isAfter(lastDateModified.date)) return advance();
     return FeedsAdvanceState.allReadAwaitingTomorrow;

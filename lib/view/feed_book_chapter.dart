@@ -14,7 +14,7 @@ class FeedBookChapter extends WatchingWidget {
   @override
   build(context) {
     const maxLines = 2;
-    final chapterSplitLabel = sl<ChapterSplitManager>().getLabel(feedManager.state);
+    final chapterSplitLabel = sl<ChapterSplitManager>().getLabel(feedManager.feed);
     watchIt<ChapterSplitSetting>();
 
     return Expanded(
@@ -22,7 +22,7 @@ class FeedBookChapter extends WatchingWidget {
         padding: Constants.defaultPadding,
         child: Center(
           child: AutoSizeText(
-            '${feedManager.book.name} ${feedManager.state.chapter} $chapterSplitLabel'.trim(),
+            '${feedManager.book.name} ${feedManager.feed.chapter} $chapterSplitLabel'.trim(),
             maxLines: maxLines,
             overflow: .ellipsis,
             textAlign: .center,

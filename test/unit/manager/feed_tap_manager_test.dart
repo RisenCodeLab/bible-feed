@@ -27,7 +27,7 @@ void main() {
 
     await feedTapManager.handleTap(feed);
 
-    expect(feed.state.isRead, true);
-    verify(mockLaunchManager.maybeLaunch(blbBibleReader, feed.state)).called(1);
+    expect(feed.feed.isRead, true);
+    verify(mockLaunchManager.maybeLaunch(blbBibleReader, feed.feed)).called(1);
   });
 }

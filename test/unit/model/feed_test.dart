@@ -6,11 +6,11 @@ import '../test_data.dart';
 
 void main() async {
   late FeedManager testee;
-  late Feed state;
+  late Feed feed;
 
   setUp(() {
-    state = Feed(bookKey: b1.key);
-    testee = FeedManager(rl1, state);
+    feed = Feed(bookKey: b1.key);
+    testee = FeedManager(rl1, feed);
   });
 
   group('property', () {
@@ -23,14 +23,14 @@ void main() async {
     });
 
     test('chapter get', () {
-      expect(testee.state.chapter, 1);
+      expect(testee.feed.chapter, 1);
     });
 
     test('isChapterRead get/set should affect chaptersRead', () {
-      expect(testee.state.isRead, false);
+      expect(testee.feed.isRead, false);
       expect(testee.chaptersRead, 0);
       testee.toggleIsRead();
-      expect(testee.state.isRead, true);
+      expect(testee.feed.isRead, true);
       expect(testee.chaptersRead, 1);
     });
 
@@ -43,35 +43,35 @@ void main() async {
     });
 
     test('state get', () {
-      expect(testee.state, state);
+      expect(testee.feed, feed);
     });
 
     test('state set', () {
-      final state0 = Feed(bookKey: b0.key);
-      testee.state = state0;
-      expect(testee.state, state0);
+      final feed0 = Feed(bookKey: b0.key);
+      testee.feed = feed0;
+      expect(testee.feed, feed0);
     });
   });
 
   group('method', () {
     void checkState(Book expectedBook, int expectedChapter, [int expectedVerse = 1]) {
       expect(testee.book, expectedBook);
-      expect(testee.state.chapter, expectedChapter);
-      expect(testee.state.verse, expectedVerse);
+      expect(testee.feed.chapter, expectedChapter);
+      expect(testee.feed.verse, expectedVerse);
     }
 
     test('setBookChapterVerse should set book/chapter/verse and reset isRead', () {
       testee.toggleIsRead();
       testee.setBookChapterVerse(1, 2);
       checkState(b1, 2);
-      expect(testee.state.isRead, false);
+      expect(testee.feed.isRead, false);
     });
 
     test('toggleIsRead should toggle', () {
       testee.toggleIsRead();
-      expect(testee.state.isRead, true);
+      expect(testee.feed.isRead, true);
       testee.toggleIsRead();
-      expect(testee.state.isRead, false);
+      expect(testee.feed.isRead, false);
       checkState(b1, 1); // ensure no side effects
     });
   });

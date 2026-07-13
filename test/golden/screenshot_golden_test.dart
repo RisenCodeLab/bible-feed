@@ -70,7 +70,7 @@ final scenarios = {
 };
 
 void setupAllDone() {
-  for (final f in sl<FeedsManager>().feeds.where((f) => !f.state.isRead)) {
+  for (final f in sl<FeedsManager>().feeds.where((f) => !f.feed.isRead)) {
     f.toggleIsRead();
   }
 }

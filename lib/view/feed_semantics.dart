@@ -14,10 +14,10 @@ class FeedSemantics extends WatchingWidget {
   build(context) {
     watch(feedManager);
     final brlm = watchIt<BibleReaderLinkManager>();
-    final state = feedManager.state;
-    final isRead = state.isRead;
+    final feed = feedManager.feed;
+    final isRead = feed.isRead;
 
-    final semanticsLabel = '${feedManager.book.name} chapter ${state.chapter} is currently ${isRead ? 'read' : 'unread'}';
+    final semanticsLabel = '${feedManager.book.name} chapter ${feed.chapter} is currently ${isRead ? 'read' : 'unread'}';
     final semanticsHint =
         'Tap to ${brlm.isLinked && !isRead ? 'open Bible reader and' : ''} mark as ${isRead ? 'unread' : 'read'}. Long press to change the book and chapter.';
 

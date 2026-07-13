@@ -45,7 +45,7 @@ class ShareInManager {
     _catchupManager.virtualAllDoneDate = syncDto.virtualAllDoneDate;
 
     for (final (index, feed) in _feedsManager.feeds.indexed) {
-      feed.state = syncDto.feedStateList[index];
+      feed.feed = syncDto.feedStateList[index];
     }
 
     // touch the last modified feed to preserve lastModifiedDate

@@ -19,9 +19,9 @@ class FeedManager with ChangeNotifier {
   int get chaptersRead => _state._chapter - (_state._isRead ? 0 : 1);
   double get progress => _readingList.progressTo(bookIndex, chaptersRead);
   ReadingList get readingList => _readingList;
-  Feed get state => _state;
+  Feed get feed => _state;
 
-  set state(Feed value) {
+  set feed(Feed value) {
     _state = value;
     notifyListeners();
   }

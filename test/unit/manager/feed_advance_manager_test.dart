@@ -13,13 +13,13 @@ import 'feed_advance_manager_test.mocks.dart';
 void main() async {
   final mockChapterSplitManager = MockChapterSplitManager();
   late FeedManager feedManager;
-  late Feed state;
+  late Feed feed;
   late FeedAdvanceManager testee;
 
   setUp(() {
-    state = Feed(bookKey: b1.key);
-    feedManager = FeedManager(rl1, state);
-    when(mockChapterSplitManager.getNextVerse(state)).thenReturn(1);
+    feed = Feed(bookKey: b1.key);
+    feedManager = FeedManager(rl1, feed);
+    when(mockChapterSplitManager.getNextVerse(feed)).thenReturn(1);
     testee = FeedAdvanceManager(mockChapterSplitManager);
   });
 
@@ -37,18 +37,18 @@ void main() async {
   test('should reset isRead', () {
     feedManager.toggleIsRead();
     testee.advance(feedManager);
-    expect(feedManager.state.isRead, false);
+    expect(feedManager.feed.isRead, false);
   });
 
   void advance() {
-    if (!state.isRead) feedManager.toggleIsRead();
+    if (!feed.isRead) feedManager.toggleIsRead();
     testee.advance(feedManager);
   }
 
   void checkState(Book expectBook, int expectChapter, [int expectVerse = 1]) {
-    expect(state.bookKey, expectBook.key);
-    expect(state.chapter, expectChapter);
-    expect(state.verse, expectVerse);
+    expect(feed.bookKey, expectBook.key);
+    expect(feed.chapter, expectChapter);
+    expect(feed.verse, expectVerse);
   }
 
   test('full cycle: should advance/reset chapter and book', () {
@@ -64,7 +64,7 @@ void main() async {
   });
 
   test('with chapter split, should advance verse only', () {
-    when(mockChapterSplitManager.getNextVerse(state)).thenReturn(3);
+      when(mockChapterSplitManager.getNextVerse(feed)).thenReturn(3);
     checkState(b1, 1, 1);
       feedManager.toggleIsRead();
       testee.advance(feedManager);

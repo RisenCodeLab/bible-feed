@@ -15,6 +15,6 @@ class FeedTapManager with ChangeNotifier {
   Future<void> handleTap(FeedManager feedManager) {
     notifyListeners();
     feedManager.toggleIsRead();
-    return _bibleReaderLaunchManager.maybeLaunch(_bibleReaderLinkManager.linkedBibleReader, feedManager.state);
+    return _bibleReaderLaunchManager.maybeLaunch(_bibleReaderLinkManager.linkedBibleReader, feedManager.feed);
   }
 }
