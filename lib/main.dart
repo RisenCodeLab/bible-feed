@@ -1,8 +1,8 @@
 import 'package:df_log/df_log.dart';
 import 'package:flutter/material.dart';
 
-import 'view/app_base.dart';
 import 'injectable.dart';
+import 'view/app_base.dart';
 
 Future<void> main() async {
   Log.start('starting app');

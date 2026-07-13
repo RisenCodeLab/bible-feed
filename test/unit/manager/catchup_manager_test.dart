@@ -1,9 +1,9 @@
 import 'package:bible_feed/manager/app_lifecycle_manager.dart';
 import 'package:bible_feed/manager/catchup_manager.dart';
+import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/manager/feeds_advance_manager.dart';
 import 'package:bible_feed/manager/feeds_manager.dart';
 import 'package:bible_feed/manager/midnight_manager.dart';
-import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/manager/priority_notifier.dart';
 import 'package:bible_feed/model/catchup_setting.dart';
 import 'package:bible_feed/model/feed.dart';
@@ -11,7 +11,6 @@ import 'package:bible_feed/model/feeds_advance_state.dart';
 import 'package:bible_feed/model/priority.dart';
 import 'package:bible_feed/service/date_time_service.dart';
 import 'package:bible_feed/service/store_service.dart';
-import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:dartx/dartx.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';

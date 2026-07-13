@@ -3,9 +3,9 @@ import 'dart:core';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
-import 'feed_manager.dart';
 import '../model/feed.dart';
 import '../model/reading_lists.dart';
+import 'feed_manager.dart';
 import 'feed_store_manager.dart';
 
 @lazySingleton

@@ -1,11 +1,11 @@
-import 'package:bible_feed/model/book.dart';
-import 'package:bible_feed/model/feed.dart';
-import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/manager/chapter_split_manager.dart';
 import 'package:bible_feed/manager/feed_advance_manager.dart';
+import 'package:bible_feed/manager/feed_manager.dart';
+import 'package:bible_feed/model/book.dart';
+import 'package:bible_feed/model/feed.dart';
 import 'package:bible_feed/service/date_time_service.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:bible_feed/service/stub/stub_date_time_service.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:watch_it/watch_it.dart';

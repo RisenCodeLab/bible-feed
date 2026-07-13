@@ -1,7 +1,6 @@
+import 'package:bible_feed/service/store_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'package:bible_feed/service/store_service.dart';
 
 void main() {
   late StoreService testee;

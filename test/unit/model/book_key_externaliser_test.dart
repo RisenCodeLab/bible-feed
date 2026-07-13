@@ -1,6 +1,6 @@
 import 'package:bible_feed/model/book_key_externaliser.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:bible_feed/model/reading_lists.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 class ProdReadingListsModule extends ReadingListsModule {}
 

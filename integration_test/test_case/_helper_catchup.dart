@@ -1,11 +1,11 @@
 import 'package:bible_feed/manager/midnight_manager.dart';
+import 'package:bible_feed/manager/stub/stub_midnight_manager.dart';
 import 'package:bible_feed/model/catchup_setting.dart';
 import 'package:bible_feed/service/date_time_service.dart';
+import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:watch_it/watch_it.dart';
 
-import 'package:bible_feed/manager/stub/stub_midnight_manager.dart';
-import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import '_helper.dart';
 
 final catchupFabKey = 'catchup_fab';

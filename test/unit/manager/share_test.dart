@@ -6,7 +6,6 @@ import 'package:bible_feed/manager/share_out_manager.dart';
 import 'package:bible_feed/model/reading_lists.dart';
 import 'package:bible_feed/service/app_service.dart';
 import 'package:bible_feed/service/store_service.dart';
-import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';

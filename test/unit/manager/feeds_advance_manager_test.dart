@@ -1,7 +1,7 @@
 import 'package:bible_feed/manager/feed_advance_manager.dart';
+import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/manager/feeds_advance_manager.dart';
 import 'package:bible_feed/manager/feeds_manager.dart';
-import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/model/feed.dart';
 import 'package:bible_feed/model/feeds_advance_state.dart';
 import 'package:bible_feed/service/date_time_service.dart';

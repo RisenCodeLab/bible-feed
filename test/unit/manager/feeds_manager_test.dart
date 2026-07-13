@@ -1,7 +1,7 @@
-import 'package:bible_feed/model/feed.dart';
-import 'package:bible_feed/model/reading_lists.dart';
 import 'package:bible_feed/manager/feed_store_manager.dart';
 import 'package:bible_feed/manager/feeds_manager.dart';
+import 'package:bible_feed/model/feed.dart';
+import 'package:bible_feed/model/reading_lists.dart';
 import 'package:bible_feed/service/date_time_service.dart';
 import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:flutter_test/flutter_test.dart';

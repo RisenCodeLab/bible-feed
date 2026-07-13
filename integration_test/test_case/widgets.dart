@@ -3,7 +3,6 @@ import 'package:bible_feed/manager/feed_store_manager.dart';
 import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/model/book.dart';
 import 'package:bible_feed/model/reading_lists.dart';
-import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:bible_feed/view/book_chapter_dialog.dart';
 import 'package:bible_feed/view/feed.dart' as view;
 import 'package:bible_feed/view/feeds.dart';
