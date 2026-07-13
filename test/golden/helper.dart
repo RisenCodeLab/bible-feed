@@ -1,6 +1,6 @@
 import 'package:bible_feed/manager/feeds_manager.dart';
 import 'package:bible_feed/model/chapter_split_setting.dart';
-import 'package:bible_feed/manager/feed_manager.dart';
+import 'package:bible_feed/model/feed.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:watch_it/watch_it.dart';
 

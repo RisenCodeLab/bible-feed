@@ -1,7 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:flutter/material.dart';
 
-import '../manager/feed_manager.dart';
+import 'feed.dart';
 
 part 'share_dto.mapper.dart';
 

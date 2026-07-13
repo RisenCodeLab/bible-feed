@@ -1,4 +1,5 @@
 import 'package:bible_feed/model/book.dart';
+import 'package:bible_feed/model/feed.dart';
 import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/manager/chapter_split_manager.dart';
 import 'package:bible_feed/manager/feed_advance_manager.dart';

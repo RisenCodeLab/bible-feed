@@ -3,16 +3,17 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:ui' as _i7;
+import 'dart:ui' as _i8;
 
-import 'package:bible_feed/manager/feed_advance_manager.dart' as _i8;
-import 'package:bible_feed/manager/feed_manager.dart' as _i3;
-import 'package:bible_feed/manager/feeds_manager.dart' as _i9;
+import 'package:bible_feed/manager/feed_advance_manager.dart' as _i9;
+import 'package:bible_feed/manager/feed_manager.dart' as _i5;
+import 'package:bible_feed/manager/feeds_manager.dart' as _i10;
 import 'package:bible_feed/model/book.dart' as _i2;
-import 'package:bible_feed/model/reading_list.dart' as _i5;
+import 'package:bible_feed/model/feed.dart' as _i3;
+import 'package:bible_feed/model/reading_list.dart' as _i6;
 import 'package:bible_feed/service/date_time_service.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i6;
+import 'package:mockito/src/dummies.dart' as _i7;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -64,7 +65,7 @@ class MockDateTimeService extends _i1.Mock implements _i4.DateTimeService {
 /// A class which mocks [FeedManager].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFeedManager extends _i1.Mock implements _i3.FeedManager {
+class MockFeedManager extends _i1.Mock implements _i5.FeedManager {
   @override
   _i2.Book get book =>
       (super.noSuchMethod(
@@ -105,19 +106,19 @@ class MockFeedManager extends _i1.Mock implements _i3.FeedManager {
           as double);
 
   @override
-  _i5.ReadingList get readingList =>
+  _i6.ReadingList get readingList =>
       (super.noSuchMethod(
             Invocation.getter(#readingList),
-            returnValue: _i6.dummyValue<_i5.ReadingList>(
+            returnValue: _i7.dummyValue<_i6.ReadingList>(
               this,
               Invocation.getter(#readingList),
             ),
-            returnValueForMissingStub: _i6.dummyValue<_i5.ReadingList>(
+            returnValueForMissingStub: _i7.dummyValue<_i6.ReadingList>(
               this,
               Invocation.getter(#readingList),
             ),
           )
-          as _i5.ReadingList);
+          as _i6.ReadingList);
 
   @override
   _i3.Feed get feed =>
@@ -166,13 +167,13 @@ class MockFeedManager extends _i1.Mock implements _i3.FeedManager {
   );
 
   @override
-  void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(
+  void addListener(_i8.VoidCallback? listener) => super.noSuchMethod(
     Invocation.method(#addListener, [listener]),
     returnValueForMissingStub: null,
   );
 
   @override
-  void removeListener(_i7.VoidCallback? listener) => super.noSuchMethod(
+  void removeListener(_i8.VoidCallback? listener) => super.noSuchMethod(
     Invocation.method(#removeListener, [listener]),
     returnValueForMissingStub: null,
   );
@@ -194,9 +195,9 @@ class MockFeedManager extends _i1.Mock implements _i3.FeedManager {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockFeedAdvanceManager extends _i1.Mock
-    implements _i8.FeedAdvanceManager {
+    implements _i9.FeedAdvanceManager {
   @override
-  void advance(_i3.FeedManager? feedManager) => super.noSuchMethod(
+  void advance(_i5.FeedManager? feedManager) => super.noSuchMethod(
     Invocation.method(#advance, [feedManager]),
     returnValueForMissingStub: null,
   );
@@ -205,7 +206,7 @@ class MockFeedAdvanceManager extends _i1.Mock
 /// A class which mocks [FeedsManager].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFeedsManager extends _i1.Mock implements _i9.FeedsManager {
+class MockFeedsManager extends _i1.Mock implements _i10.FeedsManager {
   @override
   bool get areChaptersRead =>
       (super.noSuchMethod(
@@ -225,13 +226,13 @@ class MockFeedsManager extends _i1.Mock implements _i9.FeedsManager {
           as int);
 
   @override
-  List<_i3.FeedManager> get feedManagers =>
+  List<_i5.FeedManager> get feedManagers =>
       (super.noSuchMethod(
             Invocation.getter(#feedManagers),
-            returnValue: <_i3.FeedManager>[],
-            returnValueForMissingStub: <_i3.FeedManager>[],
+            returnValue: <_i5.FeedManager>[],
+            returnValueForMissingStub: <_i5.FeedManager>[],
           )
-          as List<_i3.FeedManager>);
+          as List<_i5.FeedManager>);
 
   @override
   bool get hasListeners =>
@@ -243,13 +244,13 @@ class MockFeedsManager extends _i1.Mock implements _i9.FeedsManager {
           as bool);
 
   @override
-  void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(
+  void addListener(_i8.VoidCallback? listener) => super.noSuchMethod(
     Invocation.method(#addListener, [listener]),
     returnValueForMissingStub: null,
   );
 
   @override
-  void removeListener(_i7.VoidCallback? listener) => super.noSuchMethod(
+  void removeListener(_i8.VoidCallback? listener) => super.noSuchMethod(
     Invocation.method(#removeListener, [listener]),
     returnValueForMissingStub: null,
   );

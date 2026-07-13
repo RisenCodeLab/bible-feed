@@ -1,12 +1,9 @@
-import 'package:dart_mappable/dart_mappable.dart';
 import 'package:flutter/foundation.dart';
 
 import '../model/book.dart';
+import '../model/feed.dart';
 import '../model/reading_list.dart';
 import '../service/date_time_service.dart';
-
-part '../model/feed.dart';
-part '../model/feed.mapper.dart';
 
 // FeedManager manages the reading state of a given list of books
 class FeedManager with ChangeNotifier {
@@ -16,9 +13,9 @@ class FeedManager with ChangeNotifier {
 
   FeedManager(this._readingList, this._feed, this._dateTimeService);
 
-  Book get book => _readingList.getBook(_feed._bookKey);
+  Book get book => _readingList.getBook(_feed.bookKey);
   int get bookIndex => _readingList.indexOf(book);
-  int get chaptersRead => _feed._chapter - (_feed._isRead ? 0 : 1);
+  int get chaptersRead => _feed.chapter - (_feed.isRead ? 0 : 1);
   double get progress => _readingList.progressTo(bookIndex, chaptersRead);
   ReadingList get readingList => _readingList;
   Feed get feed => _feed;
@@ -29,18 +26,18 @@ class FeedManager with ChangeNotifier {
   }
 
   void setBookChapterVerse(int bookIndex, int chapter, [int verse = 1]) {
-    if (bookIndex == this.bookIndex && chapter == _feed._chapter && verse == _feed.verse) return;
-    _feed._bookKey = readingList[bookIndex].key;
-    _feed._chapter = chapter;
-    _feed._verse = verse;
-    _feed._isRead = false;
-    _feed._dateModified = _dateTimeService.now;
+    if (bookIndex == this.bookIndex && chapter == _feed.chapter && verse == _feed.verse) return;
+    _feed.bookKey = readingList[bookIndex].key;
+    _feed.chapter = chapter;
+    _feed.verse = verse;
+    _feed.isRead = false;
+    _feed.dateModified = _dateTimeService.now;
     notifyListeners();
   }
 
   void toggleIsRead() {
-    _feed._isRead = !_feed._isRead;
-    _feed._dateModified = _dateTimeService.now;
+    _feed.isRead = !_feed.isRead;
+    _feed.dateModified = _dateTimeService.now;
     notifyListeners();
   }
 

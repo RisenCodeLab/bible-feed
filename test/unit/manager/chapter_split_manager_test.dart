@@ -1,7 +1,7 @@
 import 'package:bible_feed/model/chapter_split_setting.dart';
 import 'package:bible_feed/model/chapter_splitter.dart';
 import 'package:bible_feed/model/chapter_splitters.dart';
-import 'package:bible_feed/manager/feed_manager.dart';
+import 'package:bible_feed/model/feed.dart';
 import 'package:bible_feed/manager/chapter_split_manager.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';

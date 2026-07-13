@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../model/bible_reader.dart';
-import 'feed_manager.dart';
+import '../model/feed.dart';
 import '../service/platform_service.dart';
 import '../service/url_launch_service.dart';
 

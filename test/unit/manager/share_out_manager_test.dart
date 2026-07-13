@@ -2,6 +2,7 @@ import 'package:bible_feed/manager/catchup_manager.dart';
 import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/manager/feeds_manager.dart' show FeedsManager;
 import 'package:bible_feed/manager/share_out_manager.dart';
+import 'package:bible_feed/model/feed.dart';
 import 'package:bible_feed/model/share_dto.dart';
 import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:bible_feed/service/app_service.dart';

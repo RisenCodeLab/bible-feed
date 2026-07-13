@@ -4,14 +4,15 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 import 'feed_manager.dart';
+import '../model/feed.dart';
 import '../model/reading_lists.dart';
 import '../service/date_time_service.dart';
 import 'feed_store_manager.dart';
 
 @lazySingleton
 class FeedsManager with ChangeNotifier {
-  final FeedStoreManager _feedStoreManager;
   final DateTimeService _dateTimeService;
+  final FeedStoreManager _feedStoreManager;
 
   FeedsManager(this._feedStoreManager, DateTimeService dateTimeService, ReadingLists readingLists)
     : _dateTimeService = dateTimeService,

@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-import 'feed_manager.dart';
+import '../model/feed.dart';
 import '../model/reading_list.dart';
 import '../service/store_service.dart';
 

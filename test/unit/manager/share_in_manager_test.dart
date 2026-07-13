@@ -2,6 +2,7 @@ import 'package:bible_feed/manager/catchup_manager.dart';
 import 'package:bible_feed/manager/feeds_manager.dart';
 import 'package:bible_feed/manager/share_in_manager.dart';
 import 'package:bible_feed/manager/feed_manager.dart';
+import 'package:bible_feed/model/feed.dart';
 import 'package:bible_feed/model/share_dto.dart';
 import 'package:bible_feed/service/app_service.dart';
 import 'package:flutter_test/flutter_test.dart';

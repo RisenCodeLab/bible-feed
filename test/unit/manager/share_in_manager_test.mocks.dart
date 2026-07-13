@@ -6,10 +6,11 @@
 import 'dart:ui' as _i7;
 
 import 'package:bible_feed/manager/catchup_manager.dart' as _i6;
-import 'package:bible_feed/manager/feed_manager.dart' as _i3;
-import 'package:bible_feed/manager/feeds_manager.dart' as _i9;
+import 'package:bible_feed/manager/feed_manager.dart' as _i8;
+import 'package:bible_feed/manager/feeds_manager.dart' as _i10;
 import 'package:bible_feed/model/book.dart' as _i2;
-import 'package:bible_feed/model/reading_list.dart' as _i8;
+import 'package:bible_feed/model/feed.dart' as _i3;
+import 'package:bible_feed/model/reading_list.dart' as _i9;
 import 'package:bible_feed/service/app_service.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i5;
@@ -192,7 +193,7 @@ class MockCatchupManager extends _i1.Mock implements _i6.CatchupManager {
 /// A class which mocks [FeedManager].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFeedManager extends _i1.Mock implements _i3.FeedManager {
+class MockFeedManager extends _i1.Mock implements _i8.FeedManager {
   @override
   _i2.Book get book =>
       (super.noSuchMethod(
@@ -233,19 +234,19 @@ class MockFeedManager extends _i1.Mock implements _i3.FeedManager {
           as double);
 
   @override
-  _i8.ReadingList get readingList =>
+  _i9.ReadingList get readingList =>
       (super.noSuchMethod(
             Invocation.getter(#readingList),
-            returnValue: _i5.dummyValue<_i8.ReadingList>(
+            returnValue: _i5.dummyValue<_i9.ReadingList>(
               this,
               Invocation.getter(#readingList),
             ),
-            returnValueForMissingStub: _i5.dummyValue<_i8.ReadingList>(
+            returnValueForMissingStub: _i5.dummyValue<_i9.ReadingList>(
               this,
               Invocation.getter(#readingList),
             ),
           )
-          as _i8.ReadingList);
+          as _i9.ReadingList);
 
   @override
   _i3.Feed get feed =>
@@ -321,7 +322,7 @@ class MockFeedManager extends _i1.Mock implements _i3.FeedManager {
 /// A class which mocks [FeedsManager].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFeedsManager extends _i1.Mock implements _i9.FeedsManager {
+class MockFeedsManager extends _i1.Mock implements _i10.FeedsManager {
   @override
   bool get areChaptersRead =>
       (super.noSuchMethod(
@@ -341,13 +342,13 @@ class MockFeedsManager extends _i1.Mock implements _i9.FeedsManager {
           as int);
 
   @override
-  List<_i3.FeedManager> get feedManagers =>
+  List<_i8.FeedManager> get feedManagers =>
       (super.noSuchMethod(
             Invocation.getter(#feedManagers),
-            returnValue: <_i3.FeedManager>[],
-            returnValueForMissingStub: <_i3.FeedManager>[],
+            returnValue: <_i8.FeedManager>[],
+            returnValueForMissingStub: <_i8.FeedManager>[],
           )
-          as List<_i3.FeedManager>);
+          as List<_i8.FeedManager>);
 
   @override
   bool get hasListeners =>

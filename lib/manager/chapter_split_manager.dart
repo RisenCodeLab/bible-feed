@@ -2,7 +2,7 @@ import 'package:injectable/injectable.dart';
 
 import '../model/chapter_split_setting.dart';
 import '../model/chapter_splitters.dart';
-import 'feed_manager.dart';
+import '../model/feed.dart';
 
 @lazySingleton
 class ChapterSplitManager {

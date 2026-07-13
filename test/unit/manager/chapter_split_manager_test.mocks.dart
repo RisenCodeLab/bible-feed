@@ -5,10 +5,10 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:ui' as _i7;
 
-import 'package:bible_feed/manager/feed_manager.dart' as _i4;
 import 'package:bible_feed/model/chapter_split_setting.dart' as _i6;
 import 'package:bible_feed/model/chapter_splitter.dart' as _i2;
 import 'package:bible_feed/model/chapter_splitters.dart' as _i5;
+import 'package:bible_feed/model/feed.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i3;
 
