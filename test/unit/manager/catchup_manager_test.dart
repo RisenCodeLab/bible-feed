@@ -11,6 +11,7 @@ import 'package:bible_feed/model/priority.dart';
 import 'package:bible_feed/model/setting.dart';
 import 'package:bible_feed/service/date_time_service.dart';
 import 'package:bible_feed/service/store_service.dart';
+import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:dartx/dartx.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -141,7 +142,7 @@ void main() {
   final today = DateTime.now().date;
   final feedManagers = List.generate(10, (index) {
     final rl = index.isEven ? rl0 : rl1;
-    return FeedManager(rl, Feed(bookKey: rl[0].key));
+    return FeedManager(rl, Feed(bookKey: rl[0].key), StubDateTimeService());
   });
 
   setUp(() {

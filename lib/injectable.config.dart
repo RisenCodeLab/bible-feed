@@ -159,12 +159,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i326.DeepLinkService>(
       () => _i326.DeepLinkService(gh<_i942.ToastService>()),
     );
-    gh.lazySingleton<_i127.FeedsManager>(
-      () => _i127.FeedsManager(
-        gh<_i571.FeedStoreManager>(),
-        gh<_i823.ReadingLists>(),
-      ),
-    );
     gh.lazySingleton<_i99.DateTimeService>(
       () => _i99.NowDateTimeService(),
       registerFor: {_prod},
@@ -212,19 +206,19 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i626.UrlLaunchService>(),
       ),
     );
-    gh.lazySingleton<_i477.FeedsAdvanceManager>(
-      () => _i477.FeedsAdvanceManager(
-        gh<_i99.DateTimeService>(),
-        gh<_i716.FeedAdvanceManager>(),
-        gh<_i127.FeedsManager>(),
-      ),
-    );
     gh.singleton<_i438.MidnightManager>(
       () => _i438.ProdMidnightManager(
         gh<_i540.AppLifecycleManager>(),
         gh<_i99.DateTimeService>(),
       ),
       registerFor: {_prod},
+    );
+    gh.lazySingleton<_i127.FeedsManager>(
+      () => _i127.FeedsManager(
+        gh<_i571.FeedStoreManager>(),
+        gh<_i99.DateTimeService>(),
+        gh<_i823.ReadingLists>(),
+      ),
     );
     gh.lazySingleton<_i516.PlatformEventService>(
       () => _i516.ProductionPlatformEventService(gh<_i578.PlatformService>()),
@@ -236,11 +230,11 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i837.BibleReadersCertifiedManager>(),
       ),
     );
-    gh.lazySingleton<_i111.AutoAdvanceManager>(
-      () => _i111.AutoAdvanceManager(
-        gh<_i540.AppLifecycleManager>(),
-        gh<_i477.FeedsAdvanceManager>(),
-        gh<_i438.MidnightManager>(),
+    gh.lazySingleton<_i477.FeedsAdvanceManager>(
+      () => _i477.FeedsAdvanceManager(
+        gh<_i99.DateTimeService>(),
+        gh<_i716.FeedAdvanceManager>(),
+        gh<_i127.FeedsManager>(),
       ),
     );
     gh.lazySingleton<_i610.AppInstallManager>(
@@ -306,6 +300,13 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i1033.ChapterListWheelState>(),
         gh<_i252.ChapterSplitSetting>(),
         gh<_i583.FeedTapManager>(),
+      ),
+    );
+    gh.lazySingleton<_i111.AutoAdvanceManager>(
+      () => _i111.AutoAdvanceManager(
+        gh<_i540.AppLifecycleManager>(),
+        gh<_i477.FeedsAdvanceManager>(),
+        gh<_i438.MidnightManager>(),
       ),
     );
     gh.singleton<_i468.DeepLinkInManager>(

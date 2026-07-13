@@ -2,6 +2,7 @@ import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/model/reading_lists.dart';
 import 'package:bible_feed/manager/feed_store_manager.dart';
 import 'package:bible_feed/manager/feeds_manager.dart';
+import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -22,7 +23,7 @@ void main() async {
     feed1 = Feed(bookKey: b1.key, dateModified: DateTime(2025, 1, 1, 2));
     when(mockFeedStoreManager.load(rl0)).thenReturn(feed0);
     when(mockFeedStoreManager.load(rl1)).thenReturn(feed1);
-    testee = FeedsManager(mockFeedStoreManager, ReadingLists([rl0, rl1]));
+    testee = FeedsManager(mockFeedStoreManager, StubDateTimeService(), ReadingLists([rl0, rl1]));
   });
 
   group('property', () {

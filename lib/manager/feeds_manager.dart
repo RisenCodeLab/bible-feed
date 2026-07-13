@@ -5,14 +5,17 @@ import 'package:injectable/injectable.dart';
 
 import 'feed_manager.dart';
 import '../model/reading_lists.dart';
+import '../service/date_time_service.dart';
 import 'feed_store_manager.dart';
 
 @lazySingleton
 class FeedsManager with ChangeNotifier {
   final FeedStoreManager _feedStoreManager;
+  final DateTimeService _dateTimeService;
 
-  FeedsManager(this._feedStoreManager, ReadingLists readingLists)
-    : _feedManagers = readingLists.map((rl) => FeedManager(rl, _feedStoreManager.load(rl))).toList() {
+  FeedsManager(this._feedStoreManager, DateTimeService dateTimeService, ReadingLists readingLists)
+    : _dateTimeService = dateTimeService,
+      _feedManagers = readingLists.map((rl) => FeedManager(rl, _feedStoreManager.load(rl), dateTimeService)).toList() {
     for (FeedManager fm in _feedManagers) {
       if (fm.feed.dateModified?.isAfter(_lastModifiedFeed?.dateModified ?? DateTime(0)) ?? false) {
         _lastModifiedFeed = fm.feed;

@@ -1,5 +1,6 @@
 import 'package:bible_feed/model/book.dart';
 import 'package:bible_feed/manager/feed_manager.dart';
+import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../test_data.dart';
@@ -10,7 +11,7 @@ void main() async {
 
   setUp(() {
     feed = Feed(bookKey: b1.key);
-    testee = FeedManager(rl1, feed);
+    testee = FeedManager(rl1, feed, StubDateTimeService());
   });
 
   group('property', () {

@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 
 import '../model/book.dart';
 import '../model/reading_list.dart';
+import '../service/date_time_service.dart';
 
 part '../model/feed.dart';
 part '../model/feed.mapper.dart';
@@ -10,9 +11,10 @@ part '../model/feed.mapper.dart';
 // FeedManager manages the reading state of a given list of books
 class FeedManager with ChangeNotifier {
   final ReadingList _readingList;
+  final DateTimeService _dateTimeService;
   Feed _feed;
 
-  FeedManager(this._readingList, this._feed);
+  FeedManager(this._readingList, this._feed, this._dateTimeService);
 
   Book get book => _readingList.getBook(_feed._bookKey);
   int get bookIndex => _readingList.indexOf(book);
@@ -32,13 +34,13 @@ class FeedManager with ChangeNotifier {
     _feed._chapter = chapter;
     _feed._verse = verse;
     _feed._isRead = false;
-    _feed._dateModified = .now();
+    _feed._dateModified = _dateTimeService.now;
     notifyListeners();
   }
 
   void toggleIsRead() {
     _feed._isRead = !_feed._isRead;
-    _feed._dateModified = .now();
+    _feed._dateModified = _dateTimeService.now;
     notifyListeners();
   }
 

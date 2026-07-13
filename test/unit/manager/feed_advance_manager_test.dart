@@ -3,6 +3,7 @@ import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/manager/chapter_split_manager.dart';
 import 'package:bible_feed/manager/feed_advance_manager.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
@@ -18,7 +19,7 @@ void main() async {
 
   setUp(() {
     feed = Feed(bookKey: b1.key);
-    feedManager = FeedManager(rl1, feed);
+    feedManager = FeedManager(rl1, feed, StubDateTimeService());
     when(mockChapterSplitManager.getNextVerse(feed)).thenReturn(1);
     testee = FeedAdvanceManager(mockChapterSplitManager);
   });
