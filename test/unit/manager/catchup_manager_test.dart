@@ -4,7 +4,7 @@ import 'package:bible_feed/manager/feeds_advance_manager.dart';
 import 'package:bible_feed/manager/feeds_manager.dart';
 import 'package:bible_feed/manager/midnight_manager.dart';
 import 'package:bible_feed/model/catchup_setting.dart';
-import 'package:bible_feed/model/feed.dart';
+import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/service/date_time_service.dart';
 import 'package:bible_feed/service/store_service.dart';
 import 'package:dartx/dartx.dart';
@@ -52,7 +52,7 @@ void main() {
     when(mockCatchupSetting.value).thenReturn(true);
     when(mockDateTimeService.now).thenReturn(DateTime.now());
     when(mockFeedsManager.chaptersToRead).thenReturn(7);
-    when(mockFeedsManager.feeds).thenReturn(List.filled(10, Feed(rl0, FeedState(bookKey: ''))));
+    when(mockFeedsManager.feeds).thenReturn(List.filled(10, FeedManager(rl0, FeedState(bookKey: ''))));
 
     testee = CatchupManager(
       mockAppLifecycleManager,

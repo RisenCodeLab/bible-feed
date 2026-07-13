@@ -1,6 +1,6 @@
 import 'package:bible_feed/manager/bible_reader_launch_manager.dart';
 import 'package:bible_feed/model/bible_reader.dart';
-import 'package:bible_feed/model/feed.dart';
+import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/service/platform_service.dart';
 import 'package:bible_feed/service/url_launch_service.dart';
 import 'package:flutter/services.dart';

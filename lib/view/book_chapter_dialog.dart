@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:watch_it/watch_it.dart';
 
-import '../model/feed.dart';
+import '../manager/feed_manager.dart';
 import '../model/list_wheel_state.dart';
 import '_build_context_extension.dart';
 import '_constants.dart';
@@ -11,7 +11,7 @@ import 'book_chapter_dialog_footer.dart';
 import 'book_chapter_dialog_wheels.dart';
 
 class BookChapterDialog extends StatelessWidget {
-  final Feed feed;
+  final FeedManager feed;
 
   BookChapterDialog(this.feed) {
     sl<BookListWheelState>().index = feed.bookIndex;

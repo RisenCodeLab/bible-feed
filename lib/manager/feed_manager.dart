@@ -1,18 +1,18 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:flutter/foundation.dart';
 
-import 'book.dart';
-import 'reading_list.dart';
+import '../model/book.dart';
+import '../model/reading_list.dart';
 
-part 'feed_state.dart';
-part 'feed.mapper.dart';
+part '../model/feed_state.dart';
+part '../model/feed.mapper.dart';
 
-// Feed manages the reading state of a given list of books
-class Feed with ChangeNotifier {
+// FeedManager manages the reading state of a given list of books
+class FeedManager with ChangeNotifier {
   final ReadingList _readingList;
   FeedState _state;
 
-  Feed(this._readingList, this._state);
+  FeedManager(this._readingList, this._state);
 
   Book get book => _readingList.getBook(_state._bookKey);
   int get bookIndex => _readingList.indexOf(book);

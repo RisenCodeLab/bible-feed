@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:watch_it/watch_it.dart';
 
 import '../manager/chapter_split_manager.dart';
+import '../manager/feed_manager.dart';
 import '../model/chapter_split_setting.dart';
-import '../model/feed.dart';
 import '_constants.dart';
 
 class FeedBookChapter extends WatchingWidget {
-  final Feed feed;
+  final FeedManager feed;
   const FeedBookChapter(this.feed);
 
   @override

@@ -1,5 +1,5 @@
 import 'package:bible_feed/model/book.dart';
-import 'package:bible_feed/model/feed.dart';
+import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/manager/chapter_split_manager.dart';
 import 'package:bible_feed/manager/feed_advance_manager.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -12,13 +12,13 @@ import 'feed_advance_manager_test.mocks.dart';
 @GenerateNiceMocks([MockSpec<ChapterSplitManager>()])
 void main() async {
   final mockChapterSplitManager = MockChapterSplitManager();
-  late Feed feed;
+  late FeedManager feed;
   late FeedState state;
   late FeedAdvanceManager testee;
 
   setUp(() {
     state = FeedState(bookKey: b1.key);
-    feed = Feed(rl1, state);
+    feed = FeedManager(rl1, state);
     when(mockChapterSplitManager.getNextVerse(state)).thenReturn(1);
     testee = FeedAdvanceManager(mockChapterSplitManager);
   });

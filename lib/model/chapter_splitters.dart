@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 
 import 'base_list.dart';
 import 'chapter_splitter.dart';
-import 'feed.dart';
+import '../manager/feed_manager.dart';
 
 ChapterSplitter splitter(String bookKey, int chapter, List<int> verses) => ChapterSplitter(bookKey, chapter, verses);
 

@@ -7,11 +7,11 @@ import 'dart:async' as _i14;
 import 'dart:ui' as _i3;
 
 import 'package:bible_feed/manager/app_lifecycle_manager.dart' as _i2;
+import 'package:bible_feed/manager/feed_manager.dart' as _i9;
 import 'package:bible_feed/manager/feeds_advance_manager.dart' as _i10;
 import 'package:bible_feed/manager/feeds_manager.dart' as _i8;
 import 'package:bible_feed/manager/midnight_manager.dart' as _i12;
 import 'package:bible_feed/model/catchup_setting.dart' as _i5;
-import 'package:bible_feed/model/feed.dart' as _i9;
 import 'package:bible_feed/model/feeds_advance_state.dart' as _i11;
 import 'package:bible_feed/model/priority.dart' as _i4;
 import 'package:bible_feed/service/date_time_service.dart' as _i7;
@@ -231,13 +231,13 @@ class MockFeedsManager extends _i1.Mock implements _i8.FeedsManager {
           as int);
 
   @override
-  List<_i9.Feed> get feeds =>
+  List<_i9.FeedManager> get feeds =>
       (super.noSuchMethod(
             Invocation.getter(#feeds),
-            returnValue: <_i9.Feed>[],
-            returnValueForMissingStub: <_i9.Feed>[],
+            returnValue: <_i9.FeedManager>[],
+            returnValueForMissingStub: <_i9.FeedManager>[],
           )
-          as List<_i9.Feed>);
+          as List<_i9.FeedManager>);
 
   @override
   bool get hasListeners =>

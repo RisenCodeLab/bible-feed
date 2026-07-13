@@ -1,7 +1,7 @@
 import 'package:bible_feed/injectable.dart';
 import 'package:bible_feed/manager/feed_store_manager.dart';
+import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/model/book.dart';
-import 'package:bible_feed/model/feed.dart';
 import 'package:bible_feed/model/reading_lists.dart';
 import 'package:bible_feed/view/book_chapter_dialog.dart';
 import 'package:bible_feed/view/feed.dart' as view;
@@ -24,7 +24,7 @@ Future runWidgetTests() async {
   final gospels = sl<ReadingLists>()[0];
   final matthew = gospels[0];
   final state = sl<FeedStoreManager>().loadState(gospels);
-  final feed = Feed(gospels, state);
+  final feed = FeedManager(gospels, state);
 
   testWidgets('BookChapterDialog', (t) async {
     await t.initialiseWidget(BookChapterDialog(feed));

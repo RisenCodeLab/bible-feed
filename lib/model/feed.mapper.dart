@@ -6,7 +6,7 @@
 // ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
-part of 'feed.dart';
+part of 'package:bible_feed/manager/feed_manager.dart';
 
 class FeedStateMapper extends ClassMapperBase<FeedState> {
   FeedStateMapper._();
@@ -186,4 +186,3 @@ class _FeedStateCopyWithImpl<$R, $Out>
     Then<$Out2, $R2> t,
   ) => _FeedStateCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
-

@@ -1,7 +1,7 @@
 import 'package:bible_feed/manager/catchup_manager.dart';
 import 'package:bible_feed/manager/feeds_manager.dart';
 import 'package:bible_feed/manager/share_in_manager.dart';
-import 'package:bible_feed/model/feed.dart';
+import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/model/share_dto.dart';
 import 'package:bible_feed/service/app_service.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,7 +11,7 @@ import 'package:mockito/mockito.dart';
 import '../test_data.dart';
 import 'share_in_manager_test.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<AppService>(), MockSpec<CatchupManager>(), MockSpec<Feed>(), MockSpec<FeedsManager>()])
+@GenerateNiceMocks([MockSpec<AppService>(), MockSpec<CatchupManager>(), MockSpec<FeedManager>(), MockSpec<FeedsManager>()])
 void main() {
   late MockAppService mockAppService;
   late MockCatchupManager mockCatchupManager;
@@ -58,8 +58,8 @@ void main() {
       virtualAllDoneDate: virtualAllDoneDate,
     );
     final json = shareDto.toJson();
-    final mockFeed1 = MockFeed();
-    final mockFeed2 = MockFeed();
+    final mockFeed1 = MockFeedManager();
+    final mockFeed2 = MockFeedManager();
 
     when(mockAppService.buildNumber).thenReturn(buildNumber);
     when(mockCatchupManager.virtualAllDoneDate).thenReturn(virtualAllDoneDate);

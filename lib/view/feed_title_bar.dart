@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:watch_it/watch_it.dart';
 
+import '../manager/feed_manager.dart';
 import '../manager/feeds_manager.dart';
-import '../model/feed.dart';
 import '_build_context_extension.dart';
 import 'book_chapter_dialog.dart';
 
 class FeedTitleBar extends WatchingWidget {
-  final Feed feed;
+  final FeedManager feed;
   const FeedTitleBar(this.feed);
 
   @override

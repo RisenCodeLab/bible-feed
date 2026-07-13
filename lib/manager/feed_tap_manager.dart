@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
-import '../model/feed.dart';
+import 'feed_manager.dart';
 import 'bible_reader_launch_manager.dart';
 import 'bible_reader_link_manager.dart';
 
@@ -12,7 +12,7 @@ class FeedTapManager with ChangeNotifier {
 
   FeedTapManager(this._bibleReaderLaunchManager, this._bibleReaderLinkManager);
 
-  Future<void> handleTap(Feed feed) {
+  Future<void> handleTap(FeedManager feed) {
     notifyListeners();
     feed.toggleIsRead();
     return _bibleReaderLaunchManager.maybeLaunch(_bibleReaderLinkManager.linkedBibleReader, feed.state);

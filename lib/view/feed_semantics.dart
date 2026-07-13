@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:watch_it/watch_it.dart';
 
 import '../manager/bible_reader_link_manager.dart';
-import '../model/feed.dart';
+import '../manager/feed_manager.dart';
 
 class FeedSemantics extends WatchingWidget {
   final Widget? child;
-  final Feed feed;
+  final FeedManager feed;
 
   const FeedSemantics({required this.feed, required this.child});
 

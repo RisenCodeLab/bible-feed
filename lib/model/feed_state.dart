@@ -1,4 +1,4 @@
-part of 'feed.dart';
+part of 'package:bible_feed/manager/feed_manager.dart';
 
 @MappableClass()
 class FeedState with FeedStateMappable {

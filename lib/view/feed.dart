@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:watch_it/watch_it.dart';
 
 import '../manager/bible_reader_link_manager.dart';
+import '../manager/feed_manager.dart';
 import '../manager/feeds_manager.dart';
-import '../model/feed.dart' as model;
 import 'feed_body.dart';
 import 'feed_semantics.dart';
 
 class Feed extends WatchingWidget {
-  final model.Feed feed;
+  final FeedManager feed;
   const Feed(this.feed);
 
   @override

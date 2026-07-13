@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import 'feed.dart';
+import '../manager/feed_manager.dart';
 
 @immutable
 class ChapterSplitter {

@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-import '../model/feed.dart';
+import 'feed_manager.dart';
 import 'chapter_split_manager.dart';
 
 @lazySingleton
@@ -9,7 +9,7 @@ class FeedAdvanceManager {
 
   FeedAdvanceManager(this._chapterSplitService);
 
-  void advance(Feed feed) {
+  void advance(FeedManager feed) {
     final state = feed.state;
     assert(state.isRead);
     var bookIndex = feed.bookIndex;

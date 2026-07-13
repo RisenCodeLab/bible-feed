@@ -1,16 +1,16 @@
 import 'package:bible_feed/model/book.dart';
-import 'package:bible_feed/model/feed.dart';
+import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../test_data.dart';
 
 void main() async {
-  late Feed testee;
+  late FeedManager testee;
   late FeedState state;
 
   setUp(() {
     state = FeedState(bookKey: b1.key);
-    testee = Feed(rl1, state);
+    testee = FeedManager(rl1, state);
   });
 
   group('property', () {

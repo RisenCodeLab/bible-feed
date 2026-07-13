@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:watch_it/watch_it.dart';
 
+import '../manager/feed_manager.dart';
 import '../manager/feed_tap_manager.dart';
-import '../model/feed.dart';
 import '_build_context_extension.dart';
 import 'bible_reader_launch_failed_dialog.dart';
 import 'book_chapter_dialog.dart';
@@ -10,7 +10,7 @@ import 'feed_book_chapter.dart';
 import 'feed_title_bar.dart';
 
 class FeedBody extends StatelessWidget {
-  final Feed feed;
+  final FeedManager feed;
   const FeedBody(this.feed);
 
   Future<void> _handleTap(BuildContext context) async {

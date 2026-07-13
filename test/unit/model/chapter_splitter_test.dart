@@ -1,6 +1,6 @@
 import 'package:bible_feed/model/chapter_splitter.dart';
 import 'package:bible_feed/model/chapter_splitters.dart';
-import 'package:bible_feed/model/feed.dart';
+import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:parameterized_test/parameterized_test.dart';
 

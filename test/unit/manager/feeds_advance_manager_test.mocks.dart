@@ -6,11 +6,12 @@
 import 'dart:ui' as _i7;
 
 import 'package:bible_feed/manager/feed_advance_manager.dart' as _i8;
-import 'package:bible_feed/manager/feeds_manager.dart' as _i9;
+import 'package:bible_feed/manager/feed_manager.dart' as _i9;
+import 'package:bible_feed/manager/feeds_manager.dart' as _i10;
 import 'package:bible_feed/model/book.dart' as _i2;
-import 'package:bible_feed/model/feed.dart' as _i3;
+import 'package:bible_feed/manager/feed_manager.dart' as _i4;
 import 'package:bible_feed/model/reading_list.dart' as _i5;
-import 'package:bible_feed/service/date_time_service.dart' as _i4;
+import 'package:bible_feed/service/date_time_service.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i6;
 
@@ -39,7 +40,7 @@ class _FakeBook_1 extends _i1.SmartFake implements _i2.Book {
     : super(parent, parentInvocation);
 }
 
-class _FakeFeedState_2 extends _i1.SmartFake implements _i3.FeedState {
+class _FakeFeedState_2 extends _i1.SmartFake implements _i4.FeedState {
   _FakeFeedState_2(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
@@ -47,7 +48,7 @@ class _FakeFeedState_2 extends _i1.SmartFake implements _i3.FeedState {
 /// A class which mocks [DateTimeService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockDateTimeService extends _i1.Mock implements _i4.DateTimeService {
+class MockDateTimeService extends _i1.Mock implements _i3.DateTimeService {
   @override
   DateTime get now =>
       (super.noSuchMethod(
@@ -61,10 +62,10 @@ class MockDateTimeService extends _i1.Mock implements _i4.DateTimeService {
           as DateTime);
 }
 
-/// A class which mocks [Feed].
+/// A class which mocks [FeedManager].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFeed extends _i1.Mock implements _i3.Feed {
+class MockFeedManager extends _i1.Mock implements _i4.FeedManager {
   @override
   _i2.Book get book =>
       (super.noSuchMethod(
@@ -120,19 +121,16 @@ class MockFeed extends _i1.Mock implements _i3.Feed {
           as _i5.ReadingList);
 
   @override
-  _i3.FeedState get state =>
+  _i4.FeedState get state =>
       (super.noSuchMethod(
             Invocation.getter(#state),
             returnValue: _FakeFeedState_2(this, Invocation.getter(#state)),
-            returnValueForMissingStub: _FakeFeedState_2(
-              this,
-              Invocation.getter(#state),
-            ),
+            returnValueForMissingStub: _FakeFeedState_2(this, Invocation.getter(#state)),
           )
-          as _i3.FeedState);
+          as _i4.FeedState);
 
   @override
-  set state(_i3.FeedState? value) => super.noSuchMethod(
+  set state(_i4.FeedState? value) => super.noSuchMethod(
     Invocation.setter(#state, value),
     returnValueForMissingStub: null,
   );
@@ -196,7 +194,7 @@ class MockFeed extends _i1.Mock implements _i3.Feed {
 class MockFeedAdvanceManager extends _i1.Mock
     implements _i8.FeedAdvanceManager {
   @override
-  void advance(_i3.Feed? feed) => super.noSuchMethod(
+  void advance(_i9.FeedManager? feed) => super.noSuchMethod(
     Invocation.method(#advance, [feed]),
     returnValueForMissingStub: null,
   );
@@ -205,7 +203,7 @@ class MockFeedAdvanceManager extends _i1.Mock
 /// A class which mocks [FeedsManager].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFeedsManager extends _i1.Mock implements _i9.FeedsManager {
+class MockFeedsManager extends _i1.Mock implements _i10.FeedsManager {
   @override
   bool get areChaptersRead =>
       (super.noSuchMethod(
@@ -225,13 +223,13 @@ class MockFeedsManager extends _i1.Mock implements _i9.FeedsManager {
           as int);
 
   @override
-  List<_i3.Feed> get feeds =>
+  List<_i9.FeedManager> get feeds =>
       (super.noSuchMethod(
             Invocation.getter(#feeds),
-            returnValue: <_i3.Feed>[],
-            returnValueForMissingStub: <_i3.Feed>[],
+            returnValue: <_i9.FeedManager>[],
+            returnValueForMissingStub: <_i9.FeedManager>[],
           )
-          as List<_i3.Feed>);
+          as List<_i9.FeedManager>);
 
   @override
   bool get hasListeners =>
