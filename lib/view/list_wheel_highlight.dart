@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '_build_context_extension.dart';
+import '_constants.dart';
 
 // highlight selected item
 class ListWheelHighlight extends StatelessWidget {
@@ -15,7 +16,7 @@ class ListWheelHighlight extends StatelessWidget {
         height: height,
         decoration: BoxDecoration(
           color: context.colorScheme.tertiary,
-          borderRadius: const .all(.circular(8.0)),
+          borderRadius: const .all(Constants.defaultBorderRadius),
         ),
       ),
     );
