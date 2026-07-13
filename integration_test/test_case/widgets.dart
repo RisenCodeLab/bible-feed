@@ -23,11 +23,11 @@ Future runWidgetTests() async {
 
   final gospels = sl<ReadingLists>()[0];
   final matthew = gospels[0];
-  final state = sl<FeedStoreManager>().load(gospels);
-  final feed = FeedManager(gospels, state);
+  final feed = sl<FeedStoreManager>().load(gospels);
+  final feedManager = FeedManager(gospels, feed);
 
   testWidgets('BookChapterDialog', (t) async {
-    await t.initialiseWidget(BookChapterDialog(feed));
+    await t.initialiseWidget(BookChapterDialog(feedManager));
     for (Book b in gospels) {
       expectText(b.name);
     }
@@ -43,7 +43,7 @@ Future runWidgetTests() async {
   });
 
   testWidgets('Feed', (t) async {
-    await t.initialiseWidget(view.Feed(feed));
+    await t.initialiseWidget(view.Feed(feedManager));
     expectText(gospels.name);
     expectBookAndChapter(matthew.name, 1);
   });
