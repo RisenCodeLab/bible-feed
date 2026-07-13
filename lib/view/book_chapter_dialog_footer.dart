@@ -7,8 +7,8 @@ import '../model/list_wheel_state.dart';
 import '_build_context_extension.dart';
 
 class BookChapterDialogFooter extends WatchingWidget {
-  final FeedManager feed;
-  const BookChapterDialogFooter(this.feed);
+  final FeedManager feedManager;
+  const BookChapterDialogFooter(this.feedManager);
 
   @override
   build(context) {
@@ -19,7 +19,7 @@ class BookChapterDialogFooter extends WatchingWidget {
       children: [
         LinearProgressIndicator(
           backgroundColor: context.colorScheme.surface,
-          value: feed.readingList.progressTo(bookIndex, chapter),
+          value: feedManager.readingList.progressTo(bookIndex, chapter),
         ),
         Row(
           children: [
@@ -27,7 +27,7 @@ class BookChapterDialogFooter extends WatchingWidget {
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: AutoSizeText(
-                  '${feed.readingList.chaptersTo(bookIndex, chapter)} of ${feed.readingList.totalChapters}',
+                  '${feedManager.readingList.chaptersTo(bookIndex, chapter)} of ${feedManager.readingList.totalChapters}',
                   maxLines: 1,
                   overflow: .ellipsis,
                 ),
@@ -35,7 +35,7 @@ class BookChapterDialogFooter extends WatchingWidget {
             ),
             TextButton(
               onPressed: () {
-                feed.setBookChapterVerse(bookIndex, chapter);
+                feedManager.setBookChapterVerse(bookIndex, chapter);
                 Navigator.pop(context);
               },
               child: const Padding(padding: EdgeInsets.only(right: 8.0), child: Text('Update')),

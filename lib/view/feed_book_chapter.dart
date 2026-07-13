@@ -8,13 +8,13 @@ import '../model/chapter_split_setting.dart';
 import '_constants.dart';
 
 class FeedBookChapter extends WatchingWidget {
-  final FeedManager feed;
-  const FeedBookChapter(this.feed);
+  final FeedManager feedManager;
+  const FeedBookChapter(this.feedManager);
 
   @override
   build(context) {
     const maxLines = 2;
-    final chapterSplitLabel = sl<ChapterSplitManager>().getLabel(feed.state);
+    final chapterSplitLabel = sl<ChapterSplitManager>().getLabel(feedManager.state);
     watchIt<ChapterSplitSetting>();
 
     return Expanded(
@@ -22,7 +22,7 @@ class FeedBookChapter extends WatchingWidget {
         padding: Constants.defaultPadding,
         child: Center(
           child: AutoSizeText(
-            '${feed.book.name} ${feed.state.chapter} $chapterSplitLabel'.trim(),
+            '${feedManager.book.name} ${feedManager.state.chapter} $chapterSplitLabel'.trim(),
             maxLines: maxLines,
             overflow: .ellipsis,
             textAlign: .center,

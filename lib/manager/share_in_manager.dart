@@ -50,6 +50,6 @@ class ShareInManager {
 
     // touch the last modified feed to preserve lastModifiedDate
     final latestBookKey = syncDto.feedStateList.maxBy((s) => s.dateModified ?? DateTime(1970))?.bookKey;
-    _feedsManager.feeds.firstWhere((FeedManager f) => f.book.key == latestBookKey).touch();
+    _feedsManager.feeds.firstWhere((FeedManager fm) => fm.book.key == latestBookKey).touch();
   }
 }

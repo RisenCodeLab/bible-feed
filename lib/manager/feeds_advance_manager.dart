@@ -17,8 +17,8 @@ class FeedsAdvanceManager with ChangeNotifier {
   FeedsAdvanceManager(this._dateTimeService, this._feedAdvanceManager, this._feedsManager);
 
   FeedsAdvanceState advance() {
-    for (FeedManager f in _feedsManager.feeds) {
-      _feedAdvanceManager.advance(f);
+    for (FeedManager fm in _feedsManager.feeds) {
+      _feedAdvanceManager.advance(fm);
     }
     notifyListeners();
     return FeedsAdvanceState.listsAdvanced;

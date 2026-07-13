@@ -9,15 +9,15 @@ import 'feed_body.dart';
 import 'feed_semantics.dart';
 
 class Feed extends WatchingWidget {
-  final FeedManager feed;
-  const Feed(this.feed);
+  final FeedManager feedManager;
+  const Feed(this.feedManager);
 
   @override
   build(context) {
-    watch(feed);
+    watch(feedManager);
     final isLinked = watchIt<BibleReaderLinkManager>().isLinked;
-    final isRead = feed.state.isRead;
-    final isLastReadAndLinked = isRead && isLinked && identical(feed, sl<FeedsManager>().lastModifiedFeed);
+    final isRead = feedManager.state.isRead;
+    final isLastReadAndLinked = isRead && isLinked && identical(feedManager, sl<FeedsManager>().lastModifiedFeed);
     final timeToFade = (isLastReadAndLinked ? 30 : 0).seconds;
     final opacity = isRead ? 0.25 : 1.0;
     final elevation = isRead ? 0.0 : 12.0;
@@ -28,7 +28,7 @@ class Feed extends WatchingWidget {
       child: Card(
         elevation: elevation,
         clipBehavior: .hardEdge,
-        child: FeedSemantics(feed: feed, child: FeedBody(feed)),
+        child: FeedSemantics(feedManager: feedManager, child: FeedBody(feedManager)),
       ),
     );
   }

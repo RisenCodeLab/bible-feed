@@ -9,16 +9,16 @@ class FeedAdvanceManager {
 
   FeedAdvanceManager(this._chapterSplitService);
 
-  void advance(FeedManager feed) {
-    final state = feed.state;
+  void advance(FeedManager feedManager) {
+    final state = feedManager.state;
     assert(state.isRead);
-    var bookIndex = feed.bookIndex;
+    var bookIndex = feedManager.bookIndex;
     var chapter = state.chapter;
     final verse = _chapterSplitService.getNextVerse(state);
-    if (verse == 1 && ++chapter > feed.book.chapterCount) {
-      bookIndex = (feed.bookIndex + 1) % feed.readingList.length;
+    if (verse == 1 && ++chapter > feedManager.book.chapterCount) {
+      bookIndex = (feedManager.bookIndex + 1) % feedManager.readingList.length;
       chapter = 1;
     }
-    feed.setBookChapterVerse(bookIndex, chapter, verse);
+    feedManager.setBookChapterVerse(bookIndex, chapter, verse);
   }
 }

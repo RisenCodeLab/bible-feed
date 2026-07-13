@@ -6,18 +6,18 @@ import '../manager/feed_manager.dart';
 
 class FeedSemantics extends WatchingWidget {
   final Widget? child;
-  final FeedManager feed;
+  final FeedManager feedManager;
 
-  const FeedSemantics({required this.feed, required this.child});
+  const FeedSemantics({required this.feedManager, required this.child});
 
   @override
   build(context) {
-    watch(feed);
+    watch(feedManager);
     final brlm = watchIt<BibleReaderLinkManager>();
-    final state = feed.state;
+    final state = feedManager.state;
     final isRead = state.isRead;
 
-    final semanticsLabel = '${feed.book.name} chapter ${state.chapter} is currently ${isRead ? 'read' : 'unread'}';
+    final semanticsLabel = '${feedManager.book.name} chapter ${state.chapter} is currently ${isRead ? 'read' : 'unread'}';
     final semanticsHint =
         'Tap to ${brlm.isLinked && !isRead ? 'open Bible reader and' : ''} mark as ${isRead ? 'unread' : 'read'}. Long press to change the book and chapter.';
 

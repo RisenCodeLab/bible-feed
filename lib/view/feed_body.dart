@@ -10,12 +10,12 @@ import 'feed_book_chapter.dart';
 import 'feed_title_bar.dart';
 
 class FeedBody extends StatelessWidget {
-  final FeedManager feed;
-  const FeedBody(this.feed);
+  final FeedManager feedManager;
+  const FeedBody(this.feedManager);
 
   Future<void> _handleTap(BuildContext context) async {
     try {
-      await sl<FeedTapManager>().handleTap(feed);
+      await sl<FeedTapManager>().handleTap(feedManager);
     } on Exception catch (e) {
       if (context.mounted) context.showDialogWithBlurBackground(BibleReaderLaunchFailedDialog(e));
     }
@@ -25,8 +25,8 @@ class FeedBody extends StatelessWidget {
   build(context) {
     return InkWell(
       enableFeedback: false,
-      key: ValueKey(feed.book.key),
-      onLongPress: () => context.showDialogWithBlurBackground(BookChapterDialog(feed)),
+      key: ValueKey(feedManager.book.key),
+      onLongPress: () => context.showDialogWithBlurBackground(BookChapterDialog(feedManager)),
       onTap: () => _handleTap(context),
       child: LayoutBuilder(
         builder: (_, BoxConstraints c) {
@@ -36,9 +36,9 @@ class FeedBody extends StatelessWidget {
           return Column(
             mainAxisSize: .min,
             children: [
-              Visibility(visible: isVisible, child: FeedTitleBar(feed)),
-              LinearProgressIndicator(backgroundColor: context.colorScheme.surface, value: feed.progress),
-              DefaultTextStyle.merge(style: TextStyle(fontSize: fontSize), child: FeedBookChapter(feed)),
+              Visibility(visible: isVisible, child: FeedTitleBar(feedManager)),
+              LinearProgressIndicator(backgroundColor: context.colorScheme.surface, value: feedManager.progress),
+              DefaultTextStyle.merge(style: TextStyle(fontSize: fontSize), child: FeedBookChapter(feedManager)),
             ],
           );
         },

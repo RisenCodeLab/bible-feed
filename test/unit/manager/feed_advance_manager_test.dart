@@ -12,37 +12,37 @@ import 'feed_advance_manager_test.mocks.dart';
 @GenerateNiceMocks([MockSpec<ChapterSplitManager>()])
 void main() async {
   final mockChapterSplitManager = MockChapterSplitManager();
-  late FeedManager feed;
+  late FeedManager feedManager;
   late Feed state;
   late FeedAdvanceManager testee;
 
   setUp(() {
     state = Feed(bookKey: b1.key);
-    feed = FeedManager(rl1, state);
+    feedManager = FeedManager(rl1, state);
     when(mockChapterSplitManager.getNextVerse(state)).thenReturn(1);
     testee = FeedAdvanceManager(mockChapterSplitManager);
   });
 
   test('should fail assertion if not read', () {
-    expect(() => testee.advance(feed), throwsAssertionError);
+    expect(() => testee.advance(feedManager), throwsAssertionError);
   });
 
   test('should not change chaptersRead', () {
-    feed.toggleIsRead();
-    expect(feed.chaptersRead, 1);
-    testee.advance(feed);
-    expect(feed.chaptersRead, 1);
+    feedManager.toggleIsRead();
+    expect(feedManager.chaptersRead, 1);
+    testee.advance(feedManager);
+    expect(feedManager.chaptersRead, 1);
   });
 
   test('should reset isRead', () {
-    feed.toggleIsRead();
-    testee.advance(feed);
-    expect(feed.state.isRead, false);
+    feedManager.toggleIsRead();
+    testee.advance(feedManager);
+    expect(feedManager.state.isRead, false);
   });
 
   void advance() {
-    if (!state.isRead) feed.toggleIsRead();
-    testee.advance(feed);
+    if (!state.isRead) feedManager.toggleIsRead();
+    testee.advance(feedManager);
   }
 
   void checkState(Book expectBook, int expectChapter, [int expectVerse = 1]) {
@@ -66,8 +66,8 @@ void main() async {
   test('with chapter split, should advance verse only', () {
     when(mockChapterSplitManager.getNextVerse(state)).thenReturn(3);
     checkState(b1, 1, 1);
-    feed.toggleIsRead();
-    testee.advance(feed);
+      feedManager.toggleIsRead();
+      testee.advance(feedManager);
     checkState(b1, 1, 3);
   });
 }
