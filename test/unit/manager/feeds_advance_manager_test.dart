@@ -31,7 +31,7 @@ void main() async {
     mockDateTimeService = MockDateTimeService();
     mockFeedAdvanceManager = MockFeedAdvanceManager();
     mockFeedsManager = MockFeedsManager();
-    when(mockFeedsManager.feeds).thenReturn(mockFeedList);
+    when(mockFeedsManager.feedManagers).thenReturn(mockFeedList);
     testee = FeedsAdvanceManager(mockDateTimeService, mockFeedAdvanceManager, mockFeedsManager);
   });
 

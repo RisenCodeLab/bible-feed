@@ -111,8 +111,7 @@ extension ShareDtoValueCopy<$R, $Out> on ObjectCopyWith<$R, ShareDto, $Out> {
 
 abstract class ShareDtoCopyWith<$R, $In extends ShareDto, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, Feed, FeedCopyWith<$R, Feed, Feed>>
-  get feedStateList;
+  ListCopyWith<$R, Feed, FeedCopyWith<$R, Feed, Feed>> get feedStateList;
   $R call({
     String? buildNumber,
     List<Feed>? feedStateList,
@@ -130,12 +129,12 @@ class _ShareDtoCopyWithImpl<$R, $Out>
   late final ClassMapperBase<ShareDto> $mapper =
       ShareDtoMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, Feed, FeedCopyWith<$R, Feed, Feed>>
-  get feedStateList => ListCopyWith(
-    $value.feedStateList,
-    (v, t) => v.copyWith.$chain(t),
-    (v) => call(feedStateList: v),
-  );
+  ListCopyWith<$R, Feed, FeedCopyWith<$R, Feed, Feed>> get feedStateList =>
+      ListCopyWith(
+        $value.feedStateList,
+        (v, t) => v.copyWith.$chain(t),
+        (v) => call(feedStateList: v),
+      );
   @override
   $R call({
     String? buildNumber,
@@ -163,3 +162,4 @@ class _ShareDtoCopyWithImpl<$R, $Out>
     Then<$Out2, $R2> t,
   ) => _ShareDtoCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
+

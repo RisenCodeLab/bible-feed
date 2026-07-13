@@ -48,10 +48,7 @@ class MockBibleReaderLaunchManager extends _i1.Mock
           as _i4.Future<bool>);
 
   @override
-  _i4.Future<void> maybeLaunch(
-    _i2.BibleReader? bibleReader,
-    _i5.Feed? state,
-  ) =>
+  _i4.Future<void> maybeLaunch(_i2.BibleReader? bibleReader, _i5.Feed? state) =>
       (super.noSuchMethod(
             Invocation.method(#maybeLaunch, [bibleReader, state]),
             returnValue: _i4.Future<void>.value(),

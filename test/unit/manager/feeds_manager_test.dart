@@ -27,55 +27,55 @@ void main() async {
 
   group('property', () {
     test('[]', () {
-      expect(testee.feeds[0].readingList, rl0);
-      expect(testee.feeds[1].readingList, rl1);
+      expect(testee.feedManagers[0].readingList, rl0);
+      expect(testee.feedManagers[1].readingList, rl1);
     });
 
     test('areChaptersRead', () {
       expect(testee.areChaptersRead, false);
-      testee.feeds[1].toggleIsRead();
+      testee.feedManagers[1].toggleIsRead();
       expect(testee.areChaptersRead, true);
     });
 
     test('chaptersToRead', () {
       expect(testee.chaptersToRead, 1);
-      testee.feeds[0].toggleIsRead();
+      testee.feedManagers[0].toggleIsRead();
       expect(testee.chaptersToRead, 2);
-      testee.feeds[1].toggleIsRead();
+      testee.feedManagers[1].toggleIsRead();
       expect(testee.chaptersToRead, 1);
-      testee.feeds[0].toggleIsRead();
+      testee.feedManagers[0].toggleIsRead();
       expect(testee.chaptersToRead, 0);
     });
 
     group('lastModifiedFeed', () {
       test('should initialise from store', () {
-        expect(testee.lastModifiedFeed, testee.feeds[1]);
+        expect(testee.lastModifiedFeed, testee.feedManagers[1]);
       });
 
       test('should update on toggle', () {
-        testee.feeds[0].toggleIsRead();
-        expect(testee.lastModifiedFeed, testee.feeds[0]);
-        testee.feeds[1].toggleIsRead();
-        expect(testee.lastModifiedFeed, testee.feeds[1]);
-        testee.feeds[0].toggleIsRead();
-        expect(testee.lastModifiedFeed, testee.feeds[0]);
+        testee.feedManagers[0].toggleIsRead();
+        expect(testee.lastModifiedFeed, testee.feedManagers[0]);
+        testee.feedManagers[1].toggleIsRead();
+        expect(testee.lastModifiedFeed, testee.feedManagers[1]);
+        testee.feedManagers[0].toggleIsRead();
+        expect(testee.lastModifiedFeed, testee.feedManagers[0]);
       });
     });
   });
 
   group('updating a feed', () {
     test('should update lastModifiedFeed', () {
-      testee.feeds[0].toggleIsRead();
-      expect(testee.lastModifiedFeed, testee.feeds[0]);
-      testee.feeds[1].toggleIsRead();
-      expect(testee.lastModifiedFeed, testee.feeds[1]);
+      testee.feedManagers[0].toggleIsRead();
+      expect(testee.lastModifiedFeed, testee.feedManagers[0]);
+      testee.feedManagers[1].toggleIsRead();
+      expect(testee.lastModifiedFeed, testee.feedManagers[1]);
     });
 
     test('should store the feed', () {
-      testee.feeds[0].toggleIsRead();
+      testee.feedManagers[0].toggleIsRead();
       verify(mockFeedStoreManager.saveState(rl0, state0)).called(1);
       verifyNever(mockFeedStoreManager.saveState(rl1, state1));
-      testee.feeds[1].toggleIsRead();
+      testee.feedManagers[1].toggleIsRead();
       verifyNever(mockFeedStoreManager.saveState(rl0, state0));
       verify(mockFeedStoreManager.saveState(rl1, state1)).called(1);
     });

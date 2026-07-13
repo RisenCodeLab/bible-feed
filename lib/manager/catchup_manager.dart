@@ -49,7 +49,7 @@ class CatchupManager with ChangeNotifier {
 
   //// public
 
-  int get chaptersToRead => daysBehind * _feedsManager.feeds.length + _feedsManager.chaptersToRead;
+  int get chaptersToRead => daysBehind * _feedsManager.feedManagers.length + _feedsManager.chaptersToRead;
 
   int get daysBehind {
     if (!_catchupSetting.value) return 0;

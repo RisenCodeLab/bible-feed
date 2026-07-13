@@ -56,8 +56,8 @@ void main() {
 
     shareInManager.sync(shareOutManager.getJson());
 
-    final feed0 = outFeedsManager.feeds[0].feed;
-    final feed1 = outFeedsManager.feeds[1].feed;
+    final feed0 = outFeedsManager.feedManagers[0].feed;
+    final feed1 = outFeedsManager.feedManagers[1].feed;
     expect(feed0.bookKey, b0.key);
     expect(feed0.chapter, 1);
     expect(feed0.verse, 1);

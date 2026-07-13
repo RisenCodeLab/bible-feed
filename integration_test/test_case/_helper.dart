@@ -43,7 +43,7 @@ extension AppTestHelper on WidgetTester {
   }
 
   Future setAllFeedsAsRead() async {
-    for (final f in sl<FeedsManager>().feeds.where((f) => !f.feed.isRead)) {
+    for (final f in sl<FeedsManager>().feedManagers.where((f) => !f.feed.isRead)) {
       f.toggleIsRead();
     }
     await pumpAndSettle();

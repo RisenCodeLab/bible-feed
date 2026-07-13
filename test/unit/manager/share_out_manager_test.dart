@@ -36,7 +36,7 @@ void main() {
 
     when(mockAppService.buildNumber).thenReturn(buildNumber);
     when(mockCatchupManager.virtualAllDoneDate).thenReturn(virtualAllDoneDate);
-    when(mockFeedsManager.feeds).thenReturn([feed1, feed2]);
+    when(mockFeedsManager.feedManagers).thenReturn([feed1, feed2]);
 
     final expectDto = ShareDto(
       buildNumber: buildNumber,

@@ -4,8 +4,9 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:bible_feed/manager/chapter_split_manager.dart' as _i2;
+import 'package:bible_feed/manager/feed_manager.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i3;
+import 'package:mockito/src/dummies.dart' as _i4;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -28,7 +29,7 @@ import 'package:mockito/src/dummies.dart' as _i3;
 class MockChapterSplitManager extends _i1.Mock
     implements _i2.ChapterSplitManager {
   @override
-  int getNextVerse(dynamic state) =>
+  int getNextVerse(_i3.Feed? state) =>
       (super.noSuchMethod(
             Invocation.method(#getNextVerse, [state]),
             returnValue: 0,
@@ -37,14 +38,14 @@ class MockChapterSplitManager extends _i1.Mock
           as int);
 
   @override
-  String getLabel(dynamic state) =>
+  String getLabel(_i3.Feed? state) =>
       (super.noSuchMethod(
             Invocation.method(#getLabel, [state]),
-            returnValue: _i3.dummyValue<String>(
+            returnValue: _i4.dummyValue<String>(
               this,
               Invocation.method(#getLabel, [state]),
             ),
-            returnValueForMissingStub: _i3.dummyValue<String>(
+            returnValueForMissingStub: _i4.dummyValue<String>(
               this,
               Invocation.method(#getLabel, [state]),
             ),

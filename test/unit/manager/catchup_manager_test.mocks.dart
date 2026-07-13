@@ -231,9 +231,9 @@ class MockFeedsManager extends _i1.Mock implements _i8.FeedsManager {
           as int);
 
   @override
-  List<_i9.FeedManager> get feeds =>
+  List<_i9.FeedManager> get feedManagers =>
       (super.noSuchMethod(
-            Invocation.getter(#feeds),
+            Invocation.getter(#feedManagers),
             returnValue: <_i9.FeedManager>[],
             returnValueForMissingStub: <_i9.FeedManager>[],
           )

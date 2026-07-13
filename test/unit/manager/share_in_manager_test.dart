@@ -65,7 +65,7 @@ void main() {
     when(mockCatchupManager.virtualAllDoneDate).thenReturn(virtualAllDoneDate);
     when(mockFeed1.book).thenReturn(b0);
     when(mockFeed2.book).thenReturn(b1);
-    when(mockFeedsManager.feeds).thenReturn([mockFeed1, mockFeed2]);
+    when(mockFeedsManager.feedManagers).thenReturn([mockFeed1, mockFeed2]);
 
     // AI fails to improve this code!?
     DateTime? capturedDate;

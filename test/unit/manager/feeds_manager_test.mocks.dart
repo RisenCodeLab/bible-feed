@@ -25,8 +25,8 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: subtype_of_sealed_class
 // ignore_for_file: invalid_use_of_internal_member
 
-class _FakeFeedState_0 extends _i1.SmartFake implements _i2.Feed {
-  _FakeFeedState_0(Object parent, Invocation parentInvocation)
+class _FakeFeed_0 extends _i1.SmartFake implements _i2.Feed {
+  _FakeFeed_0(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
@@ -38,11 +38,11 @@ class MockFeedStoreManager extends _i1.Mock implements _i3.FeedStoreManager {
   _i2.Feed loadState(_i4.ReadingList? readingList) =>
       (super.noSuchMethod(
             Invocation.method(#loadState, [readingList]),
-            returnValue: _FakeFeedState_0(
+            returnValue: _FakeFeed_0(
               this,
               Invocation.method(#loadState, [readingList]),
             ),
-            returnValueForMissingStub: _FakeFeedState_0(
+            returnValueForMissingStub: _FakeFeed_0(
               this,
               Invocation.method(#loadState, [readingList]),
             ),

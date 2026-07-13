@@ -31,6 +31,6 @@ class FeedsManager with ChangeNotifier {
 
   bool get areChaptersRead => chaptersToRead == 0;
   int get chaptersToRead => _feedManagers.where((fm) => !fm.feed.isRead).length;
-  List<FeedManager> get feeds => _feedManagers;
+  List<FeedManager> get feedManagers => _feedManagers;
   FeedManager? get lastModifiedFeed => _lastModifiedFeed;
 }

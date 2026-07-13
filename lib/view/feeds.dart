@@ -15,8 +15,8 @@ class Feeds extends StatelessWidget {
         Expanded(
           child: Row(
             children: [
-              Expanded(child: Feed(feedsManager.feeds[index])),
-              Expanded(child: Feed(feedsManager.feeds[index + 1])),
+              Expanded(child: Feed(feedsManager.feedManagers[index])),
+              Expanded(child: Feed(feedsManager.feedManagers[index + 1])),
             ],
           ),
         ),
