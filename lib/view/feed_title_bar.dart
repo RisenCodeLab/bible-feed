@@ -17,7 +17,7 @@ class FeedTitleBar extends WatchingWidget {
     return Row(
       children: [
         Visibility(
-          visible: feedManager.feed.isRead && identical(feedManager, feedsManager.lastModifiedFeed),
+          visible: feedManager.feed.isRead && identical(feedManager.feed, feedsManager.lastModifiedFeed),
           child: const Padding(
             padding: EdgeInsets.only(left: 8.0),
             child: Tooltip(message: 'This is the last chapter you read', child: Icon(Icons.auto_stories)),

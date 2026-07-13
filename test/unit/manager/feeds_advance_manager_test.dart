@@ -86,9 +86,7 @@ void main() async {
     ) async {
       when(mockDateTimeService.now).thenReturn(date);
       when(mockFeedsManager.areChaptersRead).thenReturn(areChaptersRead);
-      when(mockFeedsManager.lastModifiedFeed).thenReturn(
-        FeedManager(rl0, Feed(bookKey: b0.key, isRead: true, dateModified: date - sinceLastModified)),
-      );
+      when(mockFeedsManager.lastModifiedFeed).thenReturn(Feed(bookKey: b0.key, isRead: true, dateModified: date - sinceLastModified));
       expect(testee.maybeAdvance(), expectedAdvanceState);
       verify();
     },
