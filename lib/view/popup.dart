@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:watch_it/watch_it.dart';
 
@@ -34,7 +32,7 @@ class _PopupState<T extends PopupManager> extends State<Popup<T>> {
       builder: (context) {
         return BackdropFilter(
           // ignore: no-equal-arguments, x and y must be equal
-          filter: ImageFilter.blur(sigmaX: Constants.blurSigma, sigmaY: Constants.blurSigma),
+          filter: .blur(sigmaX: Constants.blurSigma, sigmaY: Constants.blurSigma),
           child: Container(
             decoration: BoxDecoration(
               color: _popupManager.getBackgroundColor(),
