@@ -39,10 +39,10 @@ void main() {
   });
 
   test('sync throws exception on mismatched build number', () {
-    final feedState = Feed(bookKey: b0.key, chapter: 1);
+    final feed = Feed(bookKey: b0.key, chapter: 1);
     final syncDto = ShareDto(
       buildNumber: 'wrong_build',
-      feedStateList: [feedState],
+      feedList: [feed],
       virtualAllDoneDate: virtualAllDoneDate,
     );
     final json = syncDto.toJson();
@@ -51,11 +51,11 @@ void main() {
   });
 
   test('sync updates feed states and CatchupManager.virtualAllDoneDate on valid JSON with matching build number', () {
-    final feedState1 = Feed(bookKey: b0.key, chapter: 1);
-    final feedState2 = Feed(bookKey: b1.key, chapter: 2);
+    final feed1 = Feed(bookKey: b0.key, chapter: 1);
+    final feed2 = Feed(bookKey: b1.key, chapter: 2);
     final shareDto = ShareDto(
       buildNumber: buildNumber,
-      feedStateList: [feedState1, feedState2],
+      feedList: [feed1, feed2],
       virtualAllDoneDate: virtualAllDoneDate,
     );
     final json = shareDto.toJson();
@@ -76,8 +76,8 @@ void main() {
 
     testee.sync(json);
 
-    verify(mockFeed1.feed = feedState1).called(1);
-    verify(mockFeed2.feed = feedState2).called(1);
+    verify(mockFeed1.feed = feed1).called(1);
+    verify(mockFeed2.feed = feed2).called(1);
     expect(capturedDate?.millisecondsSinceEpoch, virtualAllDoneDate.millisecondsSinceEpoch);
   });
 }

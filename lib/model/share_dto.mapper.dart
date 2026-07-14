@@ -28,10 +28,10 @@ class ShareDtoMapper extends ClassMapperBase<ShareDto> {
     'buildNumber',
     _$buildNumber,
   );
-  static List<Feed> _$feedStateList(ShareDto v) => v.feedStateList;
-  static const Field<ShareDto, List<Feed>> _f$feedStateList = Field(
-    'feedStateList',
-    _$feedStateList,
+  static List<Feed> _$feedList(ShareDto v) => v.feedList;
+  static const Field<ShareDto, List<Feed>> _f$feedList = Field(
+    'feedList',
+    _$feedList,
   );
   static DateTime _$virtualAllDoneDate(ShareDto v) => v.virtualAllDoneDate;
   static const Field<ShareDto, DateTime> _f$virtualAllDoneDate = Field(
@@ -42,14 +42,14 @@ class ShareDtoMapper extends ClassMapperBase<ShareDto> {
   @override
   final MappableFields<ShareDto> fields = const {
     #buildNumber: _f$buildNumber,
-    #feedStateList: _f$feedStateList,
+    #feedList: _f$feedList,
     #virtualAllDoneDate: _f$virtualAllDoneDate,
   };
 
   static ShareDto _instantiate(DecodingData data) {
     return ShareDto(
       buildNumber: data.dec(_f$buildNumber),
-      feedStateList: data.dec(_f$feedStateList),
+      feedList: data.dec(_f$feedList),
       virtualAllDoneDate: data.dec(_f$virtualAllDoneDate),
     );
   }
@@ -111,10 +111,10 @@ extension ShareDtoValueCopy<$R, $Out> on ObjectCopyWith<$R, ShareDto, $Out> {
 
 abstract class ShareDtoCopyWith<$R, $In extends ShareDto, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, Feed, FeedCopyWith<$R, Feed, Feed>> get feedStateList;
+  ListCopyWith<$R, Feed, FeedCopyWith<$R, Feed, Feed>> get feedList;
   $R call({
     String? buildNumber,
-    List<Feed>? feedStateList,
+    List<Feed>? feedList,
     DateTime? virtualAllDoneDate,
   });
   ShareDtoCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -129,28 +129,28 @@ class _ShareDtoCopyWithImpl<$R, $Out>
   late final ClassMapperBase<ShareDto> $mapper =
       ShareDtoMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, Feed, FeedCopyWith<$R, Feed, Feed>> get feedStateList =>
+  ListCopyWith<$R, Feed, FeedCopyWith<$R, Feed, Feed>> get feedList =>
       ListCopyWith(
-        $value.feedStateList,
+        $value.feedList,
         (v, t) => v.copyWith.$chain(t),
-        (v) => call(feedStateList: v),
+        (v) => call(feedList: v),
       );
   @override
   $R call({
     String? buildNumber,
-    List<Feed>? feedStateList,
+    List<Feed>? feedList,
     DateTime? virtualAllDoneDate,
   }) => $apply(
     FieldCopyWithData({
       if (buildNumber != null) #buildNumber: buildNumber,
-      if (feedStateList != null) #feedStateList: feedStateList,
+      if (feedList != null) #feedList: feedList,
       if (virtualAllDoneDate != null) #virtualAllDoneDate: virtualAllDoneDate,
     }),
   );
   @override
   ShareDto $make(CopyWithData data) => ShareDto(
     buildNumber: data.get(#buildNumber, or: $value.buildNumber),
-    feedStateList: data.get(#feedStateList, or: $value.feedStateList),
+    feedList: data.get(#feedList, or: $value.feedList),
     virtualAllDoneDate: data.get(
       #virtualAllDoneDate,
       or: $value.virtualAllDoneDate,

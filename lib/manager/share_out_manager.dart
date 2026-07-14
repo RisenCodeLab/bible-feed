@@ -16,7 +16,7 @@ class ShareOutManager {
   String getJson() =>
       ShareDto(
         buildNumber: _appService.buildNumber,
-        feedStateList: _feedsManager.feedManagers.map((f) => f.feed).toList(),
+        feedList: _feedsManager.feedManagers.map((f) => f.feed).toList(),
         virtualAllDoneDate: _catchupManager.virtualAllDoneDate,
       ).toJson();
 }

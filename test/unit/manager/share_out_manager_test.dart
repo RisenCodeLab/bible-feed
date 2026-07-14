@@ -27,21 +27,21 @@ void main() {
   });
 
   test('getJson returns correct JSON string', () {
-    final feedState1 = Feed(bookKey: b0.key, chapter: 1);
-    final feedState2 = Feed(bookKey: b1.key, chapter: 2);
-    final feed1 = FeedManager(rl0, feedState1);
-    final feed2 = FeedManager(rl1, feedState2);
+    final feed1 = Feed(bookKey: b0.key, chapter: 1);
+    final feed2 = Feed(bookKey: b1.key, chapter: 2);
+    final feedManager1 = FeedManager(rl0, feed1);
+    final feedManager2 = FeedManager(rl1, feed2);
 
     final buildNumber = '123';
     final virtualAllDoneDate = DateTime(2025, 12, 30);
 
     when(mockAppService.buildNumber).thenReturn(buildNumber);
     when(mockCatchupManager.virtualAllDoneDate).thenReturn(virtualAllDoneDate);
-    when(mockFeedsManager.feedManagers).thenReturn([feed1, feed2]);
+    when(mockFeedsManager.feedManagers).thenReturn([feedManager1, feedManager2]);
 
     final expectDto = ShareDto(
       buildNumber: buildNumber,
-      feedStateList: [feedState1, feedState2],
+      feedList: [feed1, feed2],
       virtualAllDoneDate: virtualAllDoneDate,
     );
     expect(testee.getJson(), expectDto.toJson());

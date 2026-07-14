@@ -36,7 +36,7 @@ class ShareInManager {
       );
     }
 
-    final actualFeedsCount = syncDto.feedStateList.length;
+    final actualFeedsCount = syncDto.feedList.length;
     final expectedFeedsCount = _feedsManager.feedManagers.length;
     if (actualFeedsCount != expectedFeedsCount) {
       throw Exception('Expected $expectedFeedsCount feeds in the QR-code but got $actualFeedsCount. $help');
@@ -45,11 +45,11 @@ class ShareInManager {
     _catchupManager.virtualAllDoneDate = syncDto.virtualAllDoneDate;
 
     for (final (index, feed) in _feedsManager.feedManagers.indexed) {
-      feed.feed = syncDto.feedStateList[index];
+      feed.feed = syncDto.feedList[index];
     }
 
     // touch the last modified feed to preserve lastModifiedDate
-    final latestBookKey = syncDto.feedStateList.maxBy((s) => s.dateModified ?? DateTime(1970))?.bookKey;
+    final latestBookKey = syncDto.feedList.maxBy((s) => s.dateModified ?? DateTime(1970))?.bookKey;
     _feedsManager.feedManagers.firstWhere((FeedManager fm) => fm.book.key == latestBookKey).touch();
   }
 }
