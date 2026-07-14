@@ -13,7 +13,7 @@ abstract class Setting<T> with ChangeNotifier {
 
   T? _value;
 
-  bool get isAvailable => true;
+  bool isAvailable = true;
 
   String get storeKey => 'isEnabled.$storeKeyFragment';
 

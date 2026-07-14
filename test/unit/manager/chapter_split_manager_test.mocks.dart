@@ -594,6 +594,12 @@ class MockChapterSplitSetting extends _i1.Mock
           as bool);
 
   @override
+  set isAvailable(bool? value) => super.noSuchMethod(
+    Invocation.setter(#isAvailable, value),
+    returnValueForMissingStub: null,
+  );
+
+  @override
   set value(bool? value) => super.noSuchMethod(
     Invocation.setter(#value, value),
     returnValueForMissingStub: null,

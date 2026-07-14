@@ -95,6 +95,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<List<_i19.ChapterSplitter>>(
       () => chapterSplittersModule.chapterSplitters,
     );
+    gh.lazySingleton<_i914.HapticSetting>(() => _i914.HapticSetting());
     gh.lazySingleton<_i1033.BookListWheelState>(
       () => _i1033.BookListWheelState(),
     );
@@ -185,9 +186,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i578.PlatformService>(
       () => _i578.ProductionPlatformService(),
       registerFor: {_integration_test, _prod},
-    );
-    gh.lazySingleton<_i914.HapticSetting>(
-      () => _i914.HapticSetting(gh<_i22.HapticService>()),
     );
     gh.singleton<_i744.SettingsStoreManager>(
       () => _i744.SettingsStoreManager(

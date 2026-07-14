@@ -37,6 +37,7 @@ class HapticManager extends RouteObserver<PageRoute<dynamic>> {
       chapterSplitSetting,
       _hapticSetting,
     ];
+    _hapticSetting.isAvailable = _hapticService.isAvailable;
     for (final notifier in notifiers) {
       notifier.addListener(_maybeImpact);
     }

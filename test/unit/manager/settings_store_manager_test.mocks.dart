@@ -5,7 +5,6 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
-import 'package:bible_feed/service/haptic_service.dart' as _i4;
 import 'package:bible_feed/service/store_service.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -44,24 +43,4 @@ class MockStoreService extends _i1.Mock implements _i2.StoreService {
             returnValueForMissingStub: _i3.Future<void>.value(),
           )
           as _i3.Future<void>);
-}
-
-/// A class which mocks [HapticService].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockHapticService extends _i1.Mock implements _i4.HapticService {
-  @override
-  bool get isAvailable =>
-      (super.noSuchMethod(
-            Invocation.getter(#isAvailable),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
-
-  @override
-  void impact() => super.noSuchMethod(
-    Invocation.method(#impact, []),
-    returnValueForMissingStub: null,
-  );
 }
