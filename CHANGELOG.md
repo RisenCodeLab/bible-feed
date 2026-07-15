@@ -3,6 +3,12 @@
 All notable changes to this project are documented here.
 
 
+## [1.12.0] - 2026-07-15
+
+### Changed
+- refactor
+
+
 ## [1.11.0] - 2026-07-02
 
 ### Added
