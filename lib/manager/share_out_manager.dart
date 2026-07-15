@@ -13,6 +13,7 @@ class ShareOutManager {
 
   ShareOutManager(this._appService, this._catchupManager, this._feedsManager);
 
+  // BEWARE! changing these field names will break share across versions
   String getJson() =>
       ShareDto(
         buildNumber: _appService.buildNumber,
