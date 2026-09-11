@@ -1,0 +1,12 @@
+BEG_G {$G.bgcolor='grey80'}
+
+//BEG_G {$G.bgcolor='black'}
+//E {$.color='white'}
+
+//for match patterns see https://www.qenesis.com/training/shell_programming/kshCheatsheet.pdf
+
+N [match(name, "*/model/[!_]")!=-1] {fillcolor='white';}
+N [match(name, "*/view/[!_]")!=-1] {fillcolor='yellow';}
+N [match(name, "*_dto.dart")!=-1] {fillcolor='darkseagreen1'}
+N [match(name, "*_manager.dart")!=-1] {fillcolor='blue',$.fontcolor='white';}
+N [match(name, "*_service.dart")!=-1] {fillcolor='orange'}
