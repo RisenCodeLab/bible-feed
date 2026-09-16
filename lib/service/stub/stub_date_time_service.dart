@@ -1,6 +1,7 @@
+import 'package:injectable/injectable.dart';
+
 import '../../injectable.env.dart';
 import '../date_time_service.dart';
-import 'package:injectable/injectable.dart';
 
 @golden
 @integrationTest
@@ -19,3 +20,4 @@ class StubDateTimeService extends DateTimeService {
 
   void reset() => _now = baseNow;
 }
+

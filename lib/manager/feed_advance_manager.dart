@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
-import 'feed_manager.dart';
 import 'chapter_split_manager.dart';
+import 'feed_manager.dart';
 
 @lazySingleton
 class FeedAdvanceManager {
@@ -22,3 +22,4 @@ class FeedAdvanceManager {
     feedManager.setBookChapterVerse(bookIndex, chapter, verse);
   }
 }
+

@@ -2,10 +2,10 @@ import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
-import 'feed_manager.dart';
 import '../model/feeds_advance_state.dart';
 import '../service/date_time_service.dart';
 import 'feed_advance_manager.dart';
+import 'feed_manager.dart';
 import 'feeds_manager.dart';
 
 @lazySingleton
@@ -32,3 +32,4 @@ class FeedsAdvanceManager with ChangeNotifier {
     return FeedsAdvanceState.allReadAwaitingTomorrow;
   }
 }
+

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter/material.dart';
 
 class UrlTemplate extends DelegatingMap<TargetPlatform, String> {
   // ignore: avoid-missing-enum-constant-in-map, other platforms are not supported
@@ -9,3 +9,4 @@ class UrlTemplate extends DelegatingMap<TargetPlatform, String> {
     // ignore: avoid-missing-enum-constant-in-map, other platforms are not supported
     : super({TargetPlatform.android: android, TargetPlatform.iOS: iOS});
 }
+

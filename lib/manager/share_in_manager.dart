@@ -1,11 +1,11 @@
 import 'package:dartx/dartx.dart';
 import 'package:injectable/injectable.dart';
 
-import 'feed_manager.dart';
 import '../model/feed.dart';
 import '../model/share_dto.dart';
 import '../service/app_service.dart';
 import 'catchup_manager.dart';
+import 'feed_manager.dart';
 import 'feeds_manager.dart';
 
 @lazySingleton
@@ -82,3 +82,4 @@ class ShareInManager {
     _feedsManager.feedManagers.firstOrNullWhere((FeedManager fm) => fm.book.key == latestBookKey)?.touch();
   }
 }
+

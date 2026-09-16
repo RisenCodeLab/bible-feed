@@ -1,9 +1,10 @@
 import 'dart:io';
 
-import '../../injectable.env.dart';
-import '../app_service.dart' as base;
 import 'package:injectable/injectable.dart';
 import 'package:yaml/yaml.dart';
+
+import '../../injectable.env.dart';
+import '../app_service.dart' as base;
 
 @golden
 @LazySingleton(as: base.AppService)
@@ -18,3 +19,4 @@ class StubAppService extends base.AppService {
     return StubAppService(buildNumber: versionAndBuild[1].toString(), version: versionAndBuild[0].toString());
   }
 }
+

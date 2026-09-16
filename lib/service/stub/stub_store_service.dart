@@ -1,7 +1,8 @@
-import '../../injectable.env.dart';
-import '../store_service.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../injectable.env.dart';
+import '../store_service.dart';
 
 @integrationTest
 @LazySingleton(as: StoreService)
@@ -19,3 +20,4 @@ class StubStoreService extends StoreService {
     return StubStoreService(sp);
   }
 }
+

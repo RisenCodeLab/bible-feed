@@ -4,9 +4,9 @@ import 'package:watch_it/watch_it.dart';
 
 import '../model/popup_action.dart';
 import 'catchup_manager.dart';
-import 'popup_manager.dart';
 import 'feeds_advance_manager.dart';
 import 'feeds_manager.dart';
+import 'popup_manager.dart';
 
 @lazySingleton
 class AllDonePopupManager extends PopupManager {
@@ -52,3 +52,4 @@ class AllDonePopupManager extends PopupManager {
     return _catchupManager.isBehind ? 'Not yet done' : 'All done for today!';
   }
 }
+

@@ -1,5 +1,5 @@
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:injectable/injectable.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../injectable.env.dart';
 
@@ -23,3 +23,4 @@ class ProductionAppService extends AppService {
     return ProductionAppService(buildNumber: packageInfo.buildNumber, version: packageInfo.version);
   }
 }
+
