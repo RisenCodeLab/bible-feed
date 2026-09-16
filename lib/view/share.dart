@@ -3,6 +3,7 @@ import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:watch_it/watch_it.dart';
 
 import '../manager/deeplink_out_manager.dart';
+import '../service/app_service.dart';
 import '_build_context_extension.dart';
 import '_constants.dart';
 
@@ -19,7 +20,10 @@ class Share extends StatelessWidget {
           spacing: Constants.defaultSpacing,
           mainAxisSize: .min,
           children: [
-            const Text(textAlign: .center, 'Scan this QR-code to share the reading state with another device.'),
+            Text(
+              textAlign: .center,
+              'Scan this QR-code to share the reading state with another device running Bible Feed version ${sl<AppService>().version}.',
+            ),
             Flexible(
               child: Padding(
                 padding: Constants.defaultPadding,
