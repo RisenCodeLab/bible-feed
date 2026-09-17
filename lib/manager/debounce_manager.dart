@@ -10,14 +10,22 @@ class DebounceManager {
   Timer? _timer;
   bool _isRunning = false;
 
-  void run(void Function() action) {
-    if (_isRunning) return;
+  bool _tryAcquire() {
+    if (_isRunning) return false;
     _isRunning = true;
-
-    action();
-
     _timer?.cancel();
     _timer = Timer(delay, () => _isRunning = false);
+    return true;
+  }
+
+  void run(void Function() action) {
+    if (!_tryAcquire()) return;
+    action();
+  }
+
+  Future<T?> runAsync<T>(Future<T> Function() action) {
+    if (!_tryAcquire()) return Future.value(null);
+    return action();
   }
 
   void dispose() {
