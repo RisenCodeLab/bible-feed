@@ -1,4 +1,5 @@
 import 'package:bible_feed/manager/bible_reader_launch_manager.dart';
+import 'package:bible_feed/manager/debounce_manager.dart';
 import 'package:bible_feed/model/bible_reader.dart';
 import 'package:bible_feed/model/feed.dart';
 import 'package:bible_feed/service/platform_service.dart';
@@ -12,17 +13,26 @@ import 'package:parameterized_test/parameterized_test.dart';
 import '../test_data.dart';
 import 'bible_reader_launch_manager_test.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<PlatformService>(), MockSpec<UrlLaunchService>()])
+@GenerateNiceMocks([MockSpec<DebounceManager>(), MockSpec<PlatformService>(), MockSpec<UrlLaunchService>()])
 void main() async {
+  late MockDebounceManager mockDebounceManager;
   late MockPlatformService mockPlatformService;
   late MockUrlLaunchService mockUrlLaunchService;
   late BibleReaderLaunchManager testee;
 
   setUp(() {
+    mockDebounceManager = MockDebounceManager();
     mockPlatformService = MockPlatformService();
     mockUrlLaunchService = MockUrlLaunchService();
     when(mockPlatformService.currentPlatform).thenReturn(TargetPlatform.android);
-    testee = BibleReaderLaunchManager(mockPlatformService, mockUrlLaunchService);
+
+    // Mock runAsync to execute the function immediately
+    when(mockDebounceManager.runAsync(delay: anyNamed('delay'), fn: anyNamed('fn'))).thenAnswer((invocation) {
+      final fn = invocation.namedArguments[#fn] as Future<bool> Function();
+      return fn();
+    });
+
+    testee = BibleReaderLaunchManager(mockDebounceManager, mockPlatformService, mockUrlLaunchService);
   });
 
   group('isAvailable', () {
@@ -89,6 +99,19 @@ void main() async {
       var feed = Feed(bookKey: b1.key, isRead: true);
       when(mockUrlLaunchService.launchUrl(any)).thenThrow(PlatformException(code: 'code'));
       expect(() => testee.maybeLaunch(blbBibleReader, feed), throwsException);
+    });
+
+    test('should not throw exception when debounced', () async {
+      final feed = Feed(bookKey: b0.key, isRead: true);
+
+      // Override the default mock to return null (simulating debounced call)
+      when(mockDebounceManager.runAsync(delay: anyNamed('delay'), fn: anyNamed('fn'))).thenAnswer((_) async => null);
+
+      // Should not throw exception
+      await testee.maybeLaunch(blbBibleReader, feed);
+
+      // Verify launchUrl was not called (because it's inside the debounced function)
+      verifyNever(mockUrlLaunchService.launchUrl(any));
     });
   });
 }

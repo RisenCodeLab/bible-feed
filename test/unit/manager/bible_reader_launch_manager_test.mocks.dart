@@ -3,11 +3,12 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i5;
+import 'dart:async' as _i3;
 
-import 'package:bible_feed/service/platform_service.dart' as _i2;
-import 'package:bible_feed/service/url_launch_service.dart' as _i4;
-import 'package:flutter/foundation.dart' as _i3;
+import 'package:bible_feed/manager/debounce_manager.dart' as _i2;
+import 'package:bible_feed/service/platform_service.dart' as _i4;
+import 'package:bible_feed/service/url_launch_service.dart' as _i6;
+import 'package:flutter/foundation.dart' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -25,18 +26,48 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: subtype_of_sealed_class
 // ignore_for_file: invalid_use_of_internal_member
 
+/// A class which mocks [DebounceManager].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockDebounceManager extends _i1.Mock implements _i2.DebounceManager {
+  @override
+  void run({required Duration? delay, required void Function()? fn}) =>
+      super.noSuchMethod(
+        Invocation.method(#run, [], {#delay: delay, #fn: fn}),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i3.Future<T?> runAsync<T>({
+    required Duration? delay,
+    required _i3.Future<T> Function()? fn,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#runAsync, [], {#delay: delay, #fn: fn}),
+            returnValue: _i3.Future<T?>.value(),
+            returnValueForMissingStub: _i3.Future<T?>.value(),
+          )
+          as _i3.Future<T?>);
+
+  @override
+  void dispose() => super.noSuchMethod(
+    Invocation.method(#dispose, []),
+    returnValueForMissingStub: null,
+  );
+}
+
 /// A class which mocks [PlatformService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPlatformService extends _i1.Mock implements _i2.PlatformService {
+class MockPlatformService extends _i1.Mock implements _i4.PlatformService {
   @override
-  _i3.TargetPlatform get currentPlatform =>
+  _i5.TargetPlatform get currentPlatform =>
       (super.noSuchMethod(
             Invocation.getter(#currentPlatform),
-            returnValue: _i3.TargetPlatform.android,
-            returnValueForMissingStub: _i3.TargetPlatform.android,
+            returnValue: _i5.TargetPlatform.android,
+            returnValueForMissingStub: _i5.TargetPlatform.android,
           )
-          as _i3.TargetPlatform);
+          as _i5.TargetPlatform);
 
   @override
   bool get isAndroid =>
@@ -60,22 +91,22 @@ class MockPlatformService extends _i1.Mock implements _i2.PlatformService {
 /// A class which mocks [UrlLaunchService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockUrlLaunchService extends _i1.Mock implements _i4.UrlLaunchService {
+class MockUrlLaunchService extends _i1.Mock implements _i6.UrlLaunchService {
   @override
-  _i5.Future<bool> canLaunchUrl(String? url) =>
+  _i3.Future<bool> canLaunchUrl(String? url) =>
       (super.noSuchMethod(
             Invocation.method(#canLaunchUrl, [url]),
-            returnValue: _i5.Future<bool>.value(false),
-            returnValueForMissingStub: _i5.Future<bool>.value(false),
+            returnValue: _i3.Future<bool>.value(false),
+            returnValueForMissingStub: _i3.Future<bool>.value(false),
           )
-          as _i5.Future<bool>);
+          as _i3.Future<bool>);
 
   @override
-  _i5.Future<bool> launchUrl(String? url) =>
+  _i3.Future<bool> launchUrl(String? url) =>
       (super.noSuchMethod(
             Invocation.method(#launchUrl, [url]),
-            returnValue: _i5.Future<bool>.value(false),
-            returnValueForMissingStub: _i5.Future<bool>.value(false),
+            returnValue: _i3.Future<bool>.value(false),
+            returnValueForMissingStub: _i3.Future<bool>.value(false),
           )
-          as _i5.Future<bool>);
+          as _i3.Future<bool>);
 }

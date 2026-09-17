@@ -195,6 +195,13 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i914.HapticSetting>(),
       ),
     );
+    gh.lazySingleton<_i186.BibleReaderLaunchManager>(
+      () => _i186.BibleReaderLaunchManager(
+        gh<_i527.DebounceManager>(),
+        gh<_i578.PlatformService>(),
+        gh<_i626.UrlLaunchService>(),
+      ),
+    );
     gh.lazySingleton<_i837.BibleReadersCertifiedManager>(
       () => _i837.BibleReadersCertifiedManager(
         gh<_i578.PlatformService>(),
@@ -203,12 +210,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i716.FeedAdvanceManager>(
       () => _i716.FeedAdvanceManager(gh<_i10.ChapterSplitManager>()),
-    );
-    gh.lazySingleton<_i186.BibleReaderLaunchManager>(
-      () => _i186.BibleReaderLaunchManager(
-        gh<_i578.PlatformService>(),
-        gh<_i626.UrlLaunchService>(),
-      ),
     );
     gh.lazySingleton<_i477.FeedsAdvanceManager>(
       () => _i477.FeedsAdvanceManager(
