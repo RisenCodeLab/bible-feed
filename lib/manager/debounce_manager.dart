@@ -1,16 +1,13 @@
 import 'dart:async';
 
-import 'package:dartx/dartx.dart';
 import 'package:injectable/injectable.dart';
 
-@lazySingleton
+@injectable // must not be a singleton
 class DebounceManager {
-  Duration delay = 10.milliseconds;
-
   Timer? _timer;
   bool _isRunning = false;
 
-  bool _tryAcquire() {
+  bool _tryAcquire(Duration delay) {
     if (_isRunning) return false;
     _isRunning = true;
     _timer?.cancel();
@@ -18,14 +15,14 @@ class DebounceManager {
     return true;
   }
 
-  void run(void Function() action) {
-    if (!_tryAcquire()) return;
-    action();
+  void run({required Duration delay, required void Function() fn}) {
+    if (!_tryAcquire(delay)) return;
+    fn();
   }
 
-  Future<T?> runAsync<T>(Future<T> Function() action) {
-    if (!_tryAcquire()) return Future.value(null);
-    return action();
+  Future<T?> runAsync<T>({required Duration delay, required Future<T> Function() fn}) {
+    if (!_tryAcquire(delay)) return Future.value(null);
+    return fn();
   }
 
   void dispose() {

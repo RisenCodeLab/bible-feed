@@ -1,3 +1,4 @@
+import 'package:dartx/dartx.dart';
 import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';
 
@@ -44,9 +45,12 @@ class HapticManager extends RouteObserver<PageRoute<dynamic>> {
   }
 
   void _maybeImpact() {
-    _debounceManager.run(() {
-      if (_hapticSetting.value) _hapticService.impact();
-    });
+    _debounceManager.run(
+      delay: 10.milliseconds,
+      fn: () {
+        if (_hapticSetting.value) _hapticService.impact();
+      },
+    );
   }
 
   @override

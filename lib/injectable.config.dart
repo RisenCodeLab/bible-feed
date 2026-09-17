@@ -78,10 +78,10 @@ extension GetItInjectableX on _i174.GetIt {
     final bibleReadersModule = _$BibleReadersModule();
     final chapterSplittersModule = _$ChapterSplittersModule();
     final readingListsModule = _$ReadingListsModule();
+    gh.factory<_i527.DebounceManager>(() => _i527.DebounceManager());
     gh.lazySingleton<_i540.AppLifecycleManager>(
       () => _i540.AppLifecycleManager(),
     );
-    gh.lazySingleton<_i527.DebounceManager>(() => _i527.DebounceManager());
     gh.lazySingleton<_i508.JsonEncodingManager>(
       () => _i508.JsonEncodingManager(),
     );

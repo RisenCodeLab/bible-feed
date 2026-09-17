@@ -8,7 +8,6 @@ void main() {
 
   setUp(() {
     testee = DebounceManager();
-    testee.delay = 100.milliseconds;
   });
 
   group('run', () {
@@ -16,16 +15,16 @@ void main() {
       fakeAsync((async) {
         var executionCount = 0;
 
-        testee.run(() => executionCount++);
+        testee.run(delay: 100.milliseconds, fn: () => executionCount++);
         expect(executionCount, equals(1));
 
-        testee.run(() => executionCount++);
-        testee.run(() => executionCount++);
+        testee.run(delay: 100.milliseconds, fn: () => executionCount++);
+        testee.run(delay: 100.milliseconds, fn: () => executionCount++);
         expect(executionCount, equals(1));
 
         async.elapse(100.milliseconds);
 
-        testee.run(() => executionCount++);
+        testee.run(delay: 100.milliseconds, fn: () => executionCount++);
         expect(executionCount, equals(2));
       });
     });
@@ -34,20 +33,20 @@ void main() {
       fakeAsync((async) {
         var executionCount = 0;
 
-        testee.run(() => executionCount++);
+        testee.run(delay: 100.milliseconds, fn: () => executionCount++);
         expect(executionCount, equals(1));
 
         async.elapse(50.milliseconds);
-        testee.run(() => executionCount++);
+        testee.run(delay: 100.milliseconds, fn: () => executionCount++);
         expect(executionCount, equals(1));
 
         async.elapse(40.milliseconds);
-        testee.run(() => executionCount++);
+        testee.run(delay: 100.milliseconds, fn: () => executionCount++);
         expect(executionCount, equals(1));
 
         async.elapse(100.milliseconds);
 
-        testee.run(() => executionCount++);
+        testee.run(delay: 100.milliseconds, fn: () => executionCount++);
         expect(executionCount, equals(2));
       });
     });
@@ -55,21 +54,21 @@ void main() {
 
   group('runAsync', () {
     test('should return result when executed', () async {
-      final result = await testee.runAsync(() async => 42);
+      final result = await testee.runAsync(delay: 100.milliseconds, fn: () async => 42);
       expect(result, equals(42));
     });
 
     test('should return null when debounced', () async {
       fakeAsync((async) async {
-        final first = testee.runAsync(() async => 42);
-        final second = testee.runAsync(() async => 99);
+        final first = testee.runAsync(delay: 100.milliseconds, fn: () async => 42);
+        final second = testee.runAsync(delay: 100.milliseconds, fn: () async => 99);
 
         expect(await first, equals(42));
         expect(await second, isNull);
 
         async.elapse(100.milliseconds);
 
-        final third = testee.runAsync(() async => 100);
+        final third = testee.runAsync(delay: 100.milliseconds, fn: () async => 100);
         expect(await third, equals(100));
       });
     });
@@ -78,21 +77,21 @@ void main() {
       fakeAsync((async) async {
         var executionCount = 0;
 
-        await testee.runAsync(() async {
+        await testee.runAsync(delay: 100.milliseconds, fn: () async {
           executionCount++;
           return executionCount;
         });
         expect(executionCount, equals(1));
 
         async.elapse(50.milliseconds);
-        await testee.runAsync(() async {
+        await testee.runAsync(delay: 100.milliseconds, fn: () async {
           executionCount++;
           return executionCount;
         });
         expect(executionCount, equals(1));
 
         async.elapse(40.milliseconds);
-        await testee.runAsync(() async {
+        await testee.runAsync(delay: 100.milliseconds, fn: () async {
           executionCount++;
           return executionCount;
         });
@@ -100,7 +99,7 @@ void main() {
 
         async.elapse(100.milliseconds);
 
-        await testee.runAsync(() async {
+        await testee.runAsync(delay: 100.milliseconds, fn: () async {
           executionCount++;
           return executionCount;
         });
@@ -114,14 +113,14 @@ void main() {
       fakeAsync((async) {
         var executionCount = 0;
 
-        testee.run(() => executionCount++);
+        testee.run(delay: 100.milliseconds, fn: () => executionCount++);
         expect(executionCount, equals(1));
 
         async.elapse(50.milliseconds);
         testee.dispose();
         async.elapse(100.milliseconds);
 
-        testee.run(() => executionCount++);
+        testee.run(delay: 100.milliseconds, fn: () => executionCount++);
         expect(executionCount, equals(1));
       });
     });
