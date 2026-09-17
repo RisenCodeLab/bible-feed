@@ -8,16 +8,16 @@ class DebounceManager {
   Duration delay = 10.milliseconds;
 
   Timer? _timer;
-  bool _canRun = true;
+  bool _isRunning = false;
 
   void run(void Function() action) {
-    if (!_canRun) return;
-    _canRun = false;
+    if (_isRunning) return;
+    _isRunning = true;
 
     action();
 
     _timer?.cancel();
-    _timer = Timer(delay, () => _canRun = true);
+    _timer = Timer(delay, () => _isRunning = false);
   }
 
   void dispose() {
