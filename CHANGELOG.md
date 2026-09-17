@@ -3,6 +3,17 @@
 All notable changes to this project are documented here.
 
 
+## [1.13.0] - 2026-09-17
+
+### Added
+- more chapter splits
+- version number to share help text
+
+### Changed
+- fix exception when simultaneous bible reader launch requests happen on iOS
+- fix iOS build issues after upgrade to Xcode 27.0
+
+
 ## [1.12.1] - 2026-09-14
 
 ### Changed

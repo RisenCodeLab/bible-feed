@@ -1,0 +1,7 @@
+Added
+- more chapter splits
+- version number to share help text
+
+Changed
+- fix exception when simultaneous bible reader launch requests happen on iOS
+- fix iOS build issues after upgrade to Xcode 27.0
