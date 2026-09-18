@@ -21,6 +21,7 @@ jobs:
         uses: futureware-tech/simulator-action@v5
         with:
           model: 'iPhone 17'
+          os_version: '26.5'
 
       - name: set up flutter
         uses: subosito/flutter-action@v2
