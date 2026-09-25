@@ -11,6 +11,9 @@
 - **Do NOT** create plan markdown files (e.g., `.opencode/plans/*.md`)
 - Discuss plans directly in conversation instead
 
+### Running the Linter
+- When asked to run the linter, use: `dart run dart_code_linter:metrics analyze lib`
+
 ### Preserve Comments During Refactoring
 - When refactoring code, always preserve existing comments (including inline and block comments)
 - If code is moved, split, or restructured, carry all associated comments along with the logic they describe
