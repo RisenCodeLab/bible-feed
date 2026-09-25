@@ -46,7 +46,7 @@ class HapticManager extends RouteObserver<PageRoute<dynamic>> {
 
   void _maybeImpact() {
     _debounceManager.run(
-      delay: 10.milliseconds,
+      delay: 10.milliseconds, // ignore: no-magic-number, debounce delay is self-explanatory
       fn: () {
         if (_hapticSetting.value) _hapticService.impact();
       },
