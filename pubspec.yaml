@@ -31,7 +31,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  app_install_events: ^0.0.3 # to detect bible reader (un)install
   app_links: ^6.4.1 # for share in
   auto_size_text: ^3.0.0
   collection: ^1.19.1
