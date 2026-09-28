@@ -36,6 +36,10 @@ android {
         cruncherEnabled = false // fix fdroid reproducible build errors
     }
 
+    buildFeatures {
+        resValues true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -78,6 +82,12 @@ android {
     dependenciesInfo {
         includeInApk = false
         includeInBundle = false
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging true
+        }
     }
 }
 

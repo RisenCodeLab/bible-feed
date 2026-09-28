@@ -494,10 +494,10 @@ packages:
     dependency: "direct main"
     description:
       name: haptic_feedback
-      sha256: dcc2494994c41428823f8f2082fd17a4e89e372bd142e07681420cbfaf99dcad
+      sha256: "36e82acb24dba60c85f046ef4ddc1df1ef4fdc190d8f6fd907a030c896de3ebb"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.4+3"
+    version: "0.8.0"
   hotreloader:
     dependency: transitive
     description:
@@ -1286,4 +1286,4 @@ packages:
     version: "2.2.4"
 sdks:
   dart: ">=3.12.0 <4.0.0"
-  flutter: ">=3.44.1"
+  flutter: ">=3.47.0"

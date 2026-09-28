@@ -3,8 +3,7 @@
         android:label="@string/app_name"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:enableOnBackInvokedCallback="true"
-        android:extractNativeLibs="true">
+        android:enableOnBackInvokedCallback="true">
         <!-- launchMode must be singleInstance for BLB app to launch in a separate instance (see issue #8)-->
         <activity
             android:name=".MainActivity"
