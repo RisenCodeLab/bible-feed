@@ -3,7 +3,7 @@
 All notable changes to this project are documented here.
 
 
-## [1.13.0] - 2026-09-17
+## [1.13.0] - 2026-09-29
 
 ### Added
 - more chapter splits
