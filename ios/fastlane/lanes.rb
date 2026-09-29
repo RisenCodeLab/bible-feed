@@ -25,6 +25,7 @@ platform :ios do
     )
 
     deliver(
+      app_identifier: $app_identifier,
       app_review_information: {
         first_name: ENV["APPLE_APP_REVIEW_FIRST_NAME"],
         last_name: ENV["APPLE_APP_REVIEW_LAST_NAME"],
