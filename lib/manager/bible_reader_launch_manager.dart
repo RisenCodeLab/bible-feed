@@ -2,6 +2,7 @@ import 'package:dartx/dartx.dart';
 import 'package:injectable/injectable.dart';
 
 import '../model/bible_reader.dart';
+import '../model/chapter_split_setting.dart';
 import '../model/feed.dart';
 import '../service/platform_service.dart';
 import '../service/url_launch_service.dart';
@@ -9,11 +10,17 @@ import 'debounce_manager.dart';
 
 @lazySingleton
 class BibleReaderLaunchManager {
+  final ChapterSplitSetting _chapterSplitSetting;
   final DebounceManager _debounceManager;
   final PlatformService _platformService;
   final UrlLaunchService _urlLaunchService;
 
-  BibleReaderLaunchManager(this._debounceManager, this._platformService, this._urlLaunchService);
+  BibleReaderLaunchManager(
+    this._chapterSplitSetting,
+    this._debounceManager,
+    this._platformService,
+    this._urlLaunchService,
+  );
 
   String _getDeeplinkUrl(BibleReader bibleReader, String internalBookKey, int chapter, [int verse = 1]) {
     final externalBookKey = bibleReader.bookKeyExternaliser.getExternalBookKey(internalBookKey);
@@ -32,7 +39,8 @@ class BibleReaderLaunchManager {
 
   Future<void> maybeLaunch(BibleReader bibleReader, Feed state) async {
     if (bibleReader.isNone || !state.isRead) return;
-    final url = _getDeeplinkUrl(bibleReader, state.bookKey, state.chapter, state.verse);
+    final verse = _chapterSplitSetting.value ? state.verse : 1;
+    final url = _getDeeplinkUrl(bibleReader, state.bookKey, state.chapter, verse);
 
     // Debounce URL launches to prevent iOS from rejecting concurrent launch attempts.
     // When two cards are tapped simultaneously, iOS only allows one launch at a time.

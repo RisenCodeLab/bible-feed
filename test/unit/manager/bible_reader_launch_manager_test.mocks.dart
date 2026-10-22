@@ -4,12 +4,15 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
+import 'dart:ui' as _i6;
 
 import 'package:bible_feed/manager/debounce_manager.dart' as _i2;
-import 'package:bible_feed/service/platform_service.dart' as _i4;
-import 'package:bible_feed/service/url_launch_service.dart' as _i6;
-import 'package:flutter/foundation.dart' as _i5;
+import 'package:bible_feed/model/chapter_split_setting.dart' as _i4;
+import 'package:bible_feed/service/platform_service.dart' as _i7;
+import 'package:bible_feed/service/url_launch_service.dart' as _i9;
+import 'package:flutter/foundation.dart' as _i8;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:mockito/src/dummies.dart' as _i5;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -57,18 +60,156 @@ class MockDebounceManager extends _i1.Mock implements _i2.DebounceManager {
   );
 }
 
+/// A class which mocks [ChapterSplitSetting].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockChapterSplitSetting extends _i1.Mock
+    implements _i4.ChapterSplitSetting {
+  @override
+  bool get defaultValue =>
+      (super.noSuchMethod(
+            Invocation.getter(#defaultValue),
+            returnValue: false,
+            returnValueForMissingStub: false,
+          )
+          as bool);
+
+  @override
+  String get storeKeyFragment =>
+      (super.noSuchMethod(
+            Invocation.getter(#storeKeyFragment),
+            returnValue: _i5.dummyValue<String>(
+              this,
+              Invocation.getter(#storeKeyFragment),
+            ),
+            returnValueForMissingStub: _i5.dummyValue<String>(
+              this,
+              Invocation.getter(#storeKeyFragment),
+            ),
+          )
+          as String);
+
+  @override
+  String get title =>
+      (super.noSuchMethod(
+            Invocation.getter(#title),
+            returnValue: _i5.dummyValue<String>(
+              this,
+              Invocation.getter(#title),
+            ),
+            returnValueForMissingStub: _i5.dummyValue<String>(
+              this,
+              Invocation.getter(#title),
+            ),
+          )
+          as String);
+
+  @override
+  String get subtitle =>
+      (super.noSuchMethod(
+            Invocation.getter(#subtitle),
+            returnValue: _i5.dummyValue<String>(
+              this,
+              Invocation.getter(#subtitle),
+            ),
+            returnValueForMissingStub: _i5.dummyValue<String>(
+              this,
+              Invocation.getter(#subtitle),
+            ),
+          )
+          as String);
+
+  @override
+  bool get isAvailable =>
+      (super.noSuchMethod(
+            Invocation.getter(#isAvailable),
+            returnValue: false,
+            returnValueForMissingStub: false,
+          )
+          as bool);
+
+  @override
+  String get storeKey =>
+      (super.noSuchMethod(
+            Invocation.getter(#storeKey),
+            returnValue: _i5.dummyValue<String>(
+              this,
+              Invocation.getter(#storeKey),
+            ),
+            returnValueForMissingStub: _i5.dummyValue<String>(
+              this,
+              Invocation.getter(#storeKey),
+            ),
+          )
+          as String);
+
+  @override
+  bool get value =>
+      (super.noSuchMethod(
+            Invocation.getter(#value),
+            returnValue: false,
+            returnValueForMissingStub: false,
+          )
+          as bool);
+
+  @override
+  set isAvailable(bool? value) => super.noSuchMethod(
+    Invocation.setter(#isAvailable, value),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  set value(bool? value) => super.noSuchMethod(
+    Invocation.setter(#value, value),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  bool get hasListeners =>
+      (super.noSuchMethod(
+            Invocation.getter(#hasListeners),
+            returnValue: false,
+            returnValueForMissingStub: false,
+          )
+          as bool);
+
+  @override
+  void addListener(_i6.VoidCallback? listener) => super.noSuchMethod(
+    Invocation.method(#addListener, [listener]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void removeListener(_i6.VoidCallback? listener) => super.noSuchMethod(
+    Invocation.method(#removeListener, [listener]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void dispose() => super.noSuchMethod(
+    Invocation.method(#dispose, []),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void notifyListeners() => super.noSuchMethod(
+    Invocation.method(#notifyListeners, []),
+    returnValueForMissingStub: null,
+  );
+}
+
 /// A class which mocks [PlatformService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPlatformService extends _i1.Mock implements _i4.PlatformService {
+class MockPlatformService extends _i1.Mock implements _i7.PlatformService {
   @override
-  _i5.TargetPlatform get currentPlatform =>
+  _i8.TargetPlatform get currentPlatform =>
       (super.noSuchMethod(
             Invocation.getter(#currentPlatform),
-            returnValue: _i5.TargetPlatform.android,
-            returnValueForMissingStub: _i5.TargetPlatform.android,
+            returnValue: _i8.TargetPlatform.android,
+            returnValueForMissingStub: _i8.TargetPlatform.android,
           )
-          as _i5.TargetPlatform);
+          as _i8.TargetPlatform);
 
   @override
   bool get isAndroid =>
@@ -92,7 +233,7 @@ class MockPlatformService extends _i1.Mock implements _i4.PlatformService {
 /// A class which mocks [UrlLaunchService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockUrlLaunchService extends _i1.Mock implements _i6.UrlLaunchService {
+class MockUrlLaunchService extends _i1.Mock implements _i9.UrlLaunchService {
   @override
   _i3.Future<bool> canLaunchUrl(String? url) =>
       (super.noSuchMethod(

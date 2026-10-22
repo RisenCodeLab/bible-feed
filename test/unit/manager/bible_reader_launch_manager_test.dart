@@ -1,6 +1,7 @@
 import 'package:bible_feed/manager/bible_reader_launch_manager.dart';
 import 'package:bible_feed/manager/debounce_manager.dart';
 import 'package:bible_feed/model/bible_reader.dart';
+import 'package:bible_feed/model/chapter_split_setting.dart';
 import 'package:bible_feed/model/feed.dart';
 import 'package:bible_feed/service/platform_service.dart';
 import 'package:bible_feed/service/url_launch_service.dart';
@@ -13,17 +14,25 @@ import 'package:parameterized_test/parameterized_test.dart';
 import '../test_data.dart';
 import 'bible_reader_launch_manager_test.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<DebounceManager>(), MockSpec<PlatformService>(), MockSpec<UrlLaunchService>()])
+@GenerateNiceMocks([
+  MockSpec<DebounceManager>(),
+  MockSpec<ChapterSplitSetting>(),
+  MockSpec<PlatformService>(),
+  MockSpec<UrlLaunchService>(),
+])
 void main() async {
   late MockDebounceManager mockDebounceManager;
+  late MockChapterSplitSetting mockChapterSplitSetting;
   late MockPlatformService mockPlatformService;
   late MockUrlLaunchService mockUrlLaunchService;
   late BibleReaderLaunchManager testee;
 
   setUp(() {
     mockDebounceManager = MockDebounceManager();
+    mockChapterSplitSetting = MockChapterSplitSetting();
     mockPlatformService = MockPlatformService();
     mockUrlLaunchService = MockUrlLaunchService();
+    when(mockChapterSplitSetting.value).thenReturn(true);
     when(mockPlatformService.currentPlatform).thenReturn(.android);
 
     // Mock runAsync to execute the function immediately
@@ -32,7 +41,12 @@ void main() async {
       return fn();
     });
 
-    testee = BibleReaderLaunchManager(mockDebounceManager, mockPlatformService, mockUrlLaunchService);
+    testee = BibleReaderLaunchManager(
+      mockChapterSplitSetting,
+      mockDebounceManager,
+      mockPlatformService,
+      mockUrlLaunchService,
+    );
   });
 
   group('isAvailable', () {
@@ -59,23 +73,26 @@ void main() async {
     parameterizedTest(
       'should (maybe) launchUrl with correct uri and not throw',
       [
-        [TargetPlatform.android, noneBibleReader, 1, false, false, false],
-        [TargetPlatform.android, blbBibleReader, 1, false, false, false],
-        [TargetPlatform.android, blbBibleReader, 1, true, true, true, 'blb://android/b0/1'],
-        [TargetPlatform.android, blbBibleReader, 7, true, true, true, 'blb://android/b0/1/7'],
-        [TargetPlatform.iOS, blbBibleReader, 1, true, true, true, 'blb://ios/b0/1'],
-        [TargetPlatform.iOS, blbBibleReader, 7, true, true, true, 'blb://ios/b0/1/7'],
+        [TargetPlatform.android, noneBibleReader, 1, false, true, false, false],
+        [TargetPlatform.android, blbBibleReader, 1, false, true, false, false],
+        [TargetPlatform.android, blbBibleReader, 1, true, true, true, true, 'blb://android/b0/1'],
+        [TargetPlatform.android, blbBibleReader, 7, true, true, true, true, 'blb://android/b0/1/7'],
+        [TargetPlatform.android, blbBibleReader, 7, true, false, true, true, 'blb://android/b0/1'],
+        [TargetPlatform.iOS, blbBibleReader, 1, true, true, true, true, 'blb://ios/b0/1'],
+        [TargetPlatform.iOS, blbBibleReader, 7, true, true, true, true, 'blb://ios/b0/1/7'],
       ],
       (
         TargetPlatform currentPlatform,
         BibleReader bibleReader,
         int verse,
         bool isRead,
+        bool isSplitChapters,
         bool expectLaunch,
         bool launchOk, [
         String? expectLaunchUrl,
       ]) async {
         final feed = Feed(bookKey: b0.key, verse: verse, isRead: isRead);
+        when(mockChapterSplitSetting.value).thenReturn(isSplitChapters);
         when(mockPlatformService.currentPlatform).thenReturn(currentPlatform);
         when(mockUrlLaunchService.launchUrl(any)).thenAnswer((_) async => launchOk);
 

@@ -187,19 +187,20 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i578.ProductionPlatformService(),
       registerFor: {_integration_test, _prod},
     );
+    gh.lazySingleton<_i186.BibleReaderLaunchManager>(
+      () => _i186.BibleReaderLaunchManager(
+        gh<_i252.ChapterSplitSetting>(),
+        gh<_i527.DebounceManager>(),
+        gh<_i578.PlatformService>(),
+        gh<_i626.UrlLaunchService>(),
+      ),
+    );
     gh.singleton<_i744.SettingsStoreManager>(
       () => _i744.SettingsStoreManager(
         gh<_i215.StoreService>(),
         gh<_i451.CatchupSetting>(),
         gh<_i252.ChapterSplitSetting>(),
         gh<_i914.HapticSetting>(),
-      ),
-    );
-    gh.lazySingleton<_i186.BibleReaderLaunchManager>(
-      () => _i186.BibleReaderLaunchManager(
-        gh<_i527.DebounceManager>(),
-        gh<_i578.PlatformService>(),
-        gh<_i626.UrlLaunchService>(),
       ),
     );
     gh.lazySingleton<_i837.BibleReadersCertifiedManager>(
