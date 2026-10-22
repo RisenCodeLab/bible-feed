@@ -22,4 +22,3 @@ class FeedAdvanceManager {
     feedManager.setBookChapterVerse(bookIndex, chapter, verse);
   }
 }
-

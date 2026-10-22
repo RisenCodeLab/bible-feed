@@ -8,8 +8,9 @@ import '../service/platform_service.dart';
 @lazySingleton
 class BibleReadersCertifiedManager {
   BibleReadersCertifiedManager(PlatformService platformService, BibleReaders bibleReaders)
-    : _certifiedBibleReaderList =
-          bibleReaders.filter((br) => br.certifiedPlatforms.contains(platformService.currentPlatform)).toList();
+    : _certifiedBibleReaderList = bibleReaders
+          .filter((br) => br.certifiedPlatforms.contains(platformService.currentPlatform))
+          .toList();
 
   final List<BibleReader> _certifiedBibleReaderList;
 

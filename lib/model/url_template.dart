@@ -9,4 +9,3 @@ class UrlTemplate extends DelegatingMap<TargetPlatform, String> {
     // ignore: avoid-missing-enum-constant-in-map, other platforms are not supported
     : super({.android: android, .iOS: iOS});
 }
-

@@ -75,10 +75,10 @@ void main() async {
   });
 
   test('with chapter split, should advance verse only', () {
-      when(mockChapterSplitManager.getNextVerse(feed)).thenReturn(3);
+    when(mockChapterSplitManager.getNextVerse(feed)).thenReturn(3);
     checkState(b1, 1, 1);
-      feedManager.toggleIsRead();
-      testee.advance(feedManager);
+    feedManager.toggleIsRead();
+    testee.advance(feedManager);
     checkState(b1, 1, 3);
   });
 }

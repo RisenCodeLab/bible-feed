@@ -10,17 +10,17 @@ class Feeds extends StatelessWidget {
   build(context) {
     var feedsManager = sl<FeedsManager>();
     return Column(
-    children: [
-      for (int index in [0, 2, 4, 6, 8])
-        Expanded(
-          child: Row(
-            children: [
-              Expanded(child: Feed(feedsManager.feedManagers[index])),
-              Expanded(child: Feed(feedsManager.feedManagers[index + 1])),
-            ],
+      children: [
+        for (int index in [0, 2, 4, 6, 8])
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(child: Feed(feedsManager.feedManagers[index])),
+                Expanded(child: Feed(feedsManager.feedManagers[index + 1])),
+              ],
+            ),
           ),
-        ),
-    ],
-  );
+      ],
+    );
   }
 }

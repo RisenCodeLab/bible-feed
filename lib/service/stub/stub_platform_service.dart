@@ -8,4 +8,3 @@ import '../platform_service.dart';
 class StubPlatformService extends PlatformService {
   StubPlatformService() : super(currentPlatform: .android);
 }
-

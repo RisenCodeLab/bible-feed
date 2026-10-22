@@ -7,4 +7,3 @@ import '../platform_event_service.dart';
 @golden
 @LazySingleton(as: PlatformEventService)
 class StubPlatformEventService extends PlatformEventService {}
-

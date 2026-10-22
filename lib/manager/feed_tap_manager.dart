@@ -18,4 +18,3 @@ class FeedTapManager with ChangeNotifier {
     return _bibleReaderLaunchManager.maybeLaunch(_bibleReaderLinkManager.linkedBibleReader, feedManager.feed);
   }
 }
-

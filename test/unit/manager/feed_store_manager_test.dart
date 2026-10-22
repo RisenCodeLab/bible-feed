@@ -31,7 +31,6 @@ void main() async {
       expect(state.verse, 1);
     });
 
-
     test('should load from store if store is populated', () async {
       when(mockStoreService.get('rl1.book')).thenReturn('b1');
       when(mockStoreService.get('rl1.chapter')).thenReturn(2);

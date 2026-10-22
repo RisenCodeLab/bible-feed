@@ -8,4 +8,3 @@ import '../haptic_service.dart';
 class StubHapticService extends HapticService {
   StubHapticService() : super(isAvailable: true);
 }
-

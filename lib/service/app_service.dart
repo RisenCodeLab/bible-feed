@@ -23,4 +23,3 @@ class ProductionAppService extends AppService {
     return ProductionAppService(buildNumber: packageInfo.buildNumber, version: packageInfo.version);
   }
 }
-

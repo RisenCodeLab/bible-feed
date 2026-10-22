@@ -20,4 +20,3 @@ class StubStoreService extends StoreService {
     return StubStoreService(sp);
   }
 }
-

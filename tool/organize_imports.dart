@@ -94,7 +94,13 @@ bool _processFile(File file) {
     if (match == null) {
       continue;
     }
-    entries.add({'index': i, 'kind': match.group(1)!, 'quote': match.group(2)!, 'path': match.group(3)!, 'suffix': match.group(4)!});
+    entries.add({
+      'index': i,
+      'kind': match.group(1)!,
+      'quote': match.group(2)!,
+      'path': match.group(3)!,
+      'suffix': match.group(4)!,
+    });
   }
   if (entries.isEmpty) {
     return false;
@@ -105,7 +111,9 @@ bool _processFile(File file) {
   for (final entry in entries) {
     final path = entry['path'] as String;
     final newPath = _isPackageBibleFeed(path) ? _toRelative(file.path, path) : path;
-    updatedEntries.add(_ImportEntry(entry['kind'] as String, entry['quote'] as String, newPath, entry['suffix'] as String));
+    updatedEntries.add(
+      _ImportEntry(entry['kind'] as String, entry['quote'] as String, newPath, entry['suffix'] as String),
+    );
   }
   final organised = _organise(updatedEntries);
   final originalLines = lines.sublist(blockStart, blockEnd + 1);

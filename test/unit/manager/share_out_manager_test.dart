@@ -12,7 +12,12 @@ import 'package:mockito/mockito.dart';
 import '../test_data.dart';
 import 'share_out_manager_test.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<AppService>(), MockSpec<CatchupManager>(), MockSpec<FeedManager>(), MockSpec<FeedsManager>()])
+@GenerateNiceMocks([
+  MockSpec<AppService>(),
+  MockSpec<CatchupManager>(),
+  MockSpec<FeedManager>(),
+  MockSpec<FeedsManager>(),
+])
 void main() {
   late MockAppService mockAppService;
   late MockCatchupManager mockCatchupManager;
@@ -39,11 +44,7 @@ void main() {
     when(mockCatchupManager.virtualAllDoneDate).thenReturn(virtualAllDoneDate);
     when(mockFeedsManager.feedManagers).thenReturn([feedManager1, feedManager2]);
 
-    final expectDto = ShareDto(
-      version: buildNumber,
-      feedList: [feed1, feed2],
-      virtualAllDoneDate: virtualAllDoneDate,
-    );
+    final expectDto = ShareDto(version: buildNumber, feedList: [feed1, feed2], virtualAllDoneDate: virtualAllDoneDate);
     expect(testee.getJson(), expectDto.toJson());
   });
 }

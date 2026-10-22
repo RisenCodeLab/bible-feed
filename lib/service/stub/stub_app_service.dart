@@ -19,4 +19,3 @@ class StubAppService extends base.AppService {
     return StubAppService(buildNumber: versionAndBuild[1].toString(), version: versionAndBuild[0].toString());
   }
 }
-

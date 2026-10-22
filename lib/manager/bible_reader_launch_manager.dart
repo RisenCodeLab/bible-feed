@@ -37,10 +37,7 @@ class BibleReaderLaunchManager {
     // Debounce URL launches to prevent iOS from rejecting concurrent launch attempts.
     // When two cards are tapped simultaneously, iOS only allows one launch at a time.
     // Without debouncing, the second concurrent call returns false and throws an exception.
-    final success = await _debounceManager.runAsync(
-      delay: 1.seconds,
-      fn: () => _urlLaunchService.launchUrl(url),
-    );
+    final success = await _debounceManager.runAsync(delay: 1.seconds, fn: () => _urlLaunchService.launchUrl(url));
 
     if (success == null) return; // debounced, no action
     if (!success) throw Exception('_urlLaunchService.launchUrl($url)');

@@ -47,14 +47,13 @@ Future<void> main() async {
       fileName: name,
       builder: () {
         return GoldenTestGroup(
-          children:
-              scenario.constraints.map((constraint) {
-                return GoldenTestScenario(
-                  name: constraint.toString(),
-                  constraints: BoxConstraints.tight(constraint),
-                  child: MaterialApp(home: scenario.widget),
-                );
-              }).toList(),
+          children: scenario.constraints.map((constraint) {
+            return GoldenTestScenario(
+              name: constraint.toString(),
+              constraints: BoxConstraints.tight(constraint),
+              child: MaterialApp(home: scenario.widget),
+            );
+          }).toList(),
         );
       },
     );

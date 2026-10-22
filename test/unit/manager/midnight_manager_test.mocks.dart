@@ -26,29 +26,21 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: invalid_use_of_internal_member
 
 class _FakeDateTime_0 extends _i1.SmartFake implements DateTime {
-  _FakeDateTime_0(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeDateTime_0(Object parent, Invocation parentInvocation) : super(parent, parentInvocation);
 }
 
 /// A class which mocks [AppLifecycleManager].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAppLifecycleManager extends _i1.Mock
-    implements _i2.AppLifecycleManager {
+class MockAppLifecycleManager extends _i1.Mock implements _i2.AppLifecycleManager {
   @override
-  void onResume(
-    _i3.VoidCallback? callback, {
-    _i4.Priority? priority = _i4.Priority.normal,
-  }) => super.noSuchMethod(
+  void onResume(_i3.VoidCallback? callback, {_i4.Priority? priority = _i4.Priority.normal}) => super.noSuchMethod(
     Invocation.method(#onResume, [callback], {#priority: priority}),
     returnValueForMissingStub: null,
   );
 
   @override
-  void runCallbacks() => super.noSuchMethod(
-    Invocation.method(#runCallbacks, []),
-    returnValueForMissingStub: null,
-  );
+  void runCallbacks() => super.noSuchMethod(Invocation.method(#runCallbacks, []), returnValueForMissingStub: null);
 }
 
 /// A class which mocks [DateTimeService].
@@ -60,10 +52,7 @@ class MockDateTimeService extends _i1.Mock implements _i5.DateTimeService {
       (super.noSuchMethod(
             Invocation.getter(#now),
             returnValue: _FakeDateTime_0(this, Invocation.getter(#now)),
-            returnValueForMissingStub: _FakeDateTime_0(
-              this,
-              Invocation.getter(#now),
-            ),
+            returnValueForMissingStub: _FakeDateTime_0(this, Invocation.getter(#now)),
           )
           as DateTime);
 }

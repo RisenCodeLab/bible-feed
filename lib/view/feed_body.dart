@@ -38,7 +38,10 @@ class FeedBody extends StatelessWidget {
             children: [
               Visibility(visible: isVisible, child: FeedTitleBar(feedManager)),
               LinearProgressIndicator(backgroundColor: context.colorScheme.surface, value: feedManager.progress),
-              DefaultTextStyle.merge(style: .new(fontSize: fontSize), child: FeedBookChapter(feedManager)),
+              DefaultTextStyle.merge(
+                style: .new(fontSize: fontSize),
+                child: FeedBookChapter(feedManager),
+              ),
             ],
           );
         },

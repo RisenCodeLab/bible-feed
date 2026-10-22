@@ -52,4 +52,3 @@ class AllDonePopupManager extends PopupManager {
     return _catchupManager.isBehind ? 'Not yet done' : 'All done for today!';
   }
 }
-

@@ -14,10 +14,9 @@ class ShareOutManager {
   ShareOutManager(this._appService, this._catchupManager, this._feedsManager);
 
   // BEWARE! changing these field names will break share across versions
-  String getJson() =>
-      ShareDto(
-        feedList: _feedsManager.feedManagers.map((f) => f.feed).toList(),
-        version: _appService.version,
-        virtualAllDoneDate: _catchupManager.virtualAllDoneDate,
-      ).toJson();
+  String getJson() => ShareDto(
+    feedList: _feedsManager.feedManagers.map((f) => f.feed).toList(),
+    version: _appService.version,
+    virtualAllDoneDate: _catchupManager.virtualAllDoneDate,
+  ).toJson();
 }

@@ -32,4 +32,3 @@ class FeedsAdvanceManager with ChangeNotifier {
     return .allReadAwaitingTomorrow;
   }
 }
-

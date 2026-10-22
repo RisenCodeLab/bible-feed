@@ -77,32 +77,44 @@ void main() {
       fakeAsync((async) async {
         var executionCount = 0;
 
-        await testee.runAsync(delay: 100.milliseconds, fn: () async {
-          executionCount++;
-          return executionCount;
-        });
+        await testee.runAsync(
+          delay: 100.milliseconds,
+          fn: () async {
+            executionCount++;
+            return executionCount;
+          },
+        );
         expect(executionCount, equals(1));
 
         async.elapse(50.milliseconds);
-        await testee.runAsync(delay: 100.milliseconds, fn: () async {
-          executionCount++;
-          return executionCount;
-        });
+        await testee.runAsync(
+          delay: 100.milliseconds,
+          fn: () async {
+            executionCount++;
+            return executionCount;
+          },
+        );
         expect(executionCount, equals(1));
 
         async.elapse(40.milliseconds);
-        await testee.runAsync(delay: 100.milliseconds, fn: () async {
-          executionCount++;
-          return executionCount;
-        });
+        await testee.runAsync(
+          delay: 100.milliseconds,
+          fn: () async {
+            executionCount++;
+            return executionCount;
+          },
+        );
         expect(executionCount, equals(1));
 
         async.elapse(100.milliseconds);
 
-        await testee.runAsync(delay: 100.milliseconds, fn: () async {
-          executionCount++;
-          return executionCount;
-        });
+        await testee.runAsync(
+          delay: 100.milliseconds,
+          fn: () async {
+            executionCount++;
+            return executionCount;
+          },
+        );
         expect(executionCount, equals(2));
       });
     });

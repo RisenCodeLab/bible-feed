@@ -82,4 +82,3 @@ class ShareInManager {
     _feedsManager.feedManagers.firstOrNullWhere((FeedManager fm) => fm.book.key == latestBookKey)?.touch();
   }
 }
-
