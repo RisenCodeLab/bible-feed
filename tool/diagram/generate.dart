@@ -7,7 +7,7 @@ const _diagramDir = '_diagram';
 const _gvprScript = 'tool/diagram/f_color-nodes.gvpr';
 
 const _diagrams = <String, String>{
-  'manager': '{injectable*,main.dart,model/**,view/**}',
+  'manager': '{injectable*,main.dart,view/**}',
   'view': '{injectable*,model/**,manager/**,view/_*,view/**/_*}',
   'all': '{injectable*,model/**,view/_*,view/**/_*}',
   'model': '{injectable*,main.dart,manager/**,service/**,view/**}',
