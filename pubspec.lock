@@ -269,10 +269,10 @@ packages:
     dependency: "direct dev"
     description:
       name: dart_code_linter
-      sha256: a4649ee1c604dfb7ce25fd427179cdba37dbfdfdabcd8b52b9211c6b460a8e91
+      sha256: "56b42311d0e83a09521d2273eae34f87ebe12afc1390e2998de39b63d8d03b7b"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.5"
+    version: "4.4.2"
   dart_mappable:
     dependency: "direct main"
     description:
