@@ -72,3 +72,8 @@ Members within classes must be ordered as follows:
   - Mock services and managers that have external dependencies
   - Follow the pattern in `test/unit/manager/bible_reader_launch_manager_test.dart`
   - Use `pumpAsync()` helper to wait for async operations in tests
+
+### Never Bypass Tool Restrictions
+- **Do NOT** use alternative tools to circumvent restrictions imposed by the current mode (e.g., Plan mode)
+- If a tool like `edit` is restricted, do not use `shell` commands (e.g., `sed`, `awk`, `cat >`) to make the same change
+- Respect all tool and mode constraints — if you cannot perform an action, ask the user to switch modes or clarify
