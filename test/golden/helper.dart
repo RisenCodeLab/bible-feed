@@ -1,6 +1,7 @@
 import 'package:bible_feed/manager/feeds_manager.dart';
 import 'package:bible_feed/model/chapter_split_setting.dart';
 import 'package:bible_feed/model/feed.dart';
+import 'package:dartx/dartx.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:watch_it/watch_it.dart';
 
@@ -45,7 +46,7 @@ class Helper {
           chapter: chapterState[row][col],
           verse: 1,
           isRead: chapterReadState[row][col],
-          dateModified: baseDateTime.add(.new(minutes: row * 2 + col)),
+          dateModified: baseDateTime.add((row * 2 + col).minutes),
         );
       }
     }

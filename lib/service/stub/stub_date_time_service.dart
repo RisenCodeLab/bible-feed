@@ -1,3 +1,4 @@
+import 'package:dartx/dartx.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../injectable.env.dart';
@@ -16,8 +17,7 @@ class StubDateTimeService extends DateTimeService {
 
   set now(DateTime value) => _now = value;
 
-  void advance1day() => _now = _now.add(const .new(days: 1));
+  void advance1day() => _now = _now.add(1.days);
 
   void reset() => _now = baseNow;
 }
-

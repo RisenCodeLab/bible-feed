@@ -1,3 +1,4 @@
+import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedFab extends StatelessWidget {
@@ -22,7 +23,7 @@ class AnimatedFab extends StatelessWidget {
     const fabSize = 35.0;
 
     return AnimatedScale(
-      duration: const .new(milliseconds: 200),
+      duration: 200.milliseconds,
       scale: isVisible ? 1 : 0,
       child: FloatingActionButton(
         backgroundColor: backgroundColor,

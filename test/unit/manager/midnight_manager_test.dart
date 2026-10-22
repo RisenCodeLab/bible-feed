@@ -1,6 +1,7 @@
 import 'package:bible_feed/manager/app_lifecycle_manager.dart';
 import 'package:bible_feed/manager/midnight_manager.dart';
 import 'package:bible_feed/service/date_time_service.dart';
+import 'package:dartx/dartx.dart';
 import 'package:fake_async/fake_async.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -23,7 +24,7 @@ void main() {
     await fakeAsync((fakeAsync) {
       var notified = false;
       ProdMidnightManager(mockAppLifecycleManager, mockDateTimeService).addListener(() => notified = true);
-      fakeAsync.elapse(const .new(minutes: 1, seconds: 5));
+      fakeAsync.elapse(1.minutes + 5.seconds);
       expect(notified, true);
     });
   });

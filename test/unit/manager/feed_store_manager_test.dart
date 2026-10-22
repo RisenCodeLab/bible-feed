@@ -14,7 +14,7 @@ void main() async {
   late MockStoreService mockStoreService;
   late FeedStoreManager testee;
 
-  final DateTime yesterday = DateTime.now() - const Duration(days: 1);
+  final DateTime yesterday = DateTime.now() - 1.days;
 
   setUp(() async {
     mockStoreService = MockStoreService();
