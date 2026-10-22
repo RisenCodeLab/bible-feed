@@ -7,7 +7,7 @@ import 'settings.dart';
 class SettingsIconButton extends StatelessWidget {
   @override
   build(BuildContext context) => IconButton(
-    key: const Key('settingsIconButton'), // for generate screenshots
+    key: const .new('settingsIconButton'), // for generate screenshots
     icon: const Icon(Icons.settings, size: Constants.appbarIconSize),
     tooltip: 'Open settings',
     onPressed: () => context.navigateTo(Settings()),

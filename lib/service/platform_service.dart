@@ -8,8 +8,8 @@ class PlatformService {
 
   final TargetPlatform currentPlatform;
 
-  bool get isAndroid => currentPlatform == TargetPlatform.android;
-  bool get isIOS => currentPlatform == TargetPlatform.iOS;
+  bool get isAndroid => currentPlatform == .android;
+  bool get isIOS => currentPlatform == .iOS;
 }
 
 @integrationTest

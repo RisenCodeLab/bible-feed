@@ -5,6 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:bible_feed/model/bible_reader.dart' as _i3;
 import 'package:bible_feed/model/bible_reader_key.dart' as _i6;
+import 'package:bible_feed/model/bible_reader_type.dart' as _i8;
 import 'package:bible_feed/model/book_key_externaliser.dart' as _i4;
 import 'package:bible_feed/model/url_template.dart' as _i2;
 import 'package:flutter/foundation.dart' as _i5;
@@ -89,6 +90,15 @@ class MockBibleReader extends _i1.Mock implements _i3.BibleReader {
             ),
           )
           as _i2.UrlTemplate);
+
+  @override
+  _i8.BibleReaderType get type =>
+      (super.noSuchMethod(
+            Invocation.getter(#type),
+            returnValue: _i8.BibleReaderType.app,
+            returnValueForMissingStub: _i8.BibleReaderType.app,
+          )
+          as _i8.BibleReaderType);
 
   @override
   String get displayName =>

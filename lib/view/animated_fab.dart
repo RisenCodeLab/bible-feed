@@ -22,7 +22,7 @@ class AnimatedFab extends StatelessWidget {
     const fabSize = 35.0;
 
     return AnimatedScale(
-      duration: const Duration(milliseconds: 200),
+      duration: const .new(milliseconds: 200),
       scale: isVisible ? 1 : 0,
       child: FloatingActionButton(
         backgroundColor: backgroundColor,

@@ -40,7 +40,7 @@ class AllDonePopupManager extends PopupManager {
   }
 
   @override
-  PopupAction get popupAction => PopupAction(
+  PopupAction get popupAction => .new(
     action: sl<FeedsAdvanceManager>().advance,
     icon: const Icon(Icons.fast_forward),
     key: 'advance_now',

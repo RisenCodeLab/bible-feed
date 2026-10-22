@@ -25,7 +25,7 @@ class FeedBody extends StatelessWidget {
   build(context) {
     return InkWell(
       enableFeedback: false,
-      key: ValueKey(feedManager.book.key),
+      key: .new(feedManager.book.key),
       onLongPress: () => context.showDialogWithBlurBackground(BookChapterDialog(feedManager)),
       onTap: () => _handleTap(context),
       child: LayoutBuilder(

@@ -20,5 +20,5 @@ class AppBarMain extends WatchingWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
+  Size get preferredSize => .fromHeight(AppBar().preferredSize.height);
 }

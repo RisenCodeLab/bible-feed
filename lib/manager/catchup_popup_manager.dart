@@ -40,7 +40,7 @@ class CatchupPopupManager extends PopupManager {
   }
 
   @override
-  PopupAction get popupAction => PopupAction(
+  PopupAction get popupAction => .new(
     action: _catchupManager.reset,
     icon: const Icon(Icons.cancel),
     key: 'catchup_cancel',
@@ -52,10 +52,10 @@ class CatchupPopupManager extends PopupManager {
 
   @override
   List<Verse>? get verses => [
-    Verse(
+    .new(
       text: 'as newborn babes, desire the pure milk of the word, that you may grow thereby',
       reference: '1 Peter 2:2 NKJV',
     ),
-    Verse(text: 'Give us this day our daily bread', reference: 'Matthew 6:11 KJV'),
+    .new(text: 'Give us this day our daily bread', reference: 'Matthew 6:11 KJV'),
   ];
 }

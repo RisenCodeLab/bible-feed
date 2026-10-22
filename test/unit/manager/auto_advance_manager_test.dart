@@ -2,8 +2,6 @@ import 'package:bible_feed/manager/app_lifecycle_manager.dart';
 import 'package:bible_feed/manager/auto_advance_manager.dart';
 import 'package:bible_feed/manager/feeds_advance_manager.dart';
 import 'package:bible_feed/manager/midnight_manager.dart';
-import 'package:bible_feed/model/feeds_advance_state.dart';
-import 'package:bible_feed/model/priority.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
@@ -32,8 +30,8 @@ void main() {
   test('at midnight, should call maybeAdvance and notify listeners if advanced', () async {
     late Function() listener;
 
-    when(mockFeedsAdvanceManager.maybeAdvance()).thenReturn(FeedsAdvanceState.listsAdvanced);
-    when(mockMidnightManager.addListener(any, priority: Priority.high)).thenAnswer((invocation) {
+    when(mockFeedsAdvanceManager.maybeAdvance()).thenReturn(.listsAdvanced);
+    when(mockMidnightManager.addListener(any, priority: .high)).thenAnswer((invocation) {
       listener = invocation.positionalArguments[0] as void Function();
     });
 

@@ -14,9 +14,9 @@ import 'bible_readers_certified_manager_test.mocks.dart';
 void main() async {
   final bibleReaders = BibleReaders(List<BibleReader>.generate(4, (_) => MockBibleReader()));
   when(bibleReaders[0].certifiedPlatforms).thenReturn([]);
-  when(bibleReaders[1].certifiedPlatforms).thenReturn([TargetPlatform.android]);
-  when(bibleReaders[2].certifiedPlatforms).thenReturn([TargetPlatform.iOS]);
-  when(bibleReaders[3].certifiedPlatforms).thenReturn([TargetPlatform.android, TargetPlatform.iOS]);
+  when(bibleReaders[1].certifiedPlatforms).thenReturn([.android]);
+  when(bibleReaders[2].certifiedPlatforms).thenReturn([.iOS]);
+  when(bibleReaders[3].certifiedPlatforms).thenReturn([.android, .iOS]);
 
   parameterizedTest(
     'certifiedBibleReaderList',

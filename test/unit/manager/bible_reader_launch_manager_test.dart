@@ -24,7 +24,7 @@ void main() async {
     mockDebounceManager = MockDebounceManager();
     mockPlatformService = MockPlatformService();
     mockUrlLaunchService = MockUrlLaunchService();
-    when(mockPlatformService.currentPlatform).thenReturn(TargetPlatform.android);
+    when(mockPlatformService.currentPlatform).thenReturn(.android);
 
     // Mock runAsync to execute the function immediately
     when(mockDebounceManager.runAsync(delay: anyNamed('delay'), fn: anyNamed('fn'))).thenAnswer((invocation) {

@@ -9,10 +9,10 @@ class AppLifecycleManager {
     AppLifecycleListener(onResume: runCallbacks);
   }
 
-  final Map<Priority, List<VoidCallback>> _resumeCallbacks = {Priority.high: [], Priority.normal: [], Priority.low: []};
+  final Map<Priority, List<VoidCallback>> _resumeCallbacks = {.high: [], .normal: [], .low: []};
 
   // Register a callback for app-resume with optional priority.
-  void onResume(VoidCallback callback, {Priority priority = Priority.normal}) {
+  void onResume(VoidCallback callback, {Priority priority = .normal}) {
     _resumeCallbacks[priority]!.add(callback);
   }
 

@@ -22,7 +22,7 @@ class FakeAppLifecycleManager implements AppLifecycleManager {
   final listeners = <VoidCallback>[];
 
   @override
-  void onResume(VoidCallback callback, {Priority priority = Priority.normal}) {
+  void onResume(VoidCallback callback, {Priority priority = .normal}) {
     listeners.add(callback);
   }
 
@@ -119,10 +119,10 @@ class FakeFeedsAdvanceManager extends ChangeNotifier implements FeedsAdvanceMana
   }
 
   @override
-  FeedsAdvanceState advance() => FeedsAdvanceState.listsAdvanced;
+  FeedsAdvanceState advance() => .listsAdvanced;
 
   @override
-  FeedsAdvanceState maybeAdvance() => FeedsAdvanceState.notAllRead;
+  FeedsAdvanceState maybeAdvance() => .notAllRead;
 }
 
 class FakeMidnightManager extends ChangeNotifier with PriorityNotifier implements MidnightManager {}
@@ -147,7 +147,7 @@ void main() {
   setUp(() {
     fakeAppLifecycleManager = FakeAppLifecycleManager();
     fakeCatchupSetting = FakeCatchupSetting();
-    fakeDateTimeService = FakeDateTimeService(DateTime.now());
+    fakeDateTimeService = FakeDateTimeService(.now());
     fakeFeedsManager = FakeFeedsManager(
       feedManagers: feedManagers,
       chaptersToRead: 7,

@@ -37,7 +37,7 @@ class PopupBody<T extends PopupManager> extends StatelessWidget {
         PopupVerses<T>(),
         if (popupAction != null)
           ElevatedButton(
-            key: ValueKey(popupAction.key),
+            key: .new(popupAction.key),
             style: ElevatedButton.styleFrom(
               backgroundColor: foregroundColor,
               foregroundColor: backgroundColor,

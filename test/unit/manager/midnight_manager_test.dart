@@ -23,7 +23,7 @@ void main() {
     await fakeAsync((fakeAsync) {
       var notified = false;
       ProdMidnightManager(mockAppLifecycleManager, mockDateTimeService).addListener(() => notified = true);
-      fakeAsync.elapse(const Duration(minutes: 1, seconds: 5));
+      fakeAsync.elapse(const .new(minutes: 1, seconds: 5));
       expect(notified, true);
     });
   });

@@ -25,7 +25,7 @@ class BibleReaderLinkManager with ChangeNotifier {
       _linkedBibleReaderKey = BibleReaderKey.values.byName(linkedReaderName ?? BibleReaderKey.none.name);
       linkedBibleReader; // throws an exception if linkedBibleReader is invalid or uncertified
     } catch (e) {
-      _linkedBibleReaderKey = BibleReaderKey.none;
+      _linkedBibleReaderKey = .none;
     }
   }
 
@@ -37,11 +37,11 @@ class BibleReaderLinkManager with ChangeNotifier {
   }
 
   List<BibleReader> get _certifiedBibleReaderList => _bibleReadersCertifiedManager.certifiedBibleReaderList;
-  bool get isLinked => _linkedBibleReaderKey != BibleReaderKey.none;
+  bool get isLinked => _linkedBibleReaderKey != .none;
 
   BibleReader get linkedBibleReader => _certifiedBibleReaderList.firstWhere((e) => e.key == _linkedBibleReaderKey);
   int get linkedBibleReaderIndex => _certifiedBibleReaderList.indexOf(linkedBibleReader);
   set linkedBibleReaderIndex(int value) => _saveState(_certifiedBibleReaderList[value].key);
 
-  void unlinkBibleReader() => _saveState(BibleReaderKey.none);
+  void unlinkBibleReader() => _saveState(.none);
 }

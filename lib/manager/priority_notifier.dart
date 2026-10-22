@@ -3,10 +3,10 @@ import 'package:flutter/foundation.dart';
 import '../model/priority.dart';
 
 mixin PriorityNotifier on ChangeNotifier {
-  final Map<Priority, List<VoidCallback>> _listeners = {Priority.high: [], Priority.normal: [], Priority.low: []};
+  final Map<Priority, List<VoidCallback>> _listeners = {.high: [], .normal: [], .low: []};
 
   @override
-  void addListener(VoidCallback listener, {Priority priority = Priority.normal}) {
+  void addListener(VoidCallback listener, {Priority priority = .normal}) {
     _listeners[priority]!.add(listener);
   }
 

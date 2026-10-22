@@ -8,9 +8,9 @@ extension BuildContextExtension<T> on BuildContext {
   // device
   MediaQueryData get mediaQuery => MediaQuery.of(this);
   double get deviceTextScale => mediaQuery.textScaler.scale(1); // from device settings
-  bool get isDarkMode => mediaQuery.platformBrightness == Brightness.dark;
-  bool get isOrientationLandscape => mediaQuery.orientation == Orientation.landscape;
-  bool get isOrientationPortrait => mediaQuery.orientation == Orientation.portrait;
+  bool get isDarkMode => mediaQuery.platformBrightness == .dark;
+  bool get isOrientationLandscape => mediaQuery.orientation == .landscape;
+  bool get isOrientationPortrait => mediaQuery.orientation == .portrait;
 
   // theme
   ThemeData get theme => Theme.of(this);

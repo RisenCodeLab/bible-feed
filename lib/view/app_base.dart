@@ -12,8 +12,8 @@ class AppBase extends StatelessWidget {
       cardTheme: .new(surfaceTintColor: context.colorScheme.surfaceTint),
       colorScheme: .fromSeed(
         brightness: brightness,
-        seedColor: const Color(0xffbb86fc),
-        tertiary: brightness == Brightness.dark ? Colors.red : Colors.amber,
+        seedColor: const .new(0xffbb86fc),
+        tertiary: brightness == .dark ? Colors.red : Colors.amber,
       ),
     );
 
@@ -23,8 +23,8 @@ class AppBase extends StatelessWidget {
         navigatorObservers: [sl<HapticManager>()],
         title: 'Bible Feed',
         themeMode: .system,
-        theme: theme(Brightness.light),
-        darkTheme: theme(Brightness.dark),
+        theme: theme(.light),
+        darkTheme: theme(.dark),
         home: App(),
       ),
     );

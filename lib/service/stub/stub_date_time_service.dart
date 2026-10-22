@@ -7,7 +7,7 @@ import '../date_time_service.dart';
 @integrationTest
 @LazySingleton(as: DateTimeService)
 class StubDateTimeService extends DateTimeService {
-  static final DateTime baseNow = DateTime(2026, 7, 12);
+  static final DateTime baseNow = .new(2026, 7, 12);
 
   var _now = baseNow;
 
@@ -16,7 +16,7 @@ class StubDateTimeService extends DateTimeService {
 
   set now(DateTime value) => _now = value;
 
-  void advance1day() => _now = _now.add(const Duration(days: 1));
+  void advance1day() => _now = _now.add(const .new(days: 1));
 
   void reset() => _now = baseNow;
 }

@@ -13,7 +13,7 @@ class BibleReader {
     required this.name,
     required this.urlTemplate,
     this.certifiedPlatforms = const [],
-    this.bookKeyExternaliser = BookKeyExternaliser.identity,
+    this.bookKeyExternaliser = .identity,
     this.urlVersePath,
   });
 
@@ -27,6 +27,6 @@ class BibleReader {
 
   // calculated getters
   String get displayName => '$name ${isNone ? '' : type.name}'.trim();
-  bool get isApp => type == BibleReaderType.app;
-  bool get isNone => type == BibleReaderType.none;
+  bool get isApp => type == .app;
+  bool get isNone => type == .none;
 }

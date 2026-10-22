@@ -21,15 +21,15 @@ class FeedsAdvanceManager with ChangeNotifier {
       _feedAdvanceManager.advance(fm);
     }
     notifyListeners();
-    return FeedsAdvanceState.listsAdvanced;
+    return .listsAdvanced;
   }
 
   FeedsAdvanceState maybeAdvance() {
-    if (!_feedsManager.areChaptersRead) return FeedsAdvanceState.notAllRead;
+    if (!_feedsManager.areChaptersRead) return .notAllRead;
     final lastDateModified = _feedsManager.lastModifiedFeed?.dateModified;
-    if (lastDateModified == null) return FeedsAdvanceState.notAllRead;
+    if (lastDateModified == null) return .notAllRead;
     if (_dateTimeService.now.date.isAfter(lastDateModified.date)) return advance();
-    return FeedsAdvanceState.allReadAwaitingTomorrow;
+    return .allReadAwaitingTomorrow;
   }
 }
 

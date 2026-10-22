@@ -3,10 +3,6 @@ import 'package:injectable/injectable.dart';
 
 import 'base_list.dart';
 import 'bible_reader.dart';
-import 'bible_reader_key.dart';
-import 'bible_reader_type.dart';
-import 'book_key_externaliser.dart';
-import 'url_template.dart';
 
 @immutable
 @lazySingleton
@@ -29,42 +25,42 @@ abstract class BibleReadersModule {
   @lazySingleton
   List<BibleReader> get bibleReader => [
     BibleReader(
-      key: BibleReaderKey.none,
-      type: BibleReaderType.none,
+      key: .none,
+      type: .none,
       name: 'None',
-      urlTemplate: UrlTemplate(''),
-      certifiedPlatforms: const [TargetPlatform.android, TargetPlatform.iOS],
+      urlTemplate: .new(''),
+      certifiedPlatforms: const [.android, .iOS],
     ),
     BibleReader(
-      key: BibleReaderKey.andBibleApp,
-      type: BibleReaderType.app,
+      key: .andBibleApp,
+      type: .app,
       name: 'AndBible',
-      urlTemplate: UrlTemplate('https://read.andbible.org/BOOK.CHAPTER'),
+      urlTemplate: .new('https://read.andbible.org/BOOK.CHAPTER'),
       // Not certified because deep links are not working: https://github.com/AndBible/and-bible/issues/3210
     ),
     BibleReader(
-      key: BibleReaderKey.blueLetterApp,
-      type: BibleReaderType.app,
+      key: .blueLetterApp,
+      type: .app,
       name: 'Blue Letter Bible',
-      urlTemplate: UrlTemplate.byPlatform(android: 'blb://bible/BOOK/CHAPTER', iOS: 'blb://BOOK/CHAPTER'),
-      certifiedPlatforms: const [TargetPlatform.android, TargetPlatform.iOS],
-      bookKeyExternaliser: BookKeyExternaliser.blueLetter,
+      urlTemplate: .byPlatform(android: 'blb://bible/BOOK/CHAPTER', iOS: 'blb://BOOK/CHAPTER'),
+      certifiedPlatforms: const [.android, .iOS],
+      bookKeyExternaliser: .blueLetter,
       urlVersePath: '/VERSE',
     ),
     BibleReader(
-      key: BibleReaderKey.blueLetterWeb,
-      type: BibleReaderType.web,
+      key: .blueLetterWeb,
+      type: .web,
       name: 'Blue Letter Bible',
-      urlTemplate: UrlTemplate('https://www.blueletterbible.org/nkjv/BOOK/CHAPTER'),
-      certifiedPlatforms: const [TargetPlatform.android, TargetPlatform.iOS],
-      bookKeyExternaliser: BookKeyExternaliser.blueLetter,
+      urlTemplate: .new('https://www.blueletterbible.org/nkjv/BOOK/CHAPTER'),
+      certifiedPlatforms: const [.android, .iOS],
+      bookKeyExternaliser: .blueLetter,
       urlVersePath: '/VERSE',
     ),
     BibleReader(
-      key: BibleReaderKey.lifeBibleApp,
-      type: BibleReaderType.app,
+      key: .lifeBibleApp,
+      type: .app,
       name: 'Life Bible',
-      urlTemplate: UrlTemplate('tecartabible://BOOK CHAPTER'), // 'https://tecartabible.com/bible/BOOK+CHAPTER'
+      urlTemplate: .new('tecartabible://BOOK CHAPTER'), // 'https://tecartabible.com/bible/BOOK+CHAPTER'
       // Not certified due to these issues:
       // - :VERSE works only via https
       // - forcibly reverts translation over https
@@ -73,48 +69,48 @@ abstract class BibleReadersModule {
       urlVersePath: ':VERSE',
     ),
     BibleReader(
-      key: BibleReaderKey.logosBibleApp,
-      type: BibleReaderType.app,
+      key: .logosBibleApp,
+      type: .app,
       name: 'Logos Bible',
-      urlTemplate: UrlTemplate('logosref:Bible.BOOK.CHAPTER'),
-      certifiedPlatforms: const [TargetPlatform.android, TargetPlatform.iOS],
-      bookKeyExternaliser: BookKeyExternaliser.logos,
+      urlTemplate: .new('logosref:Bible.BOOK.CHAPTER'),
+      certifiedPlatforms: const [.android, .iOS],
+      bookKeyExternaliser: .logos,
       urlVersePath: '.VERSE',
     ),
     BibleReader(
-      key: BibleReaderKey.oliveTreeApp,
-      type: BibleReaderType.app,
+      key: .oliveTreeApp,
+      type: .app,
       name: 'Olive Tree',
-      urlTemplate: UrlTemplate('olivetree://bible/BOOK.CHAPTER'),
-      certifiedPlatforms: const [TargetPlatform.android, TargetPlatform.iOS],
-      bookKeyExternaliser: BookKeyExternaliser.oliveTree,
+      urlTemplate: .new('olivetree://bible/BOOK.CHAPTER'),
+      certifiedPlatforms: const [.android, .iOS],
+      bookKeyExternaliser: .oliveTree,
       urlVersePath: '.VERSE',
     ),
     BibleReader(
-      key: BibleReaderKey.openBibleApp,
-      type: BibleReaderType.app,
+      key: .openBibleApp,
+      type: .app,
       name: 'OpenBible',
-      urlTemplate: UrlTemplate('openbible://BOOK/CHAPTER'),
-      certifiedPlatforms: const [TargetPlatform.android],
-      bookKeyExternaliser: BookKeyExternaliser.openBible,
+      urlTemplate: .new('openbible://BOOK/CHAPTER'),
+      certifiedPlatforms: const [.android],
+      bookKeyExternaliser: .openBible,
       urlVersePath: '/VERSE',
     ),
     BibleReader(
-      key: BibleReaderKey.weDevoteApp,
-      type: BibleReaderType.app,
+      key: .weDevoteApp,
+      type: .app,
       name: 'WeDevote',
-      urlTemplate: UrlTemplate('wdbible://bible/BOOK.CHAPTER'),
-      certifiedPlatforms: const [TargetPlatform.iOS], // not detected on android
-      bookKeyExternaliser: BookKeyExternaliser.osisParatext,
+      urlTemplate: .new('wdbible://bible/BOOK.CHAPTER'),
+      certifiedPlatforms: const [.iOS], // not detected on android
+      bookKeyExternaliser: .osisParatext,
       urlVersePath: '.VERSE',
     ),
     BibleReader(
-      key: BibleReaderKey.youVersionApp,
-      type: BibleReaderType.app,
+      key: .youVersionApp,
+      type: .app,
       name: 'YouVersion',
-      urlTemplate: UrlTemplate('youversion://bible?reference=BOOK.CHAPTER'),
-      certifiedPlatforms: const [TargetPlatform.android, TargetPlatform.iOS],
-      bookKeyExternaliser: BookKeyExternaliser.osisParatext,
+      urlTemplate: .new('youversion://bible?reference=BOOK.CHAPTER'),
+      certifiedPlatforms: const [.android, .iOS],
+      bookKeyExternaliser: .osisParatext,
       urlVersePath: '.VERSE',
     ),
   ];

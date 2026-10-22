@@ -11,7 +11,7 @@ class ShareIconButton extends StatelessWidget {
   build(BuildContext context) {
     final icon = sl<PlatformService>().isAndroid ? Icons.share : Icons.ios_share;
     return IconButton(
-      key: const Key('shareIconButton'), // for generate screenshots
+      key: const .new('shareIconButton'), // for generate screenshots
       icon: Icon(icon, size: Constants.appbarIconSize),
       tooltip: 'Share reading state',
       onPressed: () => context.showDialogWithBlurBackground(Share()),

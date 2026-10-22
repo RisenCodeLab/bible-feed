@@ -45,7 +45,7 @@ class Helper {
           chapter: chapterState[row][col],
           verse: 1,
           isRead: chapterReadState[row][col],
-          dateModified: baseDateTime.add(Duration(minutes: row * 2 + col)),
+          dateModified: baseDateTime.add(.new(minutes: row * 2 + col)),
         );
       }
     }

@@ -60,7 +60,7 @@ enum Device {
 }
 
 class Scenario {
-  const Scenario(this.name, {this.brightness = Brightness.light, this.setup, this.tapKey});
+  const Scenario(this.name, {this.brightness = .light, this.setup, this.tapKey});
 
   final String name;
   final Brightness brightness;
@@ -75,7 +75,7 @@ final scenarios = {
   const Scenario('catchup', setup: setupCatchup),
   const Scenario('allDone', setup: setupAllDone),
   const Scenario('share', tapKey: 'shareIconButton'),
-  const Scenario('home', brightness: Brightness.dark),
+  const Scenario('home', brightness: .dark),
 };
 
 void setupAllDone() {
@@ -100,7 +100,7 @@ Future main() async {
 
   for (final device in Device.values.where((d) => d.enabled)) {
     Log.info(device.name);
-    final targetPlatform = device.platform == Platform.android ? TargetPlatform.android : TargetPlatform.iOS;
+    final targetPlatform = device.platform == .android ? TargetPlatform.android : TargetPlatform.iOS;
     for (final (index, scenario) in scenarios.indexed) {
       // seems to generate in background, even after await!?
       final filename = '${device.platform.name}/${device.folder}/${device.name}_$index-${scenario.name}';
