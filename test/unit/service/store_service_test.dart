@@ -47,4 +47,12 @@ void main() {
     final value = testee.get<String>('missingKey');
     expect(value, isNull);
   });
+
+  test('setting null removes the key', () async {
+    await testee.set('key', 42);
+    expect(testee.get<int>('key'), 42);
+
+    await testee.set('key', null);
+    expect(testee.get<int>('key'), isNull);
+  });
 }

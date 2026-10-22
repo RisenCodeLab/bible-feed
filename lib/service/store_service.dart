@@ -49,6 +49,8 @@ class StoreService {
         return _sharedPreferences.setInt(key, value);
       case String _:
         return _sharedPreferences.setString(key, value);
+      case null:
+        return _sharedPreferences.remove(key);
       default:
         throw UnsupportedError("Cannot store $key=$value (of type $T) in SharedPreferences");
     }
