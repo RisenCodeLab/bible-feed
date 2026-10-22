@@ -21,9 +21,10 @@ class AnimatedFab extends StatelessWidget {
   @override
   build(context) {
     const fabSize = 35.0;
+    final animationDuration = 200.milliseconds;
 
     return AnimatedScale(
-      duration: 200.milliseconds,
+      duration: animationDuration,
       scale: isVisible ? 1 : 0,
       child: FloatingActionButton(
         backgroundColor: backgroundColor,

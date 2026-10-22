@@ -6,13 +6,15 @@ import '_build_context_extension.dart';
 import 'app.dart';
 
 class AppBase extends StatelessWidget {
+  static const _lightPurple = Color(0xffbb86fc);
+
   @override
   build(context) {
     ThemeData theme(Brightness brightness) => .new(
       cardTheme: .new(surfaceTintColor: context.colorScheme.surfaceTint),
       colorScheme: .fromSeed(
         brightness: brightness,
-        seedColor: const .new(0xffbb86fc),
+        seedColor: _lightPurple,
         tertiary: brightness == .dark ? Colors.red : Colors.amber,
       ),
     );
