@@ -75,10 +75,13 @@ extension GetItInjectableX on _i174.GetIt {
     _i526.EnvironmentFilter? environmentFilter,
   }) async {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
-    final bibleReadersModule = _$BibleReadersModule();
     final chapterSplittersModule = _$ChapterSplittersModule();
+    final bibleReadersModule = _$BibleReadersModule();
     final readingListsModule = _$ReadingListsModule();
     gh.factory<_i527.DebounceManager>(() => _i527.DebounceManager());
+    gh.factory<List<_i19.ChapterSplitter>>(
+      () => chapterSplittersModule.chapterSplitters,
+    );
     gh.lazySingleton<_i540.AppLifecycleManager>(
       () => _i540.AppLifecycleManager(),
     );
@@ -91,9 +94,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i451.CatchupSetting>(() => _i451.CatchupSetting());
     gh.lazySingleton<_i252.ChapterSplitSetting>(
       () => _i252.ChapterSplitSetting(),
-    );
-    gh.lazySingleton<List<_i19.ChapterSplitter>>(
-      () => chapterSplittersModule.chapterSplitters,
     );
     gh.lazySingleton<_i914.HapticSetting>(() => _i914.HapticSetting());
     gh.lazySingleton<_i1033.BookListWheelState>(
@@ -325,8 +325,8 @@ extension GetItInjectableX on _i174.GetIt {
   }
 }
 
-class _$BibleReadersModule extends _i1070.BibleReadersModule {}
-
 class _$ChapterSplittersModule extends _i1006.ChapterSplittersModule {}
+
+class _$BibleReadersModule extends _i1070.BibleReadersModule {}
 
 class _$ReadingListsModule extends _i823.ReadingListsModule {}
