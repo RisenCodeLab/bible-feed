@@ -50,7 +50,7 @@ class StoreService {
       case String _:
         return _sharedPreferences.setString(key, value);
       default:
-        throw UnsupportedError("Cannot store type $T in SharedPreferences");
+        throw UnsupportedError("Cannot store $key=$value (of type $T) in SharedPreferences");
     }
   }
 }
