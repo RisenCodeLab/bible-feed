@@ -12,7 +12,7 @@ class ChapterSplitter {
 
   String _toNonBreakingSpace(String label) {
     const nonBreakingSpaceCharCode = 0x00A0;
-    return label.replaceAll('_', String.fromCharCode(nonBreakingSpaceCharCode));
+    return label.replaceAll('_', .fromCharCode(nonBreakingSpaceCharCode));
   }
 
   int getNextVerse(Feed state) {

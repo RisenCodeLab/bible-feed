@@ -16,7 +16,7 @@ class BibleReaderSettingsChips extends WatchingWidget {
 
     return Wrap(
       spacing: Constants.defaultSpacing,
-      children: List.generate(certifiedBibleReaderList.length, (idx) {
+      children: .generate(certifiedBibleReaderList.length, (idx) {
         final bibleReader = certifiedBibleReaderList[idx];
         // Using watchFuture here causes an infinite loop because .isAvailable always returns a new future.
         return FutureBuilder(

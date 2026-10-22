@@ -18,7 +18,7 @@ class BookChapterDialogWheels extends WatchingWidget {
         final dialogWidth = constraints.maxWidth * 0.8;
 
         return DefaultTextStyle.merge(
-          style: TextStyle(
+          style: .new(
             fontSize: fontSize,
             fontWeight: .w600,
             overflow: .ellipsis, // without this, large text wraps and disappears

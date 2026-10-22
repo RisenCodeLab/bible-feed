@@ -21,7 +21,7 @@ class BibleReaderSettings extends StatelessWidget {
                 crossAxisAlignment: .start,
                 spacing: Constants.defaultSpacing,
                 children: [
-                  const Text('Bible Reader', style: TextStyle(fontSize: 20)),
+                  const Text('Bible Reader', style: .new(fontSize: 20)),
                   const Text(
                     'You can configure a bible reader to open a chapter when tapped. If the bible reader is an app, please ensure it is installed.',
                   ),

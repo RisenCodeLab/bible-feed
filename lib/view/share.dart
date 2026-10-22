@@ -14,7 +14,7 @@ class Share extends StatelessWidget {
   build(context) {
     return Dialog(
       child: Container(
-        constraints: BoxConstraints(maxWidth: maxWidth, maxHeight: maxWidth * heightRatio),
+        constraints: .new(maxWidth: maxWidth, maxHeight: maxWidth * heightRatio),
         padding: const EdgeInsets.all(12.0),
         child: Column(
           spacing: Constants.defaultSpacing,
@@ -29,7 +29,7 @@ class Share extends StatelessWidget {
                 padding: Constants.defaultPadding,
                 child: PrettyQrView.data(
                   data: sl<DeepLinkOutManager>().getUrl(),
-                  decoration: PrettyQrDecoration(
+                  decoration: .new(
                     shape: PrettyQrSmoothSymbol(color: context.isDarkMode ? Colors.white : Colors.black),
                   ),
                 ),

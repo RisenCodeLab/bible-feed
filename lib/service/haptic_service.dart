@@ -10,7 +10,7 @@ class HapticService {
 
   void impact() {
     // BUG: flutter's services HapticFeedback.lightImpact() does nothing on Samsung Tab S6
-    if (isAvailable) Haptics.vibrate(HapticsType.medium);
+    if (isAvailable) Haptics.vibrate(.medium);
   }
 }
 

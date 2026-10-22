@@ -11,7 +11,7 @@ class DebounceManager {
     if (_isRunning) return false;
     _isRunning = true;
     _timer?.cancel();
-    _timer = Timer(delay, () => _isRunning = false);
+    _timer = .new(delay, () => _isRunning = false);
     return true;
   }
 

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 import '_constants.dart';
@@ -25,7 +23,7 @@ extension BuildContextExtension<T> on BuildContext {
     builder:
         (_) => BackdropFilter(
           // ignore: no-equal-arguments, x and y must be equal
-          filter: ImageFilter.blur(sigmaX: Constants.blurSigma, sigmaY: Constants.blurSigma),
+          filter: .blur(sigmaX: Constants.blurSigma, sigmaY: Constants.blurSigma),
           child: child,
         ),
   );

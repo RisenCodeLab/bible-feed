@@ -30,7 +30,7 @@ class AnimatedFab extends StatelessWidget {
         backgroundColor: backgroundColor,
         foregroundColor: foregroundColor,
         heroTag: keyValue, // must be unique across all FABs
-        key: Key(keyValue),
+        key: .new(keyValue),
         onPressed: onPressed,
         shape: const CircleBorder(),
         child: Icon(iconData, size: fabSize),

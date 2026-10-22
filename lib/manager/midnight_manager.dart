@@ -39,7 +39,7 @@ class ProdMidnightManager extends MidnightManager {
     final midnightTonight = DateTime(now.year, now.month, now.day + 1);
     final durationToMidnight = midnightTonight.difference(now);
     _timer?.cancel();
-    _timer = Timer(durationToMidnight, _run);
+    _timer = .new(durationToMidnight, _run);
     // Log.info('$now. Timer will fire in ${durationToMidnight.toString()}');
   }
 }

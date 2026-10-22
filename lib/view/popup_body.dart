@@ -27,12 +27,12 @@ class PopupBody<T extends PopupManager> extends StatelessWidget {
           child: Text(
             popupManager.title,
             textAlign: .center,
-            style: TextStyle(color: foregroundColor, fontSize: titleFontSize),
+            style: .new(color: foregroundColor, fontSize: titleFontSize),
           ),
         ),
         Padding(
           padding: Constants.defaultPadding,
-          child: Text(popupManager.getText(), textAlign: .center, style: TextStyle(color: foregroundColor)),
+          child: Text(popupManager.getText(), textAlign: .center, style: .new(color: foregroundColor)),
         ),
         PopupVerses<T>(),
         if (popupAction != null)

@@ -32,7 +32,7 @@ class BookChapterDialog extends StatelessWidget {
         return Dialog(
           clipBehavior: .hardEdge,
           child: Container(
-            constraints: BoxConstraints(maxHeight: maxHeight, maxWidth: maxWidth),
+            constraints: .new(maxHeight: maxHeight, maxWidth: maxWidth),
             child: Column(
               children: [
                 Visibility(
