@@ -8,11 +8,8 @@ import 'feeds_manager.dart';
 import 'popup_manager.dart';
 
 @lazySingleton
-class CatchupPopupManager(
-  final CatchupManager _catchupManager,
-  final FeedsManager _feedsManager,
-  super._storeService,
-) extends PopupManager {
+class CatchupPopupManager(final CatchupManager _catchupManager, final FeedsManager _feedsManager, super._storeService)
+    extends PopupManager {
   this {
     _catchupManager.addListener(() {
       if (_catchupManager.isBehind && !_feedsManager.areChaptersRead) show(); // auto show
@@ -41,8 +38,6 @@ class CatchupPopupManager(
     ),
     .new(text: 'Give us this day our daily bread', reference: 'Matthew 6:11 KJV'),
   ];
-
-  /// ui
 
   @override
   Color getBackgroundColor() => _catchupManager.isVeryBehind ? Colors.red : Colors.yellow;

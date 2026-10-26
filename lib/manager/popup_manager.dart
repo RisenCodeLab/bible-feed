@@ -8,8 +8,6 @@ abstract class PopupManager(final StoreService _storeService) with ChangeNotifie
   //// abstract
 
   String get onboardingStoreKeyFragment;
-
-  /// ui
   PopupAction? get popupAction;
   String get title;
   Color getBackgroundColor();

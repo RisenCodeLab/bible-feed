@@ -9,11 +9,8 @@ import 'feeds_manager.dart';
 import 'popup_manager.dart';
 
 @lazySingleton
-class AllDonePopupManager(
-  final CatchupManager _catchupManager,
-  final FeedsManager _feedsManager,
-  super._storeService,
-) extends PopupManager {
+class AllDonePopupManager(final CatchupManager _catchupManager, final FeedsManager _feedsManager, super._storeService)
+    extends PopupManager {
   this {
     _feedsManager.addListener(() {
       if (_feedsManager.areChaptersRead && (!hasCompletedOnboarding || _catchupManager.isBehind)) show(); // auto show
@@ -35,8 +32,6 @@ class AllDonePopupManager(
   String get title {
     return _catchupManager.isBehind ? 'Not yet done' : 'All done for today!';
   }
-
-  /// ui
 
   @override
   Color getBackgroundColor() => [Colors.green, Colors.yellow, Colors.red][_catchupManager.daysBehindClamped];
