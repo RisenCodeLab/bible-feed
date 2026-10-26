@@ -36,16 +36,11 @@ class _FakeUri_0 extends _i1.SmartFake implements Uri {
 /// See the documentation for Mockito's code generation for more information.
 class MockDeepLinkService extends _i1.Mock implements _i2.DeepLinkService {
   @override
-  Uri get uri =>
-      (super.noSuchMethod(
-            Invocation.getter(#uri),
-            returnValue: _FakeUri_0(this, Invocation.getter(#uri)),
-            returnValueForMissingStub: _FakeUri_0(
-              this,
-              Invocation.getter(#uri),
-            ),
-          )
-          as Uri);
+  Uri get uri => (super.noSuchMethod(
+    Invocation.getter(#uri),
+    returnValue: _FakeUri_0(this, Invocation.getter(#uri)),
+    returnValueForMissingStub: _FakeUri_0(this, Invocation.getter(#uri)),
+  ) as Uri);
 
   @override
   set uri(Uri? value) => super.noSuchMethod(
@@ -54,13 +49,11 @@ class MockDeepLinkService extends _i1.Mock implements _i2.DeepLinkService {
   );
 
   @override
-  bool get hasListeners =>
-      (super.noSuchMethod(
-            Invocation.getter(#hasListeners),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get hasListeners => (super.noSuchMethod(
+    Invocation.getter(#hasListeners),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
   void addListener(_i3.VoidCallback? listener) => super.noSuchMethod(

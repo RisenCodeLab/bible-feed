@@ -44,61 +44,48 @@ class _FakeChapterSplitter_1 extends _i1.SmartFake
 /// See the documentation for Mockito's code generation for more information.
 class MockChapterSplitter extends _i1.Mock implements _i2.ChapterSplitter {
   @override
-  String get bookKey =>
-      (super.noSuchMethod(
-            Invocation.getter(#bookKey),
-            returnValue: _i3.dummyValue<String>(
-              this,
-              Invocation.getter(#bookKey),
-            ),
-            returnValueForMissingStub: _i3.dummyValue<String>(
-              this,
-              Invocation.getter(#bookKey),
-            ),
-          )
-          as String);
+  String get bookKey => (super.noSuchMethod(
+    Invocation.getter(#bookKey),
+    returnValue: _i3.dummyValue<String>(this, Invocation.getter(#bookKey)),
+    returnValueForMissingStub: _i3.dummyValue<String>(
+      this,
+      Invocation.getter(#bookKey),
+    ),
+  ) as String);
 
   @override
-  int get chapter =>
-      (super.noSuchMethod(
-            Invocation.getter(#chapter),
-            returnValue: 0,
-            returnValueForMissingStub: 0,
-          )
-          as int);
+  int get chapter => (super.noSuchMethod(
+    Invocation.getter(#chapter),
+    returnValue: 0,
+    returnValueForMissingStub: 0,
+  ) as int);
 
   @override
-  List<int> get verses =>
-      (super.noSuchMethod(
-            Invocation.getter(#verses),
-            returnValue: <int>[],
-            returnValueForMissingStub: <int>[],
-          )
-          as List<int>);
+  List<int> get verses => (super.noSuchMethod(
+    Invocation.getter(#verses),
+    returnValue: <int>[],
+    returnValueForMissingStub: <int>[],
+  ) as List<int>);
 
   @override
-  int getNextVerse(_i4.Feed? state) =>
-      (super.noSuchMethod(
-            Invocation.method(#getNextVerse, [state]),
-            returnValue: 0,
-            returnValueForMissingStub: 0,
-          )
-          as int);
+  int getNextVerse(_i4.Feed? state) => (super.noSuchMethod(
+    Invocation.method(#getNextVerse, [state]),
+    returnValue: 0,
+    returnValueForMissingStub: 0,
+  ) as int);
 
   @override
-  String getLabel(_i4.Feed? state) =>
-      (super.noSuchMethod(
-            Invocation.method(#getLabel, [state]),
-            returnValue: _i3.dummyValue<String>(
-              this,
-              Invocation.method(#getLabel, [state]),
-            ),
-            returnValueForMissingStub: _i3.dummyValue<String>(
-              this,
-              Invocation.method(#getLabel, [state]),
-            ),
-          )
-          as String);
+  String getLabel(_i4.Feed? state) => (super.noSuchMethod(
+    Invocation.method(#getLabel, [state]),
+    returnValue: _i3.dummyValue<String>(
+      this,
+      Invocation.method(#getLabel, [state]),
+    ),
+    returnValueForMissingStub: _i3.dummyValue<String>(
+      this,
+      Invocation.method(#getLabel, [state]),
+    ),
+  ) as String);
 }
 
 /// A class which mocks [ChapterSplitters].
@@ -106,198 +93,154 @@ class MockChapterSplitter extends _i1.Mock implements _i2.ChapterSplitter {
 /// See the documentation for Mockito's code generation for more information.
 class MockChapterSplitters extends _i1.Mock implements _i5.ChapterSplitters {
   @override
-  Iterator<_i2.ChapterSplitter> get iterator =>
-      (super.noSuchMethod(
-            Invocation.getter(#iterator),
-            returnValue: _FakeIterator_0<_i2.ChapterSplitter>(
-              this,
-              Invocation.getter(#iterator),
-            ),
-            returnValueForMissingStub: _FakeIterator_0<_i2.ChapterSplitter>(
-              this,
-              Invocation.getter(#iterator),
-            ),
-          )
-          as Iterator<_i2.ChapterSplitter>);
+  Iterator<_i2.ChapterSplitter> get iterator => (super.noSuchMethod(
+    Invocation.getter(#iterator),
+    returnValue: _FakeIterator_0<_i2.ChapterSplitter>(
+      this,
+      Invocation.getter(#iterator),
+    ),
+    returnValueForMissingStub: _FakeIterator_0<_i2.ChapterSplitter>(
+      this,
+      Invocation.getter(#iterator),
+    ),
+  ) as Iterator<_i2.ChapterSplitter>);
 
   @override
-  int get length =>
-      (super.noSuchMethod(
-            Invocation.getter(#length),
-            returnValue: 0,
-            returnValueForMissingStub: 0,
-          )
-          as int);
+  int get length => (super.noSuchMethod(
+    Invocation.getter(#length),
+    returnValue: 0,
+    returnValueForMissingStub: 0,
+  ) as int);
 
   @override
-  bool get isEmpty =>
-      (super.noSuchMethod(
-            Invocation.getter(#isEmpty),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get isEmpty => (super.noSuchMethod(
+    Invocation.getter(#isEmpty),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
-  bool get isNotEmpty =>
-      (super.noSuchMethod(
-            Invocation.getter(#isNotEmpty),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get isNotEmpty => (super.noSuchMethod(
+    Invocation.getter(#isNotEmpty),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
-  _i2.ChapterSplitter get first =>
-      (super.noSuchMethod(
-            Invocation.getter(#first),
-            returnValue: _FakeChapterSplitter_1(
-              this,
-              Invocation.getter(#first),
-            ),
-            returnValueForMissingStub: _FakeChapterSplitter_1(
-              this,
-              Invocation.getter(#first),
-            ),
-          )
-          as _i2.ChapterSplitter);
+  _i2.ChapterSplitter get first => (super.noSuchMethod(
+    Invocation.getter(#first),
+    returnValue: _FakeChapterSplitter_1(this, Invocation.getter(#first)),
+    returnValueForMissingStub: _FakeChapterSplitter_1(
+      this,
+      Invocation.getter(#first),
+    ),
+  ) as _i2.ChapterSplitter);
 
   @override
-  _i2.ChapterSplitter get last =>
-      (super.noSuchMethod(
-            Invocation.getter(#last),
-            returnValue: _FakeChapterSplitter_1(this, Invocation.getter(#last)),
-            returnValueForMissingStub: _FakeChapterSplitter_1(
-              this,
-              Invocation.getter(#last),
-            ),
-          )
-          as _i2.ChapterSplitter);
+  _i2.ChapterSplitter get last => (super.noSuchMethod(
+    Invocation.getter(#last),
+    returnValue: _FakeChapterSplitter_1(this, Invocation.getter(#last)),
+    returnValueForMissingStub: _FakeChapterSplitter_1(
+      this,
+      Invocation.getter(#last),
+    ),
+  ) as _i2.ChapterSplitter);
 
   @override
-  _i2.ChapterSplitter get single =>
-      (super.noSuchMethod(
-            Invocation.getter(#single),
-            returnValue: _FakeChapterSplitter_1(
-              this,
-              Invocation.getter(#single),
-            ),
-            returnValueForMissingStub: _FakeChapterSplitter_1(
-              this,
-              Invocation.getter(#single),
-            ),
-          )
-          as _i2.ChapterSplitter);
+  _i2.ChapterSplitter get single => (super.noSuchMethod(
+    Invocation.getter(#single),
+    returnValue: _FakeChapterSplitter_1(this, Invocation.getter(#single)),
+    returnValueForMissingStub: _FakeChapterSplitter_1(
+      this,
+      Invocation.getter(#single),
+    ),
+  ) as _i2.ChapterSplitter);
 
   @override
-  _i2.ChapterSplitter? find(_i4.Feed? state) =>
-      (super.noSuchMethod(
-            Invocation.method(#find, [state]),
-            returnValueForMissingStub: null,
-          )
-          as _i2.ChapterSplitter?);
+  _i2.ChapterSplitter? find(_i4.Feed? state) => (super.noSuchMethod(
+    Invocation.method(#find, [state]),
+    returnValueForMissingStub: null,
+  ) as _i2.ChapterSplitter?);
 
   @override
-  _i2.ChapterSplitter operator [](int? i) =>
-      (super.noSuchMethod(
-            Invocation.method(#[], [i]),
-            returnValue: _FakeChapterSplitter_1(
-              this,
-              Invocation.method(#[], [i]),
-            ),
-            returnValueForMissingStub: _FakeChapterSplitter_1(
-              this,
-              Invocation.method(#[], [i]),
-            ),
-          )
-          as _i2.ChapterSplitter);
+  _i2.ChapterSplitter operator [](int? i) => (super.noSuchMethod(
+    Invocation.method(#[], [i]),
+    returnValue: _FakeChapterSplitter_1(this, Invocation.method(#[], [i])),
+    returnValueForMissingStub: _FakeChapterSplitter_1(
+      this,
+      Invocation.method(#[], [i]),
+    ),
+  ) as _i2.ChapterSplitter);
 
   @override
-  int indexOf(_i2.ChapterSplitter? item) =>
-      (super.noSuchMethod(
-            Invocation.method(#indexOf, [item]),
-            returnValue: 0,
-            returnValueForMissingStub: 0,
-          )
-          as int);
+  int indexOf(_i2.ChapterSplitter? item) => (super.noSuchMethod(
+    Invocation.method(#indexOf, [item]),
+    returnValue: 0,
+    returnValueForMissingStub: 0,
+  ) as int);
 
   @override
-  List<_i2.ChapterSplitter> sublistTo(int? end) =>
-      (super.noSuchMethod(
-            Invocation.method(#sublistTo, [end]),
-            returnValue: <_i2.ChapterSplitter>[],
-            returnValueForMissingStub: <_i2.ChapterSplitter>[],
-          )
-          as List<_i2.ChapterSplitter>);
+  List<_i2.ChapterSplitter> sublistTo(int? end) => (super.noSuchMethod(
+    Invocation.method(#sublistTo, [end]),
+    returnValue: <_i2.ChapterSplitter>[],
+    returnValueForMissingStub: <_i2.ChapterSplitter>[],
+  ) as List<_i2.ChapterSplitter>);
 
   @override
-  Iterable<R> cast<R>() =>
-      (super.noSuchMethod(
-            Invocation.method(#cast, []),
-            returnValue: <R>[],
-            returnValueForMissingStub: <R>[],
-          )
-          as Iterable<R>);
+  Iterable<R> cast<R>() => (super.noSuchMethod(
+    Invocation.method(#cast, []),
+    returnValue: <R>[],
+    returnValueForMissingStub: <R>[],
+  ) as Iterable<R>);
 
   @override
   Iterable<_i2.ChapterSplitter> followedBy(
     Iterable<_i2.ChapterSplitter>? other,
-  ) =>
-      (super.noSuchMethod(
-            Invocation.method(#followedBy, [other]),
-            returnValue: <_i2.ChapterSplitter>[],
-            returnValueForMissingStub: <_i2.ChapterSplitter>[],
-          )
-          as Iterable<_i2.ChapterSplitter>);
+  ) => (super.noSuchMethod(
+    Invocation.method(#followedBy, [other]),
+    returnValue: <_i2.ChapterSplitter>[],
+    returnValueForMissingStub: <_i2.ChapterSplitter>[],
+  ) as Iterable<_i2.ChapterSplitter>);
 
   @override
   Iterable<T> map<T>(T Function(_i2.ChapterSplitter)? toElement) =>
       (super.noSuchMethod(
-            Invocation.method(#map, [toElement]),
-            returnValue: <T>[],
-            returnValueForMissingStub: <T>[],
-          )
-          as Iterable<T>);
+        Invocation.method(#map, [toElement]),
+        returnValue: <T>[],
+        returnValueForMissingStub: <T>[],
+      ) as Iterable<T>);
 
   @override
   Iterable<_i2.ChapterSplitter> where(
     bool Function(_i2.ChapterSplitter)? test,
-  ) =>
-      (super.noSuchMethod(
-            Invocation.method(#where, [test]),
-            returnValue: <_i2.ChapterSplitter>[],
-            returnValueForMissingStub: <_i2.ChapterSplitter>[],
-          )
-          as Iterable<_i2.ChapterSplitter>);
+  ) => (super.noSuchMethod(
+    Invocation.method(#where, [test]),
+    returnValue: <_i2.ChapterSplitter>[],
+    returnValueForMissingStub: <_i2.ChapterSplitter>[],
+  ) as Iterable<_i2.ChapterSplitter>);
 
   @override
-  Iterable<T> whereType<T>() =>
-      (super.noSuchMethod(
-            Invocation.method(#whereType, []),
-            returnValue: <T>[],
-            returnValueForMissingStub: <T>[],
-          )
-          as Iterable<T>);
+  Iterable<T> whereType<T>() => (super.noSuchMethod(
+    Invocation.method(#whereType, []),
+    returnValue: <T>[],
+    returnValueForMissingStub: <T>[],
+  ) as Iterable<T>);
 
   @override
   Iterable<T> expand<T>(
     Iterable<T> Function(_i2.ChapterSplitter)? toElements,
-  ) =>
-      (super.noSuchMethod(
-            Invocation.method(#expand, [toElements]),
-            returnValue: <T>[],
-            returnValueForMissingStub: <T>[],
-          )
-          as Iterable<T>);
+  ) => (super.noSuchMethod(
+    Invocation.method(#expand, [toElements]),
+    returnValue: <T>[],
+    returnValueForMissingStub: <T>[],
+  ) as Iterable<T>);
 
   @override
-  bool contains(Object? element) =>
-      (super.noSuchMethod(
-            Invocation.method(#contains, [element]),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool contains(Object? element) => (super.noSuchMethod(
+    Invocation.method(#contains, [element]),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
   void forEach(void Function(_i2.ChapterSplitter)? action) =>
@@ -310,194 +253,166 @@ class MockChapterSplitters extends _i1.Mock implements _i5.ChapterSplitters {
   _i2.ChapterSplitter reduce(
     _i2.ChapterSplitter Function(_i2.ChapterSplitter, _i2.ChapterSplitter)?
     combine,
-  ) =>
-      (super.noSuchMethod(
-            Invocation.method(#reduce, [combine]),
-            returnValue: _FakeChapterSplitter_1(
-              this,
-              Invocation.method(#reduce, [combine]),
-            ),
-            returnValueForMissingStub: _FakeChapterSplitter_1(
-              this,
-              Invocation.method(#reduce, [combine]),
-            ),
-          )
-          as _i2.ChapterSplitter);
+  ) => (super.noSuchMethod(
+    Invocation.method(#reduce, [combine]),
+    returnValue: _FakeChapterSplitter_1(
+      this,
+      Invocation.method(#reduce, [combine]),
+    ),
+    returnValueForMissingStub: _FakeChapterSplitter_1(
+      this,
+      Invocation.method(#reduce, [combine]),
+    ),
+  ) as _i2.ChapterSplitter);
 
   @override
   T fold<T>(T? initialValue, T Function(T, _i2.ChapterSplitter)? combine) =>
       (super.noSuchMethod(
-            Invocation.method(#fold, [initialValue, combine]),
-            returnValue: _i3.dummyValue<T>(
-              this,
-              Invocation.method(#fold, [initialValue, combine]),
-            ),
-            returnValueForMissingStub: _i3.dummyValue<T>(
-              this,
-              Invocation.method(#fold, [initialValue, combine]),
-            ),
-          )
-          as T);
+        Invocation.method(#fold, [initialValue, combine]),
+        returnValue: _i3.dummyValue<T>(
+          this,
+          Invocation.method(#fold, [initialValue, combine]),
+        ),
+        returnValueForMissingStub: _i3.dummyValue<T>(
+          this,
+          Invocation.method(#fold, [initialValue, combine]),
+        ),
+      ) as T);
 
   @override
-  bool every(bool Function(_i2.ChapterSplitter)? test) =>
-      (super.noSuchMethod(
-            Invocation.method(#every, [test]),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool every(bool Function(_i2.ChapterSplitter)? test) => (super.noSuchMethod(
+    Invocation.method(#every, [test]),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
-  String join([String? separator = '']) =>
-      (super.noSuchMethod(
-            Invocation.method(#join, [separator]),
-            returnValue: _i3.dummyValue<String>(
-              this,
-              Invocation.method(#join, [separator]),
-            ),
-            returnValueForMissingStub: _i3.dummyValue<String>(
-              this,
-              Invocation.method(#join, [separator]),
-            ),
-          )
-          as String);
+  String join([String? separator = '']) => (super.noSuchMethod(
+    Invocation.method(#join, [separator]),
+    returnValue: _i3.dummyValue<String>(
+      this,
+      Invocation.method(#join, [separator]),
+    ),
+    returnValueForMissingStub: _i3.dummyValue<String>(
+      this,
+      Invocation.method(#join, [separator]),
+    ),
+  ) as String);
 
   @override
-  bool any(bool Function(_i2.ChapterSplitter)? test) =>
-      (super.noSuchMethod(
-            Invocation.method(#any, [test]),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool any(bool Function(_i2.ChapterSplitter)? test) => (super.noSuchMethod(
+    Invocation.method(#any, [test]),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
   List<_i2.ChapterSplitter> toList({bool? growable = true}) =>
       (super.noSuchMethod(
-            Invocation.method(#toList, [], {#growable: growable}),
-            returnValue: <_i2.ChapterSplitter>[],
-            returnValueForMissingStub: <_i2.ChapterSplitter>[],
-          )
-          as List<_i2.ChapterSplitter>);
+        Invocation.method(#toList, [], {#growable: growable}),
+        returnValue: <_i2.ChapterSplitter>[],
+        returnValueForMissingStub: <_i2.ChapterSplitter>[],
+      ) as List<_i2.ChapterSplitter>);
 
   @override
-  Set<_i2.ChapterSplitter> toSet() =>
-      (super.noSuchMethod(
-            Invocation.method(#toSet, []),
-            returnValue: <_i2.ChapterSplitter>{},
-            returnValueForMissingStub: <_i2.ChapterSplitter>{},
-          )
-          as Set<_i2.ChapterSplitter>);
+  Set<_i2.ChapterSplitter> toSet() => (super.noSuchMethod(
+    Invocation.method(#toSet, []),
+    returnValue: <_i2.ChapterSplitter>{},
+    returnValueForMissingStub: <_i2.ChapterSplitter>{},
+  ) as Set<_i2.ChapterSplitter>);
 
   @override
-  Iterable<_i2.ChapterSplitter> take(int? count) =>
-      (super.noSuchMethod(
-            Invocation.method(#take, [count]),
-            returnValue: <_i2.ChapterSplitter>[],
-            returnValueForMissingStub: <_i2.ChapterSplitter>[],
-          )
-          as Iterable<_i2.ChapterSplitter>);
+  Iterable<_i2.ChapterSplitter> take(int? count) => (super.noSuchMethod(
+    Invocation.method(#take, [count]),
+    returnValue: <_i2.ChapterSplitter>[],
+    returnValueForMissingStub: <_i2.ChapterSplitter>[],
+  ) as Iterable<_i2.ChapterSplitter>);
 
   @override
   Iterable<_i2.ChapterSplitter> takeWhile(
     bool Function(_i2.ChapterSplitter)? test,
-  ) =>
-      (super.noSuchMethod(
-            Invocation.method(#takeWhile, [test]),
-            returnValue: <_i2.ChapterSplitter>[],
-            returnValueForMissingStub: <_i2.ChapterSplitter>[],
-          )
-          as Iterable<_i2.ChapterSplitter>);
+  ) => (super.noSuchMethod(
+    Invocation.method(#takeWhile, [test]),
+    returnValue: <_i2.ChapterSplitter>[],
+    returnValueForMissingStub: <_i2.ChapterSplitter>[],
+  ) as Iterable<_i2.ChapterSplitter>);
 
   @override
-  Iterable<_i2.ChapterSplitter> skip(int? count) =>
-      (super.noSuchMethod(
-            Invocation.method(#skip, [count]),
-            returnValue: <_i2.ChapterSplitter>[],
-            returnValueForMissingStub: <_i2.ChapterSplitter>[],
-          )
-          as Iterable<_i2.ChapterSplitter>);
+  Iterable<_i2.ChapterSplitter> skip(int? count) => (super.noSuchMethod(
+    Invocation.method(#skip, [count]),
+    returnValue: <_i2.ChapterSplitter>[],
+    returnValueForMissingStub: <_i2.ChapterSplitter>[],
+  ) as Iterable<_i2.ChapterSplitter>);
 
   @override
   Iterable<_i2.ChapterSplitter> skipWhile(
     bool Function(_i2.ChapterSplitter)? test,
-  ) =>
-      (super.noSuchMethod(
-            Invocation.method(#skipWhile, [test]),
-            returnValue: <_i2.ChapterSplitter>[],
-            returnValueForMissingStub: <_i2.ChapterSplitter>[],
-          )
-          as Iterable<_i2.ChapterSplitter>);
+  ) => (super.noSuchMethod(
+    Invocation.method(#skipWhile, [test]),
+    returnValue: <_i2.ChapterSplitter>[],
+    returnValueForMissingStub: <_i2.ChapterSplitter>[],
+  ) as Iterable<_i2.ChapterSplitter>);
 
   @override
   _i2.ChapterSplitter firstWhere(
     bool Function(_i2.ChapterSplitter)? test, {
     _i2.ChapterSplitter Function()? orElse,
-  }) =>
-      (super.noSuchMethod(
-            Invocation.method(#firstWhere, [test], {#orElse: orElse}),
-            returnValue: _FakeChapterSplitter_1(
-              this,
-              Invocation.method(#firstWhere, [test], {#orElse: orElse}),
-            ),
-            returnValueForMissingStub: _FakeChapterSplitter_1(
-              this,
-              Invocation.method(#firstWhere, [test], {#orElse: orElse}),
-            ),
-          )
-          as _i2.ChapterSplitter);
+  }) => (super.noSuchMethod(
+    Invocation.method(#firstWhere, [test], {#orElse: orElse}),
+    returnValue: _FakeChapterSplitter_1(
+      this,
+      Invocation.method(#firstWhere, [test], {#orElse: orElse}),
+    ),
+    returnValueForMissingStub: _FakeChapterSplitter_1(
+      this,
+      Invocation.method(#firstWhere, [test], {#orElse: orElse}),
+    ),
+  ) as _i2.ChapterSplitter);
 
   @override
   _i2.ChapterSplitter lastWhere(
     bool Function(_i2.ChapterSplitter)? test, {
     _i2.ChapterSplitter Function()? orElse,
-  }) =>
-      (super.noSuchMethod(
-            Invocation.method(#lastWhere, [test], {#orElse: orElse}),
-            returnValue: _FakeChapterSplitter_1(
-              this,
-              Invocation.method(#lastWhere, [test], {#orElse: orElse}),
-            ),
-            returnValueForMissingStub: _FakeChapterSplitter_1(
-              this,
-              Invocation.method(#lastWhere, [test], {#orElse: orElse}),
-            ),
-          )
-          as _i2.ChapterSplitter);
+  }) => (super.noSuchMethod(
+    Invocation.method(#lastWhere, [test], {#orElse: orElse}),
+    returnValue: _FakeChapterSplitter_1(
+      this,
+      Invocation.method(#lastWhere, [test], {#orElse: orElse}),
+    ),
+    returnValueForMissingStub: _FakeChapterSplitter_1(
+      this,
+      Invocation.method(#lastWhere, [test], {#orElse: orElse}),
+    ),
+  ) as _i2.ChapterSplitter);
 
   @override
   _i2.ChapterSplitter singleWhere(
     bool Function(_i2.ChapterSplitter)? test, {
     _i2.ChapterSplitter Function()? orElse,
-  }) =>
-      (super.noSuchMethod(
-            Invocation.method(#singleWhere, [test], {#orElse: orElse}),
-            returnValue: _FakeChapterSplitter_1(
-              this,
-              Invocation.method(#singleWhere, [test], {#orElse: orElse}),
-            ),
-            returnValueForMissingStub: _FakeChapterSplitter_1(
-              this,
-              Invocation.method(#singleWhere, [test], {#orElse: orElse}),
-            ),
-          )
-          as _i2.ChapterSplitter);
+  }) => (super.noSuchMethod(
+    Invocation.method(#singleWhere, [test], {#orElse: orElse}),
+    returnValue: _FakeChapterSplitter_1(
+      this,
+      Invocation.method(#singleWhere, [test], {#orElse: orElse}),
+    ),
+    returnValueForMissingStub: _FakeChapterSplitter_1(
+      this,
+      Invocation.method(#singleWhere, [test], {#orElse: orElse}),
+    ),
+  ) as _i2.ChapterSplitter);
 
   @override
-  _i2.ChapterSplitter elementAt(int? index) =>
-      (super.noSuchMethod(
-            Invocation.method(#elementAt, [index]),
-            returnValue: _FakeChapterSplitter_1(
-              this,
-              Invocation.method(#elementAt, [index]),
-            ),
-            returnValueForMissingStub: _FakeChapterSplitter_1(
-              this,
-              Invocation.method(#elementAt, [index]),
-            ),
-          )
-          as _i2.ChapterSplitter);
+  _i2.ChapterSplitter elementAt(int? index) => (super.noSuchMethod(
+    Invocation.method(#elementAt, [index]),
+    returnValue: _FakeChapterSplitter_1(
+      this,
+      Invocation.method(#elementAt, [index]),
+    ),
+    returnValueForMissingStub: _FakeChapterSplitter_1(
+      this,
+      Invocation.method(#elementAt, [index]),
+    ),
+  ) as _i2.ChapterSplitter);
 }
 
 /// A class which mocks [ChapterSplitSetting].
@@ -506,91 +421,68 @@ class MockChapterSplitters extends _i1.Mock implements _i5.ChapterSplitters {
 class MockChapterSplitSetting extends _i1.Mock
     implements _i6.ChapterSplitSetting {
   @override
-  bool get defaultValue =>
-      (super.noSuchMethod(
-            Invocation.getter(#defaultValue),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get defaultValue => (super.noSuchMethod(
+    Invocation.getter(#defaultValue),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
-  String get storeKeyFragment =>
-      (super.noSuchMethod(
-            Invocation.getter(#storeKeyFragment),
-            returnValue: _i3.dummyValue<String>(
-              this,
-              Invocation.getter(#storeKeyFragment),
-            ),
-            returnValueForMissingStub: _i3.dummyValue<String>(
-              this,
-              Invocation.getter(#storeKeyFragment),
-            ),
-          )
-          as String);
+  String get storeKeyFragment => (super.noSuchMethod(
+    Invocation.getter(#storeKeyFragment),
+    returnValue: _i3.dummyValue<String>(
+      this,
+      Invocation.getter(#storeKeyFragment),
+    ),
+    returnValueForMissingStub: _i3.dummyValue<String>(
+      this,
+      Invocation.getter(#storeKeyFragment),
+    ),
+  ) as String);
 
   @override
-  String get title =>
-      (super.noSuchMethod(
-            Invocation.getter(#title),
-            returnValue: _i3.dummyValue<String>(
-              this,
-              Invocation.getter(#title),
-            ),
-            returnValueForMissingStub: _i3.dummyValue<String>(
-              this,
-              Invocation.getter(#title),
-            ),
-          )
-          as String);
+  String get title => (super.noSuchMethod(
+    Invocation.getter(#title),
+    returnValue: _i3.dummyValue<String>(this, Invocation.getter(#title)),
+    returnValueForMissingStub: _i3.dummyValue<String>(
+      this,
+      Invocation.getter(#title),
+    ),
+  ) as String);
 
   @override
-  String get subtitle =>
-      (super.noSuchMethod(
-            Invocation.getter(#subtitle),
-            returnValue: _i3.dummyValue<String>(
-              this,
-              Invocation.getter(#subtitle),
-            ),
-            returnValueForMissingStub: _i3.dummyValue<String>(
-              this,
-              Invocation.getter(#subtitle),
-            ),
-          )
-          as String);
+  String get subtitle => (super.noSuchMethod(
+    Invocation.getter(#subtitle),
+    returnValue: _i3.dummyValue<String>(this, Invocation.getter(#subtitle)),
+    returnValueForMissingStub: _i3.dummyValue<String>(
+      this,
+      Invocation.getter(#subtitle),
+    ),
+  ) as String);
 
   @override
-  bool get isAvailable =>
-      (super.noSuchMethod(
-            Invocation.getter(#isAvailable),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get isAvailable => (super.noSuchMethod(
+    Invocation.getter(#isAvailable),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
-  String get storeKey =>
-      (super.noSuchMethod(
-            Invocation.getter(#storeKey),
-            returnValue: _i3.dummyValue<String>(
-              this,
-              Invocation.getter(#storeKey),
-            ),
-            returnValueForMissingStub: _i3.dummyValue<String>(
-              this,
-              Invocation.getter(#storeKey),
-            ),
-          )
-          as String);
+  String get storeKey => (super.noSuchMethod(
+    Invocation.getter(#storeKey),
+    returnValue: _i3.dummyValue<String>(this, Invocation.getter(#storeKey)),
+    returnValueForMissingStub: _i3.dummyValue<String>(
+      this,
+      Invocation.getter(#storeKey),
+    ),
+  ) as String);
 
   @override
-  bool get value =>
-      (super.noSuchMethod(
-            Invocation.getter(#value),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get value => (super.noSuchMethod(
+    Invocation.getter(#value),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
   set isAvailable(bool? value) => super.noSuchMethod(
@@ -605,13 +497,11 @@ class MockChapterSplitSetting extends _i1.Mock
   );
 
   @override
-  bool get hasListeners =>
-      (super.noSuchMethod(
-            Invocation.getter(#hasListeners),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get hasListeners => (super.noSuchMethod(
+    Invocation.getter(#hasListeners),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
   void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(

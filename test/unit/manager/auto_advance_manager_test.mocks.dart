@@ -55,31 +55,25 @@ class MockAppLifecycleManager extends _i1.Mock
 class MockFeedsAdvanceManager extends _i1.Mock
     implements _i5.FeedsAdvanceManager {
   @override
-  bool get hasListeners =>
-      (super.noSuchMethod(
-            Invocation.getter(#hasListeners),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get hasListeners => (super.noSuchMethod(
+    Invocation.getter(#hasListeners),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
-  _i6.FeedsAdvanceState advance() =>
-      (super.noSuchMethod(
-            Invocation.method(#advance, []),
-            returnValue: _i6.FeedsAdvanceState.notAllRead,
-            returnValueForMissingStub: _i6.FeedsAdvanceState.notAllRead,
-          )
-          as _i6.FeedsAdvanceState);
+  _i6.FeedsAdvanceState advance() => (super.noSuchMethod(
+    Invocation.method(#advance, []),
+    returnValue: _i6.FeedsAdvanceState.notAllRead,
+    returnValueForMissingStub: _i6.FeedsAdvanceState.notAllRead,
+  ) as _i6.FeedsAdvanceState);
 
   @override
-  _i6.FeedsAdvanceState maybeAdvance() =>
-      (super.noSuchMethod(
-            Invocation.method(#maybeAdvance, []),
-            returnValue: _i6.FeedsAdvanceState.notAllRead,
-            returnValueForMissingStub: _i6.FeedsAdvanceState.notAllRead,
-          )
-          as _i6.FeedsAdvanceState);
+  _i6.FeedsAdvanceState maybeAdvance() => (super.noSuchMethod(
+    Invocation.method(#maybeAdvance, []),
+    returnValue: _i6.FeedsAdvanceState.notAllRead,
+    returnValueForMissingStub: _i6.FeedsAdvanceState.notAllRead,
+  ) as _i6.FeedsAdvanceState);
 
   @override
   void addListener(_i3.VoidCallback? listener) => super.noSuchMethod(
@@ -111,13 +105,11 @@ class MockFeedsAdvanceManager extends _i1.Mock
 /// See the documentation for Mockito's code generation for more information.
 class MockMidnightManager extends _i1.Mock implements _i7.MidnightManager {
   @override
-  bool get hasListeners =>
-      (super.noSuchMethod(
-            Invocation.getter(#hasListeners),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get hasListeners => (super.noSuchMethod(
+    Invocation.getter(#hasListeners),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
   void addListener(

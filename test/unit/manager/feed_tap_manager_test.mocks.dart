@@ -41,20 +41,18 @@ class MockBibleReaderLaunchManager extends _i1.Mock
   @override
   _i4.Future<bool> isAvailable(_i2.BibleReader? bibleReader) =>
       (super.noSuchMethod(
-            Invocation.method(#isAvailable, [bibleReader]),
-            returnValue: _i4.Future<bool>.value(false),
-            returnValueForMissingStub: _i4.Future<bool>.value(false),
-          )
-          as _i4.Future<bool>);
+        Invocation.method(#isAvailable, [bibleReader]),
+        returnValue: _i4.Future<bool>.value(false),
+        returnValueForMissingStub: _i4.Future<bool>.value(false),
+      ) as _i4.Future<bool>);
 
   @override
   _i4.Future<void> maybeLaunch(_i2.BibleReader? bibleReader, _i5.Feed? state) =>
       (super.noSuchMethod(
-            Invocation.method(#maybeLaunch, [bibleReader, state]),
-            returnValue: _i4.Future<void>.value(),
-            returnValueForMissingStub: _i4.Future<void>.value(),
-          )
-          as _i4.Future<void>);
+        Invocation.method(#maybeLaunch, [bibleReader, state]),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
 }
 
 /// A class which mocks [BibleReaderLinkManager].
@@ -63,37 +61,31 @@ class MockBibleReaderLaunchManager extends _i1.Mock
 class MockBibleReaderLinkManager extends _i1.Mock
     implements _i6.BibleReaderLinkManager {
   @override
-  bool get isLinked =>
-      (super.noSuchMethod(
-            Invocation.getter(#isLinked),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get isLinked => (super.noSuchMethod(
+    Invocation.getter(#isLinked),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
-  _i2.BibleReader get linkedBibleReader =>
-      (super.noSuchMethod(
-            Invocation.getter(#linkedBibleReader),
-            returnValue: _FakeBibleReader_0(
-              this,
-              Invocation.getter(#linkedBibleReader),
-            ),
-            returnValueForMissingStub: _FakeBibleReader_0(
-              this,
-              Invocation.getter(#linkedBibleReader),
-            ),
-          )
-          as _i2.BibleReader);
+  _i2.BibleReader get linkedBibleReader => (super.noSuchMethod(
+    Invocation.getter(#linkedBibleReader),
+    returnValue: _FakeBibleReader_0(
+      this,
+      Invocation.getter(#linkedBibleReader),
+    ),
+    returnValueForMissingStub: _FakeBibleReader_0(
+      this,
+      Invocation.getter(#linkedBibleReader),
+    ),
+  ) as _i2.BibleReader);
 
   @override
-  int get linkedBibleReaderIndex =>
-      (super.noSuchMethod(
-            Invocation.getter(#linkedBibleReaderIndex),
-            returnValue: 0,
-            returnValueForMissingStub: 0,
-          )
-          as int);
+  int get linkedBibleReaderIndex => (super.noSuchMethod(
+    Invocation.getter(#linkedBibleReaderIndex),
+    returnValue: 0,
+    returnValueForMissingStub: 0,
+  ) as int);
 
   @override
   set linkedBibleReaderIndex(int? value) => super.noSuchMethod(
@@ -102,13 +94,11 @@ class MockBibleReaderLinkManager extends _i1.Mock
   );
 
   @override
-  bool get hasListeners =>
-      (super.noSuchMethod(
-            Invocation.getter(#hasListeners),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get hasListeners => (super.noSuchMethod(
+    Invocation.getter(#hasListeners),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
   void unlinkBibleReader() => super.noSuchMethod(

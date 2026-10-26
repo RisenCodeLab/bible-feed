@@ -57,14 +57,9 @@ class MockAppLifecycleManager extends _i1.Mock
 /// See the documentation for Mockito's code generation for more information.
 class MockDateTimeService extends _i1.Mock implements _i5.DateTimeService {
   @override
-  DateTime get now =>
-      (super.noSuchMethod(
-            Invocation.getter(#now),
-            returnValue: _FakeDateTime_0(this, Invocation.getter(#now)),
-            returnValueForMissingStub: _FakeDateTime_0(
-              this,
-              Invocation.getter(#now),
-            ),
-          )
-          as DateTime);
+  DateTime get now => (super.noSuchMethod(
+    Invocation.getter(#now),
+    returnValue: _FakeDateTime_0(this, Invocation.getter(#now)),
+    returnValueForMissingStub: _FakeDateTime_0(this, Invocation.getter(#now)),
+  ) as DateTime);
 }

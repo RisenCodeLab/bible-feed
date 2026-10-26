@@ -51,16 +51,11 @@ class _FakeFeed_2 extends _i1.SmartFake implements _i3.Feed {
 /// See the documentation for Mockito's code generation for more information.
 class MockDateTimeService extends _i1.Mock implements _i4.DateTimeService {
   @override
-  DateTime get now =>
-      (super.noSuchMethod(
-            Invocation.getter(#now),
-            returnValue: _FakeDateTime_0(this, Invocation.getter(#now)),
-            returnValueForMissingStub: _FakeDateTime_0(
-              this,
-              Invocation.getter(#now),
-            ),
-          )
-          as DateTime);
+  DateTime get now => (super.noSuchMethod(
+    Invocation.getter(#now),
+    returnValue: _FakeDateTime_0(this, Invocation.getter(#now)),
+    returnValueForMissingStub: _FakeDateTime_0(this, Invocation.getter(#now)),
+  ) as DateTime);
 }
 
 /// A class which mocks [FeedManager].
@@ -68,70 +63,52 @@ class MockDateTimeService extends _i1.Mock implements _i4.DateTimeService {
 /// See the documentation for Mockito's code generation for more information.
 class MockFeedManager extends _i1.Mock implements _i5.FeedManager {
   @override
-  _i2.Book get book =>
-      (super.noSuchMethod(
-            Invocation.getter(#book),
-            returnValue: _FakeBook_1(this, Invocation.getter(#book)),
-            returnValueForMissingStub: _FakeBook_1(
-              this,
-              Invocation.getter(#book),
-            ),
-          )
-          as _i2.Book);
+  _i2.Book get book => (super.noSuchMethod(
+    Invocation.getter(#book),
+    returnValue: _FakeBook_1(this, Invocation.getter(#book)),
+    returnValueForMissingStub: _FakeBook_1(this, Invocation.getter(#book)),
+  ) as _i2.Book);
 
   @override
-  int get bookIndex =>
-      (super.noSuchMethod(
-            Invocation.getter(#bookIndex),
-            returnValue: 0,
-            returnValueForMissingStub: 0,
-          )
-          as int);
+  int get bookIndex => (super.noSuchMethod(
+    Invocation.getter(#bookIndex),
+    returnValue: 0,
+    returnValueForMissingStub: 0,
+  ) as int);
 
   @override
-  int get chaptersRead =>
-      (super.noSuchMethod(
-            Invocation.getter(#chaptersRead),
-            returnValue: 0,
-            returnValueForMissingStub: 0,
-          )
-          as int);
+  int get chaptersRead => (super.noSuchMethod(
+    Invocation.getter(#chaptersRead),
+    returnValue: 0,
+    returnValueForMissingStub: 0,
+  ) as int);
 
   @override
-  double get progress =>
-      (super.noSuchMethod(
-            Invocation.getter(#progress),
-            returnValue: 0.0,
-            returnValueForMissingStub: 0.0,
-          )
-          as double);
+  double get progress => (super.noSuchMethod(
+    Invocation.getter(#progress),
+    returnValue: 0.0,
+    returnValueForMissingStub: 0.0,
+  ) as double);
 
   @override
-  _i6.ReadingList get readingList =>
-      (super.noSuchMethod(
-            Invocation.getter(#readingList),
-            returnValue: _i7.dummyValue<_i6.ReadingList>(
-              this,
-              Invocation.getter(#readingList),
-            ),
-            returnValueForMissingStub: _i7.dummyValue<_i6.ReadingList>(
-              this,
-              Invocation.getter(#readingList),
-            ),
-          )
-          as _i6.ReadingList);
+  _i6.ReadingList get readingList => (super.noSuchMethod(
+    Invocation.getter(#readingList),
+    returnValue: _i7.dummyValue<_i6.ReadingList>(
+      this,
+      Invocation.getter(#readingList),
+    ),
+    returnValueForMissingStub: _i7.dummyValue<_i6.ReadingList>(
+      this,
+      Invocation.getter(#readingList),
+    ),
+  ) as _i6.ReadingList);
 
   @override
-  _i3.Feed get feed =>
-      (super.noSuchMethod(
-            Invocation.getter(#feed),
-            returnValue: _FakeFeed_2(this, Invocation.getter(#feed)),
-            returnValueForMissingStub: _FakeFeed_2(
-              this,
-              Invocation.getter(#feed),
-            ),
-          )
-          as _i3.Feed);
+  _i3.Feed get feed => (super.noSuchMethod(
+    Invocation.getter(#feed),
+    returnValue: _FakeFeed_2(this, Invocation.getter(#feed)),
+    returnValueForMissingStub: _FakeFeed_2(this, Invocation.getter(#feed)),
+  ) as _i3.Feed);
 
   @override
   set feed(_i3.Feed? value) => super.noSuchMethod(
@@ -140,13 +117,11 @@ class MockFeedManager extends _i1.Mock implements _i5.FeedManager {
   );
 
   @override
-  bool get hasListeners =>
-      (super.noSuchMethod(
-            Invocation.getter(#hasListeners),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get hasListeners => (super.noSuchMethod(
+    Invocation.getter(#hasListeners),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
   void setBookChapterVerse(int? bookIndex, int? chapter, [int? verse = 1]) =>
@@ -209,40 +184,32 @@ class MockFeedAdvanceManager extends _i1.Mock
 /// See the documentation for Mockito's code generation for more information.
 class MockFeedsManager extends _i1.Mock implements _i10.FeedsManager {
   @override
-  bool get areChaptersRead =>
-      (super.noSuchMethod(
-            Invocation.getter(#areChaptersRead),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get areChaptersRead => (super.noSuchMethod(
+    Invocation.getter(#areChaptersRead),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
-  int get chaptersToRead =>
-      (super.noSuchMethod(
-            Invocation.getter(#chaptersToRead),
-            returnValue: 0,
-            returnValueForMissingStub: 0,
-          )
-          as int);
+  int get chaptersToRead => (super.noSuchMethod(
+    Invocation.getter(#chaptersToRead),
+    returnValue: 0,
+    returnValueForMissingStub: 0,
+  ) as int);
 
   @override
-  List<_i5.FeedManager> get feedManagers =>
-      (super.noSuchMethod(
-            Invocation.getter(#feedManagers),
-            returnValue: <_i5.FeedManager>[],
-            returnValueForMissingStub: <_i5.FeedManager>[],
-          )
-          as List<_i5.FeedManager>);
+  List<_i5.FeedManager> get feedManagers => (super.noSuchMethod(
+    Invocation.getter(#feedManagers),
+    returnValue: <_i5.FeedManager>[],
+    returnValueForMissingStub: <_i5.FeedManager>[],
+  ) as List<_i5.FeedManager>);
 
   @override
-  bool get hasListeners =>
-      (super.noSuchMethod(
-            Invocation.getter(#hasListeners),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get hasListeners => (super.noSuchMethod(
+    Invocation.getter(#hasListeners),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
   void addListener(_i8.VoidCallback? listener) => super.noSuchMethod(

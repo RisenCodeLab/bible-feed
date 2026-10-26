@@ -32,13 +32,11 @@ import 'package:mockito/mockito.dart' as _i1;
 class MockBibleReadersCertifiedManager extends _i1.Mock
     implements _i2.BibleReadersCertifiedManager {
   @override
-  List<_i3.BibleReader> get certifiedBibleReaderList =>
-      (super.noSuchMethod(
-            Invocation.getter(#certifiedBibleReaderList),
-            returnValue: <_i3.BibleReader>[],
-            returnValueForMissingStub: <_i3.BibleReader>[],
-          )
-          as List<_i3.BibleReader>);
+  List<_i3.BibleReader> get certifiedBibleReaderList => (super.noSuchMethod(
+    Invocation.getter(#certifiedBibleReaderList),
+    returnValue: <_i3.BibleReader>[],
+    returnValueForMissingStub: <_i3.BibleReader>[],
+  ) as List<_i3.BibleReader>);
 }
 
 /// A class which mocks [StoreService].
@@ -46,19 +44,15 @@ class MockBibleReadersCertifiedManager extends _i1.Mock
 /// See the documentation for Mockito's code generation for more information.
 class MockStoreService extends _i1.Mock implements _i4.StoreService {
   @override
-  T? get<T>(String? key) =>
-      (super.noSuchMethod(
-            Invocation.method(#get, [key]),
-            returnValueForMissingStub: null,
-          )
-          as T?);
+  T? get<T>(String? key) => (super.noSuchMethod(
+    Invocation.method(#get, [key]),
+    returnValueForMissingStub: null,
+  ) as T?);
 
   @override
-  _i5.Future<void> set<T>(String? key, T? value) =>
-      (super.noSuchMethod(
-            Invocation.method(#set, [key, value]),
-            returnValue: _i5.Future<void>.value(),
-            returnValueForMissingStub: _i5.Future<void>.value(),
-          )
-          as _i5.Future<void>);
+  _i5.Future<void> set<T>(String? key, T? value) => (super.noSuchMethod(
+    Invocation.method(#set, [key, value]),
+    returnValue: _i5.Future<void>.value(),
+    returnValueForMissingStub: _i5.Future<void>.value(),
+  ) as _i5.Future<void>);
 }

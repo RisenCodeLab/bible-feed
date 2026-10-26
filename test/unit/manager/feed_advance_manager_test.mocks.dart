@@ -30,26 +30,22 @@ import 'package:mockito/src/dummies.dart' as _i4;
 class MockChapterSplitManager extends _i1.Mock
     implements _i2.ChapterSplitManager {
   @override
-  int getNextVerse(_i3.Feed? state) =>
-      (super.noSuchMethod(
-            Invocation.method(#getNextVerse, [state]),
-            returnValue: 0,
-            returnValueForMissingStub: 0,
-          )
-          as int);
+  int getNextVerse(_i3.Feed? state) => (super.noSuchMethod(
+    Invocation.method(#getNextVerse, [state]),
+    returnValue: 0,
+    returnValueForMissingStub: 0,
+  ) as int);
 
   @override
-  String getLabel(_i3.Feed? state) =>
-      (super.noSuchMethod(
-            Invocation.method(#getLabel, [state]),
-            returnValue: _i4.dummyValue<String>(
-              this,
-              Invocation.method(#getLabel, [state]),
-            ),
-            returnValueForMissingStub: _i4.dummyValue<String>(
-              this,
-              Invocation.method(#getLabel, [state]),
-            ),
-          )
-          as String);
+  String getLabel(_i3.Feed? state) => (super.noSuchMethod(
+    Invocation.method(#getLabel, [state]),
+    returnValue: _i4.dummyValue<String>(
+      this,
+      Invocation.method(#getLabel, [state]),
+    ),
+    returnValueForMissingStub: _i4.dummyValue<String>(
+      this,
+      Invocation.method(#getLabel, [state]),
+    ),
+  ) as String);
 }

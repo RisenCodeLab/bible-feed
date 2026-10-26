@@ -30,34 +30,30 @@ import 'package:mockito/src/dummies.dart' as _i3;
 class MockJsonEncodingManager extends _i1.Mock
     implements _i2.JsonEncodingManager {
   @override
-  String encode(String? json) =>
-      (super.noSuchMethod(
-            Invocation.method(#encode, [json]),
-            returnValue: _i3.dummyValue<String>(
-              this,
-              Invocation.method(#encode, [json]),
-            ),
-            returnValueForMissingStub: _i3.dummyValue<String>(
-              this,
-              Invocation.method(#encode, [json]),
-            ),
-          )
-          as String);
+  String encode(String? json) => (super.noSuchMethod(
+    Invocation.method(#encode, [json]),
+    returnValue: _i3.dummyValue<String>(
+      this,
+      Invocation.method(#encode, [json]),
+    ),
+    returnValueForMissingStub: _i3.dummyValue<String>(
+      this,
+      Invocation.method(#encode, [json]),
+    ),
+  ) as String);
 
   @override
-  String decode(String? base64Encoded) =>
-      (super.noSuchMethod(
-            Invocation.method(#decode, [base64Encoded]),
-            returnValue: _i3.dummyValue<String>(
-              this,
-              Invocation.method(#decode, [base64Encoded]),
-            ),
-            returnValueForMissingStub: _i3.dummyValue<String>(
-              this,
-              Invocation.method(#decode, [base64Encoded]),
-            ),
-          )
-          as String);
+  String decode(String? base64Encoded) => (super.noSuchMethod(
+    Invocation.method(#decode, [base64Encoded]),
+    returnValue: _i3.dummyValue<String>(
+      this,
+      Invocation.method(#decode, [base64Encoded]),
+    ),
+    returnValueForMissingStub: _i3.dummyValue<String>(
+      this,
+      Invocation.method(#decode, [base64Encoded]),
+    ),
+  ) as String);
 }
 
 /// A class which mocks [ShareOutManager].
@@ -65,17 +61,12 @@ class MockJsonEncodingManager extends _i1.Mock
 /// See the documentation for Mockito's code generation for more information.
 class MockShareOutManager extends _i1.Mock implements _i4.ShareOutManager {
   @override
-  String getJson() =>
-      (super.noSuchMethod(
-            Invocation.method(#getJson, []),
-            returnValue: _i3.dummyValue<String>(
-              this,
-              Invocation.method(#getJson, []),
-            ),
-            returnValueForMissingStub: _i3.dummyValue<String>(
-              this,
-              Invocation.method(#getJson, []),
-            ),
-          )
-          as String);
+  String getJson() => (super.noSuchMethod(
+    Invocation.method(#getJson, []),
+    returnValue: _i3.dummyValue<String>(this, Invocation.method(#getJson, [])),
+    returnValueForMissingStub: _i3.dummyValue<String>(
+      this,
+      Invocation.method(#getJson, []),
+    ),
+  ) as String);
 }

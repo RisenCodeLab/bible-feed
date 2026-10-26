@@ -29,19 +29,15 @@ import 'package:mockito/mockito.dart' as _i1;
 /// See the documentation for Mockito's code generation for more information.
 class MockStoreService extends _i1.Mock implements _i2.StoreService {
   @override
-  T? get<T>(String? key) =>
-      (super.noSuchMethod(
-            Invocation.method(#get, [key]),
-            returnValueForMissingStub: null,
-          )
-          as T?);
+  T? get<T>(String? key) => (super.noSuchMethod(
+    Invocation.method(#get, [key]),
+    returnValueForMissingStub: null,
+  ) as T?);
 
   @override
-  _i3.Future<void> set<T>(String? key, T? value) =>
-      (super.noSuchMethod(
-            Invocation.method(#set, [key, value]),
-            returnValue: _i3.Future<void>.value(),
-            returnValueForMissingStub: _i3.Future<void>.value(),
-          )
-          as _i3.Future<void>);
+  _i3.Future<void> set<T>(String? key, T? value) => (super.noSuchMethod(
+    Invocation.method(#set, [key, value]),
+    returnValue: _i3.Future<void>.value(),
+    returnValueForMissingStub: _i3.Future<void>.value(),
+  ) as _i3.Future<void>);
 }

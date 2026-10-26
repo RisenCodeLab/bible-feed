@@ -45,13 +45,11 @@ class MockDebounceManager extends _i1.Mock implements _i2.DebounceManager {
   _i3.Future<T?> runAsync<T>({
     required Duration? delay,
     required _i3.Future<T> Function()? fn,
-  }) =>
-      (super.noSuchMethod(
-            Invocation.method(#runAsync, [], {#delay: delay, #fn: fn}),
-            returnValue: _i3.Future<T?>.value(),
-            returnValueForMissingStub: _i3.Future<T?>.value(),
-          )
-          as _i3.Future<T?>);
+  }) => (super.noSuchMethod(
+    Invocation.method(#runAsync, [], {#delay: delay, #fn: fn}),
+    returnValue: _i3.Future<T?>.value(),
+    returnValueForMissingStub: _i3.Future<T?>.value(),
+  ) as _i3.Future<T?>);
 
   @override
   void dispose() => super.noSuchMethod(
@@ -66,91 +64,68 @@ class MockDebounceManager extends _i1.Mock implements _i2.DebounceManager {
 class MockChapterSplitSetting extends _i1.Mock
     implements _i4.ChapterSplitSetting {
   @override
-  bool get defaultValue =>
-      (super.noSuchMethod(
-            Invocation.getter(#defaultValue),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get defaultValue => (super.noSuchMethod(
+    Invocation.getter(#defaultValue),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
-  String get storeKeyFragment =>
-      (super.noSuchMethod(
-            Invocation.getter(#storeKeyFragment),
-            returnValue: _i5.dummyValue<String>(
-              this,
-              Invocation.getter(#storeKeyFragment),
-            ),
-            returnValueForMissingStub: _i5.dummyValue<String>(
-              this,
-              Invocation.getter(#storeKeyFragment),
-            ),
-          )
-          as String);
+  String get storeKeyFragment => (super.noSuchMethod(
+    Invocation.getter(#storeKeyFragment),
+    returnValue: _i5.dummyValue<String>(
+      this,
+      Invocation.getter(#storeKeyFragment),
+    ),
+    returnValueForMissingStub: _i5.dummyValue<String>(
+      this,
+      Invocation.getter(#storeKeyFragment),
+    ),
+  ) as String);
 
   @override
-  String get title =>
-      (super.noSuchMethod(
-            Invocation.getter(#title),
-            returnValue: _i5.dummyValue<String>(
-              this,
-              Invocation.getter(#title),
-            ),
-            returnValueForMissingStub: _i5.dummyValue<String>(
-              this,
-              Invocation.getter(#title),
-            ),
-          )
-          as String);
+  String get title => (super.noSuchMethod(
+    Invocation.getter(#title),
+    returnValue: _i5.dummyValue<String>(this, Invocation.getter(#title)),
+    returnValueForMissingStub: _i5.dummyValue<String>(
+      this,
+      Invocation.getter(#title),
+    ),
+  ) as String);
 
   @override
-  String get subtitle =>
-      (super.noSuchMethod(
-            Invocation.getter(#subtitle),
-            returnValue: _i5.dummyValue<String>(
-              this,
-              Invocation.getter(#subtitle),
-            ),
-            returnValueForMissingStub: _i5.dummyValue<String>(
-              this,
-              Invocation.getter(#subtitle),
-            ),
-          )
-          as String);
+  String get subtitle => (super.noSuchMethod(
+    Invocation.getter(#subtitle),
+    returnValue: _i5.dummyValue<String>(this, Invocation.getter(#subtitle)),
+    returnValueForMissingStub: _i5.dummyValue<String>(
+      this,
+      Invocation.getter(#subtitle),
+    ),
+  ) as String);
 
   @override
-  bool get isAvailable =>
-      (super.noSuchMethod(
-            Invocation.getter(#isAvailable),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get isAvailable => (super.noSuchMethod(
+    Invocation.getter(#isAvailable),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
-  String get storeKey =>
-      (super.noSuchMethod(
-            Invocation.getter(#storeKey),
-            returnValue: _i5.dummyValue<String>(
-              this,
-              Invocation.getter(#storeKey),
-            ),
-            returnValueForMissingStub: _i5.dummyValue<String>(
-              this,
-              Invocation.getter(#storeKey),
-            ),
-          )
-          as String);
+  String get storeKey => (super.noSuchMethod(
+    Invocation.getter(#storeKey),
+    returnValue: _i5.dummyValue<String>(this, Invocation.getter(#storeKey)),
+    returnValueForMissingStub: _i5.dummyValue<String>(
+      this,
+      Invocation.getter(#storeKey),
+    ),
+  ) as String);
 
   @override
-  bool get value =>
-      (super.noSuchMethod(
-            Invocation.getter(#value),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get value => (super.noSuchMethod(
+    Invocation.getter(#value),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
   set isAvailable(bool? value) => super.noSuchMethod(
@@ -165,13 +140,11 @@ class MockChapterSplitSetting extends _i1.Mock
   );
 
   @override
-  bool get hasListeners =>
-      (super.noSuchMethod(
-            Invocation.getter(#hasListeners),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get hasListeners => (super.noSuchMethod(
+    Invocation.getter(#hasListeners),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
   void addListener(_i6.VoidCallback? listener) => super.noSuchMethod(
@@ -203,31 +176,25 @@ class MockChapterSplitSetting extends _i1.Mock
 /// See the documentation for Mockito's code generation for more information.
 class MockPlatformService extends _i1.Mock implements _i7.PlatformService {
   @override
-  _i8.TargetPlatform get currentPlatform =>
-      (super.noSuchMethod(
-            Invocation.getter(#currentPlatform),
-            returnValue: _i8.TargetPlatform.android,
-            returnValueForMissingStub: _i8.TargetPlatform.android,
-          )
-          as _i8.TargetPlatform);
+  _i8.TargetPlatform get currentPlatform => (super.noSuchMethod(
+    Invocation.getter(#currentPlatform),
+    returnValue: _i8.TargetPlatform.android,
+    returnValueForMissingStub: _i8.TargetPlatform.android,
+  ) as _i8.TargetPlatform);
 
   @override
-  bool get isAndroid =>
-      (super.noSuchMethod(
-            Invocation.getter(#isAndroid),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get isAndroid => (super.noSuchMethod(
+    Invocation.getter(#isAndroid),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
-  bool get isIOS =>
-      (super.noSuchMethod(
-            Invocation.getter(#isIOS),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get isIOS => (super.noSuchMethod(
+    Invocation.getter(#isIOS),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 }
 
 /// A class which mocks [UrlLaunchService].
@@ -235,20 +202,16 @@ class MockPlatformService extends _i1.Mock implements _i7.PlatformService {
 /// See the documentation for Mockito's code generation for more information.
 class MockUrlLaunchService extends _i1.Mock implements _i9.UrlLaunchService {
   @override
-  _i3.Future<bool> canLaunchUrl(String? url) =>
-      (super.noSuchMethod(
-            Invocation.method(#canLaunchUrl, [url]),
-            returnValue: _i3.Future<bool>.value(false),
-            returnValueForMissingStub: _i3.Future<bool>.value(false),
-          )
-          as _i3.Future<bool>);
+  _i3.Future<bool> canLaunchUrl(String? url) => (super.noSuchMethod(
+    Invocation.method(#canLaunchUrl, [url]),
+    returnValue: _i3.Future<bool>.value(false),
+    returnValueForMissingStub: _i3.Future<bool>.value(false),
+  ) as _i3.Future<bool>);
 
   @override
-  _i3.Future<bool> launchUrl(String? url) =>
-      (super.noSuchMethod(
-            Invocation.method(#launchUrl, [url]),
-            returnValue: _i3.Future<bool>.value(false),
-            returnValueForMissingStub: _i3.Future<bool>.value(false),
-          )
-          as _i3.Future<bool>);
+  _i3.Future<bool> launchUrl(String? url) => (super.noSuchMethod(
+    Invocation.method(#launchUrl, [url]),
+    returnValue: _i3.Future<bool>.value(false),
+    returnValueForMissingStub: _i3.Future<bool>.value(false),
+  ) as _i3.Future<bool>);
 }

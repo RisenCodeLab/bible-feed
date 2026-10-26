@@ -38,98 +38,74 @@ class _FakeUrlTemplate_0 extends _i1.SmartFake implements _i2.UrlTemplate {
 /// See the documentation for Mockito's code generation for more information.
 class MockBibleReader extends _i1.Mock implements _i3.BibleReader {
   @override
-  _i4.BookKeyExternaliser get bookKeyExternaliser =>
-      (super.noSuchMethod(
-            Invocation.getter(#bookKeyExternaliser),
-            returnValue: _i4.BookKeyExternaliser.identity,
-            returnValueForMissingStub: _i4.BookKeyExternaliser.identity,
-          )
-          as _i4.BookKeyExternaliser);
+  _i4.BookKeyExternaliser get bookKeyExternaliser => (super.noSuchMethod(
+    Invocation.getter(#bookKeyExternaliser),
+    returnValue: _i4.BookKeyExternaliser.identity,
+    returnValueForMissingStub: _i4.BookKeyExternaliser.identity,
+  ) as _i4.BookKeyExternaliser);
 
   @override
-  List<_i5.TargetPlatform> get certifiedPlatforms =>
-      (super.noSuchMethod(
-            Invocation.getter(#certifiedPlatforms),
-            returnValue: <_i5.TargetPlatform>[],
-            returnValueForMissingStub: <_i5.TargetPlatform>[],
-          )
-          as List<_i5.TargetPlatform>);
+  List<_i5.TargetPlatform> get certifiedPlatforms => (super.noSuchMethod(
+    Invocation.getter(#certifiedPlatforms),
+    returnValue: <_i5.TargetPlatform>[],
+    returnValueForMissingStub: <_i5.TargetPlatform>[],
+  ) as List<_i5.TargetPlatform>);
 
   @override
-  _i6.BibleReaderKey get key =>
-      (super.noSuchMethod(
-            Invocation.getter(#key),
-            returnValue: _i6.BibleReaderKey.none,
-            returnValueForMissingStub: _i6.BibleReaderKey.none,
-          )
-          as _i6.BibleReaderKey);
+  _i6.BibleReaderKey get key => (super.noSuchMethod(
+    Invocation.getter(#key),
+    returnValue: _i6.BibleReaderKey.none,
+    returnValueForMissingStub: _i6.BibleReaderKey.none,
+  ) as _i6.BibleReaderKey);
 
   @override
-  String get name =>
-      (super.noSuchMethod(
-            Invocation.getter(#name),
-            returnValue: _i7.dummyValue<String>(this, Invocation.getter(#name)),
-            returnValueForMissingStub: _i7.dummyValue<String>(
-              this,
-              Invocation.getter(#name),
-            ),
-          )
-          as String);
+  String get name => (super.noSuchMethod(
+    Invocation.getter(#name),
+    returnValue: _i7.dummyValue<String>(this, Invocation.getter(#name)),
+    returnValueForMissingStub: _i7.dummyValue<String>(
+      this,
+      Invocation.getter(#name),
+    ),
+  ) as String);
 
   @override
-  _i2.UrlTemplate get urlTemplate =>
-      (super.noSuchMethod(
-            Invocation.getter(#urlTemplate),
-            returnValue: _FakeUrlTemplate_0(
-              this,
-              Invocation.getter(#urlTemplate),
-            ),
-            returnValueForMissingStub: _FakeUrlTemplate_0(
-              this,
-              Invocation.getter(#urlTemplate),
-            ),
-          )
-          as _i2.UrlTemplate);
+  _i2.UrlTemplate get urlTemplate => (super.noSuchMethod(
+    Invocation.getter(#urlTemplate),
+    returnValue: _FakeUrlTemplate_0(this, Invocation.getter(#urlTemplate)),
+    returnValueForMissingStub: _FakeUrlTemplate_0(
+      this,
+      Invocation.getter(#urlTemplate),
+    ),
+  ) as _i2.UrlTemplate);
 
   @override
-  _i8.BibleReaderType get type =>
-      (super.noSuchMethod(
-            Invocation.getter(#type),
-            returnValue: _i8.BibleReaderType.app,
-            returnValueForMissingStub: _i8.BibleReaderType.app,
-          )
-          as _i8.BibleReaderType);
+  _i8.BibleReaderType get type => (super.noSuchMethod(
+    Invocation.getter(#type),
+    returnValue: _i8.BibleReaderType.app,
+    returnValueForMissingStub: _i8.BibleReaderType.app,
+  ) as _i8.BibleReaderType);
 
   @override
-  String get displayName =>
-      (super.noSuchMethod(
-            Invocation.getter(#displayName),
-            returnValue: _i7.dummyValue<String>(
-              this,
-              Invocation.getter(#displayName),
-            ),
-            returnValueForMissingStub: _i7.dummyValue<String>(
-              this,
-              Invocation.getter(#displayName),
-            ),
-          )
-          as String);
+  String get displayName => (super.noSuchMethod(
+    Invocation.getter(#displayName),
+    returnValue: _i7.dummyValue<String>(this, Invocation.getter(#displayName)),
+    returnValueForMissingStub: _i7.dummyValue<String>(
+      this,
+      Invocation.getter(#displayName),
+    ),
+  ) as String);
 
   @override
-  bool get isApp =>
-      (super.noSuchMethod(
-            Invocation.getter(#isApp),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get isApp => (super.noSuchMethod(
+    Invocation.getter(#isApp),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
-  bool get isNone =>
-      (super.noSuchMethod(
-            Invocation.getter(#isNone),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get isNone => (super.noSuchMethod(
+    Invocation.getter(#isNone),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 }

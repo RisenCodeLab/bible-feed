@@ -38,34 +38,24 @@ class _FakeDateTime_0 extends _i1.SmartFake implements DateTime {
 /// See the documentation for Mockito's code generation for more information.
 class MockAppService extends _i1.Mock implements _i2.AppService {
   @override
-  String get buildNumber =>
-      (super.noSuchMethod(
-            Invocation.getter(#buildNumber),
-            returnValue: _i3.dummyValue<String>(
-              this,
-              Invocation.getter(#buildNumber),
-            ),
-            returnValueForMissingStub: _i3.dummyValue<String>(
-              this,
-              Invocation.getter(#buildNumber),
-            ),
-          )
-          as String);
+  String get buildNumber => (super.noSuchMethod(
+    Invocation.getter(#buildNumber),
+    returnValue: _i3.dummyValue<String>(this, Invocation.getter(#buildNumber)),
+    returnValueForMissingStub: _i3.dummyValue<String>(
+      this,
+      Invocation.getter(#buildNumber),
+    ),
+  ) as String);
 
   @override
-  String get version =>
-      (super.noSuchMethod(
-            Invocation.getter(#version),
-            returnValue: _i3.dummyValue<String>(
-              this,
-              Invocation.getter(#version),
-            ),
-            returnValueForMissingStub: _i3.dummyValue<String>(
-              this,
-              Invocation.getter(#version),
-            ),
-          )
-          as String);
+  String get version => (super.noSuchMethod(
+    Invocation.getter(#version),
+    returnValue: _i3.dummyValue<String>(this, Invocation.getter(#version)),
+    returnValueForMissingStub: _i3.dummyValue<String>(
+      this,
+      Invocation.getter(#version),
+    ),
+  ) as String);
 }
 
 /// A class which mocks [CatchupManager].
@@ -73,64 +63,49 @@ class MockAppService extends _i1.Mock implements _i2.AppService {
 /// See the documentation for Mockito's code generation for more information.
 class MockCatchupManager extends _i1.Mock implements _i4.CatchupManager {
   @override
-  int get chaptersToRead =>
-      (super.noSuchMethod(
-            Invocation.getter(#chaptersToRead),
-            returnValue: 0,
-            returnValueForMissingStub: 0,
-          )
-          as int);
+  int get chaptersToRead => (super.noSuchMethod(
+    Invocation.getter(#chaptersToRead),
+    returnValue: 0,
+    returnValueForMissingStub: 0,
+  ) as int);
 
   @override
-  int get daysBehind =>
-      (super.noSuchMethod(
-            Invocation.getter(#daysBehind),
-            returnValue: 0,
-            returnValueForMissingStub: 0,
-          )
-          as int);
+  int get daysBehind => (super.noSuchMethod(
+    Invocation.getter(#daysBehind),
+    returnValue: 0,
+    returnValueForMissingStub: 0,
+  ) as int);
 
   @override
-  int get daysBehindClamped =>
-      (super.noSuchMethod(
-            Invocation.getter(#daysBehindClamped),
-            returnValue: 0,
-            returnValueForMissingStub: 0,
-          )
-          as int);
+  int get daysBehindClamped => (super.noSuchMethod(
+    Invocation.getter(#daysBehindClamped),
+    returnValue: 0,
+    returnValueForMissingStub: 0,
+  ) as int);
 
   @override
-  bool get isBehind =>
-      (super.noSuchMethod(
-            Invocation.getter(#isBehind),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get isBehind => (super.noSuchMethod(
+    Invocation.getter(#isBehind),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
-  bool get isVeryBehind =>
-      (super.noSuchMethod(
-            Invocation.getter(#isVeryBehind),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get isVeryBehind => (super.noSuchMethod(
+    Invocation.getter(#isVeryBehind),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
-  DateTime get virtualAllDoneDate =>
-      (super.noSuchMethod(
-            Invocation.getter(#virtualAllDoneDate),
-            returnValue: _FakeDateTime_0(
-              this,
-              Invocation.getter(#virtualAllDoneDate),
-            ),
-            returnValueForMissingStub: _FakeDateTime_0(
-              this,
-              Invocation.getter(#virtualAllDoneDate),
-            ),
-          )
-          as DateTime);
+  DateTime get virtualAllDoneDate => (super.noSuchMethod(
+    Invocation.getter(#virtualAllDoneDate),
+    returnValue: _FakeDateTime_0(this, Invocation.getter(#virtualAllDoneDate)),
+    returnValueForMissingStub: _FakeDateTime_0(
+      this,
+      Invocation.getter(#virtualAllDoneDate),
+    ),
+  ) as DateTime);
 
   @override
   set virtualAllDoneDate(DateTime? value) => super.noSuchMethod(
@@ -139,13 +114,11 @@ class MockCatchupManager extends _i1.Mock implements _i4.CatchupManager {
   );
 
   @override
-  bool get hasListeners =>
-      (super.noSuchMethod(
-            Invocation.getter(#hasListeners),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get hasListeners => (super.noSuchMethod(
+    Invocation.getter(#hasListeners),
+    returnValue: false,
+    returnValueForMissingStub: false,
+  ) as bool);
 
   @override
   void reset() => super.noSuchMethod(
@@ -183,19 +156,15 @@ class MockCatchupManager extends _i1.Mock implements _i4.CatchupManager {
 /// See the documentation for Mockito's code generation for more information.
 class MockStoreService extends _i1.Mock implements _i6.StoreService {
   @override
-  T? get<T>(String? key) =>
-      (super.noSuchMethod(
-            Invocation.method(#get, [key]),
-            returnValueForMissingStub: null,
-          )
-          as T?);
+  T? get<T>(String? key) => (super.noSuchMethod(
+    Invocation.method(#get, [key]),
+    returnValueForMissingStub: null,
+  ) as T?);
 
   @override
-  _i7.Future<void> set<T>(String? key, T? value) =>
-      (super.noSuchMethod(
-            Invocation.method(#set, [key, value]),
-            returnValue: _i7.Future<void>.value(),
-            returnValueForMissingStub: _i7.Future<void>.value(),
-          )
-          as _i7.Future<void>);
+  _i7.Future<void> set<T>(String? key, T? value) => (super.noSuchMethod(
+    Invocation.method(#set, [key, value]),
+    returnValue: _i7.Future<void>.value(),
+    returnValueForMissingStub: _i7.Future<void>.value(),
+  ) as _i7.Future<void>);
 }
