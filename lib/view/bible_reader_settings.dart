@@ -9,7 +9,7 @@ class BibleReaderSettings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(Constants.defaultSpacing),
+        padding: const .all(Constants.defaultSpacing),
         child: Row(
           crossAxisAlignment: .start,
           spacing: Constants.defaultSpacing,

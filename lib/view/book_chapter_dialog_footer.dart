@@ -22,7 +22,7 @@ class const BookChapterDialogFooter(final FeedManager feedManager) extends Watch
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+                padding: const .only(left: 8.0),
                 child: AutoSizeText(
                   '${feedManager.readingList.chaptersTo(bookIndex, chapter)} of ${feedManager.readingList.totalChapters}',
                   maxLines: 1,
@@ -35,7 +35,7 @@ class const BookChapterDialogFooter(final FeedManager feedManager) extends Watch
                 feedManager.setBookChapterVerse(bookIndex, chapter);
                 Navigator.pop(context);
               },
-              child: const Padding(padding: EdgeInsets.only(right: 8.0), child: Text('Update')),
+              child: const Padding(padding: .only(right: 8.0), child: Text('Update')),
             ),
           ],
         ),

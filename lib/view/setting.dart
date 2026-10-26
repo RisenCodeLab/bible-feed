@@ -15,11 +15,11 @@ class Setting<T extends model.Setting> extends WatchingWidget {
         ignoring: !setting.isAvailable,
         child: Card(
           child: Padding(
-            padding: const EdgeInsets.all(Constants.defaultSpacing),
+            padding: const .all(Constants.defaultSpacing),
             child: SwitchListTile(
               title: Text(setting.title, style: const TextStyle(fontSize: 20)),
               subtitle: Padding(
-                padding: const EdgeInsets.only(top: Constants.defaultSpacing),
+                padding: const .only(top: Constants.defaultSpacing),
                 child: Text(setting.subtitle),
               ),
               value: setting.value,
