@@ -10,8 +10,8 @@ class const PopupBody<T extends PopupManager>({super.key}) extends StatelessWidg
   Widget build(BuildContext context) {
     final popupManager = sl<T>();
 
-    final backgroundColor = popupManager.getBackgroundColor();
-    final foregroundColor = popupManager.getForegroundColor();
+    final backgroundColor = popupManager.backgroundColor;
+    final foregroundColor = popupManager.foregroundColor;
     final actionButtonSpacing = 4.0;
     final elevation = 8.0;
     final popupAction = popupManager.popupAction;
@@ -31,7 +31,7 @@ class const PopupBody<T extends PopupManager>({super.key}) extends StatelessWidg
         Padding(
           padding: Constants.defaultPadding,
           child: Text(
-            popupManager.getText(),
+            popupManager.text,
             textAlign: .center,
             style: .new(color: foregroundColor),
           ),

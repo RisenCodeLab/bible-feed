@@ -34,7 +34,7 @@ class _PopupState<T extends PopupManager> extends State<Popup<T>> {
           filter: .blur(sigmaX: Constants.blurSigma, sigmaY: Constants.blurSigma),
           child: Container(
             decoration: BoxDecoration(
-              color: _popupManager.getBackgroundColor(),
+              color: _popupManager.backgroundColor,
               borderRadius: const .vertical(top: Constants.defaultBorderRadius),
             ),
             padding: Constants.defaultPadding,

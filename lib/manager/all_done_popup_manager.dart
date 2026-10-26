@@ -18,6 +18,12 @@ class AllDonePopupManager(final CatchupManager _catchupManager, final FeedsManag
   }
 
   @override
+  Color get backgroundColor => [Colors.green, Colors.yellow, Colors.red][_catchupManager.daysBehindClamped];
+
+  @override
+  Color get foregroundColor => [Colors.white, Colors.black, Colors.white][_catchupManager.daysBehindClamped];
+
+  @override
   String get onboardingStoreKeyFragment => 'allDone';
 
   @override
@@ -29,22 +35,16 @@ class AllDonePopupManager(final CatchupManager _catchupManager, final FeedsManag
   );
 
   @override
-  String get title {
-    return _catchupManager.isBehind ? 'Not yet done' : 'All done for today!';
-  }
-
-  @override
-  Color getBackgroundColor() => [Colors.green, Colors.yellow, Colors.red][_catchupManager.daysBehindClamped];
-
-  @override
-  Color getForegroundColor() => [Colors.white, Colors.black, Colors.white][_catchupManager.daysBehindClamped];
-
-  @override
-  String getText() {
+  String get text {
     final allDoneAdvanceText = '\n\nLists will automatically advance at midnight or you can advance them now.';
     final allDoneText = 'You are now up to date, feeding and growing in the word of God!$allDoneAdvanceText';
     final catchupAdvanceText = '\n\nAdvance now to catch up.';
     final catchupText = 'You have ${_catchupManager.chaptersToRead} more chapters to read today!$catchupAdvanceText';
     return _catchupManager.isBehind ? catchupText : allDoneText;
+  }
+
+  @override
+  String get title {
+    return _catchupManager.isBehind ? 'Not yet done' : 'All done for today!';
   }
 }

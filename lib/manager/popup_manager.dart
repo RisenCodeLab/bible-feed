@@ -7,12 +7,12 @@ import '../service/store_service.dart';
 abstract class PopupManager(final StoreService _storeService) with ChangeNotifier {
   //// abstract
 
+  Color get backgroundColor;
+  Color get foregroundColor;
   String get onboardingStoreKeyFragment;
   PopupAction? get popupAction;
+  String get text;
   String get title;
-  Color getBackgroundColor();
-  Color getForegroundColor();
-  String getText();
 
   //// concrete
 

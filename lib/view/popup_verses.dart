@@ -8,7 +8,7 @@ class const PopupVerses<T extends PopupManager>({super.key}) extends StatelessWi
   @override
   Widget build(BuildContext context) {
     // golden screenshots render squares unless we specify the fontFamily
-    final textStyle = TextStyle(color: sl<T>().getForegroundColor(), fontFamily: 'Roboto');
+    final textStyle = TextStyle(color: sl<T>().foregroundColor, fontFamily: 'Roboto');
     final verses = sl<T>().verses ?? [];
 
     return Column(
