@@ -14,6 +14,6 @@ class StubAppService({required super.buildNumber, required super.version}) exten
   static Future<StubAppService> create() async {
     final yaml = loadYaml(await File('pubspec.yaml').readAsString());
     final versionAndBuild = yaml['version'].split('+');
-    return StubAppService(buildNumber: versionAndBuild[1].toString(), version: versionAndBuild[0].toString());
+    return .new(buildNumber: versionAndBuild[1].toString(), version: versionAndBuild[0].toString());
   }
 }

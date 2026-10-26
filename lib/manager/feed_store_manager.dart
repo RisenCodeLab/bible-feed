@@ -10,7 +10,7 @@ class FeedStoreManager(final StoreService _storeService) {
     const defaultChapter = 1;
     const defaultVerse = 1;
 
-    return Feed(
+    return .new(
       bookKey: _storeService.get('${readingList.key}.book') ?? readingList[0].key,
       chapter: _storeService.get('${readingList.key}.chapter') ?? defaultChapter,
       verse: _storeService.get('${readingList.key}.verse') ?? defaultVerse,

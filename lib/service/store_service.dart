@@ -12,7 +12,7 @@ class StoreService(final SharedPreferences _sharedPreferences) {
   @FactoryMethod(preResolve: true)
   static Future<StoreService> create() async {
     final sp = await SharedPreferences.getInstance();
-    return StoreService(sp);
+    return .new(sp);
   }
 
   T? get<T>(String key) {

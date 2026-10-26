@@ -17,7 +17,7 @@ class Setting<T extends model.Setting> extends WatchingWidget {
           child: Padding(
             padding: const .all(Constants.defaultSpacing),
             child: SwitchListTile(
-              title: Text(setting.title, style: const TextStyle(fontSize: 20)),
+              title: Text(setting.title, style: const .new(fontSize: 20)),
               subtitle: Padding(
                 padding: const .only(top: Constants.defaultSpacing),
                 child: Text(setting.subtitle),

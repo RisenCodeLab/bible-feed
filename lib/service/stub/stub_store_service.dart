@@ -12,6 +12,6 @@ class StubStoreService(super._sharedPreferences) extends StoreService {
   static Future<StoreService> create() async {
     final sp = await SharedPreferences.getInstance();
     sp.clear();
-    return StubStoreService(sp);
+    return .new(sp);
   }
 }

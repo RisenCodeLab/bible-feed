@@ -23,7 +23,7 @@ class const FeedTitleBar(final FeedManager feedManager) extends WatchingWidget {
         Expanded(
           child: Padding(
             padding: const .only(left: 8.0),
-            child: Text(feedManager.readingList.name, style: const TextStyle(fontSize: 18), overflow: .ellipsis),
+            child: Text(feedManager.readingList.name, style: const .new(fontSize: 18), overflow: .ellipsis),
           ),
         ),
         IconButton(

@@ -16,5 +16,5 @@ class HapticService({required final bool isAvailable}) {
 class ProductionHapticService({required super.isAvailable}) extends HapticService {
   @factoryMethod
   @preResolve
-  static Future<HapticService> create() async => HapticService(isAvailable: await Haptics.canVibrate());
+  static Future<HapticService> create() async => .new(isAvailable: await Haptics.canVibrate());
 }

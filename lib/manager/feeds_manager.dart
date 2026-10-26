@@ -12,7 +12,7 @@ import 'feed_store_manager.dart';
 class FeedsManager(final FeedStoreManager _feedStoreManager, ReadingLists readingLists) with ChangeNotifier {
   this {
     for (FeedManager fm in _feedManagers) {
-      if (fm.feed.dateModified?.isAfter(_lastModifiedFeed?.dateModified ?? DateTime(0)) ?? false) {
+      if (fm.feed.dateModified?.isAfter(_lastModifiedFeed?.dateModified ?? .new(0)) ?? false) {
         _lastModifiedFeed = fm.feed;
       }
 
@@ -25,7 +25,7 @@ class FeedsManager(final FeedStoreManager _feedStoreManager, ReadingLists readin
   }
 
   final List<FeedManager> _feedManagers = readingLists
-      .map((rl) => FeedManager(_feedStoreManager.load(rl), rl))
+      .map<FeedManager>((rl) => .new(_feedStoreManager.load(rl), rl))
       .toList();
   Feed? _lastModifiedFeed;
 
