@@ -48,6 +48,8 @@ Members within classes must be ordered as follows:
 ### General
 - Follow existing code conventions in the codebase
 - Use Dart best practices and idioms
+- Always use primary constructors instead of separate constructor declarations
+- Always use dot shorthand for constructor calls (e.g., `.new()` instead of `ClassName.new()`)
 - Always use super parameters when forwarding constructor parameters to superclass
 - Use `@protected` annotation from `package:flutter/foundation.dart` for members intended for subclass use only
 - Prefer composition over inheritance where possible
