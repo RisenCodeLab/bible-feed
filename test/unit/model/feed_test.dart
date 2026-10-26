@@ -21,7 +21,7 @@ void main() async {
   setUp(() {
     dateTimeService.reset();
     feed = Feed(bookKey: b1.key);
-    testee = FeedManager(rl1, feed);
+    testee = FeedManager(feed, rl1);
   });
 
   group('property', () {

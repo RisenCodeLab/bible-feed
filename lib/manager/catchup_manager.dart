@@ -22,10 +22,6 @@ class CatchupManager(
   final MidnightManager _midnightManager,
   final StoreService _storeService,
 ) with ChangeNotifier {
-  static const _storeKey = 'virtualAllDoneDate';
-
-  DateTime get _defaultVirtualAllDoneDate => _dateTimeService.now.date - 1.days;
-
   this {
     _appLifecycleManager.onResume(notifyListeners);
 
@@ -38,6 +34,10 @@ class CatchupManager(
 
     virtualAllDoneDate = virtualAllDoneDate; // ensure default is stored
   }
+
+  static const _storeKey = 'virtualAllDoneDate';
+
+  DateTime get _defaultVirtualAllDoneDate => _dateTimeService.now.date - 1.days;
 
   //// public
 

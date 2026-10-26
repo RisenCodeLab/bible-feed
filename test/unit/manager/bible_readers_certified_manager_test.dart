@@ -32,7 +32,7 @@ void main() async {
     ],
     (currentPlatform, expectResult) {
       final platformService = PlatformService(currentPlatform: currentPlatform);
-      final testee = BibleReadersCertifiedManager(platformService, bibleReaders);
+      final testee = BibleReadersCertifiedManager(bibleReaders, platformService);
       expect(testee.certifiedBibleReaderList, expectResult);
     },
   );

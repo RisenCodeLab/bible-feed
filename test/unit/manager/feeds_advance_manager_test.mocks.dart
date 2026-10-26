@@ -84,6 +84,13 @@ class MockFeedManager extends _i1.Mock implements _i5.FeedManager {
   ) as int);
 
   @override
+  _i3.Feed get feed => (super.noSuchMethod(
+    Invocation.getter(#feed),
+    returnValue: _FakeFeed_2(this, Invocation.getter(#feed)),
+    returnValueForMissingStub: _FakeFeed_2(this, Invocation.getter(#feed)),
+  ) as _i3.Feed);
+
+  @override
   double get progress => (super.noSuchMethod(
     Invocation.getter(#progress),
     returnValue: 0.0,
@@ -102,13 +109,6 @@ class MockFeedManager extends _i1.Mock implements _i5.FeedManager {
       Invocation.getter(#readingList),
     ),
   ) as _i6.ReadingList);
-
-  @override
-  _i3.Feed get feed => (super.noSuchMethod(
-    Invocation.getter(#feed),
-    returnValue: _FakeFeed_2(this, Invocation.getter(#feed)),
-    returnValueForMissingStub: _FakeFeed_2(this, Invocation.getter(#feed)),
-  ) as _i3.Feed);
 
   @override
   set feed(_i3.Feed? value) => super.noSuchMethod(

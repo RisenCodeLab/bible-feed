@@ -9,8 +9,11 @@ import 'feeds_manager.dart';
 import 'popup_manager.dart';
 
 @lazySingleton
-class AllDonePopupManager(super._storeService, final CatchupManager _catchupManager, final FeedsManager _feedsManager)
-    extends PopupManager {
+class AllDonePopupManager(
+  final CatchupManager _catchupManager,
+  final FeedsManager _feedsManager,
+  super._storeService,
+) extends PopupManager {
   this {
     _feedsManager.addListener(() {
       if (_feedsManager.areChaptersRead && (!hasCompletedOnboarding || _catchupManager.isBehind)) show(); // auto show
@@ -19,6 +22,19 @@ class AllDonePopupManager(super._storeService, final CatchupManager _catchupMana
 
   @override
   String get onboardingStoreKeyFragment => 'allDone';
+
+  @override
+  PopupAction get popupAction => .new(
+    action: sl<FeedsAdvanceManager>().advance,
+    icon: const Icon(Icons.fast_forward),
+    key: 'advance_now',
+    text: 'Advance now',
+  );
+
+  @override
+  String get title {
+    return _catchupManager.isBehind ? 'Not yet done' : 'All done for today!';
+  }
 
   /// ui
 
@@ -35,18 +51,5 @@ class AllDonePopupManager(super._storeService, final CatchupManager _catchupMana
     final catchupAdvanceText = '\n\nAdvance now to catch up.';
     final catchupText = 'You have ${_catchupManager.chaptersToRead} more chapters to read today!$catchupAdvanceText';
     return _catchupManager.isBehind ? catchupText : allDoneText;
-  }
-
-  @override
-  PopupAction get popupAction => .new(
-    action: sl<FeedsAdvanceManager>().advance,
-    icon: const Icon(Icons.fast_forward),
-    key: 'advance_now',
-    text: 'Advance now',
-  );
-
-  @override
-  String get title {
-    return _catchupManager.isBehind ? 'Not yet done' : 'All done for today!';
   }
 }

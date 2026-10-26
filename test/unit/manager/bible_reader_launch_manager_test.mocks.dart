@@ -35,6 +35,12 @@ import 'package:mockito/src/dummies.dart' as _i5;
 /// See the documentation for Mockito's code generation for more information.
 class MockDebounceManager extends _i1.Mock implements _i2.DebounceManager {
   @override
+  void dispose() => super.noSuchMethod(
+    Invocation.method(#dispose, []),
+    returnValueForMissingStub: null,
+  );
+
+  @override
   void run({required Duration? delay, required void Function()? fn}) =>
       super.noSuchMethod(
         Invocation.method(#run, [], {#delay: delay, #fn: fn}),
@@ -50,12 +56,6 @@ class MockDebounceManager extends _i1.Mock implements _i2.DebounceManager {
     returnValue: _i3.Future<T?>.value(),
     returnValueForMissingStub: _i3.Future<T?>.value(),
   ) as _i3.Future<T?>);
-
-  @override
-  void dispose() => super.noSuchMethod(
-    Invocation.method(#dispose, []),
-    returnValueForMissingStub: null,
-  );
 }
 
 /// A class which mocks [ChapterSplitSetting].

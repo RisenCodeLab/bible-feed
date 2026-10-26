@@ -20,7 +20,7 @@ void main() async {
     mockBibleReadersCertifiedManager = MockBibleReadersCertifiedManager();
     mockStoreService = MockStoreService();
     when(mockBibleReadersCertifiedManager.certifiedBibleReaderList).thenReturn([noneBibleReader, blbBibleReader]);
-    testee = BibleReaderLinkManager(mockStoreService, mockBibleReadersCertifiedManager);
+    testee = BibleReaderLinkManager(mockBibleReadersCertifiedManager, mockStoreService);
   });
 
   parameterizedTest(
@@ -32,7 +32,7 @@ void main() async {
     ],
     (String? bibleReaderKey, bool expectIsLinked, int expectIndex, BibleReader expectBibleReader) {
       when(mockStoreService.get('linkedBibleReader')).thenReturn(bibleReaderKey);
-      testee = BibleReaderLinkManager(mockStoreService, mockBibleReadersCertifiedManager);
+      testee = BibleReaderLinkManager(mockBibleReadersCertifiedManager, mockStoreService);
       expect(testee.isLinked, expectIsLinked);
       expect(testee.linkedBibleReader, expectBibleReader);
       expect(testee.linkedBibleReaderIndex, expectIndex);
@@ -42,7 +42,7 @@ void main() async {
   test('constructor should set linkedBibleReader to none if stored linkedBibleReader is uncertified', () {
     when(mockBibleReadersCertifiedManager.certifiedBibleReaderList).thenReturn([]);
     when(mockStoreService.get('linkedBibleReader')).thenReturn('blueLetterApp');
-    testee = BibleReaderLinkManager(mockStoreService, mockBibleReadersCertifiedManager);
+    testee = BibleReaderLinkManager(mockBibleReadersCertifiedManager, mockStoreService);
     expect(testee.isLinked, false);
   });
 

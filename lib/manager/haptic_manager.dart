@@ -50,8 +50,8 @@ class HapticManager(
   }
 
   @override
-  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) => _maybeImpact();
+  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) => _maybeImpact();
 
   @override
-  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) => _maybeImpact();
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) => _maybeImpact();
 }

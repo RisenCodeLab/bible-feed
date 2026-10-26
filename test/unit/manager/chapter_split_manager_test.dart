@@ -20,7 +20,7 @@ void main() {
 
   setUp(() {
     when(mockChapterSplitSetting.value).thenReturn(true);
-    testee = ChapterSplitManager(mockChapterSplitters, mockChapterSplitSetting);
+    testee = ChapterSplitManager(mockChapterSplitSetting, mockChapterSplitters);
   });
 
   group('getNextVerse', () {

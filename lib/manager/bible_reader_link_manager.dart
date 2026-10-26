@@ -8,16 +8,17 @@ import 'bible_readers_certified_manager.dart';
 
 @lazySingleton
 class BibleReaderLinkManager(
-  final StoreService _storeService,
   final BibleReadersCertifiedManager _bibleReadersCertifiedManager,
+  final StoreService _storeService,
 ) with ChangeNotifier {
-  static const _linkedBibleReaderStoreKey = 'linkedBibleReader';
-
-  late BibleReaderKey _linkedBibleReaderKey; // ignore: avoid-late-keyword, guaranteed to be set in ctor -> _loadState
-
   this {
     _loadState();
   }
+
+  late BibleReaderKey _linkedBibleReaderKey; // ignore: avoid-late-keyword, guaranteed to be set in ctor -> _loadState
+  static const _linkedBibleReaderStoreKey = 'linkedBibleReader';
+
+  List<BibleReader> get _certifiedBibleReaderList => _bibleReadersCertifiedManager.certifiedBibleReaderList;
 
   void _loadState() {
     final String? linkedReaderName = _storeService.get(_linkedBibleReaderStoreKey);
@@ -36,9 +37,7 @@ class BibleReaderLinkManager(
     notifyListeners();
   }
 
-  List<BibleReader> get _certifiedBibleReaderList => _bibleReadersCertifiedManager.certifiedBibleReaderList;
   bool get isLinked => _linkedBibleReaderKey != .none;
-
   BibleReader get linkedBibleReader => _certifiedBibleReaderList.firstWhere((e) => e.key == _linkedBibleReaderKey);
   int get linkedBibleReaderIndex => _certifiedBibleReaderList.indexOf(linkedBibleReader);
   set linkedBibleReaderIndex(int value) => _saveState(_certifiedBibleReaderList[value].key);

@@ -30,19 +30,6 @@ import 'package:mockito/src/dummies.dart' as _i3;
 class MockJsonEncodingManager extends _i1.Mock
     implements _i2.JsonEncodingManager {
   @override
-  String encode(String? json) => (super.noSuchMethod(
-    Invocation.method(#encode, [json]),
-    returnValue: _i3.dummyValue<String>(
-      this,
-      Invocation.method(#encode, [json]),
-    ),
-    returnValueForMissingStub: _i3.dummyValue<String>(
-      this,
-      Invocation.method(#encode, [json]),
-    ),
-  ) as String);
-
-  @override
   String decode(String? base64Encoded) => (super.noSuchMethod(
     Invocation.method(#decode, [base64Encoded]),
     returnValue: _i3.dummyValue<String>(
@@ -52,6 +39,19 @@ class MockJsonEncodingManager extends _i1.Mock
     returnValueForMissingStub: _i3.dummyValue<String>(
       this,
       Invocation.method(#decode, [base64Encoded]),
+    ),
+  ) as String);
+
+  @override
+  String encode(String? json) => (super.noSuchMethod(
+    Invocation.method(#encode, [json]),
+    returnValue: _i3.dummyValue<String>(
+      this,
+      Invocation.method(#encode, [json]),
+    ),
+    returnValueForMissingStub: _i3.dummyValue<String>(
+      this,
+      Invocation.method(#encode, [json]),
     ),
   ) as String);
 }

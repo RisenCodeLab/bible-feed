@@ -6,13 +6,13 @@ import '../model/feed.dart';
 import '../model/reading_list.dart';
 import '../service/date_time_service.dart';
 
-class FeedManager(final ReadingList _readingList, var Feed _feed) with ChangeNotifier {
+class FeedManager(var Feed _feed, final ReadingList _readingList) with ChangeNotifier {
   Book get book => _readingList.getBook(_feed.bookKey);
   int get bookIndex => _readingList.indexOf(book);
   int get chaptersRead => _feed.chapter - (_feed.isRead ? 0 : 1);
+  Feed get feed => _feed;
   double get progress => _readingList.progressTo(bookIndex, chaptersRead);
   ReadingList get readingList => _readingList;
-  Feed get feed => _feed;
 
   set feed(Feed value) {
     _feed = value;

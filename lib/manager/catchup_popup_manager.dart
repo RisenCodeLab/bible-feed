@@ -8,8 +8,11 @@ import 'feeds_manager.dart';
 import 'popup_manager.dart';
 
 @lazySingleton
-class CatchupPopupManager(super._storeService, final CatchupManager _catchupManager, final FeedsManager _feedsManager)
-    extends PopupManager {
+class CatchupPopupManager(
+  final CatchupManager _catchupManager,
+  final FeedsManager _feedsManager,
+  super._storeService,
+) extends PopupManager {
   this {
     _catchupManager.addListener(() {
       if (_catchupManager.isBehind && !_feedsManager.areChaptersRead) show(); // auto show
@@ -18,24 +21,6 @@ class CatchupPopupManager(super._storeService, final CatchupManager _catchupMana
 
   @override
   String get onboardingStoreKeyFragment => 'catchup';
-
-  /// ui
-
-  @override
-  Color getBackgroundColor() => _catchupManager.isVeryBehind ? Colors.red : Colors.yellow;
-
-  @override
-  Color getForegroundColor() => _catchupManager.isVeryBehind ? Colors.white : Colors.black;
-
-  @override
-  String getText() {
-    assert(_catchupManager.isBehind);
-    final chaptersToRead = _catchupManager.chaptersToRead;
-    final daysBehind = "${_catchupManager.daysBehind} day${_catchupManager.daysBehind == 1 ? '' : 's'}";
-    final alert = "You have $chaptersToRead chapters to read today, because you are now $daysBehind behind.";
-    final exhortation = 'Beloved, do not neglect to feed daily upon the word of God, for it is written...';
-    return '$alert\n\n$exhortation';
-  }
 
   @override
   PopupAction get popupAction => .new(
@@ -56,4 +41,22 @@ class CatchupPopupManager(super._storeService, final CatchupManager _catchupMana
     ),
     .new(text: 'Give us this day our daily bread', reference: 'Matthew 6:11 KJV'),
   ];
+
+  /// ui
+
+  @override
+  Color getBackgroundColor() => _catchupManager.isVeryBehind ? Colors.red : Colors.yellow;
+
+  @override
+  Color getForegroundColor() => _catchupManager.isVeryBehind ? Colors.white : Colors.black;
+
+  @override
+  String getText() {
+    assert(_catchupManager.isBehind);
+    final chaptersToRead = _catchupManager.chaptersToRead;
+    final daysBehind = "${_catchupManager.daysBehind} day${_catchupManager.daysBehind == 1 ? '' : 's'}";
+    final alert = "You have $chaptersToRead chapters to read today, because you are now $daysBehind behind.";
+    final exhortation = 'Beloved, do not neglect to feed daily upon the word of God, for it is written...';
+    return '$alert\n\n$exhortation';
+  }
 }

@@ -27,7 +27,7 @@ final dialogConstraints = [const Size(300, 600), const Size(600, 300), const Siz
 
 final scenarios = {
   'home': Scenario(App(), deviceConstraints),
-  'book_chapter_dialog': Scenario(BookChapterDialog(FeedManager(epistles2, state)), dialogConstraints),
+  'book_chapter_dialog': Scenario(BookChapterDialog(FeedManager(state, epistles2)), dialogConstraints),
   'settings': Scenario(Settings(), deviceConstraints),
   'share': Scenario(Share(), deviceConstraints),
 };

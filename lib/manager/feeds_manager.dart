@@ -10,11 +10,6 @@ import 'feed_store_manager.dart';
 
 @lazySingleton
 class FeedsManager(final FeedStoreManager _feedStoreManager, ReadingLists readingLists) with ChangeNotifier {
-  final List<FeedManager> _feedManagers = readingLists
-      .map((rl) => FeedManager(rl, _feedStoreManager.load(rl)))
-      .toList();
-  Feed? _lastModifiedFeed;
-
   this {
     for (FeedManager fm in _feedManagers) {
       if (fm.feed.dateModified?.isAfter(_lastModifiedFeed?.dateModified ?? DateTime(0)) ?? false) {
@@ -28,6 +23,11 @@ class FeedsManager(final FeedStoreManager _feedStoreManager, ReadingLists readin
       });
     }
   }
+
+  final List<FeedManager> _feedManagers = readingLists
+      .map((rl) => FeedManager(_feedStoreManager.load(rl), rl))
+      .toList();
+  Feed? _lastModifiedFeed;
 
   bool get areChaptersRead => chaptersToRead == 0;
   int get chaptersToRead => _feedManagers.where((fm) => !fm.feed.isRead).length;

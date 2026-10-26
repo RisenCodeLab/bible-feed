@@ -29,7 +29,7 @@ void main() async {
   setUp(() {
     dateTimeService.reset();
     feed = Feed(bookKey: b1.key);
-    feedManager = FeedManager(rl1, feed);
+    feedManager = FeedManager(feed, rl1);
     when(mockChapterSplitManager.getNextVerse(feed)).thenReturn(1);
     testee = FeedAdvanceManager(mockChapterSplitManager);
   });
