@@ -11,9 +11,11 @@ import 'popup_manager.dart';
 class CatchupPopupManager(final CatchupManager _catchupManager, final FeedsManager _feedsManager, super._storeService)
     extends PopupManager {
   this {
-    _catchupManager.addListener(() {
-      if (_catchupManager.isBehind && !_feedsManager.areChaptersRead) show(); // auto show
-    });
+    _catchupManager.addListener(_maybeShow);
+  }
+
+  void _maybeShow() {
+    if (_catchupManager.isBehind && !_feedsManager.areChaptersRead) show(); // auto show
   }
 
   @override
