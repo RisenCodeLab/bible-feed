@@ -9,19 +9,12 @@ import '../service/url_launch_service.dart';
 import 'debounce_manager.dart';
 
 @lazySingleton
-class BibleReaderLaunchManager {
-  final ChapterSplitSetting _chapterSplitSetting;
-  final DebounceManager _debounceManager;
-  final PlatformService _platformService;
-  final UrlLaunchService _urlLaunchService;
-
-  BibleReaderLaunchManager(
-    this._chapterSplitSetting,
-    this._debounceManager,
-    this._platformService,
-    this._urlLaunchService,
-  );
-
+class BibleReaderLaunchManager(
+  final ChapterSplitSetting _chapterSplitSetting,
+  final DebounceManager _debounceManager,
+  final PlatformService _platformService,
+  final UrlLaunchService _urlLaunchService,
+) {
   String _getDeeplinkUrl(BibleReader bibleReader, String internalBookKey, int chapter, [int verse = 1]) {
     final externalBookKey = bibleReader.bookKeyExternaliser.getExternalBookKey(internalBookKey);
     var url = bibleReader.urlTemplate[_platformService.currentPlatform]!;

@@ -6,12 +6,12 @@ import 'feeds_advance_manager.dart';
 import 'midnight_manager.dart';
 
 @lazySingleton
-class AutoAdvanceManager with ChangeNotifier {
-  final AppLifecycleManager _appLifecycleManager;
-  final FeedsAdvanceManager _feedsAdvanceManager;
-  final MidnightManager _midnightManager;
-
-  AutoAdvanceManager(this._appLifecycleManager, this._feedsAdvanceManager, this._midnightManager) {
+class AutoAdvanceManager(
+  final AppLifecycleManager _appLifecycleManager,
+  final FeedsAdvanceManager _feedsAdvanceManager,
+  final MidnightManager _midnightManager,
+) with ChangeNotifier {
+  this {
     _appLifecycleManager.onResume(_maybeAdvance, priority: .high); // must run before catchup
     _midnightManager.addListener(_maybeAdvance, priority: .high); // must run before catchup
     _maybeAdvance();

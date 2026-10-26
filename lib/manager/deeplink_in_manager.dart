@@ -7,13 +7,13 @@ import 'json_encoding_manager.dart';
 import 'share_in_manager.dart';
 
 @singleton
-class DeepLinkInManager {
-  final DeepLinkService _deepLinkService;
-  final JsonEncodingManager _jsonEncodingManager;
-  final ShareInManager _shareInManager;
-  final ToastService _toastService;
-
-  DeepLinkInManager(this._deepLinkService, this._jsonEncodingManager, this._shareInManager, this._toastService) {
+class DeepLinkInManager(
+  final DeepLinkService _deepLinkService,
+  final JsonEncodingManager _jsonEncodingManager,
+  final ShareInManager _shareInManager,
+  final ToastService _toastService,
+) {
+  this {
     _deepLinkService.addListener(() {
       try {
         final queryKey = Constants.deeplinkQueryKey;

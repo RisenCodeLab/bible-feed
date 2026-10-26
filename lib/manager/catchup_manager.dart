@@ -13,24 +13,20 @@ import 'feeds_manager.dart';
 import 'midnight_manager.dart';
 
 @lazySingleton
-class CatchupManager with ChangeNotifier {
-  final AppLifecycleManager _appLifecycleManager;
-  final CatchupSetting _catchupSetting;
-  final DateTimeService _dateTimeService;
-  final FeedsManager _feedsManager;
-  final FeedsAdvanceManager _feedsAdvanceManager;
-  final MidnightManager _midnightManager;
-  final StoreService _storeService;
+class CatchupManager(
+  final AppLifecycleManager _appLifecycleManager,
+  final CatchupSetting _catchupSetting,
+  final DateTimeService _dateTimeService,
+  final FeedsManager _feedsManager,
+  final FeedsAdvanceManager _feedsAdvanceManager,
+  final MidnightManager _midnightManager,
+  final StoreService _storeService,
+) with ChangeNotifier {
+  static const _storeKey = 'virtualAllDoneDate';
 
-  CatchupManager(
-    this._appLifecycleManager,
-    this._catchupSetting,
-    this._dateTimeService,
-    this._feedsManager,
-    this._feedsAdvanceManager,
-    this._midnightManager,
-    this._storeService,
-  ) {
+  DateTime get _defaultVirtualAllDoneDate => _dateTimeService.now.date - 1.days;
+
+  this {
     _appLifecycleManager.onResume(notifyListeners);
 
     _feedsAdvanceManager.addListener(() {
@@ -42,10 +38,6 @@ class CatchupManager with ChangeNotifier {
 
     virtualAllDoneDate = virtualAllDoneDate; // ensure default is stored
   }
-
-  static const _storeKey = 'virtualAllDoneDate';
-
-  DateTime get _defaultVirtualAllDoneDate => _dateTimeService.now.date - 1.days;
 
   //// public
 

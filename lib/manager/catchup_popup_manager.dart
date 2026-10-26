@@ -8,11 +8,9 @@ import 'feeds_manager.dart';
 import 'popup_manager.dart';
 
 @lazySingleton
-class CatchupPopupManager extends PopupManager {
-  final CatchupManager _catchupManager;
-  final FeedsManager _feedsManager;
-
-  CatchupPopupManager(super._storeService, this._catchupManager, this._feedsManager) {
+class CatchupPopupManager(super._storeService, final CatchupManager _catchupManager, final FeedsManager _feedsManager)
+    extends PopupManager {
+  this {
     _catchupManager.addListener(() {
       if (_catchupManager.isBehind && !_feedsManager.areChaptersRead) show(); // auto show
     });

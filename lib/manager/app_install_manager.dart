@@ -6,12 +6,12 @@ import 'bible_reader_launch_manager.dart';
 import 'bible_reader_link_manager.dart';
 
 @lazySingleton
-class AppInstallManager with ChangeNotifier {
-  AppInstallManager(
-    BibleReaderLaunchManager bibleReaderLaunchManager,
-    BibleReaderLinkManager bibleReaderLinkManager,
-    PlatformEventService platformEventService,
-  ) {
+class AppInstallManager(
+  BibleReaderLaunchManager bibleReaderLaunchManager,
+  BibleReaderLinkManager bibleReaderLinkManager,
+  PlatformEventService platformEventService,
+) with ChangeNotifier {
+  this {
     void handleAppInstallOrUninstall() async {
       if (await bibleReaderLaunchManager.isAvailable(bibleReaderLinkManager.linkedBibleReader)) {
         notifyListeners();

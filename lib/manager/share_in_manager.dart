@@ -9,13 +9,11 @@ import 'feed_manager.dart';
 import 'feeds_manager.dart';
 
 @lazySingleton
-class ShareInManager {
-  final AppService _appService;
-  final CatchupManager _catchupManager;
-  final FeedsManager _feedsManager;
-
-  ShareInManager(this._appService, this._catchupManager, this._feedsManager);
-
+class ShareInManager(
+  final AppService _appService,
+  final CatchupManager _catchupManager,
+  final FeedsManager _feedsManager,
+) {
   void _validateFeedList(List<Feed> feedList) {
     for (var index = 0; index < feedList.length; index++) {
       final incomingFeed = feedList[index];

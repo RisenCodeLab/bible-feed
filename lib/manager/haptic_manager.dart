@@ -12,22 +12,18 @@ import 'debounce_manager.dart';
 import 'feed_tap_manager.dart';
 
 @singleton
-class HapticManager extends RouteObserver<PageRoute<dynamic>> {
-  final DebounceManager _debounceManager;
-  final HapticService _hapticService;
-  final HapticSetting _hapticSetting;
-
-  HapticManager(
-    this._debounceManager,
-    this._hapticService,
-    this._hapticSetting,
-    BibleReaderLinkManager bibleReaderLinkManager,
-    BookListWheelState bookListWheelState,
-    CatchupSetting catchupSetting,
-    ChapterListWheelState chapterListWheelState,
-    ChapterSplitSetting chapterSplitSetting,
-    FeedTapManager feedTapManager,
-  ) {
+class HapticManager(
+  final DebounceManager _debounceManager,
+  final HapticService _hapticService,
+  final HapticSetting _hapticSetting,
+  BibleReaderLinkManager bibleReaderLinkManager,
+  BookListWheelState bookListWheelState,
+  CatchupSetting catchupSetting,
+  ChapterListWheelState chapterListWheelState,
+  ChapterSplitSetting chapterSplitSetting,
+  FeedTapManager feedTapManager,
+) extends RouteObserver<PageRoute<dynamic>> {
+  this {
     final notifiers = [
       bookListWheelState,
       chapterListWheelState,

@@ -4,12 +4,12 @@ import 'package:injectable/injectable.dart';
 import '../model/priority.dart';
 
 @lazySingleton
-class AppLifecycleManager {
-  AppLifecycleManager() {
+class AppLifecycleManager() {
+  final Map<Priority, List<VoidCallback>> _resumeCallbacks = {.high: [], .normal: [], .low: []};
+
+  this {
     AppLifecycleListener(onResume: runCallbacks);
   }
-
-  final Map<Priority, List<VoidCallback>> _resumeCallbacks = {.high: [], .normal: [], .low: []};
 
   // Register a callback for app-resume with optional priority.
   void onResume(VoidCallback callback, {Priority priority = .normal}) {

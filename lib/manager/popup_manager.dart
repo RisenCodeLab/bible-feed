@@ -4,11 +4,7 @@ import '../model/popup_action.dart';
 import '../model/verse.dart';
 import '../service/store_service.dart';
 
-abstract class PopupManager with ChangeNotifier {
-  final StoreService _storeService;
-
-  PopupManager(this._storeService);
-
+abstract class PopupManager(final StoreService _storeService) with ChangeNotifier {
   //// abstract
 
   String get onboardingStoreKeyFragment;

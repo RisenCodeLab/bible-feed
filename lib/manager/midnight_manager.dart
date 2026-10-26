@@ -18,16 +18,14 @@ abstract class MidnightManager with ChangeNotifier, PriorityNotifier {}
 //
 @prod
 @Singleton(as: MidnightManager)
-class ProdMidnightManager extends MidnightManager {
-  final AppLifecycleManager _appLifecycleManager;
-  final DateTimeService _dateTimeService;
+class ProdMidnightManager(final AppLifecycleManager _appLifecycleManager, final DateTimeService _dateTimeService)
+    extends MidnightManager {
+  Timer? _timer;
 
-  ProdMidnightManager(this._appLifecycleManager, this._dateTimeService) {
+  this {
     _appLifecycleManager.onResume(_setTimer);
     _setTimer();
   }
-
-  Timer? _timer;
 
   void _run() {
     notifyListeners();

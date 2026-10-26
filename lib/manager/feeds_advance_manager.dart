@@ -9,13 +9,11 @@ import 'feed_manager.dart';
 import 'feeds_manager.dart';
 
 @lazySingleton
-class FeedsAdvanceManager with ChangeNotifier {
-  final DateTimeService _dateTimeService;
-  final FeedAdvanceManager _feedAdvanceManager;
-  final FeedsManager _feedsManager;
-
-  FeedsAdvanceManager(this._dateTimeService, this._feedAdvanceManager, this._feedsManager);
-
+class FeedsAdvanceManager(
+  final DateTimeService _dateTimeService,
+  final FeedAdvanceManager _feedAdvanceManager,
+  final FeedsManager _feedsManager,
+) with ChangeNotifier {
   FeedsAdvanceState advance() {
     for (FeedManager fm in _feedsManager.feedManagers) {
       _feedAdvanceManager.advance(fm);

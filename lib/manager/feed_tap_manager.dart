@@ -6,12 +6,10 @@ import 'bible_reader_link_manager.dart';
 import 'feed_manager.dart';
 
 @lazySingleton
-class FeedTapManager with ChangeNotifier {
-  final BibleReaderLaunchManager _bibleReaderLaunchManager;
-  final BibleReaderLinkManager _bibleReaderLinkManager;
-
-  FeedTapManager(this._bibleReaderLaunchManager, this._bibleReaderLinkManager);
-
+class FeedTapManager(
+  final BibleReaderLaunchManager _bibleReaderLaunchManager,
+  final BibleReaderLinkManager _bibleReaderLinkManager,
+) with ChangeNotifier {
   Future<void> handleTap(FeedManager feedManager) {
     notifyListeners();
     feedManager.toggleIsRead();

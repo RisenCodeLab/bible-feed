@@ -5,11 +5,7 @@ import '../model/reading_list.dart';
 import '../service/store_service.dart';
 
 @lazySingleton
-class FeedStoreManager {
-  final StoreService _storeService;
-
-  FeedStoreManager(this._storeService);
-
+class FeedStoreManager(final StoreService _storeService) {
   Feed load(ReadingList readingList) {
     const defaultChapter = 1;
     const defaultVerse = 1;

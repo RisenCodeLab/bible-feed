@@ -7,17 +7,17 @@ import '../service/store_service.dart';
 import 'bible_readers_certified_manager.dart';
 
 @lazySingleton
-class BibleReaderLinkManager with ChangeNotifier {
-  final BibleReadersCertifiedManager _bibleReadersCertifiedManager;
-  final StoreService _storeService;
-
-  BibleReaderLinkManager(this._storeService, this._bibleReadersCertifiedManager) {
-    _loadState();
-  }
-
+class BibleReaderLinkManager(
+  final StoreService _storeService,
+  final BibleReadersCertifiedManager _bibleReadersCertifiedManager,
+) with ChangeNotifier {
   static const _linkedBibleReaderStoreKey = 'linkedBibleReader';
 
   late BibleReaderKey _linkedBibleReaderKey; // ignore: avoid-late-keyword, guaranteed to be set in ctor -> _loadState
+
+  this {
+    _loadState();
+  }
 
   void _loadState() {
     final String? linkedReaderName = _storeService.get(_linkedBibleReaderStoreKey);

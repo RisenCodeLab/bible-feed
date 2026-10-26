@@ -4,11 +4,7 @@ import 'chapter_split_manager.dart';
 import 'feed_manager.dart';
 
 @lazySingleton
-class FeedAdvanceManager {
-  final ChapterSplitManager _chapterSplitService;
-
-  FeedAdvanceManager(this._chapterSplitService);
-
+class FeedAdvanceManager(final ChapterSplitManager _chapterSplitService) {
   void advance(FeedManager feedManager) {
     final feed = feedManager.feed;
     assert(feed.isRead);

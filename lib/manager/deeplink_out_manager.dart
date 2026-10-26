@@ -5,12 +5,7 @@ import 'json_encoding_manager.dart';
 import 'share_out_manager.dart';
 
 @singleton
-class DeepLinkOutManager {
-  final JsonEncodingManager _jsonEncodingManager;
-  final ShareOutManager _shareOutManager;
-
-  DeepLinkOutManager(this._jsonEncodingManager, this._shareOutManager);
-
+class DeepLinkOutManager(final JsonEncodingManager _jsonEncodingManager, final ShareOutManager _shareOutManager) {
   String getUrl() {
     final encodedJson = _jsonEncodingManager.encode(_shareOutManager.getJson());
     // for android: scheme, host and path are defined in <intent-filter> in AndroidManifest.xml
