@@ -9,12 +9,6 @@ analyzer:
     - android/**
     - ios/**
 
-  # This dcl plugin uses far too much cpu and ram on M1 Air base model!
-  # Also has a bug where a 2nd connection does not work.
-  #
-  # plugins:
-  #   - dart_code_linter
-
 dart_code_linter:
   extends:
     - package:dart_code_linter/presets/all.yaml
