@@ -18,8 +18,6 @@ class AutoAdvanceManager(
   }
 
   void _maybeAdvance() {
-    if (_feedsAdvanceManager.maybeAdvance() == .listsAdvanced) {
-      notifyListeners();
-    }
+    if (_feedsAdvanceManager.maybeAdvance() == .listsAdvanced) notifyListeners();
   }
 }
