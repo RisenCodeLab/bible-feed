@@ -7,9 +7,7 @@ import 'reading_list.dart';
 
 @immutable
 @lazySingleton
-class ReadingLists extends BaseList<ReadingList> {
-  const ReadingLists(super._items);
-}
+class ReadingLists(super._items) extends BaseList<ReadingList> {}
 
 @module
 abstract class ReadingListsModule {

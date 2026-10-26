@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-class PopupAction {
-  final VoidCallback action;
-  final Icon icon;
-  final String key;
-  final String text;
-
-  PopupAction({required this.action, required this.icon, required this.key, required this.text});
-}
+class PopupAction({
+  required final VoidCallback action,
+  required final Icon icon,
+  required final String key,
+  required final String text,
+});

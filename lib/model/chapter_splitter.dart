@@ -3,12 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'feed.dart';
 
 @immutable
-class ChapterSplitter {
-  final String bookKey;
-  final int chapter;
-  final List<int> verses; // each section split starts at these verse numbers, excluding verse 1
-
-  const ChapterSplitter(this.bookKey, this.chapter, this.verses);
+class const ChapterSplitter(final String bookKey, final int chapter, final List<int> verses) {
+  // each section split starts at these verse numbers, excluding verse 1
 
   String _toNonBreakingSpace(String label) {
     const nonBreakingSpaceCharCode = 0x00A0;

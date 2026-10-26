@@ -1,8 +1,4 @@
-class BaseList<T> extends Iterable<T> {
-  const BaseList(this._items);
-
-  final List<T> _items;
-
+class BaseList<T>(final List<T> _items) extends Iterable<T> {
   @override
   Iterator<T> get iterator => _items.iterator;
 

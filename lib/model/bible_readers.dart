@@ -6,9 +6,7 @@ import 'bible_reader.dart';
 
 @immutable
 @lazySingleton
-class BibleReaders extends BaseList<BibleReader> {
-  const BibleReaders(super._items);
-}
+class BibleReaders(super._items) extends BaseList<BibleReader> {}
 
 // Android bible readers must be added to the queries section of AndroidManifest.xml.
 // IOS bible reader schemes must be added to LSApplicationQueriesSchemes in Info.plist.

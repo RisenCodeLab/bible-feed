@@ -10,9 +10,7 @@ import 'feed.dart';
 
 @immutable
 @lazySingleton
-class ChapterSplitters extends BaseList<ChapterSplitter> {
-  const ChapterSplitters(super._items);
-
+class ChapterSplitters(super._items) extends BaseList<ChapterSplitter> {
   static const psalm119VerseList = [17, 33, 49, 65, 81, 97, 113, 129, 145, 161]; // used by unit test
 
   ChapterSplitter? find(Feed state) =>

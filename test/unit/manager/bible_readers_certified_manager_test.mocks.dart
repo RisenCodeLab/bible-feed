@@ -4,13 +4,13 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:bible_feed/model/bible_reader.dart' as _i3;
-import 'package:bible_feed/model/bible_reader_key.dart' as _i6;
-import 'package:bible_feed/model/bible_reader_type.dart' as _i8;
-import 'package:bible_feed/model/book_key_externaliser.dart' as _i4;
+import 'package:bible_feed/model/bible_reader_key.dart' as _i4;
+import 'package:bible_feed/model/bible_reader_type.dart' as _i5;
+import 'package:bible_feed/model/book_key_externaliser.dart' as _i7;
 import 'package:bible_feed/model/url_template.dart' as _i2;
-import 'package:flutter/foundation.dart' as _i5;
+import 'package:flutter/foundation.dart' as _i8;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i7;
+import 'package:mockito/src/dummies.dart' as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -38,31 +38,24 @@ class _FakeUrlTemplate_0 extends _i1.SmartFake implements _i2.UrlTemplate {
 /// See the documentation for Mockito's code generation for more information.
 class MockBibleReader extends _i1.Mock implements _i3.BibleReader {
   @override
-  _i4.BookKeyExternaliser get bookKeyExternaliser => (super.noSuchMethod(
-    Invocation.getter(#bookKeyExternaliser),
-    returnValue: _i4.BookKeyExternaliser.identity,
-    returnValueForMissingStub: _i4.BookKeyExternaliser.identity,
-  ) as _i4.BookKeyExternaliser);
-
-  @override
-  List<_i5.TargetPlatform> get certifiedPlatforms => (super.noSuchMethod(
-    Invocation.getter(#certifiedPlatforms),
-    returnValue: <_i5.TargetPlatform>[],
-    returnValueForMissingStub: <_i5.TargetPlatform>[],
-  ) as List<_i5.TargetPlatform>);
-
-  @override
-  _i6.BibleReaderKey get key => (super.noSuchMethod(
+  _i4.BibleReaderKey get key => (super.noSuchMethod(
     Invocation.getter(#key),
-    returnValue: _i6.BibleReaderKey.none,
-    returnValueForMissingStub: _i6.BibleReaderKey.none,
-  ) as _i6.BibleReaderKey);
+    returnValue: _i4.BibleReaderKey.none,
+    returnValueForMissingStub: _i4.BibleReaderKey.none,
+  ) as _i4.BibleReaderKey);
+
+  @override
+  _i5.BibleReaderType get type => (super.noSuchMethod(
+    Invocation.getter(#type),
+    returnValue: _i5.BibleReaderType.app,
+    returnValueForMissingStub: _i5.BibleReaderType.app,
+  ) as _i5.BibleReaderType);
 
   @override
   String get name => (super.noSuchMethod(
     Invocation.getter(#name),
-    returnValue: _i7.dummyValue<String>(this, Invocation.getter(#name)),
-    returnValueForMissingStub: _i7.dummyValue<String>(
+    returnValue: _i6.dummyValue<String>(this, Invocation.getter(#name)),
+    returnValueForMissingStub: _i6.dummyValue<String>(
       this,
       Invocation.getter(#name),
     ),
@@ -79,17 +72,24 @@ class MockBibleReader extends _i1.Mock implements _i3.BibleReader {
   ) as _i2.UrlTemplate);
 
   @override
-  _i8.BibleReaderType get type => (super.noSuchMethod(
-    Invocation.getter(#type),
-    returnValue: _i8.BibleReaderType.app,
-    returnValueForMissingStub: _i8.BibleReaderType.app,
-  ) as _i8.BibleReaderType);
+  _i7.BookKeyExternaliser get bookKeyExternaliser => (super.noSuchMethod(
+    Invocation.getter(#bookKeyExternaliser),
+    returnValue: _i7.BookKeyExternaliser.identity,
+    returnValueForMissingStub: _i7.BookKeyExternaliser.identity,
+  ) as _i7.BookKeyExternaliser);
+
+  @override
+  List<_i8.TargetPlatform> get certifiedPlatforms => (super.noSuchMethod(
+    Invocation.getter(#certifiedPlatforms),
+    returnValue: <_i8.TargetPlatform>[],
+    returnValueForMissingStub: <_i8.TargetPlatform>[],
+  ) as List<_i8.TargetPlatform>);
 
   @override
   String get displayName => (super.noSuchMethod(
     Invocation.getter(#displayName),
-    returnValue: _i7.dummyValue<String>(this, Invocation.getter(#displayName)),
-    returnValueForMissingStub: _i7.dummyValue<String>(
+    returnValue: _i6.dummyValue<String>(this, Invocation.getter(#displayName)),
+    returnValueForMissingStub: _i6.dummyValue<String>(
       this,
       Invocation.getter(#displayName),
     ),
