@@ -6,7 +6,7 @@ void main() {
     late JsonEncodingManager testee;
 
     setUp(() {
-      testee = JsonEncodingManager();
+      testee = .new();
     });
 
     test('encode and decode returns original JSON string', () {

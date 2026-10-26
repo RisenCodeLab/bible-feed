@@ -7,7 +7,7 @@ void main() {
   late DebounceManager testee;
 
   setUp(() {
-    testee = DebounceManager();
+    testee = .new();
   });
 
   group('run', () {

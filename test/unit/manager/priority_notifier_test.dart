@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:bible_feed/manager/priority_notifier.dart';
-import 'package:bible_feed/model/priority.dart';
 
 class TestNotifier with ChangeNotifier, PriorityNotifier {}
 
@@ -11,10 +10,10 @@ void main() {
     final callOrder = <String>[];
 
     notifier.addListener(() => callOrder.add('normal1'));
-    notifier.addListener(() => callOrder.add('high1'), priority: Priority.high);
-    notifier.addListener(() => callOrder.add('low1'), priority: Priority.low);
+    notifier.addListener(() => callOrder.add('high1'), priority: .high);
+    notifier.addListener(() => callOrder.add('low1'), priority: .low);
     notifier.addListener(() => callOrder.add('normal2'));
-    notifier.addListener(() => callOrder.add('high2'), priority: Priority.high);
+    notifier.addListener(() => callOrder.add('high2'), priority: .high);
 
     notifier.notifyListeners();
 
@@ -29,8 +28,8 @@ void main() {
       callCount++;
     }
 
-    notifier.addListener(listener, priority: Priority.high);
-    notifier.addListener(listener, priority: Priority.low);
+    notifier.addListener(listener, priority: .high);
+    notifier.addListener(listener, priority: .low);
 
     notifier.notifyListeners();
     notifier.notifyListeners();

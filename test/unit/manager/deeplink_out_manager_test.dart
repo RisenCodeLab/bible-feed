@@ -16,9 +16,9 @@ void main() {
     late DeepLinkOutManager testee;
 
     setUp(() {
-      mockShareOutManager = MockShareOutManager();
-      mockJsonEncodingManager = MockJsonEncodingManager();
-      testee = DeepLinkOutManager(mockJsonEncodingManager, mockShareOutManager);
+      mockShareOutManager = .new();
+      mockJsonEncodingManager = .new();
+      testee = .new(mockJsonEncodingManager, mockShareOutManager);
     });
 
     test('getUrl returns correct deep link URL with encoded JSON', () {
