@@ -8,10 +8,7 @@ import '../manager/feeds_manager.dart';
 import 'feed_body.dart';
 import 'feed_semantics.dart';
 
-class Feed extends WatchingWidget {
-  final FeedManager feedManager;
-  const Feed(this.feedManager);
-
+class const Feed(final FeedManager feedManager) extends WatchingWidget {
   @override
   build(context) {
     watch(feedManager);

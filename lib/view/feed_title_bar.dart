@@ -6,10 +6,7 @@ import '../manager/feeds_manager.dart';
 import '_build_context_extension.dart';
 import 'book_chapter_dialog.dart';
 
-class FeedTitleBar extends WatchingWidget {
-  final FeedManager feedManager;
-  const FeedTitleBar(this.feedManager);
-
+class const FeedTitleBar(final FeedManager feedManager) extends WatchingWidget {
   @override
   build(context) {
     final feedsManager = watchIt<FeedsManager>();

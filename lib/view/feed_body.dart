@@ -9,10 +9,7 @@ import 'book_chapter_dialog.dart';
 import 'feed_book_chapter.dart';
 import 'feed_title_bar.dart';
 
-class FeedBody extends StatelessWidget {
-  final FeedManager feedManager;
-  const FeedBody(this.feedManager);
-
+class const FeedBody(final FeedManager feedManager) extends StatelessWidget {
   Future<void> _handleTap(BuildContext context) async {
     try {
       await sl<FeedTapManager>().handleTap(feedManager);

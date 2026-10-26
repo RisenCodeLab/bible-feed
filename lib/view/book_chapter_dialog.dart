@@ -10,10 +10,8 @@ import '_constants.dart';
 import 'book_chapter_dialog_footer.dart';
 import 'book_chapter_dialog_wheels.dart';
 
-class BookChapterDialog extends StatelessWidget {
-  final FeedManager feedManager;
-
-  BookChapterDialog(this.feedManager) {
+class BookChapterDialog(final FeedManager feedManager) extends StatelessWidget {
+  this {
     sl<BookListWheelState>().index = feedManager.bookIndex;
     sl<ChapterListWheelState>().index = feedManager.feed.chapter - 1;
   }

@@ -6,10 +6,7 @@ import '../manager/feed_manager.dart';
 import '../model/list_wheel_state.dart';
 import '_build_context_extension.dart';
 
-class BookChapterDialogFooter extends WatchingWidget {
-  final FeedManager feedManager;
-  const BookChapterDialogFooter(this.feedManager);
-
+class const BookChapterDialogFooter(final FeedManager feedManager) extends WatchingWidget {
   @override
   build(context) {
     var bookIndex = watchIt<BookListWheelState>().index;

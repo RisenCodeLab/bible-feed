@@ -1,23 +1,14 @@
 import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 
-class AnimatedFab extends StatelessWidget {
-  final Color backgroundColor;
-  final Color foregroundColor;
-  final IconData iconData;
-  final bool isVisible;
-  final String keyValue;
-  final Function() onPressed;
-
-  const AnimatedFab({
-    required this.backgroundColor,
-    required this.foregroundColor,
-    required this.iconData,
-    required this.isVisible,
-    required this.keyValue,
-    required this.onPressed,
-  });
-
+class const AnimatedFab({
+  required final Color backgroundColor,
+  required final Color foregroundColor,
+  required final IconData iconData,
+  required final bool isVisible,
+  required final String keyValue,
+  required final Function() onPressed,
+}) extends StatelessWidget {
   @override
   build(context) {
     const fabSize = 35.0;

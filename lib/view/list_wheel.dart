@@ -13,14 +13,12 @@ import 'list_wheel_highlight.dart';
 // - wheel_picker (https://pub.dev/packages/wheel_picker)
 //    - does not seem to rebuild as expected
 //
-class ListWheel extends StatelessWidget {
-  final ListWheelState listWheelState;
-  final String Function(int) indexToString;
-  final int maxIndex;
-
-  const ListWheel(this.listWheelState, {required Key key, required this.indexToString, required this.maxIndex})
-    : super(key: key);
-
+class const ListWheel(
+  final ListWheelState listWheelState, {
+  required super.key,
+  required final String Function(int) indexToString,
+  required final int maxIndex,
+}) extends StatelessWidget {
   @override
   build(context) {
     const magnification = 1.1;

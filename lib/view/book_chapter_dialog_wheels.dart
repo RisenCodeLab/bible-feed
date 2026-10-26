@@ -5,10 +5,7 @@ import '../model/list_wheel_state.dart';
 import '../model/reading_list.dart';
 import 'list_wheel.dart';
 
-class BookChapterDialogWheels extends WatchingWidget {
-  final ReadingList readingList;
-  const BookChapterDialogWheels(this.readingList);
-
+class const BookChapterDialogWheels(final ReadingList readingList) extends WatchingWidget {
   @override
   build(context) {
     var bookIndex = watchIt<BookListWheelState>().index;

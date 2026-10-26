@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import '_build_context_extension.dart';
 
 // background fade effect
-class ListWheelGradient extends StatelessWidget {
-  final Alignment begin, end;
-  const ListWheelGradient({required this.begin, required this.end});
-
+class const ListWheelGradient({required final Alignment begin, required final Alignment end}) extends StatelessWidget {
   @override
   build(context) {
     return Align(

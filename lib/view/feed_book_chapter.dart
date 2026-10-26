@@ -7,10 +7,7 @@ import '../manager/feed_manager.dart';
 import '../model/chapter_split_setting.dart';
 import '_constants.dart';
 
-class FeedBookChapter extends WatchingWidget {
-  final FeedManager feedManager;
-  const FeedBookChapter(this.feedManager);
-
+class const FeedBookChapter(final FeedManager feedManager) extends WatchingWidget {
   @override
   build(context) {
     const maxLines = 2;

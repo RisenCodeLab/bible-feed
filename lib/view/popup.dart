@@ -5,9 +5,7 @@ import '../manager/popup_manager.dart';
 import '_constants.dart';
 import 'popup_body.dart';
 
-class Popup<T extends PopupManager> extends StatefulWidget {
-  const Popup({super.key});
-
+class const Popup<T extends PopupManager>({super.key}) extends StatefulWidget {
   @override
   State<Popup<T>> createState() => _PopupState<T>();
 }

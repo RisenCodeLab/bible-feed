@@ -5,9 +5,7 @@ import '../manager/popup_manager.dart';
 import '_constants.dart';
 import 'popup_verses.dart';
 
-class PopupBody<T extends PopupManager> extends StatelessWidget {
-  const PopupBody({super.key});
-
+class const PopupBody<T extends PopupManager>({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final popupManager = sl<T>();

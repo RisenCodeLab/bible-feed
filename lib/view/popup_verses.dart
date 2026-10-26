@@ -4,9 +4,7 @@ import 'package:watch_it/watch_it.dart';
 import '../manager/popup_manager.dart';
 import '_constants.dart';
 
-class PopupVerses<T extends PopupManager> extends StatelessWidget {
-  const PopupVerses({super.key});
-
+class const PopupVerses<T extends PopupManager>({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // golden screenshots render squares unless we specify the fontFamily

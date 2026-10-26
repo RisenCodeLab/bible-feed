@@ -5,11 +5,7 @@ import 'package:watch_it/watch_it.dart';
 import '../manager/bible_reader_link_manager.dart';
 import '_constants.dart';
 
-class BibleReaderLaunchFailedDialog extends StatelessWidget {
-  final Exception exception;
-
-  const BibleReaderLaunchFailedDialog(this.exception);
-
+class const BibleReaderLaunchFailedDialog(final Exception exception) extends StatelessWidget {
   @override
   build(context) {
     final bibleReader = sl<BibleReaderLinkManager>().linkedBibleReader;
