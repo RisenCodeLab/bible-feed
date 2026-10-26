@@ -27,13 +27,12 @@
 ### Class Member Ordering
 Members within classes must be ordered as follows:
 
-1. **Injected dependency fields** (final fields from constructor injection)
-2. **Constructor**
-3. **Private fields** (non-injected, mutable state)
-4. **Private getters and setters**
-5. **Private methods**
-6. **Public getters and setters**
-7. **Public methods**
+1. **Constructor**
+2. **Private fields** (non-injected, mutable state)
+3. **Private getters and setters**
+4. **Private methods**
+5. **Public getters and setters**
+6. **Public methods**
 
 **Exception:** Within a single section, abstract members that define contracts may precede concrete implementations.
 
