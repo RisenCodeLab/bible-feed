@@ -3,11 +3,7 @@ import 'package:injectable/injectable.dart';
 
 import '/injectable.env.dart';
 
-class PlatformService {
-  PlatformService({required this.currentPlatform});
-
-  final TargetPlatform currentPlatform;
-
+class PlatformService({required final TargetPlatform currentPlatform}) {
   bool get isAndroid => currentPlatform == .android;
   bool get isIOS => currentPlatform == .iOS;
 }
@@ -15,6 +11,6 @@ class PlatformService {
 @integrationTest
 @prod
 @LazySingleton(as: PlatformService)
-class ProductionPlatformService extends PlatformService {
-  ProductionPlatformService() : super(currentPlatform: defaultTargetPlatform);
+class ProductionPlatformService() extends PlatformService {
+  this : super(currentPlatform: defaultTargetPlatform);
 }

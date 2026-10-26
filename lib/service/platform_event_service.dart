@@ -11,8 +11,8 @@ abstract class PlatformEventService with ChangeNotifier {}
 @integrationTest
 @prod
 @LazySingleton(as: PlatformEventService)
-class ProductionPlatformEventService extends PlatformEventService {
-  ProductionPlatformEventService(PlatformService platformService) {
+class ProductionPlatformEventService(PlatformService platformService) extends PlatformEventService {
+  this {
     if (platformService.isIOS) return; // IOS cannot detect app (un)install events.
     const EventChannel('com.risencode.bible_feed/app_install_events').receiveBroadcastStream().listen((event) {
       Log.info(event);

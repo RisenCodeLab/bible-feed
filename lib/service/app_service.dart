@@ -3,19 +3,12 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 import '../injectable.env.dart';
 
-abstract class AppService {
-  AppService({required this.buildNumber, required this.version});
-
-  final String buildNumber;
-  final String version;
-}
+abstract class AppService({required final String buildNumber, required final String version});
 
 @integrationTest
 @prod
 @LazySingleton(as: AppService)
-class ProductionAppService extends AppService {
-  ProductionAppService({required super.buildNumber, required super.version});
-
+class ProductionAppService({required super.buildNumber, required super.version}) extends AppService {
   @factoryMethod
   @preResolve
   static Future<AppService> create() async {

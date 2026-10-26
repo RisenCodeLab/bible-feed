@@ -5,6 +5,6 @@ import '../platform_service.dart';
 
 @golden
 @LazySingleton(as: PlatformService)
-class StubPlatformService extends PlatformService {
-  StubPlatformService() : super(currentPlatform: .android);
+class StubPlatformService() extends PlatformService {
+  this : super(currentPlatform: .android);
 }

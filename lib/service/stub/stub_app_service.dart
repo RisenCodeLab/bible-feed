@@ -8,9 +8,7 @@ import '../app_service.dart' as base;
 
 @golden
 @LazySingleton(as: base.AppService)
-class StubAppService extends base.AppService {
-  StubAppService({required super.buildNumber, required super.version});
-
+class StubAppService({required super.buildNumber, required super.version}) extends base.AppService {
   @factoryMethod
   @preResolve
   static Future<StubAppService> create() async {

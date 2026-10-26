@@ -5,10 +5,11 @@ import 'package:injectable/injectable.dart';
 import 'toast_service.dart';
 
 @lazySingleton
-class DeepLinkService with ChangeNotifier {
-  final ToastService _toastService;
+class DeepLinkService(final ToastService _toastService) with ChangeNotifier {
+  // ignore: avoid-late-keyword, guaranteed to be set before notifyListeners() is called
+  late Uri uri;
 
-  DeepLinkService(this._toastService) {
+  this {
     AppLinks().uriLinkStream.listen(
       (uriIn) {
         uri = uriIn;
@@ -19,7 +20,4 @@ class DeepLinkService with ChangeNotifier {
       },
     );
   }
-
-  // ignore: avoid-late-keyword, guaranteed to be set before notifyListeners() is called
-  late Uri uri;
 }

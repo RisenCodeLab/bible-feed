@@ -5,6 +5,6 @@ import '../haptic_service.dart';
 
 @golden
 @LazySingleton(as: HapticService)
-class StubHapticService extends HapticService {
-  StubHapticService() : super(isAvailable: true);
+class StubHapticService() extends HapticService {
+  this : super(isAvailable: true);
 }
