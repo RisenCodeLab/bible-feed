@@ -11,8 +11,7 @@ import '../injectable.env.dart';
 class StoreService(final SharedPreferences _sharedPreferences) {
   @FactoryMethod(preResolve: true)
   static Future<StoreService> create() async {
-    final sp = await SharedPreferences.getInstance();
-    return .new(sp);
+    return .new(await SharedPreferences.getInstance());
   }
 
   T? get<T>(String key) {
