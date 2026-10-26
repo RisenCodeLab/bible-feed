@@ -27,7 +27,15 @@ import 'helper.dart';
 
 enum Platform { android, iOS }
 
-enum Device {
+enum Device(
+  final bool enabled,
+  final String name,
+  final String folder,
+  final Platform platform,
+  final Size physicalSize, {
+  required final double density,
+  final double? inches,
+}) {
   googlePixel3(true, 'google-pixel-3', 'phoneScreenshots', Platform.android, Size(1080, 2160), density: 3),
   // name must be ipadPro129 to upload to 3rd-gen slot (13")
   iPadPro12(true, 'ipadPro129', '', Platform.iOS, Size(2048, 2732), density: 2, inches: 12.9),
@@ -39,35 +47,15 @@ enum Device {
   // iPhone16ProMax(true, 'iphone-16-pro-max', Platforms.iOS, Size(1320, 2868), density: 3, inches: 6.9),
   // iPhone16Pro(true, 'iphone-16-pro', Platforms.iOS, Size(1206, 2622), density: 3, inches: 6.3),
 
-  const Device(
-    this.enabled,
-    this.name,
-    this.folder,
-    this.platform,
-    this.physicalSize, {
-    required this.density,
-    this.inches,
-  });
-
-  final bool enabled;
-  final String name;
-  final String folder;
-  final Platform platform;
-  final Size physicalSize;
-  final double density;
-  final double? inches;
-
   Size get logicalSize => physicalSize / density;
 }
 
-class Scenario {
-  const Scenario(this.name, {this.brightness = .light, this.setup, this.tapKey});
-
-  final String name;
-  final Brightness brightness;
-  final Function()? setup;
-  final String? tapKey;
-}
+class const Scenario(
+  final String name, {
+  final Brightness brightness = .light,
+  final Function()? setup,
+  final String? tapKey,
+});
 
 final scenarios = {
   const Scenario('home'),
