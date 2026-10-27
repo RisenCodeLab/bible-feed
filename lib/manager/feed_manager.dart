@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
-import 'package:watch_it/watch_it.dart';
 
 import '../model/book.dart';
 import '../model/feed.dart';
 import '../model/reading_list.dart';
 import '../service/date_time_service.dart';
 
-class FeedManager(var Feed _feed, final ReadingList _readingList) with ChangeNotifier {
+class FeedManager(final DateTimeService _dateTimeService, var Feed _feed, final ReadingList _readingList)
+    with ChangeNotifier {
   Book get book => _readingList.getBook(_feed.bookKey);
   int get bookIndex => _readingList.indexOf(book);
   int get chaptersRead => _feed.chapter - (_feed.isRead ? 0 : 1);
@@ -25,13 +25,13 @@ class FeedManager(var Feed _feed, final ReadingList _readingList) with ChangeNot
     _feed.chapter = chapter;
     _feed.verse = verse;
     _feed.isRead = false;
-    _feed.dateModified = sl<DateTimeService>().now;
+    _feed.dateModified = _dateTimeService.now;
     notifyListeners();
   }
 
   void toggleIsRead() {
     _feed.isRead = !_feed.isRead;
-    _feed.dateModified = sl<DateTimeService>().now;
+    _feed.dateModified = _dateTimeService.now;
     notifyListeners();
   }
 

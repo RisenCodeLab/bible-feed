@@ -3,33 +3,26 @@ import 'package:bible_feed/manager/feed_advance_manager.dart';
 import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/model/book.dart';
 import 'package:bible_feed/model/feed.dart';
-import 'package:bible_feed/service/date_time_service.dart';
 import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:watch_it/watch_it.dart';
 
 import '../test_data.dart';
 import 'feed_advance_manager_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<ChapterSplitManager>()])
 void main() async {
-  late StubDateTimeService dateTimeService;
+  final dateTimeService = StubDateTimeService();
   final mockChapterSplitManager = MockChapterSplitManager();
   late FeedManager feedManager;
   late Feed feed;
   late FeedAdvanceManager testee;
 
-  setUpAll(() {
-    dateTimeService = StubDateTimeService();
-    sl.registerSingleton<DateTimeService>(dateTimeService);
-  });
-
   setUp(() {
     dateTimeService.reset();
     feed = Feed(bookKey: b1.key);
-    feedManager = FeedManager(feed, rl1);
+    feedManager = FeedManager(dateTimeService, feed, rl1);
     when(mockChapterSplitManager.getNextVerse(feed)).thenReturn(1);
     testee = FeedAdvanceManager(mockChapterSplitManager);
   });

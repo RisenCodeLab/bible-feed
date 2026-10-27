@@ -3,27 +3,20 @@ import 'package:bible_feed/manager/bible_reader_link_manager.dart';
 import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/manager/feed_tap_manager.dart';
 import 'package:bible_feed/model/feed.dart';
-import 'package:bible_feed/service/date_time_service.dart';
 import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:watch_it/watch_it.dart';
 
 import '../test_data.dart';
 import 'feed_tap_manager_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<BibleReaderLaunchManager>(), MockSpec<BibleReaderLinkManager>()])
 void main() {
-  late StubDateTimeService dateTimeService;
+  final dateTimeService = StubDateTimeService();
   late MockBibleReaderLaunchManager mockLaunchManager;
   late MockBibleReaderLinkManager mockLinkManager;
   late FeedTapManager feedTapManager;
-
-  setUpAll(() {
-    dateTimeService = StubDateTimeService();
-    sl.registerSingleton<DateTimeService>(dateTimeService);
-  });
 
   setUp(() {
     dateTimeService.reset();
@@ -33,7 +26,7 @@ void main() {
   });
 
   test('handleTap toggles read, and launches reader', () async {
-    final feed = FeedManager(Feed(bookKey: b0.key), rl0);
+    final feed = FeedManager(dateTimeService, Feed(bookKey: b0.key), rl0);
     when(mockLinkManager.linkedBibleReader).thenReturn(blbBibleReader);
 
     await feedTapManager.handleTap(feed);

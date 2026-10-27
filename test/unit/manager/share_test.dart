@@ -6,6 +6,7 @@ import 'package:bible_feed/manager/share_out_manager.dart';
 import 'package:bible_feed/model/reading_lists.dart';
 import 'package:bible_feed/service/app_service.dart';
 import 'package:bible_feed/service/store_service.dart';
+import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -15,6 +16,7 @@ import 'share_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<AppService>(), MockSpec<CatchupManager>(), MockSpec<StoreService>()])
 void main() {
+  final dateTimeService = StubDateTimeService();
   final dateModified = DateTime.now();
   final readingLists = ReadingLists([rl0, rl1]);
   late MockAppService mockAppService;
@@ -43,8 +45,8 @@ void main() {
     when(mockOutStoreService.get('rl1.isRead')).thenReturn(true);
     when(mockAppService.buildNumber).thenReturn(buildNumber);
     when(mockCatchupManager.virtualAllDoneDate).thenReturn(virtualAllDoneDate);
-    inFeedsManager = FeedsManager(FeedStoreManager(mockInStoreService), readingLists);
-    outFeedsManager = FeedsManager(FeedStoreManager(mockOutStoreService), readingLists);
+    inFeedsManager = FeedsManager(dateTimeService, FeedStoreManager(mockInStoreService), readingLists);
+    outFeedsManager = FeedsManager(dateTimeService, FeedStoreManager(mockOutStoreService), readingLists);
     shareInManager = ShareInManager(mockAppService, mockCatchupManager, inFeedsManager);
     shareOutManager = ShareOutManager(mockAppService, mockCatchupManager, outFeedsManager);
 
