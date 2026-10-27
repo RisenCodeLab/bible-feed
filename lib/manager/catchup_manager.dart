@@ -64,7 +64,5 @@ class CatchupManager(
     notifyListeners();
   }
 
-  void reset() {
-    virtualAllDoneDate = _defaultVirtualAllDoneDate;
-  }
+  void reset() => virtualAllDoneDate = _defaultVirtualAllDoneDate;
 }
