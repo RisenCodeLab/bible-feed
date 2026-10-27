@@ -139,6 +139,14 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i192.StubMidnightManager(),
       registerFor: {_golden, _integration_test},
     );
+    gh.singleton<_i744.SettingsStoreManager>(
+      () => _i744.SettingsStoreManager(
+        gh<_i451.CatchupSetting>(),
+        gh<_i252.ChapterSplitSetting>(),
+        gh<_i914.HapticSetting>(),
+        gh<_i215.StoreService>(),
+      ),
+    );
     gh.lazySingleton<_i99.DateTimeService>(
       () => _i543.StubDateTimeService(),
       registerFor: {_golden, _integration_test},
@@ -194,14 +202,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i99.DateTimeService>(),
         gh<_i571.FeedStoreManager>(),
         gh<_i823.ReadingLists>(),
-      ),
-    );
-    gh.singleton<_i744.SettingsStoreManager>(
-      () => _i744.SettingsStoreManager(
-        gh<_i215.StoreService>(),
-        gh<_i451.CatchupSetting>(),
-        gh<_i252.ChapterSplitSetting>(),
-        gh<_i914.HapticSetting>(),
       ),
     );
     gh.lazySingleton<_i716.FeedAdvanceManager>(
@@ -282,25 +282,25 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i516.PlatformEventService>(),
       ),
     );
-    gh.singleton<_i950.HapticManager>(
-      () => _i950.HapticManager(
-        gh<_i527.DebounceManager>(),
-        gh<_i22.HapticService>(),
-        gh<_i914.HapticSetting>(),
-        gh<_i567.BibleReaderLinkManager>(),
-        gh<_i1033.BookListWheelState>(),
-        gh<_i451.CatchupSetting>(),
-        gh<_i1033.ChapterListWheelState>(),
-        gh<_i252.ChapterSplitSetting>(),
-        gh<_i583.FeedTapManager>(),
-      ),
-    );
     gh.singleton<_i468.DeepLinkInManager>(
       () => _i468.DeepLinkInManager(
         gh<_i326.DeepLinkService>(),
         gh<_i508.JsonEncodingManager>(),
         gh<_i864.ShareInManager>(),
         gh<_i942.ToastService>(),
+      ),
+    );
+    gh.singleton<_i950.HapticManager>(
+      () => _i950.HapticManager(
+        gh<_i567.BibleReaderLinkManager>(),
+        gh<_i1033.BookListWheelState>(),
+        gh<_i451.CatchupSetting>(),
+        gh<_i1033.ChapterListWheelState>(),
+        gh<_i252.ChapterSplitSetting>(),
+        gh<_i527.DebounceManager>(),
+        gh<_i583.FeedTapManager>(),
+        gh<_i22.HapticService>(),
+        gh<_i914.HapticSetting>(),
       ),
     );
     gh.lazySingleton<_i471.AllDonePopupManager>(

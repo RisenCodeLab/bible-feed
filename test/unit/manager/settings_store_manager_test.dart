@@ -25,7 +25,7 @@ void main() {
   });
 
   test('initializes settings from defaults when store empty', () {
-    SettingsStoreManager(storeService, catchupSetting, chapterSplitSetting, hapticSetting);
+    SettingsStoreManager(catchupSetting, chapterSplitSetting, hapticSetting, storeService);
 
     expect(catchupSetting.value, catchupSetting.defaultValue);
     expect(chapterSplitSetting.value, chapterSplitSetting.defaultValue);
@@ -37,7 +37,7 @@ void main() {
     when(storeService.get(chapterSplitSetting.storeKey)).thenReturn(false);
     when(storeService.get(hapticSetting.storeKey)).thenReturn(false);
 
-    SettingsStoreManager(storeService, catchupSetting, chapterSplitSetting, hapticSetting);
+    SettingsStoreManager(catchupSetting, chapterSplitSetting, hapticSetting, storeService);
 
     expect(catchupSetting.value, true);
     expect(chapterSplitSetting.value, false);
@@ -45,7 +45,7 @@ void main() {
   });
 
   test('persists setting changes to store', () {
-    SettingsStoreManager(storeService, catchupSetting, chapterSplitSetting, hapticSetting);
+    SettingsStoreManager(catchupSetting, chapterSplitSetting, hapticSetting, storeService);
 
     catchupSetting.value = !catchupSetting.defaultValue;
     chapterSplitSetting.value = !chapterSplitSetting.defaultValue;

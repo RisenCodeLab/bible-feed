@@ -13,25 +13,25 @@ import 'feed_tap_manager.dart';
 
 @singleton
 class HapticManager(
+  final BibleReaderLinkManager _bibleReaderLinkManager,
+  final BookListWheelState _bookListWheelState,
+  final CatchupSetting _catchupSetting,
+  final ChapterListWheelState _chapterListWheelState,
+  final ChapterSplitSetting _chapterSplitSetting,
   final DebounceManager _debounceManager,
+  final FeedTapManager _feedTapManager,
   final HapticService _hapticService,
   final HapticSetting _hapticSetting,
-  BibleReaderLinkManager bibleReaderLinkManager,
-  BookListWheelState bookListWheelState,
-  CatchupSetting catchupSetting,
-  ChapterListWheelState chapterListWheelState,
-  ChapterSplitSetting chapterSplitSetting,
-  FeedTapManager feedTapManager,
 ) extends RouteObserver<PageRoute<dynamic>> {
   this {
     final notifiers = [
-      bookListWheelState,
-      chapterListWheelState,
-      feedTapManager,
+      _bookListWheelState,
+      _chapterListWheelState,
+      _feedTapManager,
       // settings
-      bibleReaderLinkManager,
-      catchupSetting,
-      chapterSplitSetting,
+      _bibleReaderLinkManager,
+      _catchupSetting,
+      _chapterSplitSetting,
       _hapticSetting,
     ];
     _hapticSetting.isAvailable = _hapticService.isAvailable;

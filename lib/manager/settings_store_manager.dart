@@ -8,15 +8,15 @@ import '../service/store_service.dart';
 
 @singleton
 class SettingsStoreManager(
+  final CatchupSetting _catchupSetting,
+  final ChapterSplitSetting _chapterSplitSetting,
+  final HapticSetting _hapticSetting,
   final StoreService _storeService,
-  CatchupSetting catchupSetting,
-  ChapterSplitSetting chapterSplitSetting,
-  HapticSetting hapticSetting,
 ) {
   this {
-    _init(catchupSetting);
-    _init(chapterSplitSetting);
-    _init(hapticSetting);
+    _init(_catchupSetting);
+    _init(_chapterSplitSetting);
+    _init(_hapticSetting);
   }
 
   void _init(Setting setting) {
