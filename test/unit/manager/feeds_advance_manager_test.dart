@@ -21,30 +21,30 @@ import 'feeds_advance_manager_test.mocks.dart';
   MockSpec<FeedsManager>(),
 ])
 void main() async {
-  late List<MockFeedManager> mockFeedList;
+  late List<MockFeedManager> mockFeedManagerList;
   late MockDateTimeService mockDateTimeService;
   late MockFeedAdvanceManager mockFeedAdvanceManager;
   late MockFeedsManager mockFeedsManager;
   late FeedsAdvanceManager testee;
 
   setUp(() {
-    mockFeedList = [MockFeedManager(), MockFeedManager()];
+    mockFeedManagerList = [MockFeedManager(), MockFeedManager()];
     mockDateTimeService = MockDateTimeService();
     mockFeedAdvanceManager = MockFeedAdvanceManager();
     mockFeedsManager = MockFeedsManager();
-    when(mockFeedsManager.feedManagers).thenReturn(mockFeedList);
+    when(mockFeedsManager.feedManagers).thenReturn(mockFeedManagerList);
     testee = FeedsAdvanceManager(mockDateTimeService, mockFeedAdvanceManager, mockFeedsManager);
   });
 
   verifyAllAdvanced() {
-    for (var f in mockFeedList) {
-      verify(mockFeedAdvanceManager.advance(f)).called(1);
+    for (var fm in mockFeedManagerList) {
+      verify(mockFeedAdvanceManager.advance(fm)).called(1);
     }
   }
 
   verifyNoneAdvanced() {
-    for (var f in mockFeedList) {
-      verifyNever(mockFeedAdvanceManager.advance(f));
+    for (var fm in mockFeedManagerList) {
+      verifyNever(mockFeedAdvanceManager.advance(fm));
     }
   }
 

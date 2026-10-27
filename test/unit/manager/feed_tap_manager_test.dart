@@ -26,12 +26,12 @@ void main() {
   });
 
   test('handleTap toggles read, and launches reader', () async {
-    final feed = FeedManager(dateTimeService, Feed(bookKey: b0.key), rl0);
+    final feedManager = FeedManager(dateTimeService, Feed(bookKey: b0.key), rl0);
     when(mockLinkManager.linkedBibleReader).thenReturn(blbBibleReader);
 
-    await feedTapManager.handleTap(feed);
+    await feedTapManager.handleTap(feedManager);
 
-    expect(feed.feed.isRead, true);
-    verify(mockLaunchManager.maybeLaunch(blbBibleReader, feed.feed)).called(1);
+    expect(feedManager.feed.isRead, true);
+    verify(mockLaunchManager.maybeLaunch(blbBibleReader, feedManager.feed)).called(1);
   });
 }

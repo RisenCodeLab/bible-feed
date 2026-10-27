@@ -60,16 +60,16 @@ void main() {
     final feed2 = Feed(bookKey: b1.key, chapter: 2);
     final shareDto = ShareDto(feedList: [feed1, feed2], version: version, virtualAllDoneDate: virtualAllDoneDate);
     final json = shareDto.toJson();
-    final mockFeed1 = MockFeedManager();
-    final mockFeed2 = MockFeedManager();
+    final mockFeedManager1 = MockFeedManager();
+    final mockFeedManager2 = MockFeedManager();
 
     when(mockAppService.version).thenReturn(version);
     when(mockCatchupManager.virtualAllDoneDate).thenReturn(virtualAllDoneDate);
-    when(mockFeed1.readingList).thenReturn(rl0);
-    when(mockFeed2.readingList).thenReturn(rl1);
-    when(mockFeed1.book).thenReturn(b0);
-    when(mockFeed2.book).thenReturn(b1);
-    when(mockFeedsManager.feedManagers).thenReturn([mockFeed1, mockFeed2]);
+    when(mockFeedManager1.readingList).thenReturn(rl0);
+    when(mockFeedManager2.readingList).thenReturn(rl1);
+    when(mockFeedManager1.book).thenReturn(b0);
+    when(mockFeedManager2.book).thenReturn(b1);
+    when(mockFeedsManager.feedManagers).thenReturn([mockFeedManager1, mockFeedManager2]);
 
     // AI fails to improve this code!?
     DateTime? capturedDate;
@@ -79,8 +79,8 @@ void main() {
 
     testee.sync(json);
 
-    verify(mockFeed1.feed = feed1).called(1);
-    verify(mockFeed2.feed = feed2).called(1);
+    verify(mockFeedManager1.feed = feed1).called(1);
+    verify(mockFeedManager2.feed = feed2).called(1);
     expect(capturedDate?.millisecondsSinceEpoch, virtualAllDoneDate.millisecondsSinceEpoch);
   });
 
@@ -93,17 +93,17 @@ void main() {
       virtualAllDoneDate: virtualAllDoneDate,
     );
     final json = shareDto.toJson();
-    final mockFeed1 = MockFeedManager();
-    final mockFeed2 = MockFeedManager();
+    final mockFeedManager1 = MockFeedManager();
+    final mockFeedManager2 = MockFeedManager();
 
     when(mockAppService.version).thenReturn(version);
-    when(mockFeed1.readingList).thenReturn(rl0);
-    when(mockFeed2.readingList).thenReturn(rl1);
-    when(mockFeedsManager.feedManagers).thenReturn([mockFeed1, mockFeed2]);
+    when(mockFeedManager1.readingList).thenReturn(rl0);
+    when(mockFeedManager2.readingList).thenReturn(rl1);
+    when(mockFeedsManager.feedManagers).thenReturn([mockFeedManager1, mockFeedManager2]);
 
     expect(() => testee.sync(json), throwsException);
-    verifyNever(mockFeed1.feed = any);
-    verifyNever(mockFeed2.feed = any);
+    verifyNever(mockFeedManager1.feed = any);
+    verifyNever(mockFeedManager2.feed = any);
     verifyNever(mockCatchupManager.virtualAllDoneDate = any);
   });
 
@@ -116,17 +116,17 @@ void main() {
       virtualAllDoneDate: virtualAllDoneDate,
     );
     final json = shareDto.toJson();
-    final mockFeed1 = MockFeedManager();
-    final mockFeed2 = MockFeedManager();
+    final mockFeedManager1 = MockFeedManager();
+    final mockFeedManager2 = MockFeedManager();
 
     when(mockAppService.version).thenReturn(version);
-    when(mockFeed1.readingList).thenReturn(rl0);
-    when(mockFeed2.readingList).thenReturn(rl1);
-    when(mockFeedsManager.feedManagers).thenReturn([mockFeed1, mockFeed2]);
+    when(mockFeedManager1.readingList).thenReturn(rl0);
+    when(mockFeedManager2.readingList).thenReturn(rl1);
+    when(mockFeedsManager.feedManagers).thenReturn([mockFeedManager1, mockFeedManager2]);
 
     expect(() => testee.sync(json), throwsException);
-    verifyNever(mockFeed1.feed = any);
-    verifyNever(mockFeed2.feed = any);
+    verifyNever(mockFeedManager1.feed = any);
+    verifyNever(mockFeedManager2.feed = any);
     verifyNever(mockCatchupManager.virtualAllDoneDate = any);
   });
 }
