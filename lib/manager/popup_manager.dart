@@ -4,7 +4,7 @@ import '../model/popup_action.dart';
 import '../model/verse.dart';
 import 'onboarding_manager.dart';
 
-abstract class PopupManager(super._storeService) extends OnboardingManager with ChangeNotifier {
+abstract class PopupManager(final OnboardingManager onboardingManager) with ChangeNotifier {
   /// abstract
 
   Color get backgroundColor;
@@ -18,7 +18,7 @@ abstract class PopupManager(super._storeService) extends OnboardingManager with 
   List<Verse>? get verses => null;
 
   void show() {
-    completeOnboarding();
+    onboardingManager.completeOnboarding();
     notifyListeners();
   }
 }

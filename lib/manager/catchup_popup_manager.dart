@@ -12,10 +12,11 @@ import 'virtual_all_done_date_manager.dart';
 class CatchupPopupManager(
   final CatchupManager _catchupManager,
   final FeedsManager _feedsManager,
-  super._storeService,
+  super.onboardingManager,
   final VirtualAllDoneDateManager _virtualAllDoneDateManager,
 ) extends PopupManager {
   this {
+    onboardingManager.onboardingStoreKeyFragment = 'catchup';
     _catchupManager.addListener(_maybeShow);
   }
 
@@ -28,9 +29,6 @@ class CatchupPopupManager(
 
   @override
   Color get foregroundColor => _catchupManager.isVeryBehind ? Colors.white : Colors.black;
-
-  @override
-  String get onboardingStoreKeyFragment => 'catchup';
 
   @override
   PopupAction get popupAction => .new(

@@ -9,14 +9,18 @@ import 'feeds_manager.dart';
 import 'popup_manager.dart';
 
 @lazySingleton
-class AllDonePopupManager(final CatchupManager _catchupManager, final FeedsManager _feedsManager, super._storeService)
-    extends PopupManager {
+class AllDonePopupManager(
+  final CatchupManager _catchupManager,
+  final FeedsManager _feedsManager,
+  super.onboardingManager,
+) extends PopupManager {
   this {
+    onboardingManager.onboardingStoreKeyFragment = 'allDone';
     _feedsManager.addListener(_maybeShow);
   }
 
   void _maybeShow() {
-    if (_feedsManager.areChaptersRead && (!hasCompletedOnboarding || _catchupManager.isBehind)) show(); // auto show
+    if (_feedsManager.areChaptersRead && (!onboardingManager.hasCompletedOnboarding || _catchupManager.isBehind)) show(); // auto show
   }
 
   @override
@@ -24,9 +28,6 @@ class AllDonePopupManager(final CatchupManager _catchupManager, final FeedsManag
 
   @override
   Color get foregroundColor => [Colors.white, Colors.black, Colors.white][_catchupManager.daysBehindClamped];
-
-  @override
-  String get onboardingStoreKeyFragment => 'allDone';
 
   @override
   PopupAction get popupAction => .new(
