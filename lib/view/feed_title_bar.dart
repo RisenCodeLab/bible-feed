@@ -17,14 +17,14 @@ class const FeedTitleBar(final FeedManager feedManager) extends WatchingWidget {
         Visibility(
           visible: feedManager.feed.isRead && identical(feedManager.feed, feedsManager.lastModifiedFeed),
           child: const Padding(
-            padding: Constants.leftPadding,
+            padding: Spacing.left,
             child: Tooltip(message: 'This is the last chapter you read', child: Icon(Icons.auto_stories)),
           ),
         ),
         Expanded(
           child: Padding(
-            padding: Constants.leftPadding,
-            child: Text(feedManager.readingList.name, style: const .new(fontSize: Constants.subtitleFontSize), overflow: .ellipsis),
+            padding: Spacing.left,
+            child: Text(feedManager.readingList.name, style: const .new(fontSize: FontSize.subtitle), overflow: .ellipsis),
           ),
         ),
         IconButton(

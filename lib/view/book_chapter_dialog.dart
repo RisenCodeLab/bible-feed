@@ -37,7 +37,7 @@ class BookChapterDialog(final FeedManager feedManager) extends StatelessWidget {
                   visible: isVisible,
                   child: withBackground(
                     Padding(
-                      padding: Constants.defaultPadding,
+                      padding: Spacing.all,
                       child: Text(feedManager.readingList.name, style: const .new(fontWeight: .bold)),
                     ),
                   ),

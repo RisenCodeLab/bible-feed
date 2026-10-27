@@ -16,7 +16,7 @@ class const FeedBookChapter(final FeedManager feedManager) extends WatchingWidge
 
     return Expanded(
       child: Padding(
-        padding: Constants.defaultPadding,
+        padding: Spacing.all,
         child: Center(
           child: AutoSizeText(
             '${feedManager.book.name} ${feedManager.feed.chapter} $chapterSplitLabel'.trim(),

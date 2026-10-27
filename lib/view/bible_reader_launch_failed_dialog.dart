@@ -15,7 +15,7 @@ class const BibleReaderLaunchFailedDialog(final Exception exception) extends Sta
 
     return CupertinoAlertDialog(
       title: Text('Failed to launch the $bibleReaderName bible reader'),
-      content: Padding(padding: Constants.defaultPadding, child: Text('$message\n\n${exception.toString()}'.trim())),
+      content: Padding(padding: Spacing.all, child: Text('$message\n\n${exception.toString()}'.trim())),
       actions: [TextButton(onPressed: () => Navigator.pop(context), child: const Text('Ok'))],
     );
   }

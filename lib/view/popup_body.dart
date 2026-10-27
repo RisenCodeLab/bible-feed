@@ -21,7 +21,7 @@ class const PopupBody<T extends PopupManager>({super.key}) extends StatelessWidg
       mainAxisSize: .min,
       children: [
         Padding(
-          padding: Constants.defaultPadding,
+          padding: Spacing.all,
           child: Text(
             popupManager.title,
             textAlign: .center,
@@ -29,7 +29,7 @@ class const PopupBody<T extends PopupManager>({super.key}) extends StatelessWidg
           ),
         ),
         Padding(
-          padding: Constants.defaultPadding,
+          padding: Spacing.all,
           child: Text(
             popupManager.text,
             textAlign: .center,

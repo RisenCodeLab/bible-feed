@@ -13,7 +13,7 @@ extension BuildContextExtension<T> on BuildContext {
   // theme
   ThemeData get theme => Theme.of(this);
   ColorScheme get colorScheme => theme.colorScheme;
-  double get defaultFontSize => DefaultTextStyle.of(this).style.fontSize ?? Constants.defaultFontSize;
+  double get defaultFontSize => DefaultTextStyle.of(this).style.fontSize ?? FontSize.standard;
   TextTheme get textTheme => theme.textTheme;
 
   void navigateTo(Widget page) => Navigator.of(this).push(MaterialPageRoute(builder: (_) => page));

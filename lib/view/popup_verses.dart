@@ -15,7 +15,7 @@ class const PopupVerses<T extends PopupManager>({super.key}) extends StatelessWi
       crossAxisAlignment: .center,
       children: verses.map((verse) {
         return Padding(
-          padding: Constants.defaultPadding,
+          padding: Spacing.all,
           child: RichText(
             textAlign: .center,
             text: TextSpan(

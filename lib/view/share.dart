@@ -15,9 +15,9 @@ class Share extends StatelessWidget {
     return Dialog(
       child: Container(
         constraints: .new(maxWidth: maxWidth, maxHeight: maxWidth * heightRatio),
-        padding: const .all(Constants.defaultSpacing),
+        padding: const .all(Spacing.standard),
         child: Column(
-          spacing: Constants.defaultSpacing,
+          spacing: Spacing.standard,
           mainAxisSize: .min,
           children: [
             Text(
@@ -26,7 +26,7 @@ class Share extends StatelessWidget {
             ),
             Flexible(
               child: Padding(
-                padding: Constants.defaultPadding,
+                padding: Spacing.all,
                 child: PrettyQrView.data(
                   data: sl<DeepLinkOutManager>().getUrl(),
                   decoration: .new(

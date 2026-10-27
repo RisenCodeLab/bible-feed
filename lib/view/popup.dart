@@ -37,7 +37,7 @@ class _PopupState<T extends PopupManager> extends State<Popup<T>> {
               color: _popupManager.backgroundColor,
               borderRadius: const .vertical(top: Constants.defaultBorderRadius),
             ),
-            padding: Constants.defaultPadding,
+            padding: Spacing.all,
             child: PopupBody<T>(),
           ),
         );
