@@ -3,14 +3,13 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:ui' as _i7;
+import 'dart:ui' as _i8;
 
-import 'package:bible_feed/manager/catchup_manager.dart' as _i6;
-import 'package:bible_feed/manager/feed_manager.dart' as _i8;
-import 'package:bible_feed/manager/feeds_manager.dart' as _i10;
+import 'package:bible_feed/manager/feed_manager.dart' as _i6;
+import 'package:bible_feed/manager/feeds_manager.dart' as _i9;
 import 'package:bible_feed/model/book.dart' as _i2;
 import 'package:bible_feed/model/feed.dart' as _i3;
-import 'package:bible_feed/model/reading_list.dart' as _i9;
+import 'package:bible_feed/model/reading_list.dart' as _i7;
 import 'package:bible_feed/service/app_service.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i5;
@@ -31,18 +30,13 @@ import 'package:mockito/src/dummies.dart' as _i5;
 // ignore_for_file: subtype_of_sealed_class
 // ignore_for_file: invalid_use_of_internal_member
 
-class _FakeDateTime_0 extends _i1.SmartFake implements DateTime {
-  _FakeDateTime_0(Object parent, Invocation parentInvocation)
+class _FakeBook_0 extends _i1.SmartFake implements _i2.Book {
+  _FakeBook_0(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
-class _FakeBook_1 extends _i1.SmartFake implements _i2.Book {
-  _FakeBook_1(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
-}
-
-class _FakeFeed_2 extends _i1.SmartFake implements _i3.Feed {
-  _FakeFeed_2(Object parent, Invocation parentInvocation)
+class _FakeFeed_1 extends _i1.SmartFake implements _i3.Feed {
+  _FakeFeed_1(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
@@ -71,108 +65,15 @@ class MockAppService extends _i1.Mock implements _i4.AppService {
   ) as String);
 }
 
-/// A class which mocks [CatchupManager].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockCatchupManager extends _i1.Mock implements _i6.CatchupManager {
-  @override
-  int get chaptersToRead => (super.noSuchMethod(
-    Invocation.getter(#chaptersToRead),
-    returnValue: 0,
-    returnValueForMissingStub: 0,
-  ) as int);
-
-  @override
-  int get daysBehind => (super.noSuchMethod(
-    Invocation.getter(#daysBehind),
-    returnValue: 0,
-    returnValueForMissingStub: 0,
-  ) as int);
-
-  @override
-  int get daysBehindClamped => (super.noSuchMethod(
-    Invocation.getter(#daysBehindClamped),
-    returnValue: 0,
-    returnValueForMissingStub: 0,
-  ) as int);
-
-  @override
-  bool get isBehind => (super.noSuchMethod(
-    Invocation.getter(#isBehind),
-    returnValue: false,
-    returnValueForMissingStub: false,
-  ) as bool);
-
-  @override
-  bool get isVeryBehind => (super.noSuchMethod(
-    Invocation.getter(#isVeryBehind),
-    returnValue: false,
-    returnValueForMissingStub: false,
-  ) as bool);
-
-  @override
-  DateTime get virtualAllDoneDate => (super.noSuchMethod(
-    Invocation.getter(#virtualAllDoneDate),
-    returnValue: _FakeDateTime_0(this, Invocation.getter(#virtualAllDoneDate)),
-    returnValueForMissingStub: _FakeDateTime_0(
-      this,
-      Invocation.getter(#virtualAllDoneDate),
-    ),
-  ) as DateTime);
-
-  @override
-  set virtualAllDoneDate(DateTime? value) => super.noSuchMethod(
-    Invocation.setter(#virtualAllDoneDate, value),
-    returnValueForMissingStub: null,
-  );
-
-  @override
-  bool get hasListeners => (super.noSuchMethod(
-    Invocation.getter(#hasListeners),
-    returnValue: false,
-    returnValueForMissingStub: false,
-  ) as bool);
-
-  @override
-  void reset() => super.noSuchMethod(
-    Invocation.method(#reset, []),
-    returnValueForMissingStub: null,
-  );
-
-  @override
-  void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(
-    Invocation.method(#addListener, [listener]),
-    returnValueForMissingStub: null,
-  );
-
-  @override
-  void removeListener(_i7.VoidCallback? listener) => super.noSuchMethod(
-    Invocation.method(#removeListener, [listener]),
-    returnValueForMissingStub: null,
-  );
-
-  @override
-  void dispose() => super.noSuchMethod(
-    Invocation.method(#dispose, []),
-    returnValueForMissingStub: null,
-  );
-
-  @override
-  void notifyListeners() => super.noSuchMethod(
-    Invocation.method(#notifyListeners, []),
-    returnValueForMissingStub: null,
-  );
-}
-
 /// A class which mocks [FeedManager].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFeedManager extends _i1.Mock implements _i8.FeedManager {
+class MockFeedManager extends _i1.Mock implements _i6.FeedManager {
   @override
   _i2.Book get book => (super.noSuchMethod(
     Invocation.getter(#book),
-    returnValue: _FakeBook_1(this, Invocation.getter(#book)),
-    returnValueForMissingStub: _FakeBook_1(this, Invocation.getter(#book)),
+    returnValue: _FakeBook_0(this, Invocation.getter(#book)),
+    returnValueForMissingStub: _FakeBook_0(this, Invocation.getter(#book)),
   ) as _i2.Book);
 
   @override
@@ -192,8 +93,8 @@ class MockFeedManager extends _i1.Mock implements _i8.FeedManager {
   @override
   _i3.Feed get feed => (super.noSuchMethod(
     Invocation.getter(#feed),
-    returnValue: _FakeFeed_2(this, Invocation.getter(#feed)),
-    returnValueForMissingStub: _FakeFeed_2(this, Invocation.getter(#feed)),
+    returnValue: _FakeFeed_1(this, Invocation.getter(#feed)),
+    returnValueForMissingStub: _FakeFeed_1(this, Invocation.getter(#feed)),
   ) as _i3.Feed);
 
   @override
@@ -204,17 +105,17 @@ class MockFeedManager extends _i1.Mock implements _i8.FeedManager {
   ) as double);
 
   @override
-  _i9.ReadingList get readingList => (super.noSuchMethod(
+  _i7.ReadingList get readingList => (super.noSuchMethod(
     Invocation.getter(#readingList),
-    returnValue: _i5.dummyValue<_i9.ReadingList>(
+    returnValue: _i5.dummyValue<_i7.ReadingList>(
       this,
       Invocation.getter(#readingList),
     ),
-    returnValueForMissingStub: _i5.dummyValue<_i9.ReadingList>(
+    returnValueForMissingStub: _i5.dummyValue<_i7.ReadingList>(
       this,
       Invocation.getter(#readingList),
     ),
-  ) as _i9.ReadingList);
+  ) as _i7.ReadingList);
 
   @override
   set feed(_i3.Feed? value) => super.noSuchMethod(
@@ -249,13 +150,13 @@ class MockFeedManager extends _i1.Mock implements _i8.FeedManager {
   );
 
   @override
-  void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(
+  void addListener(_i8.VoidCallback? listener) => super.noSuchMethod(
     Invocation.method(#addListener, [listener]),
     returnValueForMissingStub: null,
   );
 
   @override
-  void removeListener(_i7.VoidCallback? listener) => super.noSuchMethod(
+  void removeListener(_i8.VoidCallback? listener) => super.noSuchMethod(
     Invocation.method(#removeListener, [listener]),
     returnValueForMissingStub: null,
   );
@@ -276,7 +177,7 @@ class MockFeedManager extends _i1.Mock implements _i8.FeedManager {
 /// A class which mocks [FeedsManager].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFeedsManager extends _i1.Mock implements _i10.FeedsManager {
+class MockFeedsManager extends _i1.Mock implements _i9.FeedsManager {
   @override
   bool get areChaptersRead => (super.noSuchMethod(
     Invocation.getter(#areChaptersRead),
@@ -292,11 +193,11 @@ class MockFeedsManager extends _i1.Mock implements _i10.FeedsManager {
   ) as int);
 
   @override
-  List<_i8.FeedManager> get feedManagers => (super.noSuchMethod(
+  List<_i6.FeedManager> get feedManagers => (super.noSuchMethod(
     Invocation.getter(#feedManagers),
-    returnValue: <_i8.FeedManager>[],
-    returnValueForMissingStub: <_i8.FeedManager>[],
-  ) as List<_i8.FeedManager>);
+    returnValue: <_i6.FeedManager>[],
+    returnValueForMissingStub: <_i6.FeedManager>[],
+  ) as List<_i6.FeedManager>);
 
   @override
   bool get hasListeners => (super.noSuchMethod(
@@ -306,13 +207,13 @@ class MockFeedsManager extends _i1.Mock implements _i10.FeedsManager {
   ) as bool);
 
   @override
-  void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(
+  void addListener(_i8.VoidCallback? listener) => super.noSuchMethod(
     Invocation.method(#addListener, [listener]),
     returnValueForMissingStub: null,
   );
 
   @override
-  void removeListener(_i7.VoidCallback? listener) => super.noSuchMethod(
+  void removeListener(_i8.VoidCallback? listener) => super.noSuchMethod(
     Invocation.method(#removeListener, [listener]),
     returnValueForMissingStub: null,
   );

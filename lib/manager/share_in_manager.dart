@@ -3,16 +3,16 @@ import 'package:injectable/injectable.dart';
 
 import '../model/feed.dart';
 import '../model/share_dto.dart';
+import '../model/virtual_all_done_date.dart';
 import '../service/app_service.dart';
-import 'catchup_manager.dart';
 import 'feed_manager.dart';
 import 'feeds_manager.dart';
 
 @lazySingleton
 class ShareInManager(
   final AppService _appService,
-  final CatchupManager _catchupManager,
   final FeedsManager _feedsManager,
+  final VirtualAllDoneDate _virtualAllDoneDate,
 ) {
   void _validateFeedList(List<Feed> feedList) {
     for (var index = 0; index < feedList.length; index++) {
@@ -69,7 +69,7 @@ class ShareInManager(
 
     _validateFeedList(shareDto.feedList);
 
-    _catchupManager.virtualAllDoneDate = shareDto.virtualAllDoneDate;
+    _virtualAllDoneDate.value = shareDto.virtualAllDoneDate;
 
     for (final (index, feedManager) in _feedsManager.feedManagers.indexed) {
       feedManager.feed = shareDto.feedList[index];

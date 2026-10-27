@@ -3,12 +3,10 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i7;
-import 'dart:ui' as _i5;
+import 'dart:async' as _i5;
 
-import 'package:bible_feed/manager/catchup_manager.dart' as _i4;
 import 'package:bible_feed/service/app_service.dart' as _i2;
-import 'package:bible_feed/service/store_service.dart' as _i6;
+import 'package:bible_feed/service/store_service.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i3;
 
@@ -27,11 +25,6 @@ import 'package:mockito/src/dummies.dart' as _i3;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 // ignore_for_file: invalid_use_of_internal_member
-
-class _FakeDateTime_0 extends _i1.SmartFake implements DateTime {
-  _FakeDateTime_0(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
-}
 
 /// A class which mocks [AppService].
 ///
@@ -58,103 +51,10 @@ class MockAppService extends _i1.Mock implements _i2.AppService {
   ) as String);
 }
 
-/// A class which mocks [CatchupManager].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockCatchupManager extends _i1.Mock implements _i4.CatchupManager {
-  @override
-  int get chaptersToRead => (super.noSuchMethod(
-    Invocation.getter(#chaptersToRead),
-    returnValue: 0,
-    returnValueForMissingStub: 0,
-  ) as int);
-
-  @override
-  int get daysBehind => (super.noSuchMethod(
-    Invocation.getter(#daysBehind),
-    returnValue: 0,
-    returnValueForMissingStub: 0,
-  ) as int);
-
-  @override
-  int get daysBehindClamped => (super.noSuchMethod(
-    Invocation.getter(#daysBehindClamped),
-    returnValue: 0,
-    returnValueForMissingStub: 0,
-  ) as int);
-
-  @override
-  bool get isBehind => (super.noSuchMethod(
-    Invocation.getter(#isBehind),
-    returnValue: false,
-    returnValueForMissingStub: false,
-  ) as bool);
-
-  @override
-  bool get isVeryBehind => (super.noSuchMethod(
-    Invocation.getter(#isVeryBehind),
-    returnValue: false,
-    returnValueForMissingStub: false,
-  ) as bool);
-
-  @override
-  DateTime get virtualAllDoneDate => (super.noSuchMethod(
-    Invocation.getter(#virtualAllDoneDate),
-    returnValue: _FakeDateTime_0(this, Invocation.getter(#virtualAllDoneDate)),
-    returnValueForMissingStub: _FakeDateTime_0(
-      this,
-      Invocation.getter(#virtualAllDoneDate),
-    ),
-  ) as DateTime);
-
-  @override
-  set virtualAllDoneDate(DateTime? value) => super.noSuchMethod(
-    Invocation.setter(#virtualAllDoneDate, value),
-    returnValueForMissingStub: null,
-  );
-
-  @override
-  bool get hasListeners => (super.noSuchMethod(
-    Invocation.getter(#hasListeners),
-    returnValue: false,
-    returnValueForMissingStub: false,
-  ) as bool);
-
-  @override
-  void reset() => super.noSuchMethod(
-    Invocation.method(#reset, []),
-    returnValueForMissingStub: null,
-  );
-
-  @override
-  void addListener(_i5.VoidCallback? listener) => super.noSuchMethod(
-    Invocation.method(#addListener, [listener]),
-    returnValueForMissingStub: null,
-  );
-
-  @override
-  void removeListener(_i5.VoidCallback? listener) => super.noSuchMethod(
-    Invocation.method(#removeListener, [listener]),
-    returnValueForMissingStub: null,
-  );
-
-  @override
-  void dispose() => super.noSuchMethod(
-    Invocation.method(#dispose, []),
-    returnValueForMissingStub: null,
-  );
-
-  @override
-  void notifyListeners() => super.noSuchMethod(
-    Invocation.method(#notifyListeners, []),
-    returnValueForMissingStub: null,
-  );
-}
-
 /// A class which mocks [StoreService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockStoreService extends _i1.Mock implements _i6.StoreService {
+class MockStoreService extends _i1.Mock implements _i4.StoreService {
   @override
   T? get<T>(String? key) => (super.noSuchMethod(
     Invocation.method(#get, [key]),
@@ -162,9 +62,9 @@ class MockStoreService extends _i1.Mock implements _i6.StoreService {
   ) as T?);
 
   @override
-  _i7.Future<void> set<T>(String? key, T? value) => (super.noSuchMethod(
+  _i5.Future<void> set<T>(String? key, T? value) => (super.noSuchMethod(
     Invocation.method(#set, [key, value]),
-    returnValue: _i7.Future<void>.value(),
-    returnValueForMissingStub: _i7.Future<void>.value(),
-  ) as _i7.Future<void>);
+    returnValue: _i5.Future<void>.value(),
+    returnValueForMissingStub: _i5.Future<void>.value(),
+  ) as _i5.Future<void>);
 }

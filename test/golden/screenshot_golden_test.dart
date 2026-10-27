@@ -6,10 +6,10 @@ library;
 
 import 'package:alchemist/alchemist.dart';
 import 'package:bible_feed/injectable.dart';
-import 'package:bible_feed/manager/catchup_manager.dart';
 import 'package:bible_feed/manager/feeds_manager.dart';
 import 'package:bible_feed/manager/midnight_manager.dart';
 import 'package:bible_feed/manager/stub/stub_midnight_manager.dart';
+import 'package:bible_feed/manager/virtual_all_done_date_manager.dart';
 import 'package:bible_feed/model/catchup_setting.dart';
 import 'package:bible_feed/model/chapter_split_setting.dart';
 import 'package:bible_feed/service/date_time_service.dart';
@@ -111,7 +111,7 @@ Future main() async {
           t.platformDispatcher.platformBrightnessTestValue = scenario.brightness;
           sl<ChapterSplitSetting>().value = true;
           sl<CatchupSetting>().value = true;
-          sl<CatchupManager>().reset();
+          sl<VirtualAllDoneDateManager>().reset();
           if (scenario.setup != null) scenario.setup!();
           await t.pumpAndSettle();
         },

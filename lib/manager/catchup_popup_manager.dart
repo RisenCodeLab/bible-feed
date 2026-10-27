@@ -6,10 +6,15 @@ import '../model/verse.dart';
 import 'catchup_manager.dart';
 import 'feeds_manager.dart';
 import 'popup_manager.dart';
+import 'virtual_all_done_date_manager.dart';
 
 @lazySingleton
-class CatchupPopupManager(final CatchupManager _catchupManager, final FeedsManager _feedsManager, super._storeService)
-    extends PopupManager {
+class CatchupPopupManager(
+  final CatchupManager _catchupManager,
+  final FeedsManager _feedsManager,
+  super._storeService,
+  final VirtualAllDoneDateManager _virtualAllDoneDateManager,
+) extends PopupManager {
   this {
     _catchupManager.addListener(_maybeShow);
   }
@@ -29,7 +34,7 @@ class CatchupPopupManager(final CatchupManager _catchupManager, final FeedsManag
 
   @override
   PopupAction get popupAction => .new(
-    action: _catchupManager.reset,
+    action: _virtualAllDoneDateManager.reset,
     icon: const Icon(Icons.cancel),
     key: 'catchup_cancel',
     text: 'Ignore and Cancel',
