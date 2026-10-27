@@ -13,10 +13,10 @@ class AppInstallManager(
 ) with ChangeNotifier {
   this {
     // ignore: avoid-passing-async-when-sync-expected, fire-and-forget listener
-    _platformEventService.addListener(_handleAppInstallOrUninstall);
+    _platformEventService.addListener(_onAppInstallOrUninstall);
   }
 
-  Future<void> _handleAppInstallOrUninstall() async {
+  Future<void> _onAppInstallOrUninstall() async {
     if (await _bibleReaderLaunchManager.isAvailable(_bibleReaderLinkManager.linkedBibleReader)) {
       notifyListeners();
     } else {
