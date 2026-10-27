@@ -16,6 +16,10 @@ class FeedsManager(
   ReadingLists readingLists,
 ) with ChangeNotifier {
   this {
+    _feedManagers = readingLists
+        .map<FeedManager>((rl) => .new(_dateTimeService, _feedStoreManager.load(rl), rl))
+        .toList();
+
     for (FeedManager fm in _feedManagers) {
       if (fm.feed.dateModified?.isAfter(_lastModifiedFeed?.dateModified ?? .new(0)) ?? false) {
         _lastModifiedFeed = fm.feed;
@@ -29,9 +33,7 @@ class FeedsManager(
     }
   }
 
-  final List<FeedManager> _feedManagers = readingLists
-      .map<FeedManager>((rl) => .new(_dateTimeService, _feedStoreManager.load(rl), rl))
-      .toList();
+  late final List<FeedManager> _feedManagers; // ignore: avoid-late-keyword, initialized in constructor
   Feed? _lastModifiedFeed;
 
   bool get areChaptersRead => chaptersToRead == 0;
