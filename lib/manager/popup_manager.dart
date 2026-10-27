@@ -18,7 +18,7 @@ abstract class PopupManager(final OnboardingManager onboardingManager) with Chan
   List<Verse>? get verses => null;
 
   void show() {
-    onboardingManager.completeOnboarding();
+    onboardingManager.complete();
     notifyListeners();
   }
 }

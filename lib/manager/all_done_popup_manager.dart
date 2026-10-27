@@ -15,12 +15,12 @@ class AllDonePopupManager(
   super.onboardingManager,
 ) extends PopupManager {
   this {
-    onboardingManager.onboardingStoreKeyFragment = 'allDone';
+    onboardingManager.storeKeyFragment = 'allDone';
     _feedsManager.addListener(_maybeShow);
   }
 
   void _maybeShow() {
-    if (_feedsManager.areChaptersRead && (!onboardingManager.hasCompletedOnboarding || _catchupManager.isBehind)) show(); // auto show
+    if (_feedsManager.areChaptersRead && (!onboardingManager.isComplete || _catchupManager.isBehind)) show(); // auto show
   }
 
   @override

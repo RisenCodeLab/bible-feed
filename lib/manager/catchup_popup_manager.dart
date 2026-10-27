@@ -16,7 +16,7 @@ class CatchupPopupManager(
   final VirtualAllDoneDateManager _virtualAllDoneDateManager,
 ) extends PopupManager {
   this {
-    onboardingManager.onboardingStoreKeyFragment = 'catchup';
+    onboardingManager.storeKeyFragment = 'catchup';
     _catchupManager.addListener(_maybeShow);
   }
 
