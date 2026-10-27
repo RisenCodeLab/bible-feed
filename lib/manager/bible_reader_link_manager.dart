@@ -21,11 +21,11 @@ class BibleReaderLinkManager(
   List<BibleReader> get _certifiedBibleReaderList => _bibleReadersCertifiedManager.certifiedBibleReaderList;
 
   void _loadState() {
-    final String? linkedReaderName = _storeService.get(_linkedBibleReaderStoreKey);
     try {
+      final String? linkedReaderName = _storeService.get(_linkedBibleReaderStoreKey);
       _linkedBibleReaderKey = BibleReaderKey.values.byName(linkedReaderName ?? BibleReaderKey.none.name);
       linkedBibleReader; // throws an exception if linkedBibleReader is invalid or uncertified
-    } catch (e) {
+    } catch (_) {
       _linkedBibleReaderKey = .none;
     }
   }
