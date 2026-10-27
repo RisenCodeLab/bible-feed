@@ -268,6 +268,13 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i127.FeedsManager>(),
       ),
     );
+    gh.lazySingleton<_i610.AppInstallManager>(
+      () => _i610.AppInstallManager(
+        gh<_i186.BibleReaderLaunchManager>(),
+        gh<_i567.BibleReaderLinkManager>(),
+        gh<_i516.PlatformEventService>(),
+      ),
+    );
     gh.singleton<_i950.HapticManager>(
       () => _i950.HapticManager(
         gh<_i527.DebounceManager>(),
@@ -294,13 +301,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i508.JsonEncodingManager>(),
         gh<_i864.ShareInManager>(),
         gh<_i942.ToastService>(),
-      ),
-    );
-    gh.lazySingleton<_i610.AppInstallManager>(
-      () => _i610.AppInstallManager(
-        gh<_i186.BibleReaderLaunchManager>(),
-        gh<_i567.BibleReaderLinkManager>(),
-        gh<_i516.PlatformEventService>(),
       ),
     );
     gh.lazySingleton<_i471.AllDonePopupManager>(

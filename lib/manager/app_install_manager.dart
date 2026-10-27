@@ -7,19 +7,19 @@ import 'bible_reader_link_manager.dart';
 
 @lazySingleton
 class AppInstallManager(
-  BibleReaderLaunchManager bibleReaderLaunchManager,
-  BibleReaderLinkManager bibleReaderLinkManager,
-  PlatformEventService platformEventService,
+  final BibleReaderLaunchManager _bibleReaderLaunchManager,
+  final BibleReaderLinkManager _bibleReaderLinkManager,
+  final PlatformEventService _platformEventService,
 ) with ChangeNotifier {
   this {
-    void handleAppInstallOrUninstall() async {
-      if (await bibleReaderLaunchManager.isAvailable(bibleReaderLinkManager.linkedBibleReader)) {
-        notifyListeners();
-      } else {
-        bibleReaderLinkManager.unlinkBibleReader(); // The linked bible reader has been uninstalled.
-      }
-    }
+    _platformEventService.addListener(_handleAppInstallOrUninstall);
+  }
 
-    platformEventService.addListener(handleAppInstallOrUninstall);
+  Future<void> _handleAppInstallOrUninstall() async {
+    if (await _bibleReaderLaunchManager.isAvailable(_bibleReaderLinkManager.linkedBibleReader)) {
+      notifyListeners();
+    } else {
+      _bibleReaderLinkManager.unlinkBibleReader(); // The linked bible reader has been uninstalled.
+    }
   }
 }
