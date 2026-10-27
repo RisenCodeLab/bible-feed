@@ -18,17 +18,17 @@ class VirtualAllDoneDateManager(
   final VirtualAllDoneDate _virtualAllDoneDate,
 ) {
   this {
-    _virtualAllDoneDate.addListener(_store);
-    _feedsAdvanceManager.addListener(_update);
     _catchupSetting.addListener(reset);
+    _feedsAdvanceManager.addListener(_update);
+    _virtualAllDoneDate.addListener(_store);
 
     // ensure default is stored
-    _virtualAllDoneDate.value = _storeService.get<DateTime>(_storeKey) ?? _defaultVirtualAllDoneDate;
+    _virtualAllDoneDate.value = _storeService.get<DateTime>(_storeKey) ?? _defaultValue;
   }
 
   static const _storeKey = 'virtualAllDoneDate';
 
-  DateTime get _defaultVirtualAllDoneDate => _dateTimeService.now.date - 1.days;
+  DateTime get _defaultValue => _dateTimeService.now.date - 1.days;
 
   void _store() => _storeService.set(_storeKey, _virtualAllDoneDate.value);
 
@@ -38,5 +38,5 @@ class VirtualAllDoneDateManager(
         : _dateTimeService.now.date;
   }
 
-  void reset() => _virtualAllDoneDate.value = _defaultVirtualAllDoneDate;
+  void reset() => _virtualAllDoneDate.value = _defaultValue;
 }
