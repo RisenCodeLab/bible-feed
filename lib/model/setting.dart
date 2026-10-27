@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class Setting<T> with ChangeNotifier {
-  //// abstract
+  /// abstract
 
   T get defaultValue;
 
@@ -9,7 +9,7 @@ abstract class Setting<T> with ChangeNotifier {
   String get subtitle;
   String get title;
 
-  //// concrete
+  /// concrete
 
   T? _value;
 

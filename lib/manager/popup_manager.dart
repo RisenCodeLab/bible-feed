@@ -5,7 +5,7 @@ import '../model/verse.dart';
 import 'onboarding_manager.dart';
 
 abstract class PopupManager(super._storeService) extends OnboardingManager with ChangeNotifier {
-  //// abstract
+  /// abstract
 
   Color get backgroundColor;
   Color get foregroundColor;
@@ -13,7 +13,7 @@ abstract class PopupManager(super._storeService) extends OnboardingManager with 
   String get text;
   String get title;
 
-  //// concrete
+  /// concrete
 
   List<Verse>? get verses => null;
 
