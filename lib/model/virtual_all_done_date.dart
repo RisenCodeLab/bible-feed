@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 
 @lazySingleton
 class VirtualAllDoneDate() with ChangeNotifier {
-  late DateTime _value;
+  DateTime _value = .now();
 
   DateTime get value => _value;
 

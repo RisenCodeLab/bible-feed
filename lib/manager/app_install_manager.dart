@@ -12,6 +12,7 @@ class AppInstallManager(
   final PlatformEventService _platformEventService,
 ) with ChangeNotifier {
   this {
+    // ignore: avoid-passing-async-when-sync-expected, fire-and-forget listener
     _platformEventService.addListener(_handleAppInstallOrUninstall);
   }
 
