@@ -13,10 +13,10 @@ import 'feed_store_manager.dart';
 class FeedsManager(
   final DateTimeService _dateTimeService,
   final FeedStoreManager _feedStoreManager,
-  ReadingLists readingLists,
+  final ReadingLists _readingLists,
 ) with ChangeNotifier {
   this {
-    _feedManagers = readingLists
+    _feedManagers = _readingLists
         .map<FeedManager>((rl) => .new(_dateTimeService, _feedStoreManager.load(rl), rl))
         .toList();
 
