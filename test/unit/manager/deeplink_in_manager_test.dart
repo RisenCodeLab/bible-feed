@@ -7,6 +7,7 @@ import 'package:bible_feed/view/_constants.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:parameterized_test/parameterized_test.dart';
 
 import 'deeplink_in_manager_test.mocks.dart';
 
@@ -18,9 +19,9 @@ void main() {
     late MockToastService mockToastService;
 
     setUp(() {
-      mockDeepLinkService = MockDeepLinkService();
-      mockShareInManager = MockShareInManager();
-      mockToastService = MockToastService();
+      mockDeepLinkService = .new();
+      mockShareInManager = .new();
+      mockToastService = .new();
 
       when(mockDeepLinkService.addListener(any)).thenAnswer((invocation) {
         final listener = invocation.positionalArguments[0] as void Function();
@@ -28,29 +29,27 @@ void main() {
       });
     });
 
-    test('calls sync and shows success toast on valid deep link', () {
-      when(mockDeepLinkService.uri).thenReturn(
-        Uri.parse(
+    parameterizedTest(
+      'calls sync and shows success toast on valid deep link',
+      [
+        [
+          'JSON as first parameter',
           'biblefeed://risencode.com/share?${Constants.deeplinkQueryKey}=H4sIAAAAAAAAA6tWyk6tVLJSKkvMKU1VqgUAv5wYPw8AAAA=',
-        ),
-      );
-      DeepLinkInManager(mockDeepLinkService, JsonEncodingManager(), mockShareInManager, mockToastService);
-      verify(mockShareInManager.sync('{"key":"value"}')).called(1);
-      verify(mockToastService.showOk('Success!')).called(1);
-      verifyNever(mockToastService.showError(any));
-    });
-
-    test('calls sync when json query parameter is not first', () {
-      when(mockDeepLinkService.uri).thenReturn(
-        Uri.parse(
+        ],
+        [
+          'JSON as non-first parameter',
           'biblefeed://risencode.com/share?foo=bar&${Constants.deeplinkQueryKey}=H4sIAAAAAAAAA6tWyk6tVLJSKkvMKU1VqgUAv5wYPw8AAAA=',
-        ),
-      );
-      DeepLinkInManager(mockDeepLinkService, JsonEncodingManager(), mockShareInManager, mockToastService);
-      verify(mockShareInManager.sync('{"key":"value"}')).called(1);
-      verify(mockToastService.showOk('Success!')).called(1);
-      verifyNever(mockToastService.showError(any));
-    });
+        ],
+      ],
+      customDescriptionBuilder: (_, description, values) => '$description: ${values[0]}',
+      (String _, String uri) {
+        when(mockDeepLinkService.uri).thenReturn(Uri.parse(uri));
+        DeepLinkInManager(mockDeepLinkService, JsonEncodingManager(), mockShareInManager, mockToastService);
+        verify(mockShareInManager.sync('{"key":"value"}')).called(1);
+        verify(mockToastService.showOk('Success!')).called(1);
+        verifyNever(mockToastService.showError(any));
+      },
+    );
 
     test('shows error toast on invalid deep link', () {
       when(mockDeepLinkService.uri).thenReturn(Uri.parse('biblefeed://risencode.com/share?wrongkey=value'));
