@@ -30,10 +30,10 @@ class BibleReaderLaunchManager(
     return _urlLaunchService.canLaunchUrl(_getDeeplinkUrl(bibleReader, externalBookKey, 1));
   }
 
-  Future<void> maybeLaunch(BibleReader bibleReader, Feed state) async {
-    if (bibleReader.isNone || !state.isRead) return;
-    final verse = _chapterSplitSetting.value ? state.verse : 1;
-    final url = _getDeeplinkUrl(bibleReader, state.bookKey, state.chapter, verse);
+  Future<void> maybeLaunch(BibleReader bibleReader, Feed feed) async {
+    if (bibleReader.isNone || !feed.isRead) return;
+    final verse = _chapterSplitSetting.value ? feed.verse : 1;
+    final url = _getDeeplinkUrl(bibleReader, feed.bookKey, feed.chapter, verse);
 
     // Debounce URL launches to prevent iOS from rejecting concurrent launch attempts.
     // When two cards are tapped simultaneously, iOS only allows one launch at a time.

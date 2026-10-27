@@ -11,18 +11,18 @@ class const ChapterSplitter(final String bookKey, final int chapter, final List<
     return label.replaceAll('_', .fromCharCode(nonBreakingSpaceCharCode));
   }
 
-  int getNextVerse(Feed state) {
-    assert(state.bookKey == bookKey);
-    assert(state.chapter == chapter);
-    return verses.elementAtOrNull(verses.indexOf(state.verse) + 1) ?? 1;
+  int getNextVerse(Feed feed) {
+    assert(feed.bookKey == bookKey);
+    assert(feed.chapter == chapter);
+    return verses.elementAtOrNull(verses.indexOf(feed.verse) + 1) ?? 1;
   }
 
-  String getLabel(Feed state) {
-    assert(state.bookKey == bookKey);
-    assert(state.chapter == chapter);
-    final nextVerse = getNextVerse(state);
-    if (state.verse == 1) return _toNonBreakingSpace('to_verse_${nextVerse - 1}');
-    if (nextVerse == 1) return _toNonBreakingSpace('from_verse_${state.verse}');
-    return _toNonBreakingSpace('verse_${state.verse}-${nextVerse - 1}');
+  String getLabel(Feed feed) {
+    assert(feed.bookKey == bookKey);
+    assert(feed.chapter == chapter);
+    final nextVerse = getNextVerse(feed);
+    if (feed.verse == 1) return _toNonBreakingSpace('to_verse_${nextVerse - 1}');
+    if (nextVerse == 1) return _toNonBreakingSpace('from_verse_${feed.verse}');
+    return _toNonBreakingSpace('verse_${feed.verse}-${nextVerse - 1}');
   }
 }

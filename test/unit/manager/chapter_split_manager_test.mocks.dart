@@ -68,22 +68,22 @@ class MockChapterSplitter extends _i1.Mock implements _i2.ChapterSplitter {
   ) as List<int>);
 
   @override
-  int getNextVerse(_i4.Feed? state) => (super.noSuchMethod(
-    Invocation.method(#getNextVerse, [state]),
+  int getNextVerse(_i4.Feed? feed) => (super.noSuchMethod(
+    Invocation.method(#getNextVerse, [feed]),
     returnValue: 0,
     returnValueForMissingStub: 0,
   ) as int);
 
   @override
-  String getLabel(_i4.Feed? state) => (super.noSuchMethod(
-    Invocation.method(#getLabel, [state]),
+  String getLabel(_i4.Feed? feed) => (super.noSuchMethod(
+    Invocation.method(#getLabel, [feed]),
     returnValue: _i3.dummyValue<String>(
       this,
-      Invocation.method(#getLabel, [state]),
+      Invocation.method(#getLabel, [feed]),
     ),
     returnValueForMissingStub: _i3.dummyValue<String>(
       this,
-      Invocation.method(#getLabel, [state]),
+      Invocation.method(#getLabel, [feed]),
     ),
   ) as String);
 }
@@ -157,8 +157,8 @@ class MockChapterSplitters extends _i1.Mock implements _i5.ChapterSplitters {
   ) as _i2.ChapterSplitter);
 
   @override
-  _i2.ChapterSplitter? find(_i4.Feed? state) => (super.noSuchMethod(
-    Invocation.method(#find, [state]),
+  _i2.ChapterSplitter? find(_i4.Feed? feed) => (super.noSuchMethod(
+    Invocation.method(#find, [feed]),
     returnValueForMissingStub: null,
   ) as _i2.ChapterSplitter?);
 

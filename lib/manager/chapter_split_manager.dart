@@ -6,9 +6,9 @@ import '../model/feed.dart';
 
 @lazySingleton
 class ChapterSplitManager(final ChapterSplitSetting _chapterSplitSetting, final ChapterSplitters _chapterSplitters) {
-  String getLabel(Feed state) =>
-      _chapterSplitSetting.value ? (_chapterSplitters.find(state)?.getLabel(state) ?? '') : '';
+  String getLabel(Feed feed) =>
+      _chapterSplitSetting.value ? (_chapterSplitters.find(feed)?.getLabel(feed) ?? '') : '';
 
-  int getNextVerse(Feed state) =>
-      _chapterSplitSetting.value ? (_chapterSplitters.find(state)?.getNextVerse(state) ?? 1) : 1;
+  int getNextVerse(Feed feed) =>
+      _chapterSplitSetting.value ? (_chapterSplitters.find(feed)?.getNextVerse(feed) ?? 1) : 1;
 }
