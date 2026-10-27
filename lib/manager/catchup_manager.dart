@@ -32,7 +32,7 @@ class CatchupManager(
     _catchupSetting.addListener(reset);
     _midnightManager.addListener(notifyListeners);
 
-    virtualAllDoneDate = virtualAllDoneDate; // ensure default is stored
+    _storeService.set(_storeKey, virtualAllDoneDate); // ensure default is stored
   }
 
   static const _storeKey = 'virtualAllDoneDate';
