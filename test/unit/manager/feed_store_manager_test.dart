@@ -22,13 +22,23 @@ void main() async {
   });
 
   group('loadState', () {
-    test('should load defaults if store is empty', () async {
+    void verify({
+      required String bookKey,
+      required int chapter,
+      required DateTime? dateModified,
+      required bool isRead,
+      required int verse,
+    }) {
       final state = testee.load(rl1);
-      expect(state.bookKey, b0.key);
-      expect(state.chapter, 1);
-      expect(state.dateModified, null);
-      expect(state.isRead, false);
-      expect(state.verse, 1);
+      expect(state.bookKey, bookKey);
+      expect(state.chapter, chapter);
+      expect(state.dateModified, dateModified);
+      expect(state.isRead, isRead);
+      expect(state.verse, verse);
+    }
+
+    test('should load defaults if store is empty', () async {
+      verify(bookKey: b0.key, chapter: 1, dateModified: null, isRead: false, verse: 1);
     });
 
     test('should load from store if store is populated', () async {
@@ -37,12 +47,7 @@ void main() async {
       when(mockStoreService.get('rl1.dateModified')).thenReturn(yesterday);
       when(mockStoreService.get('rl1.isRead')).thenReturn(true);
       when(mockStoreService.get('rl1.verse')).thenReturn(3);
-      final state = testee.load(rl1);
-      expect(state.bookKey, b1.key);
-      expect(state.chapter, 2);
-      expect(state.dateModified, yesterday);
-      expect(state.isRead, true);
-      expect(state.verse, 3);
+      verify(bookKey: b1.key, chapter: 2, dateModified: yesterday, isRead: true, verse: 3);
     });
   });
 
