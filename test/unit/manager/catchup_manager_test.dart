@@ -4,184 +4,86 @@ import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/manager/feeds_advance_manager.dart';
 import 'package:bible_feed/manager/feeds_manager.dart';
 import 'package:bible_feed/manager/midnight_manager.dart';
-import 'package:bible_feed/manager/priority_notifier.dart';
 import 'package:bible_feed/model/catchup_setting.dart';
-import 'package:bible_feed/model/feed.dart';
-import 'package:bible_feed/model/feeds_advance_state.dart';
-import 'package:bible_feed/model/priority.dart';
 import 'package:bible_feed/service/date_time_service.dart';
 import 'package:bible_feed/service/store_service.dart';
-import 'package:bible_feed/service/stub/stub_date_time_service.dart';
 import 'package:dartx/dartx.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
 import 'package:parameterized_test/parameterized_test.dart';
 
-import '../test_data.dart';
+import 'catchup_manager_test.mocks.dart';
 
-class FakeAppLifecycleManager implements AppLifecycleManager {
-  final listeners = <VoidCallback>[];
-
-  @override
-  void onResume(VoidCallback callback, {Priority priority = .normal}) {
-    listeners.add(callback);
-  }
-
-  @override
-  void runCallbacks() {
-    for (final callback in List<VoidCallback>.of(listeners)) {
-      callback();
-    }
-  }
-}
-
-class FakeDateTimeService implements DateTimeService {
-  FakeDateTimeService(this.now);
-
-  @override
-  DateTime now;
-}
-
-class FakeStoreService implements StoreService {
-  final values = <String, Object?>{};
-  final writes = <MapEntry<String, Object?>>[];
-
-  @override
-  T? get<T>(String key) => values[key] as T?;
-
-  @override
-  Future<void> set<T>(String key, T value) async {
-    values[key] = value;
-    writes.add(MapEntry(key, value));
-  }
-}
-
-class FakeCatchupSetting extends CatchupSetting {
-  final listeners = <VoidCallback>[];
-  bool currentValue = false;
-
-  @override
-  bool get defaultValue => false;
-
-  @override
-  String get storeKeyFragment => 'catchup';
-
-  @override
-  String get subtitle => 'subtitle';
-
-  @override
-  String get title => 'title';
-
-  @override
-  bool get value => currentValue;
-
-  @override
-  set value(bool value) {
-    if (value == currentValue) return;
-    currentValue = value;
-    notifyListeners();
-  }
-
-  @override
-  void addListener(VoidCallback listener) {
-    listeners.add(listener);
-    super.addListener(listener);
-  }
-}
-
-class FakeFeedsManager extends ChangeNotifier implements FeedsManager {
-  FakeFeedsManager({
-    required this.feedManagers,
-    required this.chaptersToRead,
-    required this.areChaptersRead,
-    required this.lastModifiedFeed,
-  });
-
-  @override
-  List<FeedManager> feedManagers;
-
-  @override
-  int chaptersToRead;
-
-  @override
-  bool areChaptersRead;
-
-  @override
-  Feed? lastModifiedFeed;
-}
-
-class FakeFeedsAdvanceManager extends ChangeNotifier implements FeedsAdvanceManager {
-  final listeners = <VoidCallback>[];
-
-  @override
-  void addListener(VoidCallback listener) {
-    listeners.add(listener);
-    super.addListener(listener);
-  }
-
-  @override
-  FeedsAdvanceState advance() => .listsAdvanced;
-
-  @override
-  FeedsAdvanceState maybeAdvance() => .notAllRead;
-}
-
-class FakeMidnightManager extends ChangeNotifier with PriorityNotifier implements MidnightManager {}
-
+@GenerateNiceMocks([
+  MockSpec<AppLifecycleManager>(),
+  MockSpec<DateTimeService>(),
+  MockSpec<FeedManager>(),
+  MockSpec<FeedsAdvanceManager>(),
+  MockSpec<FeedsManager>(),
+  MockSpec<MidnightManager>(),
+  MockSpec<StoreService>(),
+])
 void main() {
-  late FakeAppLifecycleManager fakeAppLifecycleManager;
-  late FakeCatchupSetting fakeCatchupSetting;
-  late FakeDateTimeService fakeDateTimeService;
-  late FakeFeedsManager fakeFeedsManager;
-  late FakeFeedsAdvanceManager fakeFeedsAdvanceManager;
-  late FakeMidnightManager fakeMidnightManager;
-  late FakeStoreService fakeStoreService;
+  late MockAppLifecycleManager mockAppLifecycleManager;
+  late MockDateTimeService mockDateTimeService;
+  late MockFeedsManager mockFeedsManager;
+  late MockFeedsAdvanceManager mockFeedsAdvanceManager;
+  late MockMidnightManager mockMidnightManager;
+  late MockStoreService mockStoreService;
+  late CatchupSetting catchupSetting;
   late CatchupManager testee;
   late bool notified;
 
-  final today = DateTime.now().date;
-  final stubDateTimeService = StubDateTimeService();
-  final feedManagers = List.generate(10, (index) {
-    final rl = index.isEven ? rl0 : rl1;
-    return FeedManager(stubDateTimeService, Feed(bookKey: rl[0].key), rl);
-  });
+  final today = DateTime(2025, 10, 27);
 
   setUp(() {
-    fakeAppLifecycleManager = FakeAppLifecycleManager();
-    fakeCatchupSetting = FakeCatchupSetting();
-    fakeDateTimeService = FakeDateTimeService(.now());
-    fakeFeedsManager = FakeFeedsManager(
-      feedManagers: feedManagers,
-      chaptersToRead: 7,
-      areChaptersRead: false,
-      lastModifiedFeed: feedManagers[1].feed,
-    );
-    fakeFeedsAdvanceManager = FakeFeedsAdvanceManager();
-    fakeMidnightManager = FakeMidnightManager();
-    fakeStoreService = FakeStoreService();
+    mockAppLifecycleManager = MockAppLifecycleManager();
+    mockDateTimeService = MockDateTimeService();
+    mockFeedsManager = MockFeedsManager();
+    mockFeedsAdvanceManager = MockFeedsAdvanceManager();
+    mockMidnightManager = MockMidnightManager();
+    mockStoreService = MockStoreService();
+    catchupSetting = CatchupSetting();
     notified = false;
 
+    // Stub default DateTimeService behavior
+    when(mockDateTimeService.now).thenReturn(today);
+
+    // Stub default FeedsManager behavior
+    when(mockFeedsManager.chaptersToRead).thenReturn(7);
+    when(mockFeedsManager.feedManagers).thenReturn(List.generate(10, (_) => MockFeedManager()));
+
+    // Stub default StoreService behavior - return null for virtualAllDoneDate initially
+    when(mockStoreService.get<DateTime>('virtualAllDoneDate')).thenReturn(null);
+    when(mockStoreService.set<DateTime>('virtualAllDoneDate', any)).thenAnswer((_) async {});
+
     testee = CatchupManager(
-      fakeAppLifecycleManager,
-      fakeCatchupSetting,
-      fakeDateTimeService,
-      fakeFeedsManager,
-      fakeFeedsAdvanceManager,
-      fakeMidnightManager,
-      fakeStoreService,
+      mockAppLifecycleManager,
+      catchupSetting,
+      mockDateTimeService,
+      mockFeedsManager,
+      mockFeedsAdvanceManager,
+      mockMidnightManager,
+      mockStoreService,
     );
 
     testee.addListener(() => notified = true);
+    clearInteractions(mockStoreService);
   });
 
   test('CatchupSettingManager listener should reset virtualAllDoneDate to default and notifyListeners', () {
-    fakeStoreService.writes.clear();
-    fakeStoreService.values['virtualAllDoneDate'] = today - 3.days;
+    // Set up: virtualAllDoneDate is 3 days ago, setting is disabled
+    final threeDaysAgo = today - 3.days;
+    when(mockStoreService.get<DateTime>('virtualAllDoneDate')).thenReturn(threeDaysAgo);
 
-    fakeCatchupSetting.listeners.first();
+    // Trigger the reset by enabling the setting
+    catchupSetting.value = true;
 
-    expect(fakeStoreService.writes.single.key, 'virtualAllDoneDate');
-    expect(fakeStoreService.writes.single.value, today - 1.days);
+    // Verify storeService.set was called with the default value (today - 1 day)
+    verify(mockStoreService.set<DateTime>('virtualAllDoneDate', today - 1.days)).called(1);
+    verifyNoMoreInteractions(mockStoreService);
     expect(notified, isTrue);
   });
 
@@ -189,31 +91,36 @@ void main() {
     'daysBehind, isBehind properties',
     [
       [false, null, 0, 0, 7, false, false],
-      [false, today, 0, 0, 7, false, false],
-      [false, today - 1.days, 0, 0, 7, false, false],
-      [false, today - 2.days, 0, 0, 7, false, false],
-      [false, today - 3.days, 0, 0, 7, false, false],
+      [false, 0, 0, 0, 7, false, false],
+      [false, -1, 0, 0, 7, false, false],
+      [false, -2, 0, 0, 7, false, false],
+      [false, -3, 0, 0, 7, false, false],
       [true, null, 0, 0, 7, false, false],
-      [true, today, 0, 0, 7, false, false],
-      [true, today - 1.days, 0, 0, 7, false, false],
-      [true, today - 2.days, 1, 1, 17, true, false],
-      [true, today - 3.days, 2, 2, 27, true, true],
-      [true, today - 4.days, 3, 2, 37, true, true],
+      [true, 0, 0, 0, 7, false, false],
+      [true, -1, 0, 0, 7, false, false],
+      [true, -2, 1, 1, 17, true, false],
+      [true, -3, 2, 2, 27, true, true],
+      [true, -4, 3, 2, 37, true, true],
     ],
     customDescriptionBuilder: (_, _, values) {
-      return 'when areChaptersRead=${values[0]} and lastDateModified=(Now - ${values[1]}), expect ${values[2]}';
+      final daysOffset = values[1];
+      final daysLabel = daysOffset == null ? 'null' : 'Now $daysOffset days';
+      return 'when isSettingEnabled=${values[0]} and virtualAllDoneDate=$daysLabel, expect ${values[2]}';
     },
     (
-      isSettingEnabled,
-      virtualAllDoneDate,
-      expectDaysBehind,
-      expectDaysBehindClamped,
-      expectChaptersToRead,
-      expectIsBehind,
-      expectIsVeryBehind,
+      bool isSettingEnabled,
+      int? daysOffset,
+      int expectDaysBehind,
+      int expectDaysBehindClamped,
+      int expectChaptersToRead,
+      bool expectIsBehind,
+      bool expectIsVeryBehind,
     ) {
-      fakeCatchupSetting.currentValue = isSettingEnabled;
-      fakeStoreService.values['virtualAllDoneDate'] = virtualAllDoneDate ?? today - 1.days;
+      catchupSetting.value = isSettingEnabled;
+
+      // Set up virtualAllDoneDate based on daysOffset
+      final virtualDate = daysOffset != null ? today.add(daysOffset.days) : null;
+      when(mockStoreService.get<DateTime>('virtualAllDoneDate')).thenReturn(virtualDate);
 
       expect(testee.daysBehind, expectDaysBehind);
       expect(testee.daysBehindClamped, expectDaysBehindClamped);
@@ -226,20 +133,26 @@ void main() {
   parameterizedTest(
     'FeedsAdvanceManager listener should advance virtualAllDoneDate and notifyListeners',
     [
-      [0.days, 0.days],
-      [1.days, 0.days],
-      [2.days, 1.days],
-      [3.days, 2.days],
+      [0, 0],
+      [1, 0],
+      [2, 1],
+      [3, 2],
     ],
-    (daysBehind, expectNewDaysBehind) {
-      fakeStoreService.writes.clear();
-      fakeStoreService.values['virtualAllDoneDate'] = today - daysBehind;
-      fakeCatchupSetting.currentValue = true;
+    (int daysBehind, int expectNewDaysBehind) {
+      // Set up: virtualAllDoneDate is N days ago
+      final virtualDate = today - daysBehind.days;
+      when(mockStoreService.get<DateTime>('virtualAllDoneDate')).thenReturn(virtualDate);
+      catchupSetting.value = true;
+      clearInteractions(mockStoreService);
+      notified = false;
 
-      fakeFeedsAdvanceManager.notifyListeners();
+      // Trigger feeds advance
+      final listener = verify(mockFeedsAdvanceManager.addListener(captureAny)).captured.single as VoidCallback;
+      listener();
 
-      expect(fakeStoreService.writes.single.key, 'virtualAllDoneDate');
-      expect(fakeStoreService.writes.single.value, today - expectNewDaysBehind);
+      // Verify storeService.set was called with the new value
+      final expectedDate = today - expectNewDaysBehind.days;
+      verify(mockStoreService.set<DateTime>('virtualAllDoneDate', expectedDate)).called(1);
       expect(notified, isTrue);
     },
   );
