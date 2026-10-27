@@ -24,11 +24,7 @@ class CatchupManager(
 ) with ChangeNotifier {
   this {
     _appLifecycleManager.onResume(notifyListeners);
-
-    _feedsAdvanceManager.addListener(() {
-      virtualAllDoneDate = isBehind ? virtualAllDoneDate + 1.days : _dateTimeService.now.date;
-    });
-
+    _feedsAdvanceManager.addListener(_updateVirtualAllDoneDate);
     _catchupSetting.addListener(reset);
     _midnightManager.addListener(notifyListeners);
 
@@ -38,6 +34,10 @@ class CatchupManager(
   static const _storeKey = 'virtualAllDoneDate';
 
   DateTime get _defaultVirtualAllDoneDate => _dateTimeService.now.date - 1.days;
+
+  void _updateVirtualAllDoneDate() {
+    virtualAllDoneDate = isBehind ? virtualAllDoneDate + 1.days : _dateTimeService.now.date;
+  }
 
   //// public
 
