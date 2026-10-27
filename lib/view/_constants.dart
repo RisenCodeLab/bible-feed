@@ -8,5 +8,9 @@ class Constants {
   static const defaultFontSize = 14.0;
   static const EdgeInsets defaultPadding = .all(8.0);
   static const defaultSpacing = 12.0;
+  static const EdgeInsets leftPadding = .only(left: 8.0);
   static const nonBreakingSpace = '\u00A0'; // ignore: avoid-non-ascii-symbols, nbsp is ok
+  static const EdgeInsets rightPadding = .only(right: 8.0);
+  static const subtitleFontSize = 18.0;
+  static const titleFontSize = 20.0;
 }

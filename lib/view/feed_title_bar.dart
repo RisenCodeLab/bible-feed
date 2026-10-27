@@ -4,6 +4,7 @@ import 'package:watch_it/watch_it.dart';
 import '../manager/feed_manager.dart';
 import '../manager/feeds_manager.dart';
 import '_build_context_extension.dart';
+import '_constants.dart';
 import 'book_chapter_dialog.dart';
 
 class const FeedTitleBar(final FeedManager feedManager) extends WatchingWidget {
@@ -16,14 +17,14 @@ class const FeedTitleBar(final FeedManager feedManager) extends WatchingWidget {
         Visibility(
           visible: feedManager.feed.isRead && identical(feedManager.feed, feedsManager.lastModifiedFeed),
           child: const Padding(
-            padding: .only(left: 8.0),
+            padding: Constants.leftPadding,
             child: Tooltip(message: 'This is the last chapter you read', child: Icon(Icons.auto_stories)),
           ),
         ),
         Expanded(
           child: Padding(
-            padding: const .only(left: 8.0),
-            child: Text(feedManager.readingList.name, style: const .new(fontSize: 18), overflow: .ellipsis),
+            padding: Constants.leftPadding,
+            child: Text(feedManager.readingList.name, style: const .new(fontSize: Constants.subtitleFontSize), overflow: .ellipsis),
           ),
         ),
         IconButton(

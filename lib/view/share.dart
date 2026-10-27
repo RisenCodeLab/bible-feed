@@ -15,7 +15,7 @@ class Share extends StatelessWidget {
     return Dialog(
       child: Container(
         constraints: .new(maxWidth: maxWidth, maxHeight: maxWidth * heightRatio),
-        padding: const .all(12.0),
+        padding: const .all(Constants.defaultSpacing),
         child: Column(
           spacing: Constants.defaultSpacing,
           mainAxisSize: .min,

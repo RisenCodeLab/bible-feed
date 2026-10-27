@@ -5,6 +5,7 @@ import 'package:watch_it/watch_it.dart';
 import '../manager/feed_manager.dart';
 import '../model/list_wheel_state.dart';
 import '_build_context_extension.dart';
+import '_constants.dart';
 
 class const BookChapterDialogFooter(final FeedManager feedManager) extends WatchingWidget {
   @override
@@ -22,7 +23,7 @@ class const BookChapterDialogFooter(final FeedManager feedManager) extends Watch
           children: [
             Expanded(
               child: Padding(
-                padding: const .only(left: 8.0),
+                padding: Constants.leftPadding,
                 child: AutoSizeText(
                   '${feedManager.readingList.chaptersTo(bookIndex, chapter)} of ${feedManager.readingList.totalChapters}',
                   maxLines: 1,
@@ -35,7 +36,7 @@ class const BookChapterDialogFooter(final FeedManager feedManager) extends Watch
                 feedManager.setBookChapterVerse(bookIndex, chapter);
                 Navigator.pop(context);
               },
-              child: const Padding(padding: .only(right: 8.0), child: Text('Update')),
+              child: const Padding(padding: Constants.rightPadding, child: Text('Update')),
             ),
           ],
         ),
