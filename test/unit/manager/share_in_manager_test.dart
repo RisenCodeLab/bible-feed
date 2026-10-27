@@ -1,13 +1,14 @@
 import 'package:bible_feed/manager/catchup_manager.dart';
+import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/manager/feeds_manager.dart';
 import 'package:bible_feed/manager/share_in_manager.dart';
-import 'package:bible_feed/manager/feed_manager.dart';
 import 'package:bible_feed/model/feed.dart';
 import 'package:bible_feed/model/share_dto.dart';
 import 'package:bible_feed/service/app_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:parameterized_test/parameterized_test.dart';
 
 import '../test_data.dart';
 import 'share_in_manager_test.mocks.dart';
@@ -21,6 +22,8 @@ import 'share_in_manager_test.mocks.dart';
 void main() {
   late MockAppService mockAppService;
   late MockCatchupManager mockCatchupManager;
+  late MockFeedManager mockFeedManager1;
+  late MockFeedManager mockFeedManager2;
   late MockFeedsManager mockFeedsManager;
   late ShareInManager testee;
 
@@ -32,44 +35,47 @@ void main() {
   });
 
   setUp(() {
-    mockAppService = MockAppService();
-    mockCatchupManager = MockCatchupManager();
-    mockFeedsManager = MockFeedsManager();
-    testee = ShareInManager(mockAppService, mockCatchupManager, mockFeedsManager);
+    mockAppService = .new();
+    mockCatchupManager = .new();
+    mockFeedManager1 = .new();
+    mockFeedManager2 = .new();
+    mockFeedsManager = .new();
+
+    when(mockAppService.version).thenReturn(version);
+    when(mockFeedManager1.book).thenReturn(b0);
+    when(mockFeedManager1.readingList).thenReturn(rl0);
+    when(mockFeedManager2.book).thenReturn(b1);
+    when(mockFeedManager2.readingList).thenReturn(rl1);
+    when(mockFeedsManager.feedManagers).thenReturn([mockFeedManager1, mockFeedManager2]);
+
+    testee = .new(mockAppService, mockCatchupManager, mockFeedsManager);
   });
 
-  test('sync throws exception on null or empty JSON', () {
-    expect(() => testee.sync(null), throwsException);
-    expect(() => testee.sync(''), throwsException);
-  });
-
-  test('sync throws exception on invalid JSON', () {
-    expect(() => testee.sync('invalid json'), throwsException);
-  });
+  parameterizedTest(
+    'sync throws exception on null, empty, or invalid JSON',
+    [
+      [null],
+      [''],
+      ['invalid json'],
+    ],
+    (String? json) {
+      expect(() => testee.sync(json), throwsException);
+    },
+  );
 
   test('sync throws exception on mismatched version', () {
-    final feed = Feed(bookKey: b0.key, chapter: 1);
-    final shareDto = ShareDto(version: 'wrong_version', feedList: [feed], virtualAllDoneDate: virtualAllDoneDate);
-    final json = shareDto.toJson();
-    when(mockAppService.version).thenReturn('correct_version');
-    expect(() => testee.sync(json), throwsException);
+    final Feed feed = .new(bookKey: b0.key, chapter: 1);
+    final ShareDto shareDto = .new(version: 'wrong_version', feedList: [feed], virtualAllDoneDate: virtualAllDoneDate);
+
+    expect(() => testee.sync(shareDto.toJson()), throwsException);
   });
 
   test('sync updates feed states and CatchupManager.virtualAllDoneDate on valid JSON with matching version', () {
-    final feed1 = Feed(bookKey: b0.key, chapter: 1);
-    final feed2 = Feed(bookKey: b1.key, chapter: 2);
-    final shareDto = ShareDto(feedList: [feed1, feed2], version: version, virtualAllDoneDate: virtualAllDoneDate);
-    final json = shareDto.toJson();
-    final mockFeedManager1 = MockFeedManager();
-    final mockFeedManager2 = MockFeedManager();
+    final Feed feed1 = .new(bookKey: b0.key, chapter: 1);
+    final Feed feed2 = .new(bookKey: b1.key, chapter: 2);
+    final ShareDto shareDto = .new(feedList: [feed1, feed2], version: version, virtualAllDoneDate: virtualAllDoneDate);
 
-    when(mockAppService.version).thenReturn(version);
     when(mockCatchupManager.virtualAllDoneDate).thenReturn(virtualAllDoneDate);
-    when(mockFeedManager1.readingList).thenReturn(rl0);
-    when(mockFeedManager2.readingList).thenReturn(rl1);
-    when(mockFeedManager1.book).thenReturn(b0);
-    when(mockFeedManager2.book).thenReturn(b1);
-    when(mockFeedsManager.feedManagers).thenReturn([mockFeedManager1, mockFeedManager2]);
 
     // AI fails to improve this code!?
     DateTime? capturedDate;
@@ -77,56 +83,34 @@ void main() {
       capturedDate = invocation.positionalArguments[0] as DateTime;
     });
 
-    testee.sync(json);
+    testee.sync(shareDto.toJson());
 
     verify(mockFeedManager1.feed = feed1).called(1);
     verify(mockFeedManager2.feed = feed2).called(1);
     expect(capturedDate?.millisecondsSinceEpoch, virtualAllDoneDate.millisecondsSinceEpoch);
   });
 
-  test('sync rejects unknown book key and does not mutate any feed', () {
-    final invalidFeed = Feed(bookKey: 'unknown', chapter: 1);
-    final validFeed = Feed(bookKey: b1.key, chapter: 2);
-    final shareDto = ShareDto(
-      feedList: [invalidFeed, validFeed],
-      version: version,
-      virtualAllDoneDate: virtualAllDoneDate,
-    );
-    final json = shareDto.toJson();
-    final mockFeedManager1 = MockFeedManager();
-    final mockFeedManager2 = MockFeedManager();
+  parameterizedTest(
+    'sync rejects invalid feeds without mutating any state',
+    [
+      [
+        'unknown book key in first feed',
+        <Feed>[.new(bookKey: 'unknown', chapter: 1), .new(bookKey: b1.key, chapter: 2)],
+      ],
+      [
+        'invalid chapter in second feed',
+        <Feed>[.new(bookKey: b0.key, chapter: 1), .new(bookKey: b1.key, chapter: 99)],
+      ],
+    ],
+    customDescriptionBuilder: (_, description, values) => '$description: ${values[0]}',
+    (String _, List<Feed> feedList) {
+      final ShareDto shareDto = .new(feedList: feedList, version: version, virtualAllDoneDate: virtualAllDoneDate);
 
-    when(mockAppService.version).thenReturn(version);
-    when(mockFeedManager1.readingList).thenReturn(rl0);
-    when(mockFeedManager2.readingList).thenReturn(rl1);
-    when(mockFeedsManager.feedManagers).thenReturn([mockFeedManager1, mockFeedManager2]);
+      expect(() => testee.sync(shareDto.toJson()), throwsException);
 
-    expect(() => testee.sync(json), throwsException);
-    verifyNever(mockFeedManager1.feed = any);
-    verifyNever(mockFeedManager2.feed = any);
-    verifyNever(mockCatchupManager.virtualAllDoneDate = any);
-  });
-
-  test('sync validates all feeds before mutating any state', () {
-    final validFeed = Feed(bookKey: b0.key, chapter: 1);
-    final invalidFeed = Feed(bookKey: b1.key, chapter: 99);
-    final shareDto = ShareDto(
-      feedList: [validFeed, invalidFeed],
-      version: version,
-      virtualAllDoneDate: virtualAllDoneDate,
-    );
-    final json = shareDto.toJson();
-    final mockFeedManager1 = MockFeedManager();
-    final mockFeedManager2 = MockFeedManager();
-
-    when(mockAppService.version).thenReturn(version);
-    when(mockFeedManager1.readingList).thenReturn(rl0);
-    when(mockFeedManager2.readingList).thenReturn(rl1);
-    when(mockFeedsManager.feedManagers).thenReturn([mockFeedManager1, mockFeedManager2]);
-
-    expect(() => testee.sync(json), throwsException);
-    verifyNever(mockFeedManager1.feed = any);
-    verifyNever(mockFeedManager2.feed = any);
-    verifyNever(mockCatchupManager.virtualAllDoneDate = any);
-  });
+      verifyNever(mockFeedManager1.feed = any);
+      verifyNever(mockFeedManager2.feed = any);
+      verifyNever(mockCatchupManager.virtualAllDoneDate = any);
+    },
+  );
 }
