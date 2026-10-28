@@ -5,15 +5,15 @@ import '../model/verse.dart';
 import 'onboarding_manager.dart';
 
 abstract class PopupManager(final OnboardingManager onboardingManager) with ChangeNotifier {
-  /// abstract
-
   Color get backgroundColor;
-  Color get foregroundColor;
-  PopupAction? get popupAction;
-  String get text;
-  String get title;
 
-  /// concrete
+  Color get foregroundColor;
+
+  PopupAction? get popupAction;
+
+  String get text;
+
+  String get title;
 
   List<Verse>? get verses => null;
 

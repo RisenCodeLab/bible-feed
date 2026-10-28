@@ -8,7 +8,6 @@ import 'book.dart';
 final class ReadingList(final String key, final String name, super._items) extends BaseList<Book> {
   final int totalChapters = _items.totalChapters;
 
-  /// methods
   int chaptersTo(int bookIndex, int chapter) => sublistTo(bookIndex).totalChapters + chapter;
   Book getBook(String key) => where((Book b) => b.key == key).single;
   double progressTo(int bookIndex, int chapter) => chaptersTo(bookIndex, chapter) / totalChapters;
