@@ -1,6 +1,6 @@
 import 'package:dartx/dartx.dart';
 
-enum BookKeyExternaliser {
+enum BookKeyExternaliser(final List<String> externalBookKeys) {
   identity([]),
   blueLetter([..._ext1Keys, 'jas', 'jde', 'sng']),
   logos([..._ext2Keys]),
@@ -36,13 +36,9 @@ enum BookKeyExternaliser {
     'son': 'sos',
   };
 
-  final List<String> _externalBookKeys;
-
-  const BookKeyExternaliser(this._externalBookKeys);
-
   String getExternalBookKey(String internalBookKey) =>
       _keyMap.entries
-          .firstOrNullWhere((en) => en.value == internalBookKey && _externalBookKeys.contains(en.key))
+          .firstOrNullWhere((en) => en.value == internalBookKey && externalBookKeys.contains(en.key))
           ?.key ??
       internalBookKey;
 }
