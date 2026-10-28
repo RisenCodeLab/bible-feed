@@ -22,21 +22,15 @@ class BibleReaders(super._items) extends BaseList<BibleReader> {}
 abstract class BibleReadersModule {
   @lazySingleton
   List<BibleReader> get bibleReader => [
-    BibleReader(
-      key: .none,
-      type: .none,
-      name: 'None',
-      urlTemplate: .new(''),
-      certifiedPlatforms: const [.android, .iOS],
-    ),
-    BibleReader(
+    .new(key: .none, type: .none, name: 'None', urlTemplate: .new(''), certifiedPlatforms: const [.android, .iOS]),
+    .new(
       key: .andBibleApp,
       type: .app,
       name: 'AndBible',
       urlTemplate: .new('https://read.andbible.org/BOOK.CHAPTER'),
       // Not certified because deep links are not working: https://github.com/AndBible/and-bible/issues/3210
     ),
-    BibleReader(
+    .new(
       key: .blueLetterApp,
       type: .app,
       name: 'Blue Letter Bible',
@@ -45,7 +39,7 @@ abstract class BibleReadersModule {
       bookKeyExternaliser: .blueLetter,
       urlVersePath: '/VERSE',
     ),
-    BibleReader(
+    .new(
       key: .blueLetterWeb,
       type: .web,
       name: 'Blue Letter Bible',
@@ -54,7 +48,7 @@ abstract class BibleReadersModule {
       bookKeyExternaliser: .blueLetter,
       urlVersePath: '/VERSE',
     ),
-    BibleReader(
+    .new(
       key: .lifeBibleApp,
       type: .app,
       name: 'Life Bible',
@@ -66,7 +60,7 @@ abstract class BibleReadersModule {
       // - android back button works but needs 2 taps
       urlVersePath: ':VERSE',
     ),
-    BibleReader(
+    .new(
       key: .logosBibleApp,
       type: .app,
       name: 'Logos Bible',
@@ -75,7 +69,7 @@ abstract class BibleReadersModule {
       bookKeyExternaliser: .logos,
       urlVersePath: '.VERSE',
     ),
-    BibleReader(
+    .new(
       key: .oliveTreeApp,
       type: .app,
       name: 'Olive Tree',
@@ -84,7 +78,7 @@ abstract class BibleReadersModule {
       bookKeyExternaliser: .oliveTree,
       urlVersePath: '.VERSE',
     ),
-    BibleReader(
+    .new(
       key: .openBibleApp,
       type: .app,
       name: 'OpenBible',
@@ -93,7 +87,7 @@ abstract class BibleReadersModule {
       bookKeyExternaliser: .openBible,
       urlVersePath: '/VERSE',
     ),
-    BibleReader(
+    .new(
       key: .weDevoteApp,
       type: .app,
       name: 'WeDevote',
@@ -102,7 +96,7 @@ abstract class BibleReadersModule {
       bookKeyExternaliser: .osisParatext,
       urlVersePath: '.VERSE',
     ),
-    BibleReader(
+    .new(
       key: .youVersionApp,
       type: .app,
       name: 'YouVersion',
